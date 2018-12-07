@@ -43,7 +43,7 @@
 	position: relative;
 	display: block;
 	overflow: hidden;
-border-radius: 25px;
+/*border-radius: 25px;*/
 }
 
 .ri-grid ul li a{
@@ -73,7 +73,7 @@ border-radius: 25px;
 	-webkit-box-sizing: content-box;
 	-moz-box-sizing: content-box;
 	box-sizing: content-box;
-	border-radius: 25px;
+/*	border-radius: 25px; */
 }
 
 /* Grid wrapper sizes */
