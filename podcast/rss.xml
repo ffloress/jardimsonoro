@@ -1,0 +1,32 @@
+
+  <?xml version="1.0" encoding="UTF-8"?>
+  <rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+  <channel>
+    <title>Dj Fred - 12 de Junho</title>
+    <link>https://jardimsonoro.com/musicas/djfred_12dejunho.m4a</link>
+    <language>pt</language>
+    <copyright></copyright>
+    <itunes:subtitle></itunes:subtitle>
+    <itunes:author>Dj Fred</itunes:author>
+    <itunes:summary></itunes:summary>  
+    <itunes:owner>
+      <itunes:name></itunes:name>
+      <itunes:email></itunes:email>
+    </itunes:owner>
+    <itunes:image href="https://assets.catawiki.nl/assets/2019/6/4/d/9/8/d98ccb90-073a-4039-b154-c480daba1cea.jpg" />
+    <itunes:category text="Music"/>
+    
+      <item>
+        <title></title>
+        <itunes:author></itunes:author>
+        <itunes:subtitle></itunes:subtitle>
+        <itunes:summary></itunes:summary>
+        <itunes:image href="" />
+        <enclosure url="" length="" type="audio/x-m4a"/>
+        <guid></guid>
+        <pubDate>Mon Feb 10 2020 21:54:15 GMT-0300 (heure normale de Brasilia)</pubDate>
+        <itunes:duration></itunes:duration>
+      </item>
+    
+  </channel>
+  </rss>
