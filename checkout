@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The XMLHttpRequest Object</h1>
+
+<button type="button" onclick="loadDoc()">Request data</button>
+
+<p id="demo"></p>
+ 
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+
+  // Define the string
+var decodedStringBtoA = 'a55fccab-9542-4a22-8404-ff4aaa631374:GfYccbkUoTJadb2WFD1TTXjWwIwpMbnIBBPg9ZxjWMk=';
+// Encode the String
+var encodedStringBtoA = btoa(decodedStringBtoA);
+
+  xhttp.open("POST", "https://cieloecommerce.cielo.com.br/api/public/v2/token", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.setRequestHeader("Authorization", "Basic " + encodedStringBtoA);
+  xhttp.send("grant_type=client_credentials");
+}
+</script>
+
+</body>
+</html>
