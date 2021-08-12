@@ -17,15 +17,75 @@ function loadDoc() {
     }
   };
 
-  // Define the string
-//var decodedStringBtoA = 'string';
-// Encode the String
-//var encodedStringBtoA = btoa(decodedStringBtoA);
-//console.log(encodedStringBtoA);
-  xhttp.open("POST", "https://cieloecommerce.cielo.com.br/api/public/v2/token", true);
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.setRequestHeader("Authorization", "Basic " + 'YTU1ZmNjYWItOTU0Mi00YTIyLTg0MDQtZmY0YWFhNjMxMzc0OkdmWWNjYmtVb1RKYWRiMldGRDFUVFhqV3dJd3BNYm5JQkJQZzlaeGpXTWs9');
-  xhttp.send("grant_type=client_credentials");
+  xhttp.open("POST", "https://cieloecommerce.cielo.com.br/api/public/v1/orders", true);
+
+  xhttp.setRequestHeader("Accept", "application/json");
+  xhttp.setRequestHeader("Content-Type", "application/json");
+  xhttp.setRequestHeader("MerchantId", "a55fccab-9542-4a22-8404-ff4aaa631374");
+
+  var data = `{  
+   "OrderNumber":"Pedido01",
+   "SoftDescriptor":"Exemplo",
+   "Cart":{  
+      "Discount":{  
+         "Type":"Percent",
+         "Value":00
+      },
+      "Items":[  
+         {  
+            "Name":"Produto01",
+            "Description":"ProdutoExemplo01",
+            "UnitPrice":100,
+            "Quantity":1,
+            "Type":"Asset",
+            "Sku":"ABC001",
+            "Weight":500
+         },
+        ]
+   },
+   "Shipping":{  
+      "SourceZipCode":"20020080",
+      "TargetZipCode":"21911130",
+      "Type":"FixedAmount",
+      "Services":[  
+         {  
+            "Name":"Motoboy",
+            "Price":1,
+            "Deadline":15,
+            "Carrier":null
+         },
+         {  
+            "Name":"UPS Express",
+            "Price":1,
+            "Deadline":2,
+            "Carrier":null
+         }
+      ],
+      "Address":{  
+         "Street":"Rua Cambui",
+         "Number":"92",
+         "Complement":"Apto 201",
+         "District":"Freguesia",
+         "City":"Rio de Janeiro",
+         "State":"RJ"
+      }
+   },
+   "Payment":{  
+      "BoletoDiscount":15,
+      "DebitDiscount":10,
+      "Installments":null,
+      "MaxNumberOfInstallments": null
+   },
+   "Customer":{  
+      "Identity":"84261300206",
+      "FullName":"Test de Test",
+      "Email":"test@cielo.com.br",
+      "Phone":"21987654321"
+   },
+   "Settings":null
+}`;
+
+  xhttp.send(data);
 }
 </script>
 
