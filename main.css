@@ -12,7 +12,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 body, html {
   height: 100%;
   color: white;
@@ -25,66 +24,59 @@ body, html {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
-
 body, video {
   margin: 0;
   padding: 0;
 }
-
 video {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensure the video covers the entire screen */
-  z-index: -1; /* Place the video behind other content */
+  object-fit: cover;
+ /* Ensure the video covers the entire screen */
+  z-index: -1;
+ /* Place the video behind other content */
 }
-
 main {
   position: relative;
-  z-index: 1; /* Ensure content is in front of the video */
-  /* Add any additional styling you need for your content */
+  z-index: 1;
+ /* Ensure content is in front of the video */
+ /* Add any additional styling you need for your content */
 }
-
-
 * {
   box-sizing: border-box;
 }
-
 a {
   text-decoration: none;
   color: white;
 }
-
 h3 {
   font-size: 2.6vw;
   line-height: 1.2;
   margin-bottom: 8vh;
 }
-
 h4 {
   color: rgba(255, 255, 255, 0.75);
   font-size: 13px;
   text-transform: uppercase;
 }
-
 .container {
   max-width: 90%;
   z-index: 1;
   margin: 0 auto;
   padding-bottom: 50px;
 }
-
 .clearfix:after {
   content: "";
   display: table;
   clear: both;
 }
-
 .textContainer {
   position: relative;
-  text-align: center; /* Optionally, center-align the text inside textContainer */
+  text-align: center;
+ /* Optionally, center-align the text inside textContainer */
   font-size: 12vw;
   font-family: 'circularbold', sans-serif;
   color: #fff;
@@ -92,18 +84,15 @@ h4 {
   line-height: 0.98;
   min-height: 88vh;
 }
-
 .titulotext {
   width: 100%;
   padding-top: 12vh;
 }
-
 .jstext {
   width: 100%;
   padding-top: 12vh;
   padding-right: 50px;
   font-size: 4vw;
-  
 }
 .jstext:after {
   content: "_";
@@ -118,12 +107,6 @@ h4 {
   transform: translate(10%, -10%);
   z-index: -9999;
 }
-
-.text {
-  color: #46200A;
-}
-
-
 section {
   margin-bottom: 16vh;
 }
@@ -138,40 +121,9 @@ section h4:after {
   -moz-transform: translate(5%, -20%);
   -ms-transform: translate(5%, -20%);
   transform: translate(5%, -20%);
+  
 }
 
-/* -------------------------------
-		 AFTER TYPING & OPENING ANIMATION
-----------------------------------*/
-.afterTyping {
-  position: relative;
-  display: block;
-  opacity: 0;
-  -webkit-transform: translateY(20px);
-  -moz-transform: translateY(20px);
-  -ms-transform: translateY(20px);
-  transform: translateY(20px);
-  -webkit-transition: opacity 1s, -webkit-transform 1s;
-  -moz-transition: opacity 1s, -moz-transform 1s;
-  -ms-transition: opacity 1s, -ms-transform 1s;
-  -o-transition: opacity 1s, -o-transform 1s;
-  transition: opacity 1s, transform 1s;
-
-}
-
-.afterTyping.onScreen {
-  opacity: 1;
-  -webkit-transform: none;
-  -moz-transform: none;
-  -ms-transform: none;
-  transform: none;
-}
-.afterTyping.onScreen #about .info p {
-  -webkit-transform: none;
-  -moz-transform: none;
-  -ms-transform: none;
-  transform: none;
-}
 
 #about .info p {
   -webkit-transform: translateY(20px);
@@ -184,16 +136,10 @@ section h4:after {
   -o-transition: -o-transform 1s;
   transition: transform 1s;
 }
-
 .shortColumn {
   width: 45%;
 }
-
-
-
-/* -------------------------------
-		 ABOUT
-----------------------------------*/
+/* ------------------------------- ABOUT ----------------------------------*/
 .info {
   position: relative;
   font-size: 14px;
@@ -210,10 +156,7 @@ section h4:after {
   display: inline-block;
   margin-right: 25px;
 }
-
-/* -------------------------------
-		 GET IN TOUCH 
-----------------------------------*/
+/* ------------------------------- GET IN TOUCH ----------------------------------*/
 .email {
   font-size: 4vw;
   font-family: 'circularbold', sans-serif;
@@ -222,15 +165,11 @@ section h4:after {
   text-decoration: none !important;
   border: none;
 }
-
-/* -------------------------------
-		 FEATURES
-----------------------------------*/
+/* ------------------------------- FEATURES ----------------------------------*/
 #features ul {
   margin: 0;
   padding: 0;
 }
-
 .featuresList {
   list-style-type: none;
 }
@@ -244,22 +183,17 @@ section h4:after {
   float: right;
   padding-right: 0;
 }
-
 .featureTitle {
   font-family: 'circularbold', sans-serif;
   font-size: 20px;
   letter-spacing: .75px;
 }
-
 .featureSubtitle {
   font-size: 13px;
   margin-top: 5px;
   letter-spacing: .75px;
 }
-
-/* -------------------------------
-		CREDITS 
-----------------------------------*/
+/* ------------------------------- CREDITS ----------------------------------*/
 .dghez {
   position: relative;
   display: inline-block;
@@ -267,7 +201,6 @@ section h4:after {
   font-size: 13px;
   letter-spacing: .75px;
   margin: 20px;
-
 }
 .dghez:hover {
   animation: none;
@@ -276,7 +209,6 @@ section h4:after {
   -o-animation: none;
 }
 .dghez:hover:after {
-
   -webkit-transform: scale(0);
   -moz-transform: scale(0);
   -ms-transform: scale(0);
@@ -301,37 +233,25 @@ section h4:after {
   transition: transform 0.5s;
   border-radius: 50%;
 }
-
-/* -------------------------------
-		 FIXED BACKGROND
-----------------------------------*/
-
+/* ------------------------------- FIXED BACKGROND ----------------------------------*/
 /* Define the animation for elements inside .fixedBg */
 @keyframes animateFromBottom {
   from {
       transform: translateY(100%);
- 
-  }
+ }
   to {
       transform: translateY(0);
-     
-  }
+ }
 }
-
 /* Define the animation for fading out elements inside .fixedBg */
 @keyframes animateFadeOut {
   from {
       transform: translateY(0);
-     
-  }
+ }
   to {
       transform: translateY(100%);
-      
-  }
+ }
 }
-
-
-
 .fixedBg {
   height: 100%;
   width: 100%;
@@ -339,232 +259,172 @@ section h4:after {
   top: 0;
   left: 0;
   z-index: -1;
-
-
   text-align: center;
   font-size: 80px;
   font-family: 'circularbold', sans-serif;
   letter-spacing: -0.3vw;
   line-height: 0.95;
- 
   opacity: 0;
   transition: 0.8s ease-in-out;
   animation: acid 5s linear infinite;
+  background: rgba(0, 0, 0, 0.7);
 }
 .fixedBg.show {
-
   opacity: 1;
-  
 }
 /* Apply the animation to specific elements inside .fixedBg */
 .fixedBg.show span {
   animation: animateFromBottom 0.5s ease forwards;
 }
-
 /* Apply the fade-out animation when .show is removed */
 .fixedBg:not(.show) span {
   animation: animateFadeOut 1s ease forwards;
   transition: 2s ease-in-out;
 }
-
-
 .fixedBg .container {
   padding-top: 11vh;
-  
 }
 @keyframes acid {
   0%, 100% {
-    color: #5bc5aa;
-  }
+      color: #5bc5aa;
+ }
   33.33% {
-    color: #b272e1;
-  }
+      color: #b272e1;
+ }
   66.67% {
-    color: #72b6e1;
-  }
+      color: #72b6e1;
+ }
 }
-
 @keyframes acidbg {
   0%, 100% {
-    background-color: #72b6e1;
-  }
+      background-color: #72b6e1;
+ }
   33.33% {
-    background-color: #5bc5aa;
-  }
+      background-color: #5bc5aa;
+ }
   66.67% {
-    background-color: #b272e1;
-  }
+      background-color: #b272e1;
+ }
 }
-
-
-
-
 .fixedBg span {
   position: absolute;
 }
-
-
-
 .loopCol {
   animation: acidbg 5s linear infinite;
-  padding: 2px; /* Opcional: Adicione preenchimento para tornar o destaque mais visível */
+  padding: 2px;
+ /* Opcional: Adicione preenchimento para tornar o destaque mais visível */
 }
-
-/*
-.loopCol:hover {
-  background: white;
-  z-index: 500;
-}
-*/
-
-/* -------------------------------
-		ANIMATIONS 
-----------------------------------*/
+/* ------------------------------- ANIMATIONS ----------------------------------*/
 @keyframes blinking {
   0% {
-    opacity: 0;
-  }
-
+      opacity: 0;
+ }
   50% {
-    opacity: 1;
-  }
-
+      opacity: 1;
+ }
   100% {
-    opacity: 0;
-  }
+      opacity: 0;
+ }
 }
 @-webkit-keyframes blinking {
   0% {
-    opacity: 0;
-  }
-
+      opacity: 0;
+ }
   50% {
-    opacity: 1;
-  }
-
+      opacity: 1;
+ }
   100% {
-    opacity: 0;
-  }
+      opacity: 0;
+ }
 }
 @-moz-keyframes blinking {
   0% {
-    opacity: 0;
-  }
-
+      opacity: 0;
+ }
   50% {
-    opacity: 1;
-  }
-
+      opacity: 1;
+ }
   100% {
-    opacity: 0;
-  }
+      opacity: 0;
+ }
 }
 @-o-keyframes blinking {
   0% {
-    opacity: 0;
-  }
-
+      opacity: 0;
+ }
   50% {
-    opacity: 1;
-  }
-
+      opacity: 1;
+ }
   100% {
-    opacity: 0;
-  }
+      opacity: 0;
+ }
 }
-
-
-/* -------------------------------
-		 MEDIA QUERIES 
-----------------------------------*/
+/* ------------------------------- MEDIA QUERIES ----------------------------------*/
 @media all and (max-width: 1024px) {
   .featuresList li {
-    width: 32%;
-  }
-
+      width: 32%;
+ }
   .info {
-    font-size: 2vw;
-  }
-
+      font-size: 2vw;
+ }
   .shortColumn {
-    width: 50%;
-  }
-
+      width: 50%;
+ }
   .textContainer {
-    min-height: 75vh;
-  }
-
+      min-height: 75vh;
+ }
   h3 {
-    letter-spacing: -.15vmax;
-  }
+      letter-spacing: -.15vmax;
+ }
 }
 @media all and (max-width: 768px) {
-  #brName {
-    display: block;
-  }
-
   .shortColumn {
-    width: 75%;
-  }
-
+      width: 75%;
+ }
   .textContainer {
-    min-height: 80vh;
-    font-size: 11.2vw;
-    letter-spacing: -.45vw;
-  }
-
+      min-height: 80vh;
+      font-size: 11.2vw;
+      letter-spacing: -.45vw;
+ }
   .info {
-    font-size: 2.5vw;
-  }
-
+      font-size: 2.5vw;
+ }
   h3 {
-    font-size: 5vw;
-  }
-
- 
-
+      font-size: 5vw;
+ }
   .featuresList li {
-    width: 50%;
-  }
+      width: 50%;
+ }
   .featuresList .clearfix:after {
-    display: none;
-  }
-
+      display: none;
+ }
   .jstext {
-    padding-right: 0px;
-  }
+      padding-right: 0px;
+ }
 }
 @media all and (max-width: 468px) {
   .textContainer {
-    min-height: 80vh;
-    font-size: 11.4vw;
-    letter-spacing: -.45vw;
-  }
-
+      min-height: 80vh;
+      font-size: 11.4vw;
+      letter-spacing: -.45vw;
+ }
   .featuresList li, .shortColumn {
-    width: 100%;
-  }
-
+      width: 100%;
+ }
   section h4:after {
-    width: 140px;
-    overflow: hidden;
-  }
-
+      width: 140px;
+      overflow: hidden;
+ }
   .info {
-    font-size: 16px;
-  }
-
+      font-size: 16px;
+ }
   h3 {
-    font-size: 7.5vw;
-  }
-
+      font-size: 7.5vw;
+ }
   .jstext {
-    padding-right: 0px;
-  }
+      padding-right: 0px;
+ }
 }
 .centertext {
   text-align: center;
 }
-
-
-
