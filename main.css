@@ -12,12 +12,7 @@
   font-weight: normal;
   font-style: normal;
 }
-/*@mixin transition($value){
-  -webkit-transition: ($value);
-     -moz-transition: ($value);
-      -ms-transition: ($value);
-          transition: ($value);
-}*/
+
 body, html {
   height: 100%;
   color: white;
@@ -52,28 +47,6 @@ main {
   /* Add any additional styling you need for your content */
 }
 
-
-.noTransition {
-  -webkit-transition: none;
-  -moz-transition: none;
-  -ms-transition: none;
-  -o-transition: none;
-  transition: none;
-}
-.noTransition .loopCol {
-  -webkit-transition: none;
-  -moz-transition: none;
-  -ms-transition: none;
-  -o-transition: none;
-  transition: none;
-}
-.noTransition .fixedBg {
-  -webkit-transition: none;
-  -moz-transition: none;
-  -ms-transition: none;
-  -o-transition: none;
-  transition: none;
-}
 
 * {
   box-sizing: border-box;
@@ -123,7 +96,6 @@ h4 {
 .titulotext {
   width: 100%;
   padding-top: 12vh;
-  padding-right: 50px;
 }
 
 .jstext {
@@ -151,9 +123,6 @@ h4 {
   color: #46200A;
 }
 
-#brName {
-  display: none;
-}
 
 section {
   margin-bottom: 16vh;
@@ -187,11 +156,7 @@ section h4:after {
   -ms-transition: opacity 1s, -ms-transform 1s;
   -o-transition: opacity 1s, -o-transform 1s;
   transition: opacity 1s, transform 1s;
-  /*-webkit-transition:	opacity 1s, -webkit-transform 1s;
-     -moz-transition: opacity 1s, -moz-transform 1s;
-       -o-transition: opacity 1s, -o-transform 1s;
-      -ms-transition: opacity 1s, -ms-transform 1s;
-          transition: opacity 1s, transform 1s;*/
+
 }
 
 .afterTyping.onScreen {
@@ -224,35 +189,7 @@ section h4:after {
   width: 45%;
 }
 
-.loopCol {
-  border-bottom: 1px solid white;
-  position: relative;
-}
-.loopCol:hover span {
-  z-index: 50;
-}
 
-.coloredHover.spanActive {
-  z-index: 500;
-}
-
-.coloredHover {
-  -webkit-transition: color 20s linear;
-  -moz-transition: color 20s linear;
-  -ms-transition: color 20s linear;
-  -o-transition: color 20s linear;
-  transition: color 20s linear;
-  position: absolute;
-  left: 0;
-  z-index: -1;
-}
-
-/* -------------------------------
-		 Firefox fix span inside A 
-----------------------------------*/
-.firefoxFix .loopCol {
-  display: inline-block;
-}
 
 /* -------------------------------
 		 ABOUT
@@ -282,7 +219,6 @@ section h4:after {
   font-family: 'circularbold', sans-serif;
   position: relative;
   margin: 10px 0 4vh 0;
-  display: block;
   text-decoration: none !important;
   border: none;
 }
@@ -330,11 +266,8 @@ section h4:after {
   overflow: hidden;
   font-size: 13px;
   letter-spacing: .75px;
-  cursor: pointer;
-  animation: bouncing 5s infinite;
-  -webkit-animation: bouncing 5s infinite;
-  -moz-animation: bouncing 5s infinite;
-  -o-animation: bouncing 5s infinite;
+  margin: 20px;
+
 }
 .dghez:hover {
   animation: none;
@@ -343,10 +276,7 @@ section h4:after {
   -o-animation: none;
 }
 .dghez:hover:after {
-  /*animation: bouncing 1s 1 ;
-  -webkit-animation: bouncing 1s 1 ;
-  -moz-animation: bouncing 1s 1 ;
-  -o-animation: bouncing 1s 1 ;*/
+
   -webkit-transform: scale(0);
   -moz-transform: scale(0);
   -ms-transform: scale(0);
@@ -375,109 +305,117 @@ section h4:after {
 /* -------------------------------
 		 FIXED BACKGROND
 ----------------------------------*/
+
+/* Define the animation for elements inside .fixedBg */
+@keyframes animateFromBottom {
+  from {
+      transform: translateY(100%);
+ 
+  }
+  to {
+      transform: translateY(0);
+     
+  }
+}
+
+/* Define the animation for fading out elements inside .fixedBg */
+@keyframes animateFadeOut {
+  from {
+      transform: translateY(0);
+     
+  }
+  to {
+      transform: translateY(100%);
+      
+  }
+}
+
+
+
 .fixedBg {
   height: 100%;
   width: 100%;
   position: fixed !important;
-  opacity: 0;
   top: 0;
   left: 0;
   z-index: -1;
-  visibility: hidden;
-  -webkit-transition: background 20s linear, color 20s linear;
-  -moz-transition: background 20s linear, color 20s linear;
-  -ms-transition: background 20s linear, color 20s linear;
-  -o-transition: background 20s linear, color 20s linear;
-  transition: background 20s linear, color 20s linear;
+
+
   text-align: center;
-  font-size: 8vw;
+  font-size: 80px;
   font-family: 'circularbold', sans-serif;
   letter-spacing: -0.3vw;
   line-height: 0.95;
+ 
+  opacity: 0;
+  transition: 0.8s ease-in-out;
+  animation: acid 5s linear infinite;
 }
+.fixedBg.show {
+
+  opacity: 1;
+  
+}
+/* Apply the animation to specific elements inside .fixedBg */
+.fixedBg.show span {
+  animation: animateFromBottom 0.5s ease forwards;
+}
+
+/* Apply the fade-out animation when .show is removed */
+.fixedBg:not(.show) span {
+  animation: animateFadeOut 1s ease forwards;
+  transition: 2s ease-in-out;
+}
+
+
 .fixedBg .container {
   padding-top: 11vh;
+  
 }
+@keyframes acid {
+  0%, 100% {
+    color: #5bc5aa;
+  }
+  33.33% {
+    color: #b272e1;
+  }
+  66.67% {
+    color: #72b6e1;
+  }
+}
+
+@keyframes acidbg {
+  0%, 100% {
+    background-color: #72b6e1;
+  }
+  33.33% {
+    background-color: #5bc5aa;
+  }
+  66.67% {
+    background-color: #b272e1;
+  }
+}
+
+
+
+
 .fixedBg span {
   position: absolute;
 }
-.fixedBg span:nth-of-type(1) {
-  -webkit-transform: translate3d(0, 20%, 0);
-  -moz-transform: translate3d(0, 20%, 0);
-  -ms-transform: translate3d(0, 20%, 0);
-  transform: translate3d(0, 20%, 0);
-}
-.fixedBg span:nth-of-type(2) {
-  -webkit-transform: translate3d(0, 40%, 0);
-  -moz-transform: translate3d(0, 40%, 0);
-  -ms-transform: translate3d(0, 40%, 0);
-  transform: translate3d(0, 40%, 0);
-}
-.fixedBg span:nth-of-type(3) {
-  -webkit-transform: translate3d(0, 60%, 0);
-  -moz-transform: translate3d(0, 60%, 0);
-  -ms-transform: translate3d(0, 60%, 0);
-  transform: translate3d(0, 60%, 0);
-}
-.fixedBg span:nth-of-type(4) {
-  -webkit-transform: translate3d(0, 80%, 0);
-  -moz-transform: translate3d(0, 80%, 0);
-  -ms-transform: translate3d(0, 80%, 0);
-  transform: translate3d(0, 80%, 0);
-}
 
-.spanActive {
-  z-index: 500;
-  position: relative;
-  background: white;
-}
 
-.bgActive {
-  opacity: 1;
-  z-index: 10;
-}
-.bgActive span {
-  -webkit-transform: translate3d(0, 0, 0) !important;
-  -moz-transform: translate3d(0, 0, 0) !important;
-  -ms-transform: translate3d(0, 0, 0) !important;
-  transform: translate3d(0, 0, 0) !important;
-}
 
 .loopCol {
-  	/*&:hover + .fixedBg{
-  		opacity: 1;
-  		z-index: 10;
-  		width: 100%;
-  		span{
-    			@include transform(translate3d(0,0,0) !important);
-    		}
-  	}*/
+  animation: acidbg 5s linear infinite;
+  padding: 2px; /* Opcional: Adicione preenchimento para tornar o destaque mais visível */
 }
+
+/*
 .loopCol:hover {
   background: white;
   z-index: 500;
 }
-
-[data-background="triprebel"] {
-  /*background: url("img/triprebelbackground.jpg");
-  background-size: cover;
-  background-position: 50% 50%;*/
-}
-
-[data-background="twitter"] {
-  /*background: url("img/twitterbackground.png");
-  background-size: cover;*/
-}
-
-[data-background="behance"] {
-  /*background: url("img/behancebackground.jpg");
-  background-size: cover;*/
-}
-
-[data-background="dribbble"] {
-  /*background: url("img/dribblebackground.jpg");
-  background-size: cover;*/
-}
+*/
 
 /* -------------------------------
 		ANIMATIONS 
@@ -534,100 +472,7 @@ section h4:after {
     opacity: 0;
   }
 }
-@keyframes bouncing {
-  0%, 4%, 10%, 16%, 20% {
-    -webkit-transform: translateX(0);
-    -moz-transform: translateX(0);
-    -ms-transform: translateX(0);
-    transform: translateX(0);
-  }
 
-  8% {
-    -webkit-transform: translateX(-5px);
-    -moz-transform: translateX(-5px);
-    -ms-transform: translateX(-5px);
-    transform: translateX(-5px);
-  }
-
-  12% {
-    -webkit-transform: translateX(-3px);
-    -moz-transform: translateX(-3px);
-    -ms-transform: translateX(-3px);
-    transform: translateX(-3px);
-  }
-}
-@-webkit-keyframes bouncing {
-  0%, 4%, 10%, 16%, 20% {
-    -webkit-transform: translateX(0);
-    -moz-transform: translateX(0);
-    -ms-transform: translateX(0);
-    transform: translateX(0);
-  }
-
-  8% {
-    -webkit-transform: translateX(-5px);
-    -moz-transform: translateX(-5px);
-    -ms-transform: translateX(-5px);
-    transform: translateX(-5px);
-  }
-
-  12% {
-    -webkit-transform: translateX(-3px);
-    -moz-transform: translateX(-3px);
-    -ms-transform: translateX(-3px);
-    transform: translateX(-3px);
-  }
-}
-@-moz-keyframes bouncing {
-  0%, 4%, 10%, 16%, 20% {
-    -webkit-transform: translateX(0);
-    -moz-transform: translateX(0);
-    -ms-transform: translateX(0);
-    transform: translateX(0);
-  }
-
-  8% {
-    -webkit-transform: translateX(-5px);
-    -moz-transform: translateX(-5px);
-    -ms-transform: translateX(-5px);
-    transform: translateX(-5px);
-  }
-
-  12% {
-    -webkit-transform: translateX(-3px);
-    -moz-transform: translateX(-3px);
-    -ms-transform: translateX(-3px);
-    transform: translateX(-3px);
-  }
-}
-@-o-keyframes bouncing {
-  0%, 4%, 10%, 16%, 20% {
-    -webkit-transform: translateX(0);
-    -moz-transform: translateX(0);
-    -ms-transform: translateX(0);
-    transform: translateX(0);
-  }
-
-  8% {
-    -webkit-transform: translateX(-5px);
-    -moz-transform: translateX(-5px);
-    -ms-transform: translateX(-5px);
-    transform: translateX(-5px);
-  }
-
-  12% {
-    -webkit-transform: translateX(-3px);
-    -moz-transform: translateX(-3px);
-    -ms-transform: translateX(-3px);
-    transform: translateX(-3px);
-  }
-}
-#particles-js {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: 2;
-}
 
 /* -------------------------------
 		 MEDIA QUERIES 
@@ -720,3 +565,6 @@ section h4:after {
 .centertext {
   text-align: center;
 }
+
+
+
