@@ -1,5 +1,11 @@
 var sections = [{
-    sentence: "Aumente o som, por favor."
+    sentence: "Un Jardin Merveilleusement Sonore."
+},
+{
+    sentence: "音の庭"
+},
+{
+    sentence: "Aumenta o som, por favor."
 },
 {
     sentence: "この曲のリズムは素晴らしいですね"

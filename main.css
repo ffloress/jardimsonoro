@@ -23,6 +23,7 @@ body, html {
   transition: background 20s linear;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 body, video {
   margin: 0;
@@ -93,13 +94,15 @@ h4 {
   padding-top: 12vh;
   padding-right: 50px;
   font-size: 4vw;
+  animation: acid 5s linear infinite;
 }
 .jstext:after {
-  content: "_";
+ /* content: "_";
   animation: blinking 1s infinite;
   -webkit-animation: blinking 1s infinite;
   -moz-animation: blinking 1s infinite;
   -o-animation: blinking 1s infinite;
+  */
   position: absolute;
   -webkit-transform: translate(10%, -10%);
   -moz-transform: translate(10%, -10%);
@@ -400,6 +403,7 @@ section h4:after {
  }
   .jstext {
       padding-right: 0px;
+      
  }
 }
 @media all and (max-width: 468px) {
