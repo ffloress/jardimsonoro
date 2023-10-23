@@ -151,7 +151,7 @@ if (!opening) {
 
 document.addEventListener("DOMContentLoaded", function() {
 
-var firstTimer = 3000;
+var firstTimer = 1;
 var text = document.querySelector(".jstext");
 setTimeout(function() {
     writing(text);

@@ -93,7 +93,7 @@ h4 {
   width: 100%;
   padding-top: 12vh;
   padding-right: 50px;
-  font-size: 4vw;
+  font-size: 5vw;
   animation: acid 5s linear infinite;
 }
 .jstext:after {
@@ -315,6 +315,7 @@ section h4:after {
 .loopCol {
   animation: acidbg 5s linear infinite;
   padding: 2px;
+  font-weight: bold;
  /* Opcional: Adicione preenchimento para tornar o destaque mais visível */
 }
 /* ------------------------------- ANIMATIONS ----------------------------------*/
