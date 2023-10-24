@@ -386,3 +386,27 @@ li {
 #jstext.hidden {
   opacity: 0;
 }
+
+@media only screen and (max-width: 480px) {
+  .shortColumn {
+    width: 80%;
+  }
+
+  .featureTitle {
+    font-size: 0.7em;
+  
+  }
+  .featureSubtitle {
+    font-size: 0.5em;
+ 
+  }
+
+  .textContainer {
+    min-height: 60vh;
+    margin-bottom: 1em;
+  }
+
+  .email {
+    font-size: 2em !important;
+  }
+}

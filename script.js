@@ -215,11 +215,7 @@ loopColElements.forEach(function(loopColElement) {
 
     // Add a "mouseleave" event listener for the "loopCol" element
     loopColElement.addEventListener('mouseleave', handleMouseLeave);
-    loopColElement.addEventListener('touchend', function(e) {
-        setTimeout(function() {
-          handleMouseLeave(e);
-        }, 3000); // 3000 milliseconds (3 seconds)
-      });
+
       
 });
 
