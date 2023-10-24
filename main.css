@@ -24,6 +24,7 @@ body, html {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  font-size: 100%;
 }
 body, video {
   margin: 0;
