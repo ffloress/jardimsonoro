@@ -177,6 +177,7 @@ var loopColElements = document.querySelectorAll('.loopCol');
 // Function to handle the desired behavior
 function handleMouseEnterAndClick() {
     // Find the next occurrence of an element with the class "fixedBg"
+    document.getElementById("jstext").classList.add("hidden");
     var nextFixedBgElement = this.nextElementSibling;
 
     // Loop through siblings until we find a "fixedBg" element
@@ -194,6 +195,7 @@ function handleMouseEnterAndClick() {
 
 // Function to handle mouse leave on the "loopCol" element
 function handleMouseLeave() {
+    document.getElementById("jstext").classList.remove("hidden");
     // Find the associated "fixedBg" element
     var nextFixedBgElement = this.nextElementSibling;
 
@@ -213,6 +215,12 @@ loopColElements.forEach(function(loopColElement) {
 
     // Add a "mouseleave" event listener for the "loopCol" element
     loopColElement.addEventListener('mouseleave', handleMouseLeave);
+    loopColElement.addEventListener('touchend', function(e) {
+        setTimeout(function() {
+          handleMouseLeave(e);
+        }, 3000); // 3000 milliseconds (3 seconds)
+      });
+      
 });
 
 

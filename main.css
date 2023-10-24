@@ -54,7 +54,7 @@ a {
   color: white;
 }
 h3 {
-  font-size: 2.6vw;
+  font-size: 1.5em;
   line-height: 1.2;
   margin-bottom: 8vh;
 }
@@ -84,6 +84,7 @@ h4 {
   letter-spacing: -0.38vw;
   line-height: 0.98;
   min-height: 88vh;
+  margin-bottom: 2em;
 }
 .titulotext {
   width: 100%;
@@ -91,10 +92,9 @@ h4 {
 }
 
 .jstext {
-  width: 100%;
-  padding-top: 12vh;
-  padding-right: 50px;
-  font-size: 0.4em;
+  width: 90%;
+  padding: 50px;
+  font-size: 0.5em;
   
   animation: acid 5s linear infinite;
 }
@@ -113,12 +113,9 @@ h4 {
   z-index: -9999;
 }
 section {
-  margin-bottom: 16vh;
+  margin-top: 50px;
 }
-section h4 {
-  margin-bottom: 20px;
-  letter-spacing: 1px;
-}
+
 section h4:after {
   content: url("img/line.svg");
   position: absolute;
@@ -131,10 +128,10 @@ section h4:after {
 
 
 #about .info p {
-  -webkit-transform: translateY(20px);
-  -moz-transform: translateY(20px);
-  -ms-transform: translateY(20px);
-  transform: translateY(20px);
+  -webkit-transform: translateY(80px);
+  -moz-transform: translateY(80px);
+  -ms-transform: translateY(80px);
+  transform: translateY(80px);
   -webkit-transition: -webkit-transform 1s;
   -moz-transition: -moz-transform 1s;
   -ms-transition: -ms-transform 1s;
@@ -147,7 +144,7 @@ section h4:after {
 /* ------------------------------- ABOUT ----------------------------------*/
 .info {
   position: relative;
-  font-size: 1.3vw;
+  font-size: 0.9em;
   line-height: 1.5;
 }
 .info ul {
@@ -155,14 +152,16 @@ section h4:after {
   margin: 0;
   position: relative;
   margin-top: 20px;
+  font-weight: bold;
 }
-.info li {
-  display: inline-block;
-  margin-right: 25px;
+
+.info .loopCol {
+font-size:1.2em;
 }
+
 /* ------------------------------- GET IN TOUCH ----------------------------------*/
 .email {
-  font-size: 4vw;
+  font-size: 2.5em !important;
   font-family: 'circularbold', sans-serif;
   position: relative;
   margin: 10px 0 4vh 0;
@@ -182,6 +181,7 @@ section h4:after {
   padding-right: 2%;
   margin-bottom: 30px;
   width: 25%;
+  
 }
 .featuresList li.last {
   float: right;
@@ -189,13 +189,13 @@ section h4:after {
 }
 .featureTitle {
   font-family: 'circularbold', sans-serif;
-  font-size: 20px;
-  letter-spacing: .75px;
+  font-size: 1em;
+
 }
 .featureSubtitle {
-  font-size: 13px;
+  font-size: 0.8em;
   margin-top: 5px;
-  letter-spacing: .75px;
+
 }
 /* ------------------------------- CREDITS ----------------------------------*/
 .dghez {
@@ -364,73 +364,24 @@ section h4:after {
       opacity: 0;
  }
 }
-/* ------------------------------- MEDIA QUERIES ----------------------------------*/
-@media all and (max-width: 1024px) {
-  .featuresList li {
-      width: 32%;
- }
-  .info {
-      font-size: 2vw;
- }
-  .shortColumn {
-      width: 50%;
- }
-  .textContainer {
-      min-height: 75vh;
- }
-  h3 {
-      letter-spacing: -.15vmax;
- }
-}
-@media all and (max-width: 768px) {
-  .shortColumn {
-      width: 75%;
- }
-  .textContainer {
-      min-height: 80vh;
-      font-size: 11.2vw;
-      letter-spacing: -.45vw;
- }
-  .info {
-      font-size: 2.5vw;
- }
-  h3 {
-      font-size: 5vw;
- }
-  .featuresList li {
-      width: 50%;
- }
-  .featuresList .clearfix:after {
-      display: none;
- }
-  .jstext {
-      padding-right: 0px;
-      
- }
-}
-@media all and (max-width: 468px) {
-  .textContainer {
-      min-height: 80vh;
-      font-size: 11.4vw;
-      letter-spacing: -.45vw;
- }
-  .featuresList li, .shortColumn {
-      width: 100%;
- }
-  section h4:after {
-      width: 140px;
-      overflow: hidden;
- }
-  .info {
-      font-size: 16px;
- }
-  h3 {
-      font-size: 7.5vw;
- }
-  .jstext {
-      padding-right: 0px;
- }
-}
+
 .centertext {
   text-align: center;
+}
+ul {
+  list-style-type: none;
+}
+
+li {
+  list-style-type: none;
+  display: block;
+}
+
+#jstext {
+  opacity: 1;
+  transition: opacity 0.5s; /* You can adjust the transition duration (0.5s in this example) to make it faster or slower */
+}
+
+#jstext.hidden {
+  opacity: 0;
 }
