@@ -87,13 +87,15 @@ h4 {
 }
 .titulotext {
   width: 100%;
-  padding-top: 12vh;
+  padding-top: 2em;
 }
+
 .jstext {
   width: 100%;
   padding-top: 12vh;
   padding-right: 50px;
-  font-size: 5vw;
+  font-size: 0.4em;
+  
   animation: acid 5s linear infinite;
 }
 .jstext:after {
@@ -145,7 +147,6 @@ section h4:after {
 /* ------------------------------- ABOUT ----------------------------------*/
 .info {
   position: relative;
-  font-size: 14px;
   font-size: 1.3vw;
   line-height: 1.5;
 }
