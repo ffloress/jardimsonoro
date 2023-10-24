@@ -151,6 +151,8 @@ if (!opening) {
 
 document.addEventListener("DOMContentLoaded", function() {
 
+
+
 var firstTimer = 1;
 var text = document.querySelector(".jstext");
 setTimeout(function() {
@@ -193,6 +195,35 @@ function handleMouseEnterAndClick() {
     }
 }
 
+function handleTouch() {
+    // Find the next occurrence of an element with the class "fixedBg"
+    document.getElementById("jstext").classList.add("hidden");
+    var nextFixedBgElement = this.nextElementSibling;
+
+    // Loop through siblings until we find a "fixedBg" element
+    while (nextFixedBgElement && !nextFixedBgElement.classList.contains('fixedBg')) {
+        nextFixedBgElement = nextFixedBgElement.nextElementSibling;
+    }
+
+    // Check if a "fixedBg" element was found
+    if (nextFixedBgElement) {
+
+        nextFixedBgElement.classList.add('show');
+
+    }
+
+    document.addEventListener('touchmove', function(event) {
+      
+        // Get all elements with the class .fixedBg
+        const elements = document.querySelectorAll('.fixedBg');
+    
+        // Loop through the elements and set their style display property to 'none'
+        elements.forEach(function(element) {
+            element.classList.remove('show');
+        });
+    });
+}
+
 // Function to handle mouse leave on the "loopCol" element
 function handleMouseLeave() {
     document.getElementById("jstext").classList.remove("hidden");
@@ -210,11 +241,17 @@ function handleMouseLeave() {
 loopColElements.forEach(function(loopColElement) {
     loopColElement.addEventListener('mouseenter', handleMouseEnterAndClick);
     /* loopColElement.addEventListener('click', handleMouseEnterAndClick);*/
-    loopColElement.addEventListener('touchstart', handleMouseEnterAndClick);
+
 
 
     // Add a "mouseleave" event listener for the "loopCol" element
     loopColElement.addEventListener('mouseleave', handleMouseLeave);
+
+    loopColElement.addEventListener('touchstart', handleTouch);
+
+loopColElement.addEventListener('touchend', function(event) {
+  event.preventDefault(); // This prevents the default behavior of the touchend event, effectively ignoring it.
+});
 
       
 });
@@ -222,8 +259,7 @@ loopColElements.forEach(function(loopColElement) {
 
 
 document.addEventListener('click', function(event) {
-    console.log('clickclose')
-    // Get all elements with the class .fixedBg
+
     const elements = document.querySelectorAll('.fixedBg');
 
     // Loop through the elements and set their style display property to 'none'
@@ -233,4 +269,6 @@ document.addEventListener('click', function(event) {
 });
 
 
+
 });
+
