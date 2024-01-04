@@ -206,6 +206,7 @@ font-size:1.2em;
   font-size: 13px;
   letter-spacing: .75px;
   margin: 20px;
+  margin-top:50px;
 }
 .dghez:hover {
   animation: none;
@@ -221,7 +222,7 @@ font-size:1.2em;
 }
 .dghez:after {
   content: "";
-  width: 14px;
+  width: 28px;
   height: 14px;
   position: absolute;
   -webkit-transform: scale(20);
@@ -230,7 +231,7 @@ font-size:1.2em;
   transform: scale(20);
   top: -7px;
   left: -7px;
-  background: white;
+  background: rgba(255, 255, 255, 0.5);
   -webkit-transition: -webkit-transform 0.5s;
   -moz-transition: -moz-transform 0.5s;
   -ms-transition: -ms-transform 0.5s;
