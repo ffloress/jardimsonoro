@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Interativa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            background-color: #222;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            width: 40vw;
+            height: 40vh;
+            gap: 10px;
+            padding: 10px;
+        }
+        .grid div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2), 0px 10px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+            aspect-ratio: 1 / 1;
+        }
+        .grid div:active {
+            transform: scale(0.9);
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="grid" id="grid"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const grid = document.getElementById("grid");
+            for (let i = 1; i <= 9; i++) {
+                let div = document.createElement("div");
+                div.style.backgroundImage = `url('${i.toString().padStart(2, '0')}.jpg')`;
+                div.addEventListener("click", function() {
+                    let audio = new Audio(`${i.toString().padStart(2, '0')}.mp3`);
+                    audio.play();
+                });
+                grid.appendChild(div);
+            }
+        });
+    </script>
+</body>
+</html>
