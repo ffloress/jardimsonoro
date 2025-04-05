@@ -53,17 +53,30 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const grid = document.getElementById("grid");
+            const audioMap = new Map();
+
             for (let i = 1; i <= 9; i++) {
                 let div = document.createElement("div");
                 div.style.backgroundImage = `url('${i.toString().padStart(2, '0')}.jpg')`;
 
                 div.addEventListener("click", function() {
+                    if (audioMap.has(div)) {
+                        let playingAudio = audioMap.get(div);
+                        playingAudio.pause();
+                        playingAudio.currentTime = 0;
+                        div.classList.remove("rotate");
+                        audioMap.delete(div);
+                        return;
+                    }
+
                     const audio = new Audio(`${i.toString().padStart(2, '0')}.mp3`);
+                    audioMap.set(div, audio);
                     div.classList.add("rotate");
                     audio.play();
 
                     audio.addEventListener("ended", () => {
                         div.classList.remove("rotate");
+                        audioMap.delete(div);
                     });
                 });
 
