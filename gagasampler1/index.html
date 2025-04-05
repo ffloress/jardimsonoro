@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Gaga Sampler</title>
+    <title>Gaga Sampler 1</title>
     <style>
         * {
             margin: 0;
@@ -36,15 +36,15 @@
             background-size: cover;
             background-position: center;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2), 0px 10px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out, filter 0.5s ease-in-out;
+            transition: filter 0.5s ease-in-out;
             aspect-ratio: 1 / 1;
         }
-        .grid div:active {
-            transform: scale(0.9);
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+        .rotate {
+            animation: spin 2s linear infinite;
         }
-        .bw {
-            filter: grayscale(100%);
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
@@ -56,11 +56,17 @@
             for (let i = 1; i <= 9; i++) {
                 let div = document.createElement("div");
                 div.style.backgroundImage = `url('${i.toString().padStart(2, '0')}.jpg')`;
+
                 div.addEventListener("click", function() {
-                    let audio = new Audio(`${i.toString().padStart(2, '0')}.mp3`);
+                    const audio = new Audio(`${i.toString().padStart(2, '0')}.mp3`);
+                    div.classList.add("rotate");
                     audio.play();
-                    div.classList.add("bw");
+
+                    audio.addEventListener("ended", () => {
+                        div.classList.remove("rotate");
+                    });
                 });
+
                 grid.appendChild(div);
             }
         });
