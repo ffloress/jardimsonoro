@@ -2,87 +2,261 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Gaga Sampler 2</title>
     <style>
-        * {
+        html, body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-        html, body {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background-color: #222;
+            background: #222;
+            color: white;
+            font-family: sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
+            overflow: hidden;
         }
-        .grid {
-            display: grid;
+        #startScreen, #resultScreen {
+            position: absolute;
+            z-index: 2;
+            text-align: center;
+        }
+        #startBtn {
+            padding: 20px 40px;
+            font-size: 24px;
+            border: none;
+            border-radius: 10px;
+            background: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+        #grid {
+            display: none;
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(3, 1fr);
-            width: 100vmin;
-            height: 100vmin;
+            width: 90vmin;
+            height: 90vmin;
             gap: 5px;
         }
-        .grid div {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            border-radius: 50%;
+        .grid-item {
             background-size: cover;
             background-position: center;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2), 0px 10px 15px rgba(0, 0, 0, 0.1);
-            transition: filter 0.5s ease-in-out;
+            border-radius: 50%;
             aspect-ratio: 1 / 1;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
         .rotate {
             animation: spin 2s linear infinite;
         }
         @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {transform: rotate(0deg);}
+            to {transform: rotate(360deg);}
         }
     </style>
 </head>
 <body>
-    <div class="grid" id="grid"></div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const grid = document.getElementById("grid");
-            const audioMap = new Map();
 
-            for (let i = 1; i <= 9; i++) {
-                let div = document.createElement("div");
-                div.style.backgroundImage = `url('${i.toString().padStart(2, '0')}.jpg')`;
+<div id="startScreen">
+    <button id="startBtn">START</button>
+</div>
 
-                div.addEventListener("click", function() {
-                    if (audioMap.has(div)) {
-                        let playingAudio = audioMap.get(div);
-                        playingAudio.pause();
-                        playingAudio.currentTime = 0;
-                        div.classList.remove("rotate");
-                        audioMap.delete(div);
-                        return;
-                    }
+<div id="resultScreen" style="display:none;">
+    <h1 id="resultText"></h1>
+</div>
 
-                    const audio = new Audio(`${i.toString().padStart(2, '0')}.mp3`);
-                    audioMap.set(div, audio);
-                    div.classList.add("rotate");
-                    audio.play();
+<div id="grid"></div>
 
-                    audio.addEventListener("ended", () => {
-                        div.classList.remove("rotate");
-                        audioMap.delete(div);
-                    });
-                });
+<script>
+    const grid = document.getElementById("grid");
+    const startScreen = document.getElementById("startScreen");
+    const resultScreen = document.getElementById("resultScreen");
+    const resultText = document.getElementById("resultText");
 
-                grid.appendChild(div);
-            }
+    const posAudios = [
+        "posicao01.mp3", "posicao02.mp3", "posicao03.mp3",
+        "posicao04.mp3", "posicao05.mp3", "posicao06.mp3"
+    ];
+
+    let clickCount = 0;
+    let totalGames = 0;
+    let currentAudio = null;
+    let currentImageDiv = null;
+    let isPlayingImageAudio = false;
+    let waitingNextClick = false;
+
+    let userSequence = [];
+    let sequenceHistory = JSON.parse(localStorage.getItem("sequenceHistory") || "[]");
+    let nextWinningAttempt = getRandomWinAttempt();
+
+    function getRandomWinAttempt() {
+        const options = [3, 4, 5, 6];
+        const chosen = options[Math.floor(Math.random() * options.length)];
+        console.log(`🎲 Nova tentativa sorteada para vitória: tentativa número ${chosen}`);
+        return chosen;
+    }
+
+    const stopAudioAndRotation = () => {
+        if (currentAudio) {
+            console.log("⏹️ Parando áudio atual...");
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
+            currentAudio = null;
+        }
+        if (currentImageDiv) {
+            console.log("🛑 Removendo rotação da imagem.");
+            currentImageDiv.classList.remove("rotate");
+            currentImageDiv = null;
+        }
+        isPlayingImageAudio = false;
+    };
+
+    const playAudio = (src) => {
+        return new Promise((resolve) => {
+            console.log(`▶️ Tocando áudio: ${src}`);
+            currentAudio = new Audio(src);
+            currentAudio.play();
+            currentAudio.onended = () => {
+                console.log(`✅ Áudio finalizado: ${src}`);
+                currentAudio = null;
+                resolve();
+            };
         });
-    </script>
+    };
+
+    const resetGame = () => {
+        console.log("🔄 Reiniciando jogo...");
+        startScreen.style.display = "flex";
+        resultScreen.style.display = "none";
+        grid.style.display = "none";
+        grid.innerHTML = "";
+        clickCount = 0;
+        currentImageDiv = null;
+        userSequence = [];
+        waitingNextClick = false;
+    };
+
+    const handleResult = async () => {
+        console.log("🎯 6 cliques realizados. Iniciando sorteio...");
+        resultScreen.style.display = "flex";
+        grid.style.display = "none";
+        resultText.innerText = "Conferindo a Sequência Digitada...";
+        await playAudio("sorteio.mp3");
+
+        totalGames++;
+        const sequenceString = userSequence.join(",");
+        console.log(`📊 Tentativa atual: ${totalGames}`);
+        console.log(`🧩 Sequência digitada: ${sequenceString}`);
+
+        let isWinner = false;
+
+        while (true) {
+            const alreadyExists = sequenceHistory.includes(sequenceString);
+
+            if (totalGames === nextWinningAttempt) {
+                if (alreadyExists) {
+                    console.log("⚠️ Sequência repetida! Anulando tentativa premiada.");
+                    totalGames++;
+                    nextWinningAttempt = totalGames + getRandomWinAttempt();
+                    console.log(`🎲 Nova tentativa sorteada para vitória: ${nextWinningAttempt}`);
+                    continue;
+                } else {
+                    console.log("🎉 Vitória válida! Sequência inédita.");
+                    isWinner = true;
+                    sequenceHistory.push(sequenceString);
+                    localStorage.setItem("sequenceHistory", JSON.stringify(sequenceHistory));
+                    nextWinningAttempt = totalGames + getRandomWinAttempt();
+                    console.log(`🔮 Próxima tentativa sorteada para vitória: ${nextWinningAttempt}`);
+                    break;
+                }
+            } else {
+                if (!alreadyExists) {
+                    console.log("🙁 Tentativa não premiada, mas sequência é nova.");
+                    sequenceHistory.push(sequenceString);
+                    localStorage.setItem("sequenceHistory", JSON.stringify(sequenceHistory));
+                } else {
+                    console.log("🙁 Tentativa não premiada e sequência já usada.");
+                }
+                break;
+            }
+        }
+
+        const msg = isWinner ? "VOCÊ VENCEU!" : "OBRIGADO POR PARTICIPAR!";
+        const resultAudio = isWinner ? "win.mp3" : "obrigado.mp3";
+
+        resultText.innerText = msg;
+        await playAudio(resultAudio);
+        resetGame();
+    };
+
+    const showGrid = () => {
+        console.log("🟩 Exibindo grid...");
+        startScreen.style.display = "none";
+        grid.style.display = "grid";
+
+        for (let i = 1; i <= 9; i++) {
+            const div = document.createElement("div");
+            const imgFile = i.toString().padStart(2, '0');
+            div.classList.add("grid-item");
+            div.style.backgroundImage = `url('${imgFile}.jpg')`;
+
+            div.addEventListener("click", async () => {
+                if (clickCount >= 6) return;
+
+                const posAudio = posAudios[clickCount];
+                const imageAudio = `${imgFile}.mp3`;
+
+                if (currentImageDiv === div && isPlayingImageAudio && currentAudio) {
+                    console.log("🖱️ Clique repetido durante áudio da imagem — interrompendo e avançando.");
+                    stopAudioAndRotation();
+                    clickCount++;
+                    userSequence.push(i);
+                    waitingNextClick = true;
+                    if (clickCount === 6) await handleResult();
+                    return;
+                }
+
+                if (isPlayingImageAudio || (!waitingNextClick && currentAudio)) {
+                    console.log("🚫 Áudio ainda em execução. Clique bloqueado.");
+                    return;
+                }
+
+                console.log(`🖼️ Imagem ${i} clicada. Clique número: ${clickCount + 1}`);
+                stopAudioAndRotation();
+                waitingNextClick = false;
+
+                await playAudio(posAudio);
+
+                currentImageDiv = div;
+                isPlayingImageAudio = true;
+                div.classList.add("rotate");
+
+                await playAudio(imageAudio);
+
+                div.classList.remove("rotate");
+                currentImageDiv = null;
+                isPlayingImageAudio = false;
+
+                clickCount++;
+                userSequence.push(i);
+                waitingNextClick = true;
+
+                if (clickCount === 6) await handleResult();
+            });
+
+            grid.appendChild(div);
+        }
+    };
+
+    document.getElementById("startBtn").addEventListener("click", async () => {
+        console.log("🎬 Botão START clicado.");
+        await playAudio("start.mp3");
+        showGrid();
+    });
+</script>
+
+
+
+
 </body>
 </html>
