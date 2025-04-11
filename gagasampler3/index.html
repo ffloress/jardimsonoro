@@ -75,14 +75,12 @@
 
     let clickCount = 0;
     let totalGames = 0;
-    let currentAudio = null;
     let currentImageDiv = null;
-    let isPlayingImageAudio = false;
-    let waitingNextClick = false;
-
+    let currentAudio = null;
     let userSequence = [];
     let sequenceHistory = JSON.parse(localStorage.getItem("sequenceHistory") || "[]");
     let nextWinningAttempt = getRandomWinAttempt();
+    let playingAudios = [];
 
     function getRandomWinAttempt() {
         const options = [3, 4, 5, 6];
@@ -91,29 +89,23 @@
         return chosen;
     }
 
-    const stopAudioAndRotation = () => {
-        if (currentAudio) {
-            console.log("⏹️ Parando áudio atual...");
-            currentAudio.pause();
-            currentAudio.currentTime = 0;
-            currentAudio = null;
-        }
-        if (currentImageDiv) {
+    const stopAudioAndRotation = (imageDiv) => {
+        if (imageDiv) {
             console.log("🛑 Removendo rotação da imagem.");
-            currentImageDiv.classList.remove("rotate");
-            currentImageDiv = null;
+            imageDiv.classList.remove("rotate");
         }
-        isPlayingImageAudio = false;
     };
 
-    const playAudio = (src) => {
+    const playAudio = (src, imageDiv = null) => {
         return new Promise((resolve) => {
             console.log(`▶️ Tocando áudio: ${src}`);
-            currentAudio = new Audio(src);
-            currentAudio.play();
-            currentAudio.onended = () => {
+            const audio = new Audio(src);
+            playingAudios.push(audio);
+            audio.play();
+            audio.onended = () => {
                 console.log(`✅ Áudio finalizado: ${src}`);
-                currentAudio = null;
+                if (imageDiv) stopAudioAndRotation(imageDiv);
+                playingAudios = playingAudios.filter(a => a !== audio);
                 resolve();
             };
         });
@@ -121,8 +113,7 @@
 
     const playFeedbackSequence = async () => {
         console.log("🔊 Tocando sequência de feedback com sobreposição...");
-
-        const delays = 500; // ms entre os começos dos áudios
+        const delays = 500;
         const promises = [];
 
         userSequence.forEach((num, index) => {
@@ -143,7 +134,7 @@
             promises.push(promise);
         });
 
-        await Promise.all(promises); // espera todos terminarem
+        await Promise.all(promises);
     };
 
     const resetGame = () => {
@@ -155,15 +146,22 @@
         clickCount = 0;
         currentImageDiv = null;
         userSequence = [];
-        waitingNextClick = false;
+        playingAudios = [];
     };
 
     const handleResult = async () => {
-        console.log("🎯 6 cliques realizados. Iniciando verificação...");
+        console.log("🎯 6 cliques realizados. Aguardando final do último áudio...");
+
+        if (playingAudios.length > 0) {
+            await new Promise(resolve => {
+                const lastAudio = playingAudios[playingAudios.length - 1];
+                lastAudio.onended = resolve;
+            });
+        }
+
         resultScreen.style.display = "flex";
         grid.style.display = "none";
         resultText.innerText = "Conferindo a Sequência Digitada...";
-
         await playFeedbackSequence();
 
         totalGames++;
@@ -228,40 +226,16 @@
 
                 const imageAudio = `${imgFile}.mp3`;
 
-                if (currentImageDiv === div && isPlayingImageAudio && currentAudio) {
-                    console.log("🖱️ Clique repetido durante áudio da imagem — interrompendo e avançando.");
-                    stopAudioAndRotation();
-                    clickCount++;
-                    userSequence.push(i);
-                    waitingNextClick = true;
-                    if (clickCount === 6) await handleResult();
-                    return;
-                }
-
-                if (isPlayingImageAudio || (!waitingNextClick && currentAudio)) {
-                    console.log("🚫 Áudio ainda em execução. Clique bloqueado.");
-                    return;
-                }
-
                 console.log(`🖼️ Imagem ${i} clicada. Clique número: ${clickCount + 1}`);
-                stopAudioAndRotation();
-                waitingNextClick = false;
-
-                currentImageDiv = div;
-                isPlayingImageAudio = true;
                 div.classList.add("rotate");
 
-                await playAudio(imageAudio);
-
-                div.classList.remove("rotate");
-                currentImageDiv = null;
-                isPlayingImageAudio = false;
-
-                clickCount++;
+                playAudio(imageAudio, div); // não precisa await
                 userSequence.push(i);
-                waitingNextClick = true;
+                clickCount++;
 
-                if (clickCount === 6) await handleResult();
+                if (clickCount === 6) {
+                    await handleResult();
+                }
             });
 
             grid.appendChild(div);
@@ -274,6 +248,7 @@
         showGrid();
     });
 </script>
+
 
 
 
