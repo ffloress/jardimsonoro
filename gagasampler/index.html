@@ -53,6 +53,34 @@
             from {transform: rotate(0deg);}
             to {transform: rotate(360deg);}
         }
+#startBtn {
+    padding: 20px 40px;
+    font-size: 24px;
+    border: none;
+    border-radius: 10px;
+    background: #4caf50;
+    color: white;
+    cursor: pointer;
+}
+
+#startBtn:disabled {
+    background: url('waveform.webp') center center no-repeat;
+    background-size: cover;
+    color: transparent;
+    cursor: default;
+}
+
+html.win-background {
+    background: url('win.webp') center center no-repeat;
+    background-size: cover;
+}
+
+html.obrigado-background {
+    background: url('obrigado.webp') center center no-repeat;
+    background-size: cover;
+}
+
+
     </style>
 </head>
 <body>
@@ -83,7 +111,7 @@
     let playingAudios = [];
 
     function getRandomWinAttempt() {
-        const options = [3, 4, 5, 6];
+        const options = [2, 3];
         const chosen = options[Math.floor(Math.random() * options.length)];
         console.log(`🎲 Nova tentativa sorteada para vitória: tentativa número ${chosen}`);
         return chosen;
@@ -137,17 +165,24 @@
         await Promise.all(promises);
     };
 
-    const resetGame = () => {
-        console.log("🔄 Reiniciando jogo...");
-        startScreen.style.display = "flex";
-        resultScreen.style.display = "none";
-        grid.style.display = "none";
-        grid.innerHTML = "";
-        clickCount = 0;
-        currentImageDiv = null;
-        userSequence = [];
-        playingAudios = [];
-    };
+const resetGame = () => {
+    console.log("🔄 Reiniciando jogo...");
+    startScreen.style.display = "flex";
+    resultScreen.style.display = "none";
+    grid.style.display = "none";
+    grid.innerHTML = "";
+    clickCount = 0;
+    currentImageDiv = null;
+    userSequence = [];
+    playingAudios = [];
+
+    // Reabilita o botão START removendo estilos inline
+    const startBtn = document.getElementById("startBtn");
+    startBtn.disabled = false;
+    startBtn.removeAttribute("style"); // limpa estilos inline
+};
+
+
 
     const handleResult = async () => {
         console.log("🎯 6 cliques realizados. Aguardando final do último áudio...");
@@ -204,9 +239,19 @@
 
         const msg = isWinner ? "VOCÊ VENCEU!" : "OBRIGADO POR PARTICIPAR!";
         const resultAudio = isWinner ? "win.mp3" : "obrigado.mp3";
+        
+if (isWinner) {
+    document.documentElement.classList.add("win-background");
+} else {
+    document.documentElement.classList.add("obrigado-background");
+}
+
 
         resultText.innerText = msg;
         await playAudio(resultAudio);
+document.documentElement.classList.remove("win-background");
+document.documentElement.classList.remove("obrigado-background");
+
         resetGame();
     };
 
@@ -242,11 +287,15 @@
         }
     };
 
-    document.getElementById("startBtn").addEventListener("click", async () => {
-        console.log("🎬 Botão START clicado.");
-        await playAudio("start.mp3");
-        showGrid();
-    });
+document.getElementById("startBtn").addEventListener("click", async () => {
+    const startBtn = document.getElementById("startBtn");
+    startBtn.disabled = true;
+    startBtn.style.cursor = "not-allowed";
+    console.log("🎬 Botão START clicado.");
+    await playAudio("start.mp3");
+    showGrid();
+});
+
 </script>
 
 
