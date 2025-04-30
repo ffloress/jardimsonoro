@@ -4,18 +4,35 @@
     <meta charset="UTF-8">
     <title>Gaga Sampler</title>
     <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            background: #222;
-            color: white;
-            font-family: sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-        }
+/* 1) garantimos que o html cubra 100% da viewport */
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  /* só aqui o gradiente, 1 camada, fixo na viewport */
+  background: linear-gradient(
+    90deg,
+    rgba(2,   0,   36, 1)  0%,
+    rgba(107, 107, 199,1) 35%,
+    rgba(0,   134, 161,1)100%
+  ) no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* 2) o body deixa o html “transparente” brilhar por trás */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;          /* garante o full-screen */
+  background: transparent;/* nada aqui */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: white;
+}
+
         #startScreen, #resultScreen {
             position: absolute;
             z-index: 2;
@@ -37,6 +54,10 @@
             width: 90vmin;
             height: 90vmin;
             gap: 5px;
+    background-color: rgba(0, 0, 0, 0.5);  /* Fundo opaco para a grid */
+    gap: 15px;
+    padding: 10px;
+    border-radius: 20px
         }
         .grid-item {
             background-size: cover;
