@@ -1,25 +1,17 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+
+
 html { scroll-behavior: smooth; }
 
 * { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
 
-@font-face {
-  font-family: 'circularbold';
-  src: url("../../../font/circularstd-bold.eot");
-  src: url("../../../font/circularstd-boldd41d.eot?#iefix") format("embedded-opentype"), url("../../../font/circularstd-bold.svg#circularbold") format("svg"), url("../../../font/circularstd-bold.woff") format("woff"), url("../../../font/circularstd-bold.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'circularbook';
-  src: url("../../../font/circularstd-book.eot");
-  src: url("../../../font/circularstd-bookd41d.eot?#iefix") format("embedded-opentype"), url("../../../font/circularstd-book.svg#circularbook") format("svg"), url("../../../font/circularstd-book.woff") format("woff"), url("../../../font/circularstd-book.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
 
-@keyframes acid {
+@keyframes animation-acid {
   0%, 100% {
       color: #5bc5aa;
  }
@@ -30,7 +22,7 @@ html { scroll-behavior: smooth; }
       color: #72b6e1;
  }
 }
-@keyframes acidbg {
+@keyframes animation-acidbg {
   0%, 100% {
     background-color: #336b99; /* mais escuro que #4f94c1 */
   }
@@ -42,7 +34,7 @@ html { scroll-behavior: smooth; }
   }
 }
 
-@keyframes acidborder {
+@keyframes animation-acidborder {
   0%, 100% {
     border-color: #5bc5aa;
   }
@@ -55,17 +47,32 @@ html { scroll-behavior: smooth; }
 }
 
 .acid {
-  animation: acid 3s infinite;
+  animation: animation-acid 3s infinite;
   color: #5bc5aa;   /* cor inicial, opcional */
 }
 
 .acidbg {
-  animation: acidbg 3s infinite;
+  animation: animation-acidbg 5s infinite;
   background-color: #5bc5aa;   /* cor inicial, opcional */
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 0.25em;
+}
+
+.acidbg:hover{
+filter: invert(100%);
+}
+
+.white {
+color: white;
+}
+
+.sublinhado {
+text-decoration: underline;
 }
 
 .acidborder {
-  animation: acidborder 3s infinite;
+  animation: animation-acidborder 3s infinite;
   background-color: #5bc5aa;   /* cor inicial, opcional */
 }
 
@@ -358,6 +365,7 @@ img {
 .post-meta {
   color: var(--secondary);
   font-size: 0.875em;
+  
 }
 .post-content {
   color: var(--content);
@@ -478,6 +486,10 @@ img {
   margin-bottom: 0;
   margin-top: 0;
 }
+
+.right {
+text-align: center;
+}
 /* table */
 .post-content .highlighttable {
   table-layout: fixed;
@@ -537,26 +549,36 @@ img {
 }
 .post-footer {
   margin-top: 3.5em;
+  
+}
+.post-tags {
+text-align: right;
 }
 .post-tags li {
   display: inline-block;
+  
 }
 .post-tags li + li {
   margin-left: 0.1875em;
 }
 .post-tags a {
   display: block;
-  padding-left: 0.875em;
-  padding-right: 0.875em;
-  color: var(--secondary);
+ 
   font-size: 0.875em;
   line-height: 2.125em;
-  background: var(--code-bg);
+/*  background: var(--code-bg);
+color: var(--secondary);
+  padding-left: 0.875em;
+  padding-right: 0.875em;
   border-radius: 0.25em;
+  */
 }
+/*
 .post-tags a:hover {
   background: var(--border);
+  
 }
+*/
 /* Footer
 -------------------------------------------------- */
 .footer {
