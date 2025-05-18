@@ -239,6 +239,12 @@ font-size:1.2em;
   transition: transform 0.5s;
   border-radius: 50%;
 }
+
+
+.links {
+text-align: right;
+font-size: 1.5em;
+}
 /* ------------------------------- FIXED BACKGROND ----------------------------------*/
 /* Define the animation for elements inside .fixedBg */
 @keyframes animateFromBottom {
