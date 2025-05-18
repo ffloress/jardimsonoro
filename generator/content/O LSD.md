@@ -1,0 +1,137 @@
+Title: O Uso de LSD
+Tags: lsd, anos 60, som
+Author: Frederico Flores
+Image: https://images.unsplash.com/photo-1648032631028-9a5e5f300aaf?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+#### OS PRIMÓRDIOS
+
+Vamos fazer uma viagem que se inicia no século XIX e termina hoje, com os desafios da atualidade.
+
+Já por volta de 1880 era possível encontrar vários sistemas que permitiam visualizar imagens em movimento. Normalmente eram dispositivos individuais, e até “lanternas mágicas” com algum grau de movimento. Mas eram só imagens. A gravação, reprodução, ou a simples transmissão do som estavam engatinhando nos laboratórios Bell e na oficina de Edison.
+
+Havia máquinas de visão individuais com imagens em movimento, como as de Edison, tipo caça-níqueis, pois ele não queria saber de democráticas telas grandes ?que matariam a galinha dos ovos de ouro?.
+
+Mas para poder estabelecer uma base de partida, vamos chamar de Cinema a uma imagem em movimento que é projetada numa tela, numa sala escura e onde você paga um ingresso. Em 1895 deu-se a primeira experiência desse tipo, no famoso porão do Boulevard dos Capuchines, em Paris (hoje, parte do Café de la Paix, mas não há sequer uma placa que indique que ali foi realizada a 1ª projeção de cinema da história!) graças a um empreendimento dos irmãos Lumière.
+
+Vale a pena lembrar que bem antes da introdução do som, o cinema já havia deixado de ser um espetáculo de circo para ter um valor próprio. Começava a ser considerado uma indústria e uma arte. Os primeiros filmes eram simples tomadas de poucos segundos, tipo “Saída dos operários de fábrica”, “A chegada do trem”, etc.
+
+Mas alguns gênios criativos aparecem, percebendo que logo o público cansaria de assistir atração instantânea e primária das simples tomadas, por exemplo, George Meliés, que decidem experimentar e contar uma história.
+
+A partir dessas primeiras experiências, o cinema se descobre e revela, começa a inventar a sua linguagem, e teremos depois os aportes de Eisenstein, Griffith, Bela Balàz entre muitos outros, se inventa a montagem, a formulação de um roteiro, ou seja, o cinema se reinventa, se potencializa, e o público responde com um interesse enorme. Logo no inicio começa a gênese da idéia da introdução da dimensão do som, que gera um novo poder de atração e sedução.
+
+Sabemos pela nossa experiência diária, que a audição e a visão são os sentidos que nos dão maior informação. Logo ficou evidente que a imagem sozinha em movimento não era suficiente, estava incompleta: o sentido da audição naturalmente reclamava a sua parte.
+
+Assim, começaram os acompanhamentos de piano para dar uma ambiência ao filme, e dessa forma melhor sustentar a ação, gerar expectativa ou melhor descrever o personagem. Mas cada sessão precisava de um piano, e de um bom pianista com certo talento de improvisação. E do salário dele.
+
+Os exibidores pediam alguma forma de registrar o som e reproduzi-lo na sessão, da mesma maneira que já acontecia com a imagem.
+
+A bitola de 35mm foi estabelecida em 1895 como uma forma de trabalhar, dentre muitas outras que não sobreviveram. Se bem na virada do século existiam várias maneiras de registrar e reproduzir o som, elas não eram apropriadas para serem copiadas, pois eram baseadas em cilindros.
+
+Em 1910, aparece o som em disco, que pode ser copiado e fabricado em série por prensado. Grande revolução de vitrolas, discos e cornetas nas vitrines. E como o disco funcionava, a vitrola funcionava, foi natural contar com eles no cinema.
+
+O sistema mais conhecido e que teve certo sucesso comercial foi chamado posteriormente de Vitaphone. Era um sistema no qual se acompanhava o filme com um disco de 16 polegadas.
+
+Embora dispensasse o pianista, o disco não era a solução ideal. Pensemos nas conseqüências de um pulo da agulha no sincronismo, ou um risco na superfície, a logística
+da distribuição, a dificuldade do transporte, a fragilidade, etc, além do custo de fabricação.
+
+
+Vitaphonecabine
+Cabine do sistema Vitaphone
+E aqui está o famoso Vitaphone, 1915 . O sincronismo se conseguia mecanicamente, já que o motor acionava tanto o projetor quanto o prato do disco. Dessa forma, mecanicamente, através de engrenagens, conseguia-se que os dois rodassem juntos. E o start?
+
+O disco, ao contrário do convencional, tocava de dentro para fora, e tinha um pequeno sulco, uma posição de descanso da agulha que marcava o início.
+
+A operação não era simples, pois quando o filme se partia, o que era muito freqüente nesta época, era necessário voltar o filme ao início, ou colocar a agulha chutando em algum lugar “próximo”. Sincronismo não era muito cotizado ” Ser operador nesta época, era um trabalho com risco de vida”.
+
+#### O SOM NA PELÍCULA
+
+Estes sistemas, embora primitivos, permitiram os primeiros filmes sonoros. Na maior parte das vezes, os discos só registravam a música, assim o sincronismo não era muito crítico.
+
+Geralmente o diálogo não era registrado. Inclusive “O Cantor de Jazz”, em 1927, que tem sincronismo labial, é em sua maior parte uma coleção de músicas, reflete a modalidade da época: São basicamente quadros musicais filmados – um teatro filmado.
+
+Mas os problemas mencionados dos discos levam a idéia de colocar o som na película mesmo, garantindo o sincronismo e barateando o custo de distribuição. Mas como colocar o som na película?
+
+Nenhuma invenção parece ter pai único. Não há uma experiência única. Inclusive a partir de 1900, há uma profusão de experiências, utilizando todo tipo de idéias, algumas realmente esdrúxulas, que com maior ou menor sucesso funcionavam. Para citar algumas :
+
+1900 o som ótico de Ruhmer que ocupava toda a película de 35 mm
+1907 Lauste com outro sistema ótico
+1905 Frau Von Madeler com um sistema em que o som era gravado serrilhando a borda do filme.(??!!)
+1910 aparece o som em disco, que aperfeiçoado reapareceria como Vitaphone em 1915
+1927 som ótico de densidade variável e depois área variável: Movietone.
+
+Vitaphone Discob
+Disco Vitaphone
+Em definitivo, é muito difícil encontrar uma pessoa, tecnologia ou filme que seja a pedra angular e que marque esse início. Diferentes empresas e estúdios apresentam técnicas de som óptico num período de poucos meses.
+
+Como acontece em outras áreas, por causa do desenvolvimento tecnológico e pela pressão da necessidade, há um ambiente pronto para o nascimento de alguns inventos e desenvolvimentos, e eles acabam acontecendo, às vezes quase simultaneamente.
+
+Mas se gostamos de sinalizar divisórias de águas, alguns meses entre fins de 1927 e início de 1928 são importantes. O “Cantor de Jazz” e “Don Juan”, são importantes porque é com eles que o sistema de som óptico se torna viável comercialmente. A indústria consegue que ele funcione, que se comercialize, e que seja prático. Não basta ter uma invenção genial, ela tem que funcionar de forma prática na realidade da rua, ter um valor que permita a compra, e que as pessoas e a indústria se interessem.
+
+É isso que vai definir realmente o sucesso do sistema. Veremos isto acontecer novamente na década de 90 com o som digital no cinema. Mas nada é da noite para o dia. Por exemplo, o som óptico teve sua primeira experiência já em 1900 (Rhumer) e tiveram que se passar 27 anos para ele se concretizar.
+
+A partir de 1927, entramos numa época de transição do sistema Vitaphone de disco para o sistema óptico, e as salas tiveram que se equipar para que pudessem usar os dois sistemas. Durante estes 10 anos, de 1927 a 1937, acontece um verdadeiro estouro no número de salas de projeção, e as cifras variam entre 15.000 e 18.000 salas só nos EUA.
+
+Este rápido crescimento por outro lado gerou a necessidade de padronizar as instalações, e a forma de se produzir os filmes.
+
+Assim, um pouco forçada pela experiência e a necessidade, a própria indústria estabelece primeiro um determinado padrão de trabalho empírico, e finalmente a Academia de Artes e Ciências Cinematográficas começa a formalizar e organizar o sistema todo: Como o som óptico será registrado no filme, como será equalizado, como serão as caixas de som das salas, etc.
+
+O “Padrão da Academia”, que foi estabelecido em 1938, é o que hoje chamamos de “som monoural”. As suas características naturalmente refletem a tecnologia desta época. Imaginemos a resposta de freqüências das caixas de som de 1937, o tipo de cornetas, o tipo de microfone que se usava, o som óptico das câmeras ópticas.
+
+Era um som bastante distorcido, a resposta de freqüência penosamente atingia 5 ou 6 Khz, equivalente ao som de rádio AM, e bastante ruidoso também. Com o passar dos anos foram introduzidas algumas melhoras, como as bandas duo-bilateral, mas nada especialmente diferente.
+
+O interessante é que este padrão permanece até hoje no cinema. Alguém aceitaria hoje som de vitrola em casa?
+
+Jazzsingerportadecinemab
+Estréia do Cantor de Jazz
+A indústria se aperfeiçoa também, aparecem os métodos de “área variável”, de registro óptico bilateral, etc. que diminuem a distorção.
+
+Os primeiros sistemas de registro óptico de cinema, de 1927, utilizavam o sistema simples, ou seja, na hora que se registrava o filme, se registrava a trilha de som, na mesma câmera. Era um processo muito complicado. Aliás, como a trilha de som não pode estar no mesmo lugar que a imagem, por ser dois sistemas ópticos separados, gerava um problema enorme para poder editar o filme, porque a película é cortada em função da imagem, mas a trilha do som que a acompanha está deslocada 20 fotogramas.
+
+Assim, foi inventado o sistema duplo:
+Durante a filmagem, além do camera man com sua câmera, um outro operador gravava o som num sistema ótico com um microfone.
+
+E depois era possível editar e cortar a vontade o negativo de som, independente da imagem. Teríamos assim a edição de som separada da montagem da imagem. Viria depois a mixagem final com a música, da qual resultaria um negativo de som, que junto ao da imagem produziriam a cópia. É o sistema atual.
+
+E como veremos, apareceram outras descobertas e invenções, em outras direções.
+
+O NASCIMENTO DO SOM SURROUND : FANTASIA, 1941
+
+Fantasia Fantasound Poster
+Poster do filme Fantasia de 1941
+Examinemos algumas tecnologias curiosas, que foram uma antecipação da nossa época.
+
+A imagem utilizada nos 30 tinha, entre outras, relação de aspecto 1:37. Quase um quadrado. Era lógico que o som fosse originado desde um ponto por trás da tela. No final, a ação estava ali e tudo encaixava.
+
+Mais de 2000 anos antes do cinema, o teatro clássico grego usava alguns recursos interessantes, como colocar o coro fora do palco, às vezes na parte superior do teatro e rodeando as arquibancadas. Dessa forma, colaborava para melhor mergulhar o espectador e “envolvê-lo” no duplo sentido na palavra, na ação da peça.
+
+Em relação ao cinema, a primeira experiência do uso de sons que não vêm unicamente das caixas que estão por trás da tela, foi o filme “Fantasia” da companhia Disney em 1941, utilizando um sistema desenvolvido pela companhia e chamado “Fantasound”. O interessante desta história, é o que eles descobriram, e os fatos que levaram a estas descobertas.
+
+Qual foi a ideia básica de Fantasound?
+
+Como as seqüências do filme tinham como pivô a música sinfônica, e as imagens eram de uma criatividade e de uma beleza raras, se encontraram com o desafio de que o som estivesse à altura. A idéia foi a de recriar da melhor maneira possível, a maravilha da orquestra sinfônica, e não só na qualidade técnica da reprodução: Procurava-se recriar a espacialidade que o som real da orquestra sinfônica tem ao vivo, com a sua dispersão de instrumentos no palco.
+
+Poderíamos pensar em muitos alto-falantes dispersos por trás da tela, cada um tocando um grupo de instrumentos diferentes, mas isto não é prático (como gravar tantas pistas? Como reproduzi-las nos cinemas?). Também havia a necessidade de ter sons em movimento.
+
+Assim como acontece na imagem em travelling, ou como quando um carro atravessa a tela, a idéia era fazer com que a origem do som mudasse. A primeira experiência foi a de colocar uma caixa de som sobre trilhos por trás da tela. Funcionava muito bem, mas isto era muito complicado.
+
+Surge então a idéia de fabricar uma imagem sonora “fantasma” colocando duas caixas nos extremos da tela. Enviando o mesmo elemento sonoro para as duas, e balançando a potência relativa entre uma e outra, com uma montagem conhecida como potenciômetro panorâmico, pode se lograr a imagem sonora que corresponde a um som que está viajando de um extremo a outro da tela, sem precisar movimentar fisicamente uma a caixa de som.
+
+É como o “balance” do som estéreo, mas aplicado a um elemento pontual dentro da mixagem. Nasce assim o “potenciômetro panorâmico” ou pan-pot. Esta é uma descoberta interessante feita por este time. A idéia avançou um pouco mais: por que não movimentar o som pela sala também.
+
+Foi preciso colocar caixas ao redor da sala. Agora, uma coisa é movimentar o som entre duas caixas, mas o que acontece quando você tem mais caixas? E como você vai gravar e reproduzir isto? Este era um outro problema. Não resultava viável colocar muitas pistas de som óptico num filme.
+
+A solução foi uma coisa muito curiosa: Um sistema de três canais ópticos, mas que também comandava o volume dos diferentes amplificadores conectados as diversas caixas de som. Dessa maneira seria possível colocar mais de três caixas de som, gerando um equivalente a mais canais.
+
+A fonte de som do sistema Fantasound tinha três pistas, e aparecem várias novidades aqui. O Fantasound era uma banda dupla. Rodava um filme de 35mm por um lado com a imagem, e tinha um outro filme ótico que tinha 4 pistas: 3 de som (esquerda, centro e direita em alguns momentos surround) e uma quarta pista que utilizava uns tons de controle para poder controlar o ganho dos amplificadores .Mas por que três canais?
+
+Eles descobriram é que duas caixas na tela não resolviam totalmente o problema, pois precisavam de uma terceira para ancorar o som no centro. Utilizar duas caixas, funciona num ambiente pequeno, como na sala de casa, mas não numa sala de cinema. Por quê?
+
+Vamos supor que temos um ator falando e precisamos localizá-lo no centro. Num sistema estéreo com duas caixas só, esquerda e direita, a única maneira de colocar um som no centro é fabricando um centro “fantasma”. Colocamos o mesmo nível de potência nas duas caixas e a composição que o nosso cérebro faz, é que a imagem sonora está no centro, o mesmo que acontece com os fones de ouvido.
+
+Só que isso funciona bem unicamente para o público que está no eixo central da platéia, mas para o público que está fora dele, irá ouvir muito mais uma caixa ou outra, e centro fantasma não existirá para eles. O som não parecerá estar originado no centro da tela. Então no cinema o centro fantasma não existe, por ser a platéia larga.
+
+Não pode ser utilizado! Assim, quando nasceu o som estéreo no cinema, logo no início descobriram que seria necessário ancorar fisicamente um canal de som no meio, especialmente para o diálogo. O interessante do Fantasound é que muitos conceitos nasceram lá, nesta época, como o fato de comandar os ganhos dos amplificadores para endereçar canais. O sistema Dolby SR (análogo) também comanda ganhos.
+
+Será necessário posicionarmos no tempo, para compreender as dificuldades de implementar um sistema desses. Não havia gravadores de fita magnética nesta época. (A Alemanha estava desenvolvendo um sistema de gravação magnética em fios de aço, mas era segredo militar que só seria descoberto no final da guerra)
+
+O que existia era a gravação óptica, isto é, o som direto era gravado e impresso em negativo, com um sistema de modulação de luz. Ou seja, o mesmo conceito que existe para a imagem, em que se imprime um negativo, se aplicava ao som: gravavam o som em forma óptica em outra máquina.
+A música de Fantasia foi gravada com oito câmeras ópticas, todas interlocadas, com um operador por câmera, na Philadelphia Academy of Music, em semanas de árduo trabalho.

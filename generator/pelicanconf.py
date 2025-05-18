@@ -1,0 +1,33 @@
+SITENAME = 'Jardim Sonoro: Blog'
+
+PATH = "content"
+
+TIMEZONE = 'America/Sao_Paulo'
+
+DEFAULT_DATE='fs'
+
+DEFAULT_LANG = 'pt-br'
+
+SITEURL = "https://jardimsonoro.com/blog"
+RELATIVE_URLS = True
+
+CATEGORY_SAVE_AS = 'categories/{slug}/index.html'
+CATEGORY_URL = 'categories/{slug}'
+TAG_SAVE_AS = 'tags/{slug}/index.html'
+TAG_URL = 'tags/{slug}'
+ARTICLE_URL = '{slug}'
+ARTICLE_SAVE_AS = '{slug}/index.html'
+ARTICLE_LANG_URL = '{slug}/{lang}/index.html'
+
+FEED_ALL_ATOM = "feeds/all.atom.xml"
+CATEGORY_FEED_ATOM = "feeds/{slug}.atom.xml"
+
+DEFAULT_PAGINATION = 88
+
+DELETE_OUTPUT_DIRECTORY = True
+
+CURRENT_YEAR = 2025
+
+LOCATION = "Rio de Janeiro, Brasil."
+
+AUTHOR = "Frederico Flores"
