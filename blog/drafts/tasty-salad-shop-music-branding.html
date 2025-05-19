@@ -17,19 +17,29 @@
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="../theme/css/paper.css" />
     <link rel="stylesheet" type="text/css" href="../theme/css/pygment.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- Favicons -->
     <link rel="alternate" type="application/atom+xml" href="https://jardimsonoro.com/blog/" title="Atom Feed">
     <link rel="alternate" type="application/atom+xml" href="https://jardimsonoro.com/blog/feeds/all.atom.xml" title="Full Atom Feed">
     <!-- Script -->
-    <script>
-      function setTheme() {
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          document.body.classList.add('dark');
-          return;
-        }
-      }
-    </script>
+<script>
+  function setTheme() {
+    const logo = document.getElementById('logo-img');
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.body.classList.add('dark');
+      if (logo) logo.src = 'https://jardimsonoro.com/jslogob.png'; // versão dark
+    } else {
+      document.body.classList.remove('dark');
+      if (logo) logo.src = 'https://jardimsonoro.com/jslogo.png'; // versão light
+    }
+  }
+
+  // Executar ao carregar a página
+  setTheme();
+
+  // Também escutar mudanças no sistema do usuário
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setTheme);
+</script>
+
   </head>
   <body class="list">
     <script>
@@ -63,7 +73,10 @@ Para o dia internacional da mulher preparamos uma playlist em homenagem as pione
 </article>
     </main>
   <footer class="footer">
-    <span>&copy; 2025 <a href="https://jardimsonoro.com">Jardimsonoro.com</a> &middot; Rio de Janeiro, Brasil.</span>
+          <div class="logo-container">
+  <img src="https://jardimsonoro.com/jslogob.png" alt="Logo Jardim Sonoro" id="logo-img" class="logoimg" />
+		</div>
+    <p>&copy; 2025 <a href="https://jardimsonoro.com">Jardim Sonoro</a> &middot; Rio de Janeiro, Brasil.</p>
   </footer>
   </body>
 </html>

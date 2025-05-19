@@ -1,14 +1,28 @@
-* {
-  font-family: 'Roboto', sans-serif;
+@font-face {
+  font-family: 'circularbold';
+  src: url("../../../font/circularstd-bold.eot");
+  src: url("../../../font/circularstd-boldd41d.eot?#iefix") format("embedded-opentype"), url("../../../font/circularstd-bold.svg#circularbold") format("svg"), url("../../../font/circularstd-bold.woff") format("woff"), url("../../../font/circularstd-bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'circularbook';
+  src: url("../../../font/circularstd-book.eot");
+  src: url("../../../font/circularstd-bookd41d.eot?#iefix") format("embedded-opentype"), url("../../../font/circularstd-book.svg#circularbook") format("svg"), url("../../../font/circularstd-book.woff") format("woff"), url("../../../font/circularstd-book.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 
+html { scroll-behavior: smooth; 
+font-family: 'circularbook', sans-serif;
+}
 
-html { scroll-behavior: smooth; }
+* { box-sizing: border-box; 
+font-family: 'circularbook', sans-serif;
+}
 
-* { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
 
 
 @keyframes animation-acid {
@@ -137,11 +151,11 @@ html {
 body {
   margin: 0;
   color: var(--primary);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
   font-size: 1.2em;
   line-height: 1.8;
   word-break: break-word;
   background: var(--theme);
+  font-family: 'circularbook', sans-serif;
 }
 article,
 aside,
@@ -243,6 +257,21 @@ img {
 }
 .menu a {
   font-size: 1.0em;
+}
+
+
+    .logo-container {
+  margin-bottom: 0.5rem;
+}
+
+
+
+
+.logoimg {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 /* Main
 -------------------------------------------------- */
@@ -528,7 +557,6 @@ text-align: center;
   margin-left: 0.25em;
   margin-right: 0.25em;
   padding: 0.25em 0.375em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
   font-size: 0.78em;
   line-height: 1.5;
   background: var(--code-bg);
@@ -605,11 +633,12 @@ color: var(--secondary);
   margin-right: 0.0625em;
 }
 .footer a {
-  color: #80cbc4;
+   color: var(--primary);
   font-weight: bold;
 }
 .footer a:hover {
-  color: var(--primary);
+ 
+  color: #80cbc4;
   border-bottom: 0.0625em solid var(--primary);
 }
 /* 404

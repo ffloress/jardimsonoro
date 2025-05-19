@@ -53,7 +53,14 @@ main {
 a {
   text-decoration: none;
   color: white;
+  font-weight: bold;
 }
+
+a:hover {
+  color: #80cbc4;
+  text-decoration: underline;
+}
+
 h3 {
   font-size: 1.5em;
   line-height: 1.2;
@@ -193,53 +200,17 @@ font-size:1.2em;
   font-size: 1em;
 
 }
+
+.linksli {
+  font-family: 'circularbold', sans-serif;
+  font-size: 1.2em;
+
+}
 .featureSubtitle {
   font-size: 0.8em;
   margin-top: 5px;
 
 }
-/* ------------------------------- CREDITS ----------------------------------*/
-.dghez {
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
-  font-size: 13px;
-  letter-spacing: .75px;
-  margin: 20px;
-  margin-top:50px;
-}
-.dghez:hover {
-  animation: none;
-  -webkit-animation: none;
-  -moz-animation: none;
-  -o-animation: none;
-}
-.dghez:hover:after {
-  -webkit-transform: scale(0);
-  -moz-transform: scale(0);
-  -ms-transform: scale(0);
-  transform: scale(0);
-}
-.dghez:after {
-  content: "";
-  width: 28px;
-  height: 14px;
-  position: absolute;
-  -webkit-transform: scale(20);
-  -moz-transform: scale(20);
-  -ms-transform: scale(20);
-  transform: scale(20);
-  top: -7px;
-  left: -7px;
-  background: rgba(255, 255, 255, 0.5);
-  -webkit-transition: -webkit-transform 0.5s;
-  -moz-transition: -moz-transform 0.5s;
-  -ms-transition: -ms-transform 0.5s;
-  -o-transition: -o-transform 0.5s;
-  transition: transform 0.5s;
-  border-radius: 50%;
-}
-
 
 .links {
 text-align: right;
@@ -327,6 +298,13 @@ font-size: 1.8em;
   font-weight: bold;
  /* Opcional: Adicione preenchimento para tornar o destaque mais visível */
 }
+
+.acidbgtext {
+  animation: acidbg 5s linear infinite;
+  padding: 2px;
+  font-weight: bold;
+ /* Opcional: Adicione preenchimento para tornar o destaque mais visível */
+}
 /* ------------------------------- ANIMATIONS ----------------------------------*/
 @keyframes blinking {
   0% {
@@ -385,6 +363,7 @@ li {
   display: block;
 }
 
+
 #jstext {
   opacity: 1;
   transition: opacity 0.5s; /* You can adjust the transition duration (0.5s in this example) to make it faster or slower */
@@ -416,4 +395,27 @@ li {
   .email {
     font-size: 2em !important;
   }
+}
+
+
+    .bottom {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .logo-container {
+  margin-bottom: 0.5rem;
+}
+
+
+
+
+.logo {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--border);
 }

@@ -8,8 +8,23 @@
   <meta property="og:url" content="https://jardimsonoro.com/linktree" />
   <meta property="og:title" content="Jardim Sonoro" />
   <meta property="og:description" content="Jardim Sonoro Links" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <style>
+  
+  @font-face {
+  font-family: 'circularbold';
+  src: url("../font/circularstd-bold.eot");
+  src: url("../font/circularstd-boldd41d.eot?#iefix") format("embedded-opentype"), url("../font/circularstd-bold.svg#circularbold") format("svg"), url("../font/circularstd-bold.woff") format("woff"), url("../font/circularstd-bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'circularbook';
+  src: url("../font/circularstd-book.eot");
+  src: url("../font/circularstd-bookd41d.eot?#iefix") format("embedded-opentype"), url("../font/circularstd-book.svg#circularbook") format("svg"), url("../font/circularstd-book.woff") format("woff"), url("../font/circularstd-book.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
     :root {
       --bg: #1e1e1e;
       --fg: #f1f1f1;
@@ -18,27 +33,30 @@
       --border: #3e3e3e;
       --muted: #aaaaaa;
     }
-
+html {
+font-family: 'circularbook', sans-serif;
+}
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      font-family: 'circularbook', sans-serif;
     }
 
     body {
-      font-family: 'Roboto', sans-serif;
       background-color: var(--bg);
       color: var(--fg);
       line-height: 1.6;
       padding: 1rem;
+      font-family: 'circularbook', sans-serif;
     }
 
     .container {
       max-width: 600px;
       margin: 0 auto;
       text-align: center;
-      border: 1px solid var(--border);
-      animation: animation-acidborder 3s infinite;
+   /*   border: 1px solid var(--border);
+      animation: animation-acidborder 3s infinite; */
       padding: 2rem 1rem;
       border-radius: 25px;
     }
@@ -80,6 +98,7 @@
  .post-entry {
   background-color: #ffffff;       /* fundo branco */
   color: #222222;                  /* texto escuro */
+  
   border-radius: 12px;
   padding: 1rem;
   margin-bottom: 1.5rem;
@@ -96,6 +115,7 @@
   color: #1a1a1a;                  /* título escuro */
   text-decoration: none;
   font-weight: 600;
+  animation: animation-acid 3s infinite; 
 }
 
 .post-entry h2 a:hover {
@@ -128,11 +148,12 @@
     }
 
     .bottom a {
-      color: var(--accent);
+      color: var(--muted);
       text-decoration: none;
     }
 
     .bottom a:hover {
+    color: var(--accent);
       text-decoration: underline;
     }
 
@@ -195,7 +216,7 @@
       <article class="post-entry">
         <header class="entry-header">
           <h2><a href="https://jardimsonoro.com/blog/quanta-musica-e-suficiente-alguns-insights-sobre-music-branding">Quanta música é suficiente? Alguns insights sobre Music Branding.</a></h2>
-          <time>Dom 18 Maio 2025</time>
+          <time>Seg 19 Maio 2025</time>
         </header>
       </article>
     </div>
@@ -217,11 +238,7 @@
         <div class="logo-container">
   <img src="https://jardimsonoro.com/jslogo.png" alt="Logo Jardim Sonoro" class="logo" />
 </div>
-      <span>
-        © 2025
-        <a href="https://jardimsonoro.com">Jardimsonoro.com</a>
-        · Rio de Janeiro, Brasil.
-      </span>
+      <p>© 2025 <a href="https://jardimsonoro.com">Jardim Sonoro</a> · Rio de Janeiro, Brasil.</p>
     </div>
 </body>
 </html>

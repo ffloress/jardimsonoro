@@ -17,19 +17,29 @@
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="../theme/css/paper.css" />
     <link rel="stylesheet" type="text/css" href="../theme/css/pygment.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- Favicons -->
     <link rel="alternate" type="application/atom+xml" href="https://jardimsonoro.com/blog/" title="Atom Feed">
     <link rel="alternate" type="application/atom+xml" href="https://jardimsonoro.com/blog/feeds/all.atom.xml" title="Full Atom Feed">
     <!-- Script -->
-    <script>
-      function setTheme() {
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          document.body.classList.add('dark');
-          return;
-        }
-      }
-    </script>
+<script>
+  function setTheme() {
+    const logo = document.getElementById('logo-img');
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.body.classList.add('dark');
+      if (logo) logo.src = 'https://jardimsonoro.com/jslogob.png'; // versão dark
+    } else {
+      document.body.classList.remove('dark');
+      if (logo) logo.src = 'https://jardimsonoro.com/jslogo.png'; // versão light
+    }
+  }
+
+  // Executar ao carregar a página
+  setTheme();
+
+  // Também escutar mudanças no sistema do usuário
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setTheme);
+</script>
+
   </head>
   <body class="list">
     <script>
@@ -45,7 +55,7 @@
   <header class="post-header">
     <h1 class="post-title">Quanta música é suficiente? Alguns insights sobre Music Branding.</h1>
     <div class="post-meta">
-        <span class="sublinhado">Frederico Flores</span>&nbsp;&nbsp;·&nbsp;&nbsp;Dom 18 Maio 2025
+        <span class="sublinhado">Frederico Flores</span>&nbsp;&nbsp;·&nbsp;&nbsp;Seg 19 Maio 2025
     </div>
   </header>
   <div class="post-content"><p>Este ano, minha empresa <a href="https://jardimsonoro.com">Jardim Sonoro</a> completa 15 anos de curadoria musical para algumas das marcas mais legais do Brasil.
@@ -67,30 +77,8 @@ No meu Jardim Sonoro tem muito Rock, Jazz, Blues, Soul, House, Dub, Samba...</p>
 <p>A música tem um papel essencial na vida — para muitos, é tão vital quanto respirar. A ciência mostra que ela ativa todo o sistema límbico, responsável pelas emoções e pelo controle da memória<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
 <p>Além disso, há evidências de que a música foi uma das primeiras formas sofisticadas de comunicação e expressão humana<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>, antecedendo a linguagem falada. Ela transmite emoções, intenções e conecta pessoas de maneira simbólica e profunda.  </p>
 <p>Essa força ancestral torna a música uma ferramenta poderosa — tanto na vida pessoal quanto nos negócios.</p>
-<p>A curadoria musical exige:</p>
-<ul>
-<li><strong>Pesquisa constante</strong></li>
-<li><strong>Atualização permanente</strong></li>
-<li><strong>Muita sensibilidade</strong></li>
-</ul>
-<p>Isso envolve acompanhar selos, publicações, comunicadores da área e alimentar continuamente um bancos musicais com mais conteúdo.</p>
-<p>Uma trilha sonora bem escolhida transforma o ambiente, e fortalece o vínculo com a marca.</p>
-<h3>Etapas de um projeto de <em>Music Branding</em>:</h3>
-<ol>
-<li>
-<p><strong>Pesquisa e Curadoria</strong><br>
-   Estudo da marca e do público.</p>
-</li>
-<li>
-<p><strong>Implantação em ambiente físico</strong><br>
-   Rádio interna, com receptor digital, via web... A tecnologia importa.</p>
-</li>
-<li>
-<p><strong>Extensão digital da experiência</strong><br>
-   Playlists em plataformas como Spotify, Deezer e Apple Musica, levam a experiência para as redes da marca.</p>
-</li>
-</ol>
-<p>Cada faixa é uma peça na construção da atmosfera desejada. </p>
+<p>O trabalho de curadoria musical envolve acompanhar selos, publicações, comunicadores da área e alimentar continuamente um bancos musicais com mais conteúdo.</p>
+<p>Uma trilha sonora bem escolhida transforma o ambiente, e fortalece o vínculo com a marca, cada faixa é uma peça na construção da atmosfera desejada. </p>
 <p>No fim do dia, faço isso porque amo música. Acredito que uma canção pode transformar o seu dia — e talvez o mundo.</p>
 <p>Uma música que representa bem essa sensação:</p>
 <h3><a href="https://www.youtube.com/watch?v=vfXtjcw9MFM"><strong>Beatles – Here Comes The Sun</strong></a></h3>
@@ -100,7 +88,7 @@ No meu Jardim Sonoro tem muito Rock, Jazz, Blues, Soul, House, Dub, Samba...</p>
 <p>A letra, “Aqui vem o Sol, meu bem” pode ser sobre renascimento, revelação, ou sobre o momento mágico da criação musical.</p>
 </blockquote>
 <p>Essa versão faz parte da trilha do filme <em>Yesterday</em> (2019), cujo argumento propõe uma brincadeira: <strong>como seria o mundo sem as músicas dos Beatles?</strong></p>
-<p>E eu gostaria de finalizar aqui perguntando:
+<p>E eu gostaria de finalizar aqui com a pergunta:
 <strong>O que seria de nós sem as músicas que amamos?</strong></p>
 <div class="footnote">
 <hr>
@@ -122,7 +110,10 @@ No meu Jardim Sonoro tem muito Rock, Jazz, Blues, Soul, House, Dub, Samba...</p>
 </article>
     </main>
   <footer class="footer">
-    <span>&copy; 2025 <a href="https://jardimsonoro.com">Jardimsonoro.com</a> &middot; Rio de Janeiro, Brasil.</span>
+          <div class="logo-container">
+  <img src="https://jardimsonoro.com/jslogob.png" alt="Logo Jardim Sonoro" id="logo-img" class="logoimg" />
+		</div>
+    <p>&copy; 2025 <a href="https://jardimsonoro.com">Jardim Sonoro</a> &middot; Rio de Janeiro, Brasil.</p>
   </footer>
   </body>
 </html>
