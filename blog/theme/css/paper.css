@@ -559,10 +559,7 @@ text-align: center;
 .post-content iframe {
   max-width: 100%;
 }
-.post-footer {
-  margin-top: 3.5em;
-  
-}
+
 .post-tags {
 text-align: right;
 }
@@ -608,7 +605,8 @@ color: var(--secondary);
   margin-right: 0.0625em;
 }
 .footer a {
-  color: inherit;
+  color: #80cbc4;
+  font-weight: bold;
 }
 .footer a:hover {
   color: var(--primary);
