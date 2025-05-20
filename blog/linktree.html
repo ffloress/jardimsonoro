@@ -192,6 +192,34 @@ font-family: 'circularbook', sans-serif;
   border: 2px solid var(--border);
 }
 
+.post-thumb-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.thumb {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 400px) {
+  .thumb {
+    width: 48px;
+    height: 48px;
+  }
+}
+
 
   </style>
 </head>
@@ -213,12 +241,18 @@ font-family: 'circularbook', sans-serif;
     </div>
 
     <div class="blog-container">
-      <article class="post-entry">
-        <header class="entry-header">
-          <h2><a href="https://jardimsonoro.com/blog/quanta-musica-e-suficiente-alguns-insights-sobre-music-branding">Quanta música é suficiente? Alguns insights sobre Music Branding.</a></h2>
-          <time>Seg 19 Maio 2025</time>
-        </header>
-      </article>
+<article class="post-entry">
+  <div class="post-thumb-container">
+    <div class="thumb">
+      <img src="../blog/img/somuch.webp" alt="Thumbnail">
+    </div>
+    <div class="entry-header">
+      <h2><a href="https://jardimsonoro.com/blog/quanta-musica-e-suficiente-alguns-insights-sobre-music-branding">Quanta música é suficiente? Alguns insights sobre Music Branding.</a></h2>
+      <time>Seg 19 Maio 2025</time>
+    </div>
+  </div>
+</article>
+
     </div>
 
     <div class="playlist-container">

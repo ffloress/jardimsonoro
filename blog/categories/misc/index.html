@@ -26,10 +26,10 @@
     const logo = document.getElementById('logo-img');
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       document.body.classList.add('dark');
-      if (logo) logo.src = 'https://jardimsonoro.com/jslogob.png'; // versão dark
+      if (logo) logo.src = 'https://jardimsonoro.com/jslogo.png'; // versão dark
     } else {
       document.body.classList.remove('dark');
-      if (logo) logo.src = 'https://jardimsonoro.com/jslogo.png'; // versão light
+      if (logo) logo.src = 'https://jardimsonoro.com/jslogob.png'; // versão light
     }
   }
 
@@ -56,11 +56,16 @@
   <header class="post-header">
     <h1 class="post-title">misc</h1>
   </header>
-    <article class="post-entry">
-        <header class="entry-header">
-            <h2><a href="../../quanta-musica-e-suficiente-alguns-insights-sobre-music-branding">Quanta música é suficiente? Alguns insights sobre Music Branding.</a></h2>
-         
-        </header>
+<article class="post-entry">
+  <div class="post-entry-thumb-container">
+    <div class="post-thumb">
+      <img src="img/somuch.webp" alt="Thumbnail">
+    </div>
+    <div class="entry-header">
+      <h2><a href="../../quanta-musica-e-suficiente-alguns-insights-sobre-music-branding">Quanta música é suficiente? Alguns insights sobre Music Branding.</a></h2>
+    </div>
+  </div>
+
         <!-- 
         <section class="entry-content">
             <p><p>Este ano, minha empresa <a href="https://jardimsonoro.com">Jardim Sonoro</a> completa 15 anos de curadoria musical para algumas das marcas mais legais do Brasil.
@@ -69,6 +74,7 @@
 <p>Essa jornada começou …</p></p>
         </section>
         -->
+
 <div class="post-meta">
     <time class="post-date">Seg 19 Maio 2025</time>
     <ul class="post-tags">
