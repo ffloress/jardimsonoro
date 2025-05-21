@@ -20,25 +20,7 @@
     <!-- Favicons -->
     <link rel="alternate" type="application/atom+xml" href="https://jardimsonoro.com/blog/" title="Atom Feed">
     <link rel="alternate" type="application/atom+xml" href="https://jardimsonoro.com/blog/feeds/all.atom.xml" title="Full Atom Feed">
-    <!-- Script -->
-<script>
-  function setTheme() {
-    const logo = document.getElementById('logo-img');
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.body.classList.add('dark');
-      if (logo) logo.src = 'https://jardimsonoro.com/jslogo.png'; // versão dark
-    } else {
-      document.body.classList.remove('dark');
-      if (logo) logo.src = 'https://jardimsonoro.com/jslogob.png'; // versão light
-    }
-  }
 
-  // Executar ao carregar a página
-  setTheme();
-
-  // Também escutar mudanças no sistema do usuário
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setTheme);
-</script>
 
   </head>
   <body class="list home">
@@ -51,6 +33,35 @@
       </nav>
     </header>
     <main class="main">
+<article class="post-entry">
+  <div class="post-entry-thumb-container">
+    <div class="post-thumb">
+      <img src="img/murch.jpg" alt="Thumbnail">
+    </div>
+    <div class="entry-header">
+      <h2><a href="./o-som-no-cinema-do-inicio-ao-apocalypse-now">O Som No Cinema - Do Início Ao Apocalypse Now.</a></h2>
+    </div>
+  </div>
+
+        <!-- 
+        <section class="entry-content">
+            <p><h1></h1>
+<blockquote>
+<p>"Uma coleção de discos e fitas pode conter informações de culturas e períodos históricos completamente diversos, que pareceriam, a qualquer pessoa de outro século que não o nosso, uma justaposição surrealista e sem sentido."<br>
+— Murray Schaffer em <em>A Afinação do Mundo</em></p>
+</blockquote>
+<p>Neste artigo vou abordar como o som sempre influenciou …</p></p>
+        </section>
+        -->
+
+<div class="post-meta">
+    <time class="post-date">Ter 20 Maio 2025</time>
+    <ul class="post-tags">
+        <li><a href="./tags/cinema"><span class="acidbg white">cinema</span></a></li>
+    </ul>
+</div>
+
+    </article>
 <article class="post-entry">
   <div class="post-entry-thumb-container">
     <div class="post-thumb">
@@ -86,5 +97,23 @@
 		</div>
     <p>&copy; 2025 <a href="https://jardimsonoro.com">Jardim Sonoro</a> &middot; Rio de Janeiro, Brasil.</p>
   </footer>
+  <script>
+    function setTheme() {
+      const logo = document.getElementById('logo-img');
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+        if (logo) logo.src = 'https://jardimsonoro.com/jslogo.png'; // versão dark
+      } else {
+        document.body.classList.remove('dark');
+        if (logo) logo.src = 'https://jardimsonoro.com/jslogob.png'; // versão light
+      }
+    }
+
+    // Executar ao carregar a página
+    setTheme();
+
+    // Escutar mudanças no sistema do usuário
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setTheme);
+  </script>
   </body>
 </html>

@@ -20,25 +20,7 @@
     <!-- Favicons -->
     <link rel="alternate" type="application/atom+xml" href="https://jardimsonoro.com/blog/" title="Atom Feed">
     <link rel="alternate" type="application/atom+xml" href="https://jardimsonoro.com/blog/feeds/all.atom.xml" title="Full Atom Feed">
-    <!-- Script -->
-<script>
-  function setTheme() {
-    const logo = document.getElementById('logo-img');
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.body.classList.add('dark');
-      if (logo) logo.src = 'https://jardimsonoro.com/jslogo.png'; // versão dark
-    } else {
-      document.body.classList.remove('dark');
-      if (logo) logo.src = 'https://jardimsonoro.com/jslogob.png'; // versão light
-    }
-  }
 
-  // Executar ao carregar a página
-  setTheme();
-
-  // Também escutar mudanças no sistema do usuário
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setTheme);
-</script>
 
   </head>
   <body class="list">
@@ -146,5 +128,23 @@ No meu Jardim Sonoro tem muito Rock, Jazz, Blues, Soul, House, Dub, Samba...</p>
 		</div>
     <p>&copy; 2025 <a href="https://jardimsonoro.com">Jardim Sonoro</a> &middot; Rio de Janeiro, Brasil.</p>
   </footer>
+  <script>
+    function setTheme() {
+      const logo = document.getElementById('logo-img');
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+        if (logo) logo.src = 'https://jardimsonoro.com/jslogo.png'; // versão dark
+      } else {
+        document.body.classList.remove('dark');
+        if (logo) logo.src = 'https://jardimsonoro.com/jslogob.png'; // versão light
+      }
+    }
+
+    // Executar ao carregar a página
+    setTheme();
+
+    // Escutar mudanças no sistema do usuário
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setTheme);
+  </script>
   </body>
 </html>
