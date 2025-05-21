@@ -26,12 +26,23 @@
 }
 
     :root {
-      --bg: #1e1e1e;
-      --fg: #f1f1f1;
-      --accent: #80cbc4;
-      --card-bg: #2a2a2a;
-      --border: #3e3e3e;
-      --muted: #aaaaaa;
+      /* Updated variables */
+      --bg: #0a0a1a; /* Deep dark blue/black */
+      --fg: #f1f1f1; /* Light foreground for text */
+      --accent: #5bc5aa; /* Accent color from your palette */
+      --muted: #b0b0b0; /* Muted color for secondary text */
+      
+      /* Glass panel colors (examples, can be fine-tuned) */
+      --glass-bg: rgba(40, 40, 55, 0.65); /* Slightly tinted dark glass */
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --glass-shadow: rgba(0, 0, 0, 0.37);
+
+      --sub-glass-bg: rgba(50, 50, 70, 0.5);
+      --sub-glass-border: rgba(255, 255, 255, 0.08);
+
+      --button-glass-bg: rgba(60, 60, 80, 0.6);
+      --button-glass-border: rgba(255, 255, 255, 0.1);
+      --button-glass-hover-bg: rgba(80, 80, 100, 0.7);
     }
 html {
 font-family: 'circularbook', sans-serif;
@@ -49,73 +60,147 @@ font-family: 'circularbook', sans-serif;
       line-height: 1.6;
       padding: 1rem;
       font-family: 'circularbook', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column; /* Para alinhar o footer corretamente */
+      align-items: center; /* Centraliza o .container e .bottom */
+      position: relative; /* Para o z-index dos círculos funcionar bem */
+      overflow-x: hidden; /* Evita scroll horizontal dos círculos */
+    }
+
+    .background-circles-new {
+      position: fixed; /* Fixado para não rolar com a página */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden; /* Garante que os círculos não causem scroll */
+      z-index: -1; /* Atrás de todo o conteúdo */
+    }
+
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px); /* Ajuste o nível de desfoque */
+      opacity: 0.45; /* Ajuste a opacidade */
+    }
+
+    .circle.c1 {
+      width: 45vw; /* Tamanho relativo à largura da viewport */
+      height: 45vw;
+      max-width: 400px; /* Limite máximo */
+      max-height: 400px;
+      background-color: #5bc5aa; /* Sua cor verde-água */
+      top: 5%;
+      left: 5%;
+      transform: translate(-20%, -20%); /* Leve deslocamento */
+    }
+
+    .circle.c2 {
+      width: 55vw;
+      height: 55vw;
+      max-width: 500px;
+      max-height: 500px;
+      background-color: #b272e1; /* Sua cor roxa */
+      top: 25%;
+      right: 5%;
+      transform: translate(20%, -10%);
+    }
+
+    .circle.c3 {
+      width: 40vw;
+      height: 40vw;
+      max-width: 350px;
+      max-height: 350px;
+      background-color: #72b6e1; /* Sua cor azul claro */
+      bottom: 5%;
+      left: 30%;
+      transform: translate(-10%, 20%);
     }
 
     .container {
       max-width: 600px;
-      margin: 0 auto;
+      width: calc(100% - 2rem); /* Garante padding nas laterais */
+      margin: 2rem auto;
       text-align: center;
-   /*   border: 1px solid var(--border);
-      animation: animation-acidborder 3s infinite; */
-      padding: 2rem 1rem;
+      padding: 2rem 1.5rem; /* Ajustado padding */
       border-radius: 25px;
+      
+      /* Glassmorphism styles */
+      background: var(--glass-bg);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 8px 32px 0 var(--glass-shadow);
+      
+      position: relative; /* Para garantir que está acima dos círculos */
+      z-index: 1;
     }
 
     h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+      font-size: 2.2rem; /* Um pouco maior */
+      margin-bottom: 1.5rem; /* Mais espaço */
+      color: var(--fg);
+      font-family: 'circularbold', sans-serif;
     }
 
     .links-container {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
-      margin: 2rem 0;
+      gap: 1rem; /* Espaçamento entre botões */
+      margin: 2.5rem 0; /* Mais margem vertical */
     }
 
     .link-button {
-      background-color: var(--card-bg);
+      background-color: var(--button-glass-bg);
       color: var(--fg);
       text-decoration: none;
       padding: 0.9rem 1.5rem;
       border-radius: 1.5rem;
       text-align: center;
-      transition: background 0.3s ease;
-      border: 1px solid var(--border);
+      transition: background 0.3s ease, transform 0.2s ease;
+      border: 1px solid var(--button-glass-border);
       font-weight: bold;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
 
     .link-button:hover {
-      background-color: #3e3e3e;
+      background-color: var(--button-glass-hover-bg);
+      transform: translateY(-2px); /* Efeito sutil ao passar o mouse */
     }
 
     .blog-container, .playlist-container {
-      margin: 2rem 0;
+      margin: 2.5rem 0;
       width: 100%;
     }
 
  .post-entry {
-  background-color: #ffffff;       /* fundo branco */
-  color: #222222;                  /* texto escuro */
-  
+  background-color: var(--sub-glass-bg); /* Fundo de vidro sutil */
+  color: var(--fg); /* Texto claro */
+  backdrop-filter: blur(5px); /* Desfoque sutil para o post */
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid var(--sub-glass-border);
   border-radius: 12px;
-  padding: 1rem;
+  padding: 1.2rem; /* Mais padding */
   margin-bottom: 1.5rem;
   text-align: left;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
+  transition: transform 0.3s ease;
+}
+.post-entry:hover {
+    transform: translateY(-3px);
 }
 
 .post-entry h2 {
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
+  font-family: 'circularbold', sans-serif;
 }
 
 .post-entry h2 a {
-  color: var(--accent);                  /* título escuro */
+  color: var(--accent); /* Cor de destaque da paleta */
   text-decoration: none;
   font-weight: 600;
- /* animation: animation-acid 3s infinite; */
 }
 
 .post-entry h2 a:hover {
@@ -123,8 +208,8 @@ font-family: 'circularbook', sans-serif;
 }
 
 .post-entry time {
-  font-size: 0.55rem;
-  color: #666666;                  /* data mais suave */
+  font-size: 0.75rem; /* Um pouco maior */
+  color: var(--muted); 
 }
 
 
@@ -133,6 +218,7 @@ font-family: 'circularbook', sans-serif;
       width: 100%;
       height: 152px;
       display: block;
+      border: none; /* Remove borda padrão do iframe se houver */
     }
 
     .info {
@@ -142,9 +228,15 @@ font-family: 'circularbook', sans-serif;
     }
 
     .bottom {
-      margin-top: 3rem;
+      margin-top: auto; /* Empurra para o final se o body for flex column */
+      padding-top: 2rem; /* Espaço acima do rodapé */
+      padding-bottom: 1rem;
       font-size: 0.9rem;
       color: var(--muted);
+      text-align: center; /* Garante centralização */
+      width: 100%; /* Ocupa a largura para centralizar o texto */
+      position: relative;
+      z-index: 1;
     }
 
     .bottom a {
@@ -157,6 +249,7 @@ font-family: 'circularbook', sans-serif;
       text-decoration: underline;
     }
 
+    /* Keyframes podem ser mantidos se você quiser usá-los em algum lugar */
     @keyframes animation-acid {
       0%, 100% { color: #5bc5aa; }
       33.33% { color: #b272e1; }
@@ -175,21 +268,23 @@ font-family: 'circularbook', sans-serif;
       66.67% { border-color: #72b6e1; }
     }
     
-.header {
+.header { /* O header principal que contém o .container */
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1rem; /* Removido ou ajustado pois o .container tem margem */
+  width: 100%; /* Para ocupar a largura e ajudar na centralização */
 }
 
 .logo-container {
   margin-bottom: 0.5rem;
+  display: inline-block; /* Para centralizar se o texto do h1 for quebrado */
 }
 
 .logo {
-  width: 25px;
-  height: 25px;
+  width: 30px; /* Aumentado um pouco */
+  height: 30px;
   object-fit: cover;
   border-radius: 50%;
-  border: 2px solid var(--border);
+  border: 1px solid var(--glass-border); /* Borda de vidro sutil */
 }
 
 .post-thumb-container {
@@ -214,25 +309,74 @@ font-family: 'circularbook', sans-serif;
 }
 
 @media (max-width: 400px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  .container {
+    padding: 1.5rem 1rem;
+  }
+  .link-button {
+    font-size: 1rem;
+    padding: 0.8rem 1.2rem;
+  }
+  .post-entry {
+    padding: 1rem;
+  }
   .thumb {
     width: 48px;
     height: 48px;
   }
+  .circle { /* Reduzir um pouco o blur em telas menores se necessário */
+    filter: blur(90px);
+  }
+}
+/* Removendo o CSS antigo do .background que foi substituído */
+/*
+.background {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+    display: flex;
+    flex-grow: 1;
 }
 
+.background div {
+    position: absolute;
+    border-radius: 100%;
+    height: 0;
+    filter: blur(240vw);
+    opacity: 0.4;
+}
 
+.background div:nth-child(1) {
+    background: linear-gradient(132deg, #1FCFC3 0.00%, #1F91CF 100.00%);
+    width: 30%;
+    padding-top: 30%;
+    left: 20%;
+    top: 20%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.background div:nth-child(2) {
+    bac // truncated in original, removing all
+}
+*/
   </style>
 </head>
 <body>
-<div class="header">
-  <!-- 
-  <div class="logo-container">
-  <img src="https://jardimsonoro.com/jslogo.png" alt="Logo Jardim Sonoro" class="logo" />
+
+<div class="background-circles-new">
+   <div class="circle c1"></div>
+   <div class="circle c2"></div>
+   <div class="circle c3"></div>
 </div>
--->
-   
-<div>
-  <div class="container">
+
+<div class="header">
+  <div> <div class="container">
   <h1>Jardim Sonoro</h1> 
 
     <div class="blog-container">
@@ -247,7 +391,6 @@ font-family: 'circularbook', sans-serif;
     </div>
   </div>
 </article>
-
 <article class="post-entry">
   <div class="post-thumb-container">
     <div class="thumb">
@@ -259,7 +402,6 @@ font-family: 'circularbook', sans-serif;
     </div>
   </div>
 </article>
-
     </div>
     <div class="links-container">
           <a class="link-button" href="https://jardimsonoro.com" target="_blank">Site</a>
@@ -280,8 +422,7 @@ font-family: 'circularbook', sans-serif;
     </div>
 
 
-  </div>
-      <div class="bottom">
+  </div> </div> </div> <div class="bottom">
         <div class="logo-container">
   <img src="https://jardimsonoro.com/jslogo.png" alt="Logo Jardim Sonoro" class="logo" />
 </div>
