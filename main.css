@@ -424,3 +424,19 @@ li {
   border-radius: 50%;
   border: 2px solid var(--border);
 }
+
+.social-icons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.social-icons a svg {
+  fill: #aaa;
+  transition: fill 0.3s ease;
+}
+
+.social-icons a:hover svg {
+  fill: #fff;
+}
