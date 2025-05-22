@@ -1,0 +1,10 @@
+<footer class="page-footer">
+    <nav class="pagination">
+        {% if articles_page.has_previous() %}
+            <a class="prev" href="{{ SITEURL }}/{{ articles_previous_page.url }}">&laquo;</a>
+        {% endif %}
+        {% if articles_page.has_next() %}
+            <a class="next" href="{{ SITEURL }}/{{ articles_next_page.url }}">&raquo;</a>
+        {% endif %}
+    </nav>
+</footer>

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+<link rel="alternate" type="application/atom+xml" href="{{ FEED_DOMAIN }}/feeds/{{ category.slug }}.atom.xml" title="Category Atom Feed">
+{% endblock extrahead %}
+
+{% block content %}
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">{{ category }}</h1>
+  </header>
+  {% include 'article_list.html' %}
+</article>
+{% endblock content %}

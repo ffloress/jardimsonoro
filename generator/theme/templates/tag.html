@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<article class="post-single">
+  <header class="post-header">
+    <div class="right">
+    <p class="post-title">#{{ tag }}</p>
+    </div>
+  </header>
+  {% include 'article_list_tags.html' %}
+</article>
+{% endblock content %}

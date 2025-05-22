@@ -1,0 +1,37 @@
+{% block content %}
+    {% for article in articles_page.object_list %}
+<article class="post-entry">
+  <div class="post-entry-thumb-container">
+    {% if article.featured_image %}
+    <div class="post-thumb">
+      <img src="{{ article.featured_image | replace('../', '../../') }}" alt="Thumbnail">
+    </div>
+    {% endif %}
+    <div class="entry-header">
+      <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+    </div>
+  </div>
+
+        <!-- 
+        <section class="entry-content">
+            <p>{{ article.summary }}</p>
+        </section>
+        -->
+
+<div class="post-meta">
+    <time class="post-date">{{ article.locale_date }}</time>
+    {% if article.tags %}
+    <ul class="post-tags">
+        {% for tag in article.tags %}
+        <li><a href="{{ SITEURL }}/{{ tag.url }}"><span class="acidbg white">{{ tag.name }}</span></a></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+
+    </article>
+    {% endfor %}
+    {% if articles_page.has_other_pages() %}
+        {% include 'pagination.html' %}
+    {% endif %}
+{% endblock content %}

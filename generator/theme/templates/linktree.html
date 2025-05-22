@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <title>Jardim Sonoro - Linktree</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Jardim Sonoro Links" />
+  <meta property="og:url" content="https://jardimsonoro.com/linktree" />
+  <meta property="og:title" content="Jardim Sonoro" />
+  <meta property="og:description" content="Jardim Sonoro Links" />
+  <style>
+  
+  @font-face {
+  font-family: 'circularbold';
+  src: url("../font/circularstd-bold.eot");
+  src: url("../font/circularstd-boldd41d.eot?#iefix") format("embedded-opentype"), url("../font/circularstd-bold.svg#circularbold") format("svg"), url("../font/circularstd-bold.woff") format("woff"), url("../font/circularstd-bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'circularbook';
+  src: url("../font/circularstd-book.eot");
+  src: url("../font/circularstd-bookd41d.eot?#iefix") format("embedded-opentype"), url("../font/circularstd-book.svg#circularbook") format("svg"), url("../font/circularstd-book.woff") format("woff"), url("../font/circularstd-book.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+    :root {
+      /* Updated variables */
+      --bg: #0a0a1a; /* Deep dark blue/black */
+      --fg: #f1f1f1; /* Light foreground for text */
+      --accent: #5bc5aa; /* Accent color from your palette */
+      --muted: #b0b0b0; /* Muted color for secondary text */
+      
+      /* Glass panel colors (examples, can be fine-tuned) */
+      --glass-bg: rgba(40, 40, 55, 0.65); /* Slightly tinted dark glass */
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --glass-shadow: rgba(0, 0, 0, 0.37);
+
+      --sub-glass-bg: rgba(50, 50, 70, 0.5);
+      --sub-glass-border: rgba(255, 255, 255, 0.08);
+
+      --button-glass-bg: rgba(60, 60, 80, 0.6);
+      --button-glass-border: rgba(255, 255, 255, 0.1);
+      --button-glass-hover-bg: rgba(80, 80, 100, 0.7);
+    }
+html {
+font-family: 'circularbook', sans-serif;
+}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'circularbook', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      padding: 1rem;
+      font-family: 'circularbook', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column; /* Para alinhar o footer corretamente */
+      align-items: center; /* Centraliza o .container e .bottom */
+      position: relative; /* Para o z-index dos círculos funcionar bem */
+      overflow-x: hidden; /* Evita scroll horizontal dos círculos */
+    }
+
+    .background-circles-new {
+      position: fixed; /* Fixado para não rolar com a página */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden; /* Garante que os círculos não causem scroll */
+      z-index: -1; /* Atrás de todo o conteúdo */
+    }
+
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px); /* Ajuste o nível de desfoque */
+      opacity: 0.45; /* Ajuste a opacidade */
+    }
+
+    .circle.c1 {
+      width: 45vw; /* Tamanho relativo à largura da viewport */
+      height: 45vw;
+      max-width: 400px; /* Limite máximo */
+      max-height: 400px;
+      background-color: #5bc5aa; /* Sua cor verde-água */
+      top: 5%;
+      left: 5%;
+      transform: translate(-20%, -20%); /* Leve deslocamento */
+    }
+
+    .circle.c2 {
+      width: 55vw;
+      height: 55vw;
+      max-width: 500px;
+      max-height: 500px;
+      background-color: #b272e1; /* Sua cor roxa */
+      top: 25%;
+      right: 5%;
+      transform: translate(20%, -10%);
+    }
+
+    .circle.c3 {
+      width: 40vw;
+      height: 40vw;
+      max-width: 350px;
+      max-height: 350px;
+      background-color: #72b6e1; /* Sua cor azul claro */
+      bottom: 5%;
+      left: 30%;
+      transform: translate(-10%, 20%);
+    }
+
+    .container {
+      max-width: 600px;
+      width: calc(100% - 2rem); /* Garante padding nas laterais */
+      margin: 2rem auto;
+      text-align: center;
+      padding: 2rem 1.5rem; /* Ajustado padding */
+      border-radius: 25px;
+      
+      /* Glassmorphism styles */
+      background: var(--glass-bg);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 8px 32px 0 var(--glass-shadow);
+      
+      position: relative; /* Para garantir que está acima dos círculos */
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 2.2rem; /* Um pouco maior */
+      margin-bottom: 1.5rem; /* Mais espaço */
+      color: var(--fg);
+      font-family: 'circularbold', sans-serif;
+    }
+
+    .links-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem; /* Espaçamento entre botões */
+      margin: 2.5rem 0; /* Mais margem vertical */
+    }
+
+    .link-button {
+      background-color: var(--button-glass-bg);
+      color: var(--fg);
+      text-decoration: none;
+      padding: 0.9rem 1.5rem;
+      border-radius: 1.5rem;
+      text-align: center;
+      transition: background 0.3s ease, transform 0.2s ease;
+      border: 1px solid var(--button-glass-border);
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .link-button:hover {
+      background-color: var(--button-glass-hover-bg);
+      transform: translateY(-2px); /* Efeito sutil ao passar o mouse */
+    }
+
+    .blog-container, .playlist-container {
+      margin: 2.5rem 0;
+      width: 100%;
+    }
+
+ .post-entry {
+  background-color: var(--sub-glass-bg); /* Fundo de vidro sutil */
+  color: var(--fg); /* Texto claro */
+  backdrop-filter: blur(5px); /* Desfoque sutil para o post */
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid var(--sub-glass-border);
+  border-radius: 12px;
+  padding: 1.2rem; /* Mais padding */
+  margin-bottom: 1.5rem;
+  text-align: left;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
+  transition: transform 0.3s ease;
+}
+.post-entry:hover {
+    transform: translateY(-3px);
+}
+
+.post-entry h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  font-family: 'circularbold', sans-serif;
+}
+
+.post-entry h2 a {
+  color: #fff; /* Cor de destaque da paleta */
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.post-entry h2 a:hover {
+  text-decoration: underline;
+  color: var(--accent);
+}
+
+.post-entry time {
+  font-size: 0.75rem; /* Um pouco maior */
+  color: var(--muted); 
+}
+
+
+    iframe {
+      border-radius: 12px;
+      width: 100%;
+      height: 152px;
+      display: block;
+      border: none; /* Remove borda padrão do iframe se houver */
+    }
+
+    .info {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+
+    .bottom {
+      margin-top: auto; /* Empurra para o final se o body for flex column */
+      padding-top: 2rem; /* Espaço acima do rodapé */
+      padding-bottom: 1rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-align: center; /* Garante centralização */
+      width: 100%; /* Ocupa a largura para centralizar o texto */
+      position: relative;
+      z-index: 1;
+    }
+
+    .bottom a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .bottom a:hover {
+    color: var(--accent);
+      text-decoration: underline;
+    }
+
+    /* Keyframes podem ser mantidos se você quiser usá-los em algum lugar */
+    @keyframes animation-acid {
+      0%, 100% { color: #5bc5aa; }
+      33.33% { color: #b272e1; }
+      66.67% { color: #72b6e1; }
+    }
+
+    @keyframes animation-acidbg {
+      0%, 100% { background-color: #336b99; }
+      33.33% { background-color: #287c66; }
+      66.67% { background-color: #6d3d99; }
+    }
+
+    @keyframes animation-acidborder {
+      0%, 100% { border-color: #5bc5aa; }
+      33.33% { border-color: #b272e1; }
+      66.67% { border-color: #72b6e1; }
+    }
+    
+.header { /* O header principal que contém o .container */
+  text-align: center;
+  margin-bottom: 1rem; /* Removido ou ajustado pois o .container tem margem */
+  width: 100%; /* Para ocupar a largura e ajudar na centralização */
+}
+
+.logo-container {
+  margin-bottom: 0.5rem;
+  display: inline-block; /* Para centralizar se o texto do h1 for quebrado */
+}
+
+.logo {
+  width: 30px; /* Aumentado um pouco */
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border); /* Borda de vidro sutil */
+}
+
+.post-thumb-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.thumb {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  .container {
+    padding: 1.5rem 1rem;
+  }
+  .link-button {
+    font-size: 1rem;
+    padding: 0.8rem 1.2rem;
+  }
+  .post-entry {
+    padding: 1rem;
+  }
+  .thumb {
+    width: 48px;
+    height: 48px;
+  }
+  .circle { /* Reduzir um pouco o blur em telas menores se necessário */
+    filter: blur(90px);
+  }
+}
+
+.social-icons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.social-icons a svg {
+  fill: #fff;
+  transition: fill 0.3s ease;
+}
+
+.social-icons a:hover svg {
+  fill: #80cbc4;
+}
+
+/* Removendo o CSS antigo do .background que foi substituído */
+/*
+.background {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+    display: flex;
+    flex-grow: 1;
+}
+
+.background div {
+    position: absolute;
+    border-radius: 100%;
+    height: 0;
+    filter: blur(240vw);
+    opacity: 0.4;
+}
+
+.background div:nth-child(1) {
+    background: linear-gradient(132deg, #1FCFC3 0.00%, #1F91CF 100.00%);
+    width: 30%;
+    padding-top: 30%;
+    left: 20%;
+    top: 20%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.background div:nth-child(2) {
+    bac // truncated in original, removing all
+}
+*/
+  </style>
+</head>
+<body>
+
+<div class="background-circles-new">
+   <div class="circle c1"></div>
+   <div class="circle c2"></div>
+   <div class="circle c3"></div>
+</div>
+
+<div class="header">
+  <div> <div class="container">
+  <h1>Jardim Sonoro</h1> 
+
+    <div class="blog-container">
+      {% for article in articles[:3] %}
+<article class="post-entry">
+  <div class="post-thumb-container">
+    {% if article.featured_image %}
+    <div class="thumb">
+      <img src="{{ article.featured_image | replace('../', '../blog/') }}" alt="Thumbnail">
+    </div>
+    {% endif %}
+    <div class="entry-header">
+      <h2><a href="https://jardimsonoro.com/blog/{{ article.url }}">{{ article.title }}</a></h2>
+      <time>{{ article.locale_date }}</time>
+    </div>
+  </div>
+</article>
+      {% endfor %}
+    </div>
+    <div class="links-container">
+          <a class="link-button" href="https://jardimsonoro.com">Site</a>
+      <a class="link-button" href="https://jardimsonoro.com/blog">Blog</a>
+    <a class="link-button" href="https://moods.com.br">Player Moods</a>
+      <a class="link-button" href="mailto:oi@jardimsonoro.com" target="_blank"><span class="social-icons">   
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M2 4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1.5l-10 6.25L2 5.5V4zm0 3.25v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-12l-10 6.25L2 7.25z"/>
+  </svg>
+      </span></a>
+    </div>
+  <!--   
+  <div class="playlist-container">
+  
+      <iframe src="https://open.spotify.com/embed/playlist/3mvdyXJ121dHGz7hvEuLdg?utm_source=generator"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+      
+    </div>
+-->
+
+  </div> </div> </div>                <footer class="bottom">
+<div class="social-icons">
+  <a href="https://www.instagram.com/jardimsonoro.rio" target="_blank" aria-label="Instagram">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#aaa" viewBox="0 0 24 24">
+      <path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 2 .2 2.4.4.5.2.9.4 1.3.8s.6.8.8 1.3c.2.4.3 1.2.4 2.4.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 2-.4 2.4-.2.5-.4.9-.8 1.3s-.8.6-1.3.8c-.4.2-1.2.3-2.4.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-2-.2-2.4-.4a3.7 3.7 0 01-2.1-2.1c-.2-.4-.3-1.2-.4-2.4C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-2 .4-2.4A3.7 3.7 0 014.8 2.3c.4-.2 1.2-.3 2.4-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1 .1-1.6.2-2 .3a2 2 0 00-1.1 1.1c-.1.4-.2 1-.3 2-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1 .2 1.6.3 2a2 2 0 001.1 1.1c.4.1 1 .2 2 .3 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1-.1 1.6-.2 2-.3a2 2 0 001.1-1.1c.1-.4.2-1 .3-2 .1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1-.2-1.6-.3-2a2 2 0 00-1.1-1.1c-.4-.1-1-.2-2-.3-1.2-.1-1.6-.1-4.7-.1zM12 6.5a5.5 5.5 0 110 11 5.5 5.5 0 010-11zm0 1.8a3.7 3.7 0 100 7.4 3.7 3.7 0 000-7.4zm5.4-1.9a1.3 1.3 0 110 2.6 1.3 1.3 0 010-2.6z"/>
+    </svg>
+  </a>
+  <a href="https://x.com/jardimsonoro" target="_blank" aria-label="Twitter">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#aaa" viewBox="0 0 24 24">
+      <path d="M22.25 2l-7.56 8.87L23.5 22h-5.25l-5.83-6.88L6.5 22H.5l8.14-9.55L.5 2h5.25l5.25 6.18L17.5 2z"/>
+    </svg>
+  </a>
+</div>
+
+<p>© {{ CURRENT_YEAR }} <a href="https://jardimsonoro.com">Jardim Sonoro</a> · Rio de Janeiro, Brasil.</p>
+<p class="">CNPJ: 12.553.127/0001­17/PR  ·  60.042.426/0001-30/RJ </p>
+    </footer>
+</body>
+</html>
