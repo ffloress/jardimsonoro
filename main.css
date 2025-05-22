@@ -433,10 +433,10 @@ li {
 }
 
 .social-icons a svg {
-  fill: #aaa;
+  fill: #fff;
   transition: fill 0.3s ease;
 }
 
 .social-icons a:hover svg {
-  fill: #fff;
+  fill: #80cbc4;
 }
