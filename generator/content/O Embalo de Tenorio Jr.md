@@ -27,7 +27,7 @@ Jeff Harris, repórter fictício da *The New Yorker*, com a voz inconfundível d
 
 ## Os Anos Dourados
 
-![Beco Das Garrafas 2](../img/becodasgarrafas2.jpg)
+![Tenorinho 3](../img/tenorio3.jpeg)
 
 
 Francisco Tenório Cerqueira Júnior nasceu no Rio de Janeiro, em 4 de julho de 1941, no bairro de Laranjeiras. Já na juventude, emergiu na cena musical carioca como um talento nato, um pianista cuja habilidade parecia brotar com naturalidade, como se fosse um dom inato.
@@ -54,7 +54,7 @@ Ele também colaborou com nomes como Tom Jobim, Vinicius de Moraes, Chico Buarqu
 
 Aos 23 anos, Tenório Jr. transitou de sideman cobiçado para líder de seu próprio (e único) álbum, *[Embalo](https://www.discogs.com/master/351128-Ten%C3%B3rio-Jr-Embalo)* (1964), com carta branca da gravadora RGE. Esse trabalho atesta seu talento precoce e o prestígio acumulado, além de capturar o otimismo de uma era que investia no potencial do samba-jazz. A liberdade criativa resultou numa obra que, em retrospecto, parece o zênite de um momento único na música brasileira.
 
-![Tenorinho 3](../img/tenorio3.jpeg)
+
 
 ## Embalo
 ![Tenorio Jr. - Embalo](../img/tenorioembalo.jpg)

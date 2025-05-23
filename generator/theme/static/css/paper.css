@@ -812,11 +812,7 @@ margin-top: 50px;
   fill: #80cbc4;
 }
 
-.post-tags .acidbg {
-  white-space: nowrap;
-}
 
 .cnpj-info {
-  font-size: 0.7em; /* Isso tornará o texto 90% do tamanho da fonte do rodapé. Ajuste conforme necessário. */
-                   /* Por exemplo, 0.8em para 80% do tamanho. */
-}
+  font-size: 0.7em; 
+  }
