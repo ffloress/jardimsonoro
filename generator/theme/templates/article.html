@@ -34,6 +34,11 @@
 
 </article>
 
+<div id="myModal" class="image-modal">
+  <span class="close-modal">&times;</span>
+  <img class="modal-content" id="imgModal">
+</div>
+
 <div id="disqus_thread" class="space-top"></div>
 <script>
     /**
@@ -53,4 +58,60 @@
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Seleciona o container do conteúdo do post
+  const postContent = document.querySelector('.post-content');
+  if (postContent) {
+    // Seleciona todas as imagens dentro do container
+    const images = postContent.querySelectorAll('img');
+
+    // Elementos do Modal
+    const modal = document.getElementById('myModal');
+    const modalImg = document.getElementById('imgModal');
+    const spanClose = document.querySelector('.close-modal');
+
+    // >>> INÍCIO DA MODIFICAÇÃO <<<
+    images.forEach((img, index) => {
+      // Verifica se NÃO é a primeira imagem (index 0)
+      if (index > 0) {
+    // >>> FIM DA MODIFICAÇÃO <<<
+
+        // Adiciona uma classe para estilização da miniatura
+        img.classList.add('thumbnail');
+
+        // Adiciona o evento de clique para abrir o modal
+        img.onclick = function() {
+          if (modal && modalImg) {
+            modal.style.display = "block";
+            modalImg.src = this.src; // Usa o src da imagem clicada
+            modalImg.alt = this.alt;
+          }
+        }
+    // >>> INÍCIO DA MODIFICAÇÃO <<<
+      } // Fecha o IF
+    // >>> FIM DA MODIFICAÇÃO <<<
+    });
+
+    // Evento para fechar o modal ao clicar no 'X'
+    if (spanClose) {
+      spanClose.onclick = function() {
+        if (modal) {
+          modal.style.display = "none";
+        }
+      }
+    }
+
+    // Evento para fechar o modal ao clicar fora da imagem
+    if (modal) {
+      modal.onclick = function(event) {
+        if (event.target === modal) { // Verifica se o clique foi no fundo do modal
+          modal.style.display = "none";
+        }
+      }
+    }
+  }
+});
+</script>
+
 {% endblock content %}

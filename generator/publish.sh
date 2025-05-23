@@ -12,7 +12,7 @@ pelican "$source" -s pelicanconf.py -o "${destination}/blog" -t "$theme"
 ########################
 
 #Copy IMGs to folder
-rsync -a "$source"/img "${destination}/blog"
+rsync -a img "${destination}/blog"
 ##########################
 
 
