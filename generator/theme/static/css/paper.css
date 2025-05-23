@@ -502,11 +502,12 @@ img {
 
 .post-tags {
     display: flex;
+    flex-wrap: wrap; /* Adicione esta linha para permitir a quebra das tags */
     gap: 0.5em;
     list-style: none;
     margin: 0;
     padding: 0;
-    text-align: right;
+    text-align: right; /* Esta regra existente pode precisar de ajuste dependendo do resultado desejado após o wrap */
 }
 
 .post-tags li {
