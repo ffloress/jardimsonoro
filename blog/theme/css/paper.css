@@ -589,6 +589,11 @@ img {
 .post-content dl {
   margin-bottom: 1.2em;
 }
+
+.post-content p {
+  text-indent: 1.5em; 
+}
+
 .post-content ul,
 .post-content ol {
   padding-left: 1.25em;
@@ -811,7 +816,7 @@ margin-top: 50px;
   white-space: nowrap;
 }
 
-.footer .cnpj-info {
+.cnpj-info {
   font-size: 0.7em; /* Isso tornará o texto 90% do tamanho da fonte do rodapé. Ajuste conforme necessário. */
                    /* Por exemplo, 0.8em para 80% do tamanho. */
 }
