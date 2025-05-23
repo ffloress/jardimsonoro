@@ -46,8 +46,6 @@ Nesse caldeirão sonoro, Tenório Jr. ombreava com gigantes de sua geração:
 - 🎸  Contrabaixistas Luiz Chaves, Tião Neto, Sérgio Barrozo, Bebeto Castilho e Jorge Marinho
 - 🎷 Gigantes do sax como Paulo Moura e J.T. Meirelles, o trombonista Raul de Souza, entre outros. 
 
-Eram músicos superdotados, muitos vindos de origens humildes, que encontravam no Beco um espaço de afirmação e virtuosismo.
-
 ![Beco Das Garrafas](../img/becodasgarrafas1.jpg)
 
 Tenório Jr. destacou-se rapidamente como um dos pianistas mais inovadores de sua geração. Seu estilo era uma fusão potente: uma base rítmica inconfundivelmente brasileira, harmonias sofisticadas com um toque impressionista e a malícia da gafieira. Sua versatilidade o tornou um acompanhante requisitadíssimo, deixando sua marca em discos fundamentais como *[É Samba Novo](https://www.discogs.com/release/3949207-Edison-Machado-Edison-Machado-É-Samba-Novo?srsltid=AfmBOooE-1bxRTJ09Ew9rWS4VB3RcpoHVlB-uUAR1FpRu_hpvKFv6Lcj)* (1964), de Edson Machado, *[Vagamente](https://www.discogs.com/release/3277136-Wanda-Vagamente?srsltid=AfmBOoroOPO5TbxvREZUKih0Xi9URCpT7KWyqYJTwt4xmMrbVxfJ_3Oc)* (1964), de Wanda Sá, e espetacular album: *[A Arte Maior de Leny Andrade](https://www.discogs.com/release/6295104-Leny-Andrade-A-Arte-Maior-De-Leny-Andrade?srsltid=AfmBOorY00JtYaPR4vJy54V5qM6YDo9ZET5iAUHBEhYsuLdvm_EEUAM6)* (1963), de Leny Andrade, que conta com uma versão ao vivo de "Embalo".
