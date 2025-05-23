@@ -6,10 +6,13 @@ Author: Frederico Flores
 
 Em uma loja de discos empoeirada no Rio de Janeiro, sob a iluminação âmbar o jornalista musical Jeff Harris descobre, quase por acaso, a música de Francisco Tenório Cerqueira Júnior. A fumaça preguiçosa de cigarro paira no ar, criando um cenário quase cinematográfico. O impacto é imediato, uma epifania sonora que o lança numa busca obsessiva: quem era aquele pianista virtuoso, autor de um único e seminal álbum, *[Embalo](https://www.discogs.com/master/228723-Tenório-Jr-Embalo)*, e tragicamente desaparecido nas brumas da ditadura argentina em 1976.
 
+![Screenshot 3 de Atiraram no Pianista](../img/pianistavista.jpg)
+
+![Screenshot de Atiraram No Pianista](../img/pianistario.jpg)
 
 ![Toca Do Vinicius](../img/tocadovinicius.webp)
 
-![Screenshot de Atiraram No Pianista](../img/pianistario.jpg)
+
 
 Essa cena abre o animadoc *Atiraram no Pianista* [(2023)](https://www.imdb.com/pt/title/tt11242654/?reasonForLanguagePrompt=browser_header_mismatch), dos diretores espanhóis Fernando Trueba e Javier Mariscal, servindo como portal para uma história que, por décadas, permaneceu uma ferida aberta, uma melodia brutalmente interrompida.
 
@@ -19,7 +22,7 @@ Jeff Harris, repórter fictício da *The New Yorker*, com a voz inconfundível d
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/heBfOfb4lXM?si=spMEqJNNvST318ge" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-![Screenshot 3 de Atiraram no Pianista](../img/pianistavista.jpg)
+
 
 
 ## Os Anos Dourados
