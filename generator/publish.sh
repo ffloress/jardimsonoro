@@ -6,14 +6,30 @@ destination=".."
 theme="theme"
 ###########################
 
+
+
+
 #Generate Blog
 mkdir "${destination}/blog" 2>/dev/null
 pelican "$source" -s pelicanconf.py -o "${destination}/blog" -t "$theme"
 ########################
 
-#Copy IMGs to folder
-rsync -a img "${destination}/blog"
-##########################
+
+######IMG##############
+mkdir -p "${destination}/blog"
+
+# Percorre todos os arquivos em ./img/ (recursivamente ou não)
+find ./img/ -type f | while read -r img; do
+  # Verifica se o arquivo é uma imagem reconhecida pelo ImageMagick
+  if magick identify "$img" &> /dev/null; then
+    # Extrai o nome do arquivo
+    filename=$(basename "$img")
+    # Converte a imagem redimensionando com proporção mantida e limites
+    echo "$img"
+    magick convert "$img" -resize '500x400>' "${destination}/blog/$filename"
+  fi
+done
+
 
 
 #Generate Linktree
