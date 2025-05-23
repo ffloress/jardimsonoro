@@ -198,7 +198,7 @@ text-decoration: underline;
   --primary: rgba(255, 255, 255, 0.84);
   --secondary: rgba(255, 255, 255, 0.56);
   --tertiary: rgba(255, 255, 255, 0.16);
-  --content: rgba(255, 255, 255, 0.64);
+  --content: rgba(255, 255, 255, 0.75); /* Exemplo: aumentado de 0.64 para 0.75 */
 
   --hljs-bg: #2e2e33;
   --code-bg: #37383e;
@@ -586,7 +586,7 @@ img {
 .post-content ul,
 .post-content ol,
 .post-content dl {
-  margin-bottom: var(--content-gap);
+  margin-bottom: 1.2em;
 }
 .post-content ul,
 .post-content ol {
@@ -806,3 +806,11 @@ margin-top: 50px;
   fill: #80cbc4;
 }
 
+.post-tags .acidbg {
+  white-space: nowrap;
+}
+
+.footer .cnpj-info {
+  font-size: 0.9em; /* Isso tornará o texto 90% do tamanho da fonte do rodapé. Ajuste conforme necessário. */
+                   /* Por exemplo, 0.8em para 80% do tamanho. */
+}

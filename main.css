@@ -440,3 +440,9 @@ li {
 .social-icons a:hover svg {
   fill: #80cbc4;
 }
+
+
+.bottom .cnpj-info {
+  font-size: 0.9em; /* Isso tornará o texto 90% do tamanho da fonte do rodapé. Ajuste conforme necessário. */
+                   /* Por exemplo, 0.8em para 80% do tamanho. */
+}
