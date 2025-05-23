@@ -80,12 +80,14 @@ Por anos, o destino de Tenório permaneceu envolto em mistério. Apenas em 1986,
 
 
 ## Memória e Legado
+![Screenshot 3 de Atiraram no Pianista](../img/pianistavista.jpg)
 
 O desaparecimento e assassinato de Francisco Tenório Jr. representaram mais do que a perda de um músico talentoso: foram a interrupção brutal de uma trajetória que prometia contribuições inovadoras. Sua música, com sua fusão audaciosa de samba, jazz, bossa nova e elementos modais, continua a ecoar e inspirar músicos contemporâneos.
 
 O filme *Atiraram no Pianista* desempenha um papel crucial no resgate dessa memória. Ao apresentar Tenório Jr. a novas gerações e contextualizar sua tragédia dentro dos crimes das ditaduras latino-americanas, oferece uma reparação simbólica, tardia, mas necessária.
 
-![Screenshot 3 de Atiraram no Pianista](../img/pianistavista.jpg)
+![Placa no Hotel Normandie](../img/placahotelnormandie.jpg)
+
 
 Como brasileiro, é difícil não refletir sobre a ironia de um "estrangeiro" — seja o jornalista fictício, sejam os diretores espanhóis — redescobrir e revalorizar um tesouro cultural obscurecido pela violência política. Isso levanta questões incômodas sobre como o Brasil lida com seus traumas e heróis silenciados.
 
