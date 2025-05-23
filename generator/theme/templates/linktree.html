@@ -383,6 +383,12 @@ font-family: 'circularbook', sans-serif;
     bac // truncated in original, removing all
 }
 */
+
+
+.bottom .cnpj-info {
+  font-size: 0.9em; /* Isso tornará o texto 90% do tamanho da fonte do rodapé. Ajuste conforme necessário. */
+                   /* Por exemplo, 0.8em para 80% do tamanho. */
+}
   </style>
 </head>
 <body>
@@ -452,7 +458,7 @@ font-family: 'circularbook', sans-serif;
 </div>
 
 <p>© {{ CURRENT_YEAR }} <a href="https://jardimsonoro.com">Jardim Sonoro</a> · Rio de Janeiro, Brasil.</p>
-<p class="">CNPJ: 12.553.127/0001­17/PR  ·  60.042.426/0001-30/RJ </p>
+<p class="cnpj-info">CNPJ: 12.553.127/0001­17/PR  ·  60.042.426/0001-30/RJ </p>
     </footer>
 </body>
 </html>
