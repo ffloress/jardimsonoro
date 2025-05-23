@@ -443,6 +443,6 @@ li {
 
 
 .bottom .cnpj-info {
-  font-size: 0.9em; /* Isso tornará o texto 90% do tamanho da fonte do rodapé. Ajuste conforme necessário. */
+  font-size: 0.7em; /* Isso tornará o texto 90% do tamanho da fonte do rodapé. Ajuste conforme necessário. */
                    /* Por exemplo, 0.8em para 80% do tamanho. */
 }
