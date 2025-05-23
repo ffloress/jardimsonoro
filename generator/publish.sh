@@ -16,7 +16,7 @@ pelican "$source" -s pelicanconf.py -o "${destination}/blog" -t "$theme"
 
 
 ######IMG##############
-mkdir -p "${destination}/blog"
+mkdir -p "${destination}/blog/img"
 
 # Percorre todos os arquivos em ./img/ (recursivamente ou não)
 find ./img/ -type f | while read -r img; do
@@ -26,7 +26,7 @@ find ./img/ -type f | while read -r img; do
     filename=$(basename "$img")
     # Converte a imagem redimensionando com proporção mantida e limites
     echo "$img"
-    magick convert "$img" -resize '500x400>' "${destination}/blog/$filename"
+    magick convert "$img" -resize '500x400>' "${destination}/blog/img/$filename"
   fi
 done
 
