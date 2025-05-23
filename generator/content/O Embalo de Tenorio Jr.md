@@ -102,6 +102,8 @@ Como brasileiro, é difícil não refletir sobre a ironia de um "estrangeiro" �
 > Y pagarán su culpa los traidores"*  
 > — Pablo Milanés (*Yo Pisaré Las Calles Nuevamente*)
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/yAkSfqIEyT8?si=1RdlfZjNKHQsSTCH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Referências
 
 [^1]: Ruiz, Renan Branco; Ribeiro Júnior, Antonio Carlos Araújo. *O fantasma de Tenório Jr. em meio às dissonâncias e disputas na historiografia do jazz brasileiro*. Orfeu, Florianópolis, v. 6, n. 1, p. 141-171, abr. 2021. Disponível em: [https://www.periodicos.udesc.br/index.php/orfeu/article/download/19611/13586/80312](https://www.periodicos.udesc.br/index.php/orfeu/article/download/19611/13586/80312)  
