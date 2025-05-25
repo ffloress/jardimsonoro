@@ -23,13 +23,780 @@
 <meta property="og:title" content="Quanta música é suficiente? Alguns insights sobre Music Branding.">
 <meta property="og:type" content="article">
 
-<link rel="stylesheet" type="text/css" href="../theme/css/paper.css" />
-
 <link rel="icon" type="image/x-icon" href="https://jardimsonoro.com/favicon.ico">
 
 <link rel="alternate" type="application/atom+xml" href="https://jardimsonoro.com/blog/" title="Atom Feed">
 <link rel="alternate" type="application/atom+xml" href="https://jardimsonoro.com/blog/feeds/all.atom.xml" title="Full Atom Feed">
 
+<style>
+@font-face {
+  font-family: 'circularbook';
+  src: url("/font/circularstd-book.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'circularbold';
+  src: url("/font/circularstd-bold.eot");
+  src: url("/font/circularstd-boldd41d.eot?#iefix") format("embedded-opentype"), url("/font/circularstd-bold.svg#circularbold") format("svg"), url("/font/circularstd-bold.woff") format("woff"), url("/font/circularstd-bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+
+@keyframes animation-acid {
+  0%, 100% {
+      color: #5bc5aa;
+ }
+  33.33% {
+      color: #b272e1;
+ }
+  66.67% {
+      color: #72b6e1;
+ }
+}
+@keyframes animation-acidbg {
+  0%, 100% {
+    background-color: #336b99; /* mais escuro que #4f94c1 */
+  }
+  33.33% {
+    background-color: #287c66; /* mais escuro que #3ea58a */
+  }
+  66.67% {
+    background-color: #6d3d99; /* mais escuro que #8d50c1 */
+  }
+}
+
+@keyframes animation-acidborder {
+  0%, 100% {
+    border-color: #5bc5aa;
+  }
+  33.33% {
+    border-color: #b272e1;
+  }
+  66.67% {
+    border-color: #72b6e1;
+  }
+}
+
+.acid {
+  animation: animation-acid 3s infinite;
+  color: #5bc5aa;   /* cor inicial, opcional */
+}
+
+.acidbg {
+  animation: animation-acidbg 5s infinite;
+  background-color: #5bc5aa;   /* cor inicial, opcional */
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 0.25em;
+}
+
+.acidbg:hover{
+filter: invert(100%);
+}
+
+.white {
+color: white;
+}
+
+.sublinhado {
+text-decoration: underline;
+}
+
+.acidborder {
+  animation: animation-acidborder 3s infinite;
+  background-color: #5bc5aa;   /* cor inicial, opcional */
+}
+
+/*
+ * Paper
+ * A simple, clean, flexible Hugo theme
+ * https://github.com/nanxiaobei/hugo-paper
+ * Designed by MR.LEE (https://mrlee.me/)
+ * Updated in 2020.6.12
+ */
+
+/* Theme
+-------------------------------------------------- */
+:root {
+  --gap: 1.5em;
+  --content-gap: 2.5em;
+  --nav-width: 64.0em;
+  --main-width: 40.0em;
+  --header-height: 3.75em;
+  --footer-height: 3.75em;
+  --radius: 0.5em;
+
+  --theme: #fff;
+  --entry: #fff;
+  --primary: rgba(0, 0, 0, 0.88);
+  --secondary: rgba(0, 0, 0, 0.56);
+  --tertiary: rgba(0, 0, 0, 0.16);
+  --content: rgba(0, 0, 0, 0.88);
+
+  --hljs-bg: #1c1d21;
+  --code-bg: #f5f5f5;
+  --border: #eee;
+}
+.dark {
+  --theme: #1d1e20;
+  --entry: #2e2e33;
+  --primary: rgba(255, 255, 255, 0.84);
+  --secondary: rgba(255, 255, 255, 0.56);
+  --tertiary: rgba(255, 255, 255, 0.16);
+  --content: rgba(255, 255, 255, 0.75); /* Exemplo: aumentado de 0.64 para 0.75 */
+
+  --hljs-bg: #2e2e33;
+  --code-bg: #37383e;
+  --border: #5b5d67;
+}
+.list {
+  background: var(--code-bg);
+}
+.dark.list {
+  background: var(--theme);
+}
+/* Reset
+-------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: 'circularbook', sans-serif;
+}
+html {
+  tap-highlight-color: transparent;
+  font-family: 'circularbook', sans-serif;
+}
+body {
+  margin: 0;
+  color: var(--primary);
+  font-size: 1.2em !important;
+  line-height: 1.8;
+  word-break: break-word;
+  background: var(--theme);
+  font-family: 'circularbook', sans-serif;
+}
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: var(--primary);
+  line-height: 1.2;
+}
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+strong,
+b {
+  font-weight: 500;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+figure {
+  margin: 0;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+button,
+input,
+textarea {
+  padding: 0;
+  font: inherit;
+  background: transparent;
+  border: 0;
+  appearance: none;
+}
+button,
+input[type='button'],
+input[type='submit'] {
+  cursor: pointer;
+}
+input,
+textarea {
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+input:autofill,
+textarea:autofill {
+  box-shadow: 0 0 0 3.125em var(--theme) inset;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+/* Header
+-------------------------------------------------- */
+.nav {
+  flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1em;
+  text-align: center;
+   }
+.nav a {
+  line-height: var(--header-height);
+}
+.logo,
+.menu {
+  margin-left: var(--gap);
+  margin-right: var(--gap);
+}
+.logo a {
+  font-size: 1em;
+  font-weight: bold;
+}
+.menu {
+  gap: 1em; flex-wrap: wrap; }
+.menu li + li {
+  margin-left: var(--gap);
+}
+.menu a {
+  font-size: 1.0em;
+}
+
+
+    .logo-container {
+  margin-bottom: 0.5rem;
+}
+
+
+
+
+.logoimg {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+/* Main
+-------------------------------------------------- */
+.main {
+  position: relative;
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
+  max-width: calc(var(--main-width) + var(--gap) * 2);
+  margin-left: auto;
+  margin-right: auto;
+  padding: var(--gap);
+}
+.page-header {
+  margin-bottom: 1.5em;
+}
+.page-header h1 {
+  font-size: 2.5em;
+}
+.pagination {
+  display: flex;
+}
+.pagination a {
+  color: var(--theme);
+  font-size: 0.8125em;
+  line-height: 2.25em;
+  background: var(--primary);
+  border-radius: calc(2.25em / 2);
+}
+.pagination .prev {
+  padding-left: 1.0em;
+  padding-right: 1.125em;
+}
+.pagination .next {
+  margin-left: auto;
+  padding-left: 1.125em;
+  padding-right: 1.0em;
+}
+/* Post entry
+-------------------------------------------------- */
+.first-entry {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 20.0em;
+  margin-bottom: var(--header-height);
+}
+.first-entry .entry-header {
+  overflow: visible;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-clamp: 3;
+}
+.first-entry .entry-header h2 {
+  font-size: 2.5em;
+}
+.first-entry .entry-content {
+  margin-top: 0.875em;
+  margin-bottom: 0.875em;
+  font-size: 1.0em;
+}
+.first-entry .entry-footer {
+  font-size: 0.875em;
+}
+.post-entry {
+  position: relative;
+  margin-bottom: var(--gap);
+  padding: var(--gap);
+  background: var(--entry);
+  border-radius: var(--radius);
+  display: flex; flex-direction: column; gap: 1em;
+}
+.post-entry:active {
+  transform: scale(0.96);
+}
+.tag-entry .entry-content,
+.tag-entry .entry-footer {
+  display: none;
+}
+.entry-header h2 {
+  font-size: 1.5em;
+}
+
+.entry-header p {
+  font-size: 0.7em;
+}
+.entry-content {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  color: var(--secondary);
+  font-size: 0.875em;
+  line-height: 1.6;
+  overflow: visible;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+.entry-footer {
+  color: var(--secondary);
+  font-size: 0.8125em;
+  text-align: right;
+}
+.entry-link {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+/* Post single
+-------------------------------------------------- */
+.post-header {
+  margin-top: 1.5em;
+  margin-bottom: var(--content-gap);
+}
+.post-title {
+  margin-bottom: 0.125em;
+  font-size: 2.5em;
+  transform: translateX(-2px);
+}
+.post-by {
+  color: var(--secondary);
+  font-size: 0.875em;
+}
+
+.post-by a {
+  color: var(--secondary);
+  font-size: 1em;
+ 
+}
+
+.post-by a:hover {
+  color: #80cbc4;
+  border-bottom: 0.0625em solid var(--primary);
+  text-decoration: underline;
+}
+
+.single-post-tags a {
+  display: block;
+ 
+  font-size: 0.875em;
+  line-height: 2.125em;
+}
+
+.post-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  color: var(--secondary);
+  font-size: 0.875em;
+  margin-bottom: 1em;
+}
+.post-date {
+    font-size: 0.9em;
+    color: #888; /* ou o estilo visual que preferir para a data */
+}
+
+.post-tags {
+    display: flex;
+    flex-wrap: wrap; /* Adicione esta linha para permitir a quebra das tags */
+    gap: 0.5em;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: right; /* Esta regra existente pode precisar de ajuste dependendo do resultado desejado após o wrap */
+}
+
+.post-tags li {
+    font-size: 0.85em;
+      display: inline-block;
+}
+
+.post-tags a {
+  display: block;
+ text-decoration: none;
+  font-size: 0.875em;
+  line-height: 2.125em;
+}
+.post-content {
+  color: var(--content);
+}
+
+.post-content img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.post-content iframe {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.post-content h1 {
+  margin-top: 2.5em;
+  margin-bottom: 2.0em;
+}
+.post-content h2 {
+  margin-top: 2.0em;
+  margin-bottom: 1.5em;
+}
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+  margin-top: 1.5em;
+  margin-bottom: 1.0em;
+}
+.post-content h1 {
+  font-size: 2.5em;
+}
+.post-content h2 {
+  font-size: 2.0em;
+}
+.post-content h3 {
+  font-size: 1.5em;
+}
+.post-content h4 {
+  font-size: 1.0em;
+}
+.post-content h5 {
+  font-size: 0.875em;
+}
+.post-content h6 {
+  font-size: 0.75em;
+}
+.post-content a {
+  box-shadow: 0 0.0625em 0 var(--primary);
+}
+.post-content a code {
+  margin-left: 0;
+  margin-right: 0;
+  border-radius: 0;
+  box-shadow: 0 -0.0625em 0 var(--primary) inset;
+}
+.post-content del {
+  text-decoration: none;
+  background: linear-gradient(to right, var(--primary) 100%, transparent 0) 0 50% / 0.0625em 0.0625em repeat-x;
+}
+.post-content p,
+.post-content ul,
+.post-content ol,
+.post-content dl {
+  margin-bottom: 1.2em;
+}
+
+.post-content p {
+  text-indent: 1.5em; 
+}
+
+.post-content ul,
+.post-content ol {
+  padding-left: 1.25em;
+}
+.post-content li {
+  margin-top: 0.3125em;
+}
+.post-content li p {
+  margin-bottom: 0;
+}
+.post-content dl {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+}
+.post-content dt {
+  width: 25%;
+  font-weight: 700;
+}
+.post-content dd {
+  width: 75%;
+  margin-left: 0;
+  padding-left: 0.625em;
+}
+.post-content dt ~ dt,
+.post-content dd ~ dd {
+  margin-top: 0.625em;
+}
+.post-content table {
+  margin-bottom: 2.0em;
+}
+.post-content table th,
+.post-content table:not(.highlighttable) td {
+  min-width: 5.0em;
+  padding: 0.75em 0.5em;
+  line-height: 1.5;
+  border-bottom: 0.0625em solid var(--border);
+}
+.post-content table th {
+  font-size: 0.875em;
+  text-align: left;
+}
+.post-content table:not(.highlighttable) td code:only-child {
+  margin-left: 0;
+  margin-right: 0;
+}
+.post-content .highlight,
+.post-content pre {
+  margin-left: calc(var(--gap) * -1);
+  margin-right: calc(var(--gap) * -1);
+  margin-bottom: 2.0em;
+  background: var(--hljs-bg) !important;
+  border-radius: var(--radius);
+  overflow-x: auto;
+}
+.post-content ul pre {
+  margin-left: calc(var(--gap) * -2);
+}
+.post-content .highlight pre {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.right {
+text-align: center;
+}
+/* table */
+.post-content .highlighttable {
+  table-layout: fixed;
+}
+.post-content .highlighttable td:first-child {
+  width: 2.5em;
+}
+.post-content .highlighttable td .linenodiv {
+  padding-right: 0 !important;
+}
+.post-content .highlighttable td .linenodiv pre,
+.post-content .highlighttable td .highlight {
+  margin-bottom: 0;
+}
+.post-content .highlighttable td .highlight pre code::scrollbar {
+  display: none;
+}
+/* inline */
+.post-content .highlight span {
+  background: transparent !important;
+}
+
+.post-content code {
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+  padding: 0.25em 0.375em;
+  font-size: 0.78em;
+  line-height: 1.5;
+  background: var(--code-bg);
+  border-radius: 0.125em;
+}
+.post-content pre code {
+  display: block;
+  margin-left: 0;
+  margin-right: 0;
+  padding: var(--gap);
+  color: rgba(255, 255, 255, 0.8);
+  background: transparent;
+  border-radius: 0;
+}
+.post-content blockquote {
+  margin: 0 0 0 calc(var(--gap) * -1);
+  padding: 0 0 0 1.3125em;
+  border-left: 0.1875em solid var(--primary);
+}
+.post-content hr {
+  height: 0.0625em;
+  margin-top: 3.5em;
+  margin-bottom: 3.5em;
+  background: var(--tertiary);
+  border-top: 0;
+  border-bottom: 0;
+}
+.post-content iframe {
+  max-width: 100%;
+}
+
+
+
+.post-tags li + li {
+  margin-left: 0.1875em;
+}
+
+/*
+.post-tags a:hover {
+  background: var(--border);
+  
+}
+*/
+/* Footer
+-------------------------------------------------- */
+.footer {
+  max-width: calc(var(--main-width) + var(--gap) * 2);
+  margin-left: auto;
+  margin-right: auto;
+  padding: calc((var(--footer-height) - var(--gap)) / 2) var(--gap);
+  color: var(--secondary);
+  font-size: 0.75em;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  line-height: 1.5em;
+}
+.footer span {
+  margin-left: 0.0625em;
+  margin-right: 0.0625em;
+}
+.footer a {
+   color: var(--primary);
+  font-weight: bold;
+}
+.footer a:hover {
+ 
+  color: #80cbc4;
+  border-bottom: 0.0625em solid var(--primary);
+}
+/* 404
+-------------------------------------------------- */
+.not-found {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80%;
+  font-size: 10.0em;
+  font-weight: 700;
+}
+
+
+.space-top {
+margin-top: 50px;
+}
+
+.post-entry-thumb-container {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.post-thumb {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  overflow: visible;
+  border-radius: var(--radius);
+}
+
+.post-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.social-icons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.social-icons a svg {
+  fill: var(--primary);
+  transition: fill 0.3s ease;
+}
+
+.social-icons a:hover svg {
+  fill: #80cbc4;
+}
+
+
+.cnpj-info {
+  font-size: 0.5em; 
+  }
+
+/* Truncar entrada de post apenas na home/listagem */
+.list .entry-content {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+}
+
+.single .entry-content {
+  display: block;
+  overflow: visible;
+}
+
+
+.youtube-placeholder {
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 16 / 9;
+  margin: 1em auto;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  cursor: pointer;
+}
+
+</style>
 
   </head>
   <body class="list">
