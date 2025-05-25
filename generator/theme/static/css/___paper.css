@@ -1,17 +1,10 @@
 @font-face {
   font-family: 'circularbook';
-  src: url("https://jardimsonoro.com/font/circularstd-book.woff") format("woff");
+  src: url("../../../font/circularstd-book.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
-
-  /* Métricas para alinhar com fallback */
-  ascent-override: 90%;
-  descent-override: 10%;
-  line-gap-override: 0%;
-  size-adjust: 100%;
 }
-
 
 
 .highlight .hll { background-color: #49483e }
@@ -208,16 +201,14 @@ text-decoration: underline;
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: 'circularbook', sans-serif;
 }
 html {
   tap-highlight-color: transparent;
-  font-family: 'circularbook', sans-serif;
 }
 body {
   margin: 0;
   color: var(--primary);
-  font-size: 1.2em !important;
+  font-size: 1.2em;
   line-height: 1.8;
   word-break: break-word;
   background: var(--theme);
@@ -444,7 +435,6 @@ img {
   right: 0;
   top: 0;
   bottom: 0;
-  pointer-events: none;
 }
 /* Post single
 -------------------------------------------------- */
@@ -825,23 +815,18 @@ margin-top: 50px;
   overflow: visible;
 }
 
+/* Correção final para garantir layout correto mesmo com apenas 1 post em páginas de TAG */
+.tag-page .page-header {
+  margin-bottom: var(--gap);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.tag-page .post-entry {
+  margin-top: var(--gap);
+  margin-bottom: var(--gap);
+  padding: var(--gap);
+  background: var(--entry);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
