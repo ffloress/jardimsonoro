@@ -20,8 +20,7 @@ Essa cena abre o animadoc *Atiraram no Pianista* [(2023)](https://www.imdb.com/p
 
 Jeff Harris, repórter fictício da *The New Yorker*, com a voz inconfundível de Jeff Goldblum, é um alter ego animado que espelha a jornada de descoberta do próprio Trueba e, por extensão, a do espectador. Trueba criou o personagem para escapar das armadilhas do documentário tradicional, evitando bustos parlantes lamentando um gênio perdido. Em vez disso, o filme imerge o público no vibrante mundo de Tenório Jr., um dos pianistas mais talentosos da música brasileira.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/heBfOfb4lXM?si=spMEqJNNvST318ge" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
+[Trailer de Atiraram no Pianista](https://www.youtube.com/watch?v=heBfOfb4lXM)
 
 
 
@@ -69,8 +68,8 @@ Em "Inútil Paisagem" (de Tom Jobim e Aloysio de Oliveira), Tenório subverte ex
 
  Já em "Nebulosa", uma pérola autoral, Tenório alterna momentos de lirismo melódico com improvisos vertiginosos sobre uma base rítmica pulsante e cheia de brasilidade.
  
- <iframe width="560" height="315" src="https://www.youtube.com/embed/h6VkI2Kz56o?si=-jvR4TSVmZS5WEfR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
- 
+[Nebulosa de Tenorio Jr.](https://www.youtube.com/watch?v=h6VkI2Kz56o)
+
  > “Tudo me foi creditado, desde a escolha dos temas e arranjos até os detalhes mais técnicos, como estúdio, engenheiro de som, capa etc. Isto contribuiu definitivamente para que eu me entregasse a diversas experiências com tipos diferentes de conjunto, tentativas minhas de arranjos, enfim, uma série de incursões num terreno que eu havia apenas tateado”. 
  
  > Tenório Jr. relata na *contracapa do album*.
@@ -125,13 +124,10 @@ Como brasileiro, é difícil não refletir sobre a ironia de um "estrangeiro" �
 
 ## Referências
 
-Onde assistir: [Apple TV](https://tv.apple.com/br/movie/atiraram-no-pianista/umc.cmc.lq7fx75oblns6l10t00e4kfc), [Prime](https://www.primevideo.com/-/pt/detail/0MDW7IVOQMGN5U9M26H0SJQ1ZO/ref=atv_dp_share_cu_r)
+Onde assistir: [Apple TV](https://tv.apple.com/br/movie/atiraram-no-pianista/umc.cmc.lq7fx75oblns6l10t00e4kfc) - [Prime](https://www.primevideo.com/-/pt/detail/0MDW7IVOQMGN5U9M26H0SJQ1ZO/ref=atv_dp_share_cu_r)
 
 [^1]: Ruiz, Renan Branco; Ribeiro Júnior, Antonio Carlos Araújo. *O fantasma de Tenório Jr. em meio às dissonâncias e disputas na historiografia do jazz brasileiro*. Orfeu, Florianópolis, v. 6, n. 1, p. 141-171, abr. 2021. Disponível em: [https://www.periodicos.udesc.br/index.php/orfeu/article/download/19611/13586/80312](https://www.periodicos.udesc.br/index.php/orfeu/article/download/19611/13586/80312)  
-
-
 
 [^2]: Guerra, Pedro Larruba. *O Sambajazz: formação do gênero musical no Rio de Janeiro e sua relação com o contexto sociocultural da década de 1950 e 1960*. Dissertação (Mestrado em Desenvolvimento Territorial e Políticas Públicas) - Instituto de Ciências Humanas e Sociais, Universidade Federal Rural do Rio de Janeiro, Seropédica, 2018. Disponível em: [https://rima.ufrrj.br/jspui/bitstream/20.500.14407/13880/3/2018%20-%20Pedro%20Larruba%20Guerra.pdf](https://rima.ufrrj.br/jspui/bitstream/20.500.14407/13880/3/2018%20-%20Pedro%20Larruba%20Guerra.pdf)  
 
 [^3]: Calloni, Stella (Infobae). *The terrible story of Tenorinho, the pianist of Vinicius de Moraes kidnapped at ESMA and killed by Astiz*. (2022). Disponível em: [https://www.infobae.com/en/2022/03/18/the-terrible-story-of-tenorinho-the-pianist-of-vinicius-de-moraes-kidnapped-at-esma-and-killed-by-astiz/](https://www.infobae.com/en/2022/03/18/the-terrible-story-of-tenorinho-the-pianist-of-vinicius-de-moraes-kidnapped-at-esma-and-killed-by-astiz/)
-

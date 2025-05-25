@@ -9,8 +9,8 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@jardimsonoro">
 
-  <link rel="canonical" href="https://jardimsonoro.com/blog/o-embalo-de-tenorio-jr">
 
+  <link rel="canonical" href="https://jardimsonoro.com/blog/o-embalo-de-tenorio-jr/">
 
   <meta name="description" content="Em uma loja de discos empoeirada no Rio de Janeiro, sob a iluminação âmbar o jornalista musical Jeff Harris descobre, quase por acaso, a música de Francisco Tenório Cerqueira Júnior. A fumaça preguiçosa de cigarro paira no ar, criando um cenário quase cinematográfico. O impacto é imediato, uma epifania sonora …">
   <meta name="twitter:description" content="Em uma loja de discos empoeirada no Rio de Janeiro, sob a iluminação âmbar o jornalista musical Jeff Harris descobre, quase por acaso, a música de Francisco Tenório Cerqueira Júnior. A fumaça preguiçosa de cigarro paira no ar, criando um cenário quase cinematográfico. O impacto é imediato, uma epifania sonora …">
@@ -19,7 +19,7 @@
   <meta name="twitter:image" content="https://jardimsonoro.com/blog/img/tenoriojrdesenho.webp">
   <meta property="og:image" content="https://jardimsonoro.com/blog/img/tenoriojrdesenho.webp">
 
-<meta property="og:url" content="https://jardimsonoro.com/blog/o-embalo-de-tenorio-jr">
+<meta property="og:url" content="https://jardimsonoro.com/blog/o-embalo-de-tenorio-jr/">
 <meta property="og:title" content="O Embalo de Tenorio Jr.">
 <meta property="og:type" content="article">
 
@@ -796,7 +796,45 @@ margin-top: 50px;
   cursor: pointer;
 }
 
+/* Estilo para o contêiner que envolve o vídeo e a legenda */
+.video-wrapper-with-caption {
+  margin: 1.5em auto; /* Ou a margem que preferir para o bloco todo */
+  max-width: 560px; /* Para alinhar com a largura máxima comum de vídeos */
+  /* Se o seu .youtube-placeholder já tem max-width e margin auto,
+     você pode querer ajustar isso para que não haja conflito.
+     Por exemplo, o .youtube-placeholder poderia ter width: 100%
+     e o .video-wrapper-with-caption controlaria a largura máxima. */
+}
+
+/* Ajuste opcional para o placeholder dentro do novo wrapper */
+.video-wrapper-with-caption .youtube-placeholder {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0; /* Remove margem inferior se a legenda vier logo abaixo */
+  /* max-width: 100%; /* Ocupa a largura do video-wrapper-with-caption */
+}
+
+
+/* Estilo para a legenda do vídeo */
+.video-caption {
+  display: block; /* Garante que o figcaption ocupe sua própria linha */
+  font-size: 0.9em;
+  color: var(--secondary); /* Usando sua variável de cor secundária do tema */
+  text-align: center;    /* Ou 'left' / 'right' conforme sua preferência */
+  padding: 0.5em 0.1em;  /* Pequeno preenchimento */
+  margin-top: 0.5em;     /* Espaço entre o vídeo e a legenda */
+  line-height: 1.4;
+}
+
+.video-caption a,
+.video-caption strong {
+    /* Mantém as cores e estilos originais dos links/strong dentro da legenda, se desejar */
+    color: inherit; /* Ou defina cores específicas */
+    font-weight: inherit;
+}
+
 </style>
+
 
   </head>
   <body class="list">
@@ -812,14 +850,14 @@ margin-top: 50px;
     <h1 class="post-title">O Embalo de Tenorio Jr.</h1>
 <div class="post-meta">
   <div class="post-by">
-   <a href="..">Frederico Flores</a> · Sex 23 Maio 2025
+   <a href="..">Frederico Flores</a> · Dom 25 Maio 2025
   </div>
   <ul class="post-tags">
-    <li><a href="../tags/cinema"><span class="acidbg white">cinema</span></a></li>
-    <li><a href="../tags/bossa-nova"><span class="acidbg white">bossa nova</span></a></li>
-    <li><a href="../tags/samba-jazz"><span class="acidbg white">samba jazz</span></a></li>
-    <li><a href="../tags/mpb"><span class="acidbg white">mpb</span></a></li>
-    <li><a href="../tags/brasil"><span class="acidbg white">brasil</span></a></li>
+    <li><a href="../tags/cinema/"><span class="acidbg white">cinema</span></a></li>
+    <li><a href="../tags/bossa-nova/"><span class="acidbg white">bossa nova</span></a></li>
+    <li><a href="../tags/samba-jazz/"><span class="acidbg white">samba jazz</span></a></li>
+    <li><a href="../tags/mpb/"><span class="acidbg white">mpb</span></a></li>
+    <li><a href="../tags/brasil/"><span class="acidbg white">brasil</span></a></li>
   </ul>
 </div>
 
@@ -831,8 +869,7 @@ margin-top: 50px;
 <p><img alt="Toca Do Vinicius" src="../img/tocadovinicius.webp"></p>
 <p>Essa cena abre o animadoc <em>Atiraram no Pianista</em> <a href="https://www.imdb.com/pt/title/tt11242654/?reasonForLanguagePrompt=browser_header_mismatch">(2023)</a>, dos diretores espanhóis Fernando Trueba e Javier Mariscal, servindo como portal para uma história que, por décadas, permaneceu uma ferida aberta, uma melodia brutalmente interrompida.</p>
 <p>Jeff Harris, repórter fictício da <em>The New Yorker</em>, com a voz inconfundível de Jeff Goldblum, é um alter ego animado que espelha a jornada de descoberta do próprio Trueba e, por extensão, a do espectador. Trueba criou o personagem para escapar das armadilhas do documentário tradicional, evitando bustos parlantes lamentando um gênio perdido. Em vez disso, o filme imerge o público no vibrante mundo de Tenório Jr., um dos pianistas mais talentosos da música brasileira.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/heBfOfb4lXM?si=spMEqJNNvST318ge" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
+<p><a href="https://www.youtube.com/watch?v=heBfOfb4lXM">Trailer de Atiraram no Pianista</a></p>
 <h2>Os Anos Dourados</h2>
 <p><img alt="Tenorinho 3" src="../img/tenorio3.jpeg"></p>
 <p>Francisco Tenório Cerqueira Júnior nasceu no Rio de Janeiro, em 4 de julho de 1941, no bairro de Laranjeiras. Já na juventude, emergiu na cena musical carioca como um talento nato, um pianista cuja habilidade parecia brotar com naturalidade, como se fosse um dom inato.</p>
@@ -853,8 +890,7 @@ margin-top: 50px;
 <p>O álbum <em><a href="https://www.discogs.com/master/228723-Tenório-Jr-Embalo">Embalo</a></em> é uma joia do samba-jazz. A faixa-título, composta por Tenório com arranjo do saxofonista Paulo Moura, abre o disco com inspiração bebop e uma pegada inconfundivelmente brasileira. A sessão de sopros brilha intensamente, enquanto Milton Banana, na bateria, sintetiza uma concepção orquestral inovadora, trazendo a essência das rodas de samba para a percussão.</p>
 <p>Em "Inútil Paisagem" (de Tom Jobim e Aloysio de Oliveira), Tenório subverte expectativas com um arranjo engenhoso: o piano assume a melodia principal, enquanto os sopros tecem um diálogo intrincado de perguntas e respostas. O clássico "Fim de Semana em Eldorado", de Johnny Alf, é transformado num samba-jazz vibrante e energético.</p>
 <p>Já em "Nebulosa", uma pérola autoral, Tenório alterna momentos de lirismo melódico com improvisos vertiginosos sobre uma base rítmica pulsante e cheia de brasilidade.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/h6VkI2Kz56o?si=-jvR4TSVmZS5WEfR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
+<p><a href="https://www.youtube.com/watch?v=h6VkI2Kz56o">Nebulosa de Tenorio Jr.</a></p>
 <blockquote>
 <p>“Tudo me foi creditado, desde a escolha dos temas e arranjos até os detalhes mais técnicos, como estúdio, engenheiro de som, capa etc. Isto contribuiu definitivamente para que eu me entregasse a diversas experiências com tipos diferentes de conjunto, tentativas minhas de arranjos, enfim, uma série de incursões num terreno que eu havia apenas tateado”. </p>
 <p>Tenório Jr. relata na <em>contracapa do album</em>.</p>
@@ -882,7 +918,7 @@ Y pagarán su culpa los traidores"</em><br>
 — Pablo Milanés (<em>Yo Pisaré Las Calles Nuevamente</em>)</p>
 </blockquote>
 <h2>Referências</h2>
-<p>Onde assistir: <a href="https://tv.apple.com/br/movie/atiraram-no-pianista/umc.cmc.lq7fx75oblns6l10t00e4kfc">Apple TV</a>, <a href="https://www.primevideo.com/-/pt/detail/0MDW7IVOQMGN5U9M26H0SJQ1ZO/ref=atv_dp_share_cu_r">Prime</a></p>
+<p>Onde assistir: <a href="https://tv.apple.com/br/movie/atiraram-no-pianista/umc.cmc.lq7fx75oblns6l10t00e4kfc">Apple TV</a> - <a href="https://www.primevideo.com/-/pt/detail/0MDW7IVOQMGN5U9M26H0SJQ1ZO/ref=atv_dp_share_cu_r">Prime</a></p>
 <div class="footnote">
 <hr>
 <ol>
@@ -899,14 +935,14 @@ Y pagarán su culpa los traidores"</em><br>
 </div></div>
 <div class="post-meta">
   <div class="post-by">
-    <a href="..">Frederico Flores</a> · Sex 23 Maio 2025
+    <a href="..">Frederico Flores</a> · Dom 25 Maio 2025
   </div>
   <ul class="post-tags">
-    <li><a href="../tags/cinema"><span class="acidbg white">cinema</span></a></li>
-    <li><a href="../tags/bossa-nova"><span class="acidbg white">bossa nova</span></a></li>
-    <li><a href="../tags/samba-jazz"><span class="acidbg white">samba jazz</span></a></li>
-    <li><a href="../tags/mpb"><span class="acidbg white">mpb</span></a></li>
-    <li><a href="../tags/brasil"><span class="acidbg white">brasil</span></a></li>
+    <li><a href="../tags/cinema/"><span class="acidbg white">cinema</span></a></li>
+    <li><a href="../tags/bossa-nova/"><span class="acidbg white">bossa nova</span></a></li>
+    <li><a href="../tags/samba-jazz/"><span class="acidbg white">samba jazz</span></a></li>
+    <li><a href="../tags/mpb/"><span class="acidbg white">mpb</span></a></li>
+    <li><a href="../tags/brasil/"><span class="acidbg white">brasil</span></a></li>
   </ul>
 </div>
 
@@ -973,59 +1009,129 @@ Y pagarán su culpa los traidores"</em><br>
   </script>
   -->
   
-  <script>
+<script>
 document.addEventListener("DOMContentLoaded", function () {
-  const iframes = document.querySelectorAll("iframe");
+  const videoLinks = document.querySelectorAll(
+    ".post-content a[href*='youtube.com/watch'], .post-content a[href*='youtu.be/'], .post-content a[href*='vimeo.com/']"
+  );
 
-  iframes.forEach((iframe) => {
-    const src = iframe.src;
-    const youtubeMatch = src.match(/https?:\/\/(www\.)?youtube\.com\/embed\/([a-zA-Z0-9_-]{11})/);
+  videoLinks.forEach((link) => {
+    const url = link.href;
+    const linkText = link.innerHTML;
+    let videoInfo = null;
 
-    if (youtubeMatch) {
-      const videoId = youtubeMatch[2];
-      const width = iframe.width || "560";
-      const height = iframe.height || "315";
-
-      // Criar placeholder
-      const placeholder = document.createElement("div");
-      placeholder.className = "youtube-placeholder";
-      placeholder.style.position = "relative";
-      placeholder.style.cursor = "pointer";
-      placeholder.style.background = `#000 url(https://img.youtube.com/vi/${videoId}/hqdefault.jpg) center center / cover no-repeat`;
-placeholder.style.width = "100%";
-placeholder.style.maxWidth = "560px";
-placeholder.style.aspectRatio = "16 / 9";
-placeholder.style.margin = "1em auto";
-
-
-      // Ícone de play
-      const playBtn = document.createElement("div");
-      playBtn.style.position = "absolute";
-      playBtn.style.top = "50%";
-      playBtn.style.left = "50%";
-      playBtn.style.transform = "translate(-50%, -50%)";
-      playBtn.style.width = "60px";
-      playBtn.style.height = "60px";
-      playBtn.style.background = "url('https://img.icons8.com/ios-filled/100/ffffff/play-button-circled.png') center / contain no-repeat";
-      placeholder.appendChild(playBtn);
-
-      // Evento de clique: carregar iframe real
-      placeholder.addEventListener("click", () => {
-        const iframeClone = document.createElement("iframe");
-        iframeClone.src = src + "?autoplay=1";
-        iframeClone.width = width;
-        iframeClone.height = height;
-        iframeClone.allowFullscreen = true;
-        iframeClone.frameBorder = 0;
-        placeholder.replaceWith(iframeClone);
-      });
-
-      // Substituir iframe original pelo placeholder
-      iframe.parentNode.replaceChild(placeholder, iframe);
+    if (url.includes("youtube.com") || url.includes("youtu.be")) {
+      videoInfo = getYoutubeInfo(url);
+      if (videoInfo) {
+        createVideoPlaceholder(link, videoInfo, "youtube", linkText);
+      }
+    } else if (url.includes("vimeo.com")) {
+      videoInfo = getVimeoInfo(url); // Corrigido para chamar getVimeoInfo
+      if (videoInfo) {
+        createVideoPlaceholder(link, videoInfo, "vimeo", linkText);
+      }
     }
   });
+
+  function getYoutubeInfo(url) {
+    const regex = /(?:youtube\.com\/(?:watch\?v=|embed\/|v\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+    const match = url.match(regex);
+    if (match && match[1]) {
+      return {
+        id: match[1],
+        thumbnailUrl: `https://i.ytimg.com/vi/${match[1]}/hqdefault.jpg`, // HTTPS está correto
+        // ****** CORREÇÃO PRINCIPAL AQUI ******
+        embedUrl: `https://www.youtube.com/embed/${match[1]}?autoplay=1&rel=0&vq=hd720` // MUDADO PARA HTTPS
+      };
+    }
+    return null;
+  }
+
+  function getVimeoInfo(url) {
+    const regex = /vimeo\.com\/(?:video\/)?([0-9]+)/;
+    const match = url.match(regex);
+    if (match && match[1]) {
+      return {
+        id: match[1],
+        // Usar a URL oEmbed do próprio Vimeo e garantir HTTPS
+        oEmbedUrl: `https://vimeo.com/api/oembed.json?url=${encodeURIComponent(url)}`,
+        // Garantir HTTPS para o embed do Vimeo também
+        embedUrl: `https://player.vimeo.com/video/${match[1]}?autoplay=1&transparent=0&dnt=1`
+      };
+    }
+    return null;
+  }
+
+  function createVideoPlaceholder(linkElement, videoInfo, type, captionText) {
+    const videoWrapper = document.createElement("div");
+    videoWrapper.className = "video-wrapper-with-caption";
+
+    const placeholder = document.createElement("div");
+    placeholder.className = "youtube-placeholder"; // Reutilize esta classe para estilo consistente
+
+    const playButton = document.createElement("div");
+    playButton.className = "youtube-play-button";
+    placeholder.appendChild(playButton);
+    videoWrapper.appendChild(placeholder);
+
+    if (captionText && captionText.trim() !== "") {
+      const caption = document.createElement("figcaption");
+      caption.className = "video-caption";
+      caption.innerHTML = captionText;
+      videoWrapper.appendChild(caption);
+    }
+
+    if (type === "youtube") {
+      placeholder.style.backgroundImage = `url(${videoInfo.thumbnailUrl})`;
+    } else if (type === "vimeo") {
+      fetch(videoInfo.oEmbedUrl)
+        .then(response => {
+          if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+          return response.json();
+        })
+        .then(data => {
+          if (data.thumbnail_url) {
+            // Garante HTTPS para a miniatura do Vimeo também
+            placeholder.style.backgroundImage = `url(${data.thumbnail_url.replace(/^http:/i, 'https:')})`;
+          } else {
+            console.warn("Miniatura do Vimeo não encontrada para:", videoInfo.id);
+          }
+        })
+        .catch(error => console.error("Erro ao buscar miniatura do Vimeo:", error));
+    }
+
+    placeholder.addEventListener("click", () => {
+      const iframe = document.createElement("iframe");
+      iframe.src = videoInfo.embedUrl; // Agora será HTTPS para YouTube
+
+      iframe.className = placeholder.className; // Para herdar estilos de aspect-ratio, max-width
+      iframe.style.backgroundImage = 'none';
+      iframe.style.backgroundColor = '#000';
+
+      iframe.setAttribute("frameborder", "0");
+      iframe.setAttribute("allowfullscreen", "");
+      iframe.setAttribute("allow", "autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; web-share");
+      iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+      iframe.setAttribute("title", captionText ? captionText.replace(/<[^>]*>?/gm, '') : (type === "youtube" ? "YouTube video player" : "Vimeo video player"));
+
+      videoWrapper.replaceChild(iframe, placeholder);
+      iframe.focus();
+    }, { once: true });
+
+    if (linkElement.parentNode) {
+      linkElement.parentNode.replaceChild(videoWrapper, linkElement);
+    }
+  }
 });
 </script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-04D0PZM4N3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-04D0PZM4N3');
+</script>
   </body>
 </html>

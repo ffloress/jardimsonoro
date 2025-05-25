@@ -44,7 +44,6 @@ Uma música que representa bem essa sensação:
 
 ### [**Beatles – Here Comes The Sun**](https://www.youtube.com/watch?v=vfXtjcw9MFM)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/vfXtjcw9MFM?si=yE6PESCRgUPQYtI4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 > A letra, “Aqui vem o Sol, meu bem” pode ser sobre renascimento, revelação, ou sobre o momento mágico da criação musical.
 
