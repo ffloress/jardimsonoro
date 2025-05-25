@@ -75,11 +75,15 @@ Ainda na década de 1930, o russo N.V. Voinov conseguiu, com animação sonora, 
 
 Embora essa técnica tenha se mostrado muito precisa rítmica e tonalmente, a animação sonora parece ter sido usada majoritariamente para a trilha de desenhos e filmes abstratos. O uso de sons sintetizados para compor ruídos e música só foi realmente utilizado pelo cinema décadas mais tarde com o surgimento dos sintetizadores musicais.
 
+Walt Disney em, Fantasia (1940), conseguiu com êxito colocar a música no centro da experiência narrativa e técnica. A trilha sonora não apenas acompanhava a ação, mas guiava, moldava o ritmo, estrutura e emoção de cada sequência[^54]. Walt Disney vislumbrava uma experiência imersiva e sinestésica e para isso foi desenvolvido o inovador sistema Fantasound, em parceria com a RCA e liderado pelo engenheiro William Garity, tornando-se o primeiro sistema surround multicanal utilizado comercialmente em um longa-metragem[^55]. A tecnologia consistia na reprodução de quatro trilhas de áudio óptico sincronizadas com a película de imagem, projetadas por meio de um segundo rolo de filme — uma inovação que permitia o som “movimentar-se” pela sala com panning automático e controle de volume dinâmico[^56]. Embora experiências estereofônicas já existissem em contextos laboratoriais, como os testes de Alan Blumlein na EMI e de Leopold Stokowski na Bell Labs nos anos 1930, Fantasia foi a primeira aplicação pública de tal complexidade sonora com intenção artística e narrativa.
+
+[Trailer de Fantasia, 1940](https://www.youtube.com/watch?v=akQLCNOxYOI)
+
 ### Objetos Sonoros
 
 Se os experimentos com som no início do cinema sonoro anteciparam algumas práticas e acabaram influenciando a música do modernismo, a partir da era da fita magnética seriam conceitos da música concreta e eletroacústica que mudariam a forma como eram concebidas as trilhas sonoras de cinema, atenuando a tradicional distinção entre música, fala e ruído, quando os sonoplastas passaram a se perguntar:
 
-> "É o grito fala ou ruído? É a música eletrônica ruído também?" No filme *Psicose* (1960), quando a mulher grita, esperamos ouvir uma voz, mas, ao invés disso, ouvimos violinos "gritantes" [^20].
+> "É o grito fala ou ruído? É a música eletrônica ruído também?" No filme *Psicose* (1960), quando a mulher grita, esperamos ouvir uma voz, mas, ao invés disso, ouvimos violinos "gritantes" [^18].
 
 [Cena do Chuveiro em Psicose](https://www.youtube.com/watch?v=0WtDmbr9xyY)
 
@@ -288,3 +292,6 @@ O pdf original pode ser baixado [aqui](https://jardimsonoro.com/downloads/desenh
 [^51]: Fleming, Victor (Diretor). *O Mágico de Oz* [Filme]. Estados Unidos, 1939.
 [^52]: Maynes, Charles. *Worldizing*. *The Editors Guild Magazine*, vol. 25, no. 2, 2004. Disponível em: <http://www.editorsguild.com/v2/magazine/Newsletter/MarApr04/marapr04_worldizing.html>.
 [^53]: Lucas, George (Diretor). *Loucuras de Verão* [Filme]. Estados Unidos, 1973.
+[^54]: Lazarescu-Thois, L. (2018). “From Sync to Surround: Walt Disney and its Contribution to the Aesthetics of Music in Animation”. The New Soundtrack, 8(1).
+[^55]: Wikipedia. Fantasound
+[^56]: Bohn, J. (2013). “Music and Sound Design in Walt Disney’s Fantasia”. In: The Oxford Handbook of Film Music Studies.
