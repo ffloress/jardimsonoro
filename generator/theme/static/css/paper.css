@@ -208,9 +208,11 @@ text-decoration: underline;
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: 'circularbook', sans-serif;
 }
 html {
   tap-highlight-color: transparent;
+  font-family: 'circularbook', sans-serif;
 }
 body {
   margin: 0;
