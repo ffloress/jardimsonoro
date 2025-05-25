@@ -21,15 +21,16 @@
       <meta itemprop="name" content="Jardim Sonoro">
       <meta itemprop="description" content="Jardim Sonoro é uma plataforma especializada em fernecer playlists e muitas outras idéias musicais.">
       <style>
-      
+      /* Fontes 'circularbold' e 'circularbook' @font-face removidas - Ubuntu será importada via <link> no HTML */
+
 body, html {
   height: 100%;
   color: white;
   font-family: 'Ubuntu', sans-serif;
-  transition: background 20s linear; /* Prefixos desnecessários removidos */
+  transition: background 20s linear;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; /* Adicionado para melhor renderização de fonte no Firefox em macOS */
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   font-size: 100%;
   /* font-weight: 400; */ /* Ubuntu Regular (400) é o padrão. Ajuste se desejar um peso base diferente, ex: 300 para Light. */
@@ -68,13 +69,13 @@ h3 {
   font-size: 1.5em;
   line-height: 1.2;
   margin-bottom: 8vh;
-  font-weight: 500; /* Ubuntu Medium */
+  font-weight: 500; /* Ubuntu Medium para h3 */
 }
 h4 {
   color: rgba(255, 255, 255, 0.75);
   font-size: 13px;
   text-transform: uppercase;
-  font-weight: 500; /* Ubuntu Medium */
+  font-weight: 500; /* Ubuntu Medium para h4 */
 }
 .container {
   max-width: 90%;
@@ -82,7 +83,7 @@ h4 {
   margin: 0 auto;
   padding-bottom: 50px;
 }
-.clearfix:after { /* Mantido para compatibilidade com o layout float existente de .featuresList */
+.clearfix:after {
   content: "";
   display: table;
   clear: both;
@@ -90,7 +91,7 @@ h4 {
 .textContainer {
   position: relative;
   text-align: center;
-  font-size: 12vw;
+  font-size: 12vw; /* Tamanho base para telas maiores */
   font-family: 'Ubuntu', sans-serif;
   font-weight: 700; /* Ubuntu Bold */
   color: #fff;
@@ -98,21 +99,24 @@ h4 {
   line-height: 0.98;
   min-height: 88vh;
   margin-bottom: 2em;
+  white-space: nowrap; /* Impede a quebra de linha do conteúdo direto */
 }
-.titulotext { /* Classe presente no HTML, mas sem estilos específicos. Adicione se necessário. */
+.titulotext {
   width: 100%;
   padding-top: 2em;
+  white-space: nowrap; /* Garante que "Jardim Sonoro" fique em uma linha */
 }
 
 .jstext {
-  width: 90%;
-  padding: 50px; /* Padding grande para um font-size de 0.5em do pai, verificar se intencional */
+  width: 90%; /* Pode precisar de ajuste se .textContainer for muito estreito e causar quebra no &nbsp; <br> */
+  padding: 50px;
   font-size: 0.5em;
   animation: acid 5s linear infinite;
+  white-space: normal; /* Permite que as frases do JSText quebrem normalmente */
 }
-.jstext:after { /* Animação blinking estava comentada no CSS original, mantendo assim */
+.jstext:after {
   position: absolute;
-  transform: translate(10%, -10%); /* Prefixos desnecessários removidos */
+  transform: translate(10%, -10%);
   z-index: -9999;
 }
 section {
@@ -122,10 +126,8 @@ section {
 section h4:after {
   content: url("img/line.svg");
   position: absolute;
-  transform: translate(5%, -20%); /* Prefixos desnecessários removidos */
+  transform: translate(5%, -20%);
 }
-
-/* Removido #about .info p - seletor não correspondia ao HTML e a animação era questionável sem trigger */
 
 .shortColumn {
   width: 45%;
@@ -145,7 +147,7 @@ section h4:after {
 }
 
 .info .loopCol {
-  font-size:1.2em; /* Isso fará o texto dentro de .loopCol ser 1.2x o tamanho do .info (0.9em) */
+  font-size:1.2em;
 }
 
 /* ------------------------------- GET IN TOUCH ----------------------------------*/
@@ -159,23 +161,25 @@ section h4:after {
   border: none;
 }
 /* ------------------------------- FEATURES / CASES ----------------------------------*/
-/* Removido #features ul - seletor não correspondia */
 .featuresList {
   list-style-type: none;
+  padding: 0; /* Adicionado para resetar padding de ul */
+  margin: 0; /* Adicionado para resetar margin de ul */
 }
 .featuresList li {
-  float: left; /* Mantido float para não alterar HTML com .row.clearfix */
-  padding-right: 2%;
+  float: left;
+  padding-left: 1%;
+  padding-right: 1%;
   margin-bottom: 30px;
-  width: 25%; /* 4 colunas. Ajustar para 33.33% se forem 3 por .row clearfix */
+  width: 33.333%; /* Para 3 colunas */
+  box-sizing: border-box;
 }
-/* Removido .featuresList li.last - classe 'last' não utilizada no HTML */
 .featureTitle {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 700; /* Ubuntu Bold */
   font-size: 1em;
 }
-.linksli { /* Usado dentro de <a> para o link do Player Moods */
+.linksli {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 700; /* Ubuntu Bold */
   font-size: 1.2em;
@@ -184,7 +188,6 @@ section h4:after {
   font-size: 0.8em;
   margin-top: 5px;
 }
-
 
 /* ------------------------------- FIXED BACKGROUND ----------------------------------*/
 @keyframes animateFromBottom {
@@ -209,7 +212,7 @@ section h4:after {
   letter-spacing: -0.3vw;
   line-height: 0.95;
   opacity: 0;
-  transition: opacity 0.8s ease-in-out; /* 'transition' para opacity é suficiente, 'animation: acid' já está aqui */
+  transition: opacity 0.8s ease-in-out;
   animation: acid 5s linear infinite;
   background: rgba(0, 0, 0, 0.7);
 }
@@ -221,42 +224,41 @@ section h4:after {
 }
 .fixedBg:not(.show) span {
   animation: animateFadeOut 1s ease forwards;
-  /* transition: 2s ease-in-out; Removido pois a animação já lida com a saída */
 }
-.fixedBg .container { /* Estilo para o .container dentro do .fixedBg */
+.fixedBg .container {
   padding-top: 11vh;
-  max-width: 90%; /* Mantendo consistência com o .container principal */
+  max-width: 90%;
   margin: 0 auto;
 }
-@keyframes acid { /* Uma definição é suficiente */
+@keyframes acid {
   0%, 100% { color: #5bc5aa; }
   33.33% { color: #b272e1; }
   66.67% { color: #72b6e1; }
 }
-@keyframes acidbg { /* Uma definição é suficiente */
+@keyframes acidbg {
   0%, 100% { background-color: #72b6e1; }
   33.33% { background-color: #5bc5aa; }
   66.67% { background-color: #b272e1; }
 }
 .fixedBg span {
-  display: block; 
+  display: block;
 }
-.loopCol { 
+.loopCol {
   animation: acidbg 5s linear infinite;
   padding: 2px;
-  font-weight: 700; 
+  font-weight: 700; /* Ubuntu Bold */
 }
 
+/* ------------------------------- ANIMATIONS (Blinking - não utilizada) -------------------*/
 
 ul {
   list-style-type: none;
 }
 li {
-  /* list-style-type: none;  Já coberto por ul */
-  display: block; /* li é block por padrão */
+  display: block;
 }
 
-#jstext { /* ID para o texto que aparece/desaparece */
+#jstext {
   opacity: 1;
   transition: opacity 0.5s;
 }
@@ -266,58 +268,68 @@ li {
 
 @media only screen and (max-width: 480px) {
   .shortColumn {
-    width: 80%;
+    width: 80%; /* Mantém as colunas de info mais largas que os cases */
   }
-  .featureTitle {
-    font-size: 0.7em;
-  }
-  .featureSubtitle {
-    font-size: 0.5em;
-  }
+
   .textContainer {
     min-height: 60vh;
     margin-bottom: 1em;
-    font-size: 15vw; /* Ajustado para melhor leitura em telas pequenas */
+    font-size: 10vw; /* Ajuste este valor para "Jardim Sonoro" caber em uma linha */
+    letter-spacing: -0.3vw; /* Pode precisar de ajuste fino com o font-size */
   }
+
   .email {
-    font-size: 1.8em !important; /* Ajustado para melhor leitura em telas pequenas */
+    font-size: 1.8em !important;
   }
+
   .fixedBg {
-    font-size: 50px; /* Ajustado para telas pequenas */
+    font-size: 40px; /* Reduzido para telas menores */
+    line-height: 1.1; /* Ajustado para melhor encaixe */
   }
+  
+  .fixedBg .container {
+    padding-top: 15vh; /* Ajuste para centralizar melhor o texto no fixedBg */
+  }
+
+  /* Para .featuresList li, não sobrescrevemos para width: 100% para manter as 3 colunas. */
+  /* Apenas ajustamos o tamanho da fonte dentro deles, se necessário. */
   .featuresList li {
-    width: 100%; /* Empilha os cases em telas pequenas */
-    padding-right: 0;
-    text-align: center; /* Centraliza o conteúdo dos cases */
+    /* Mantém width: 33.333%; float: left; etc. da regra principal */
+    /* Se o texto estiver muito grande, ajuste aqui: */
+    font-size: 0.9em; /* Exemplo: Reduz um pouco o tamanho geral do texto nos LIs */
+  }
+  .featureTitle {
+    font-size: 0.95em; /* Relativo ao novo font-size do li, ou um valor absoluto menor */
+  }
+  .featureSubtitle {
+    font-size: 0.85em; /* Relativo ao novo font-size do li, ou um valor absoluto menor */
   }
 }
 
-.bottom { /* Estilos para a seção de rodapé com id="footer" */
+.bottom {
   margin-top: 3rem;
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.85); /* Cor ajustada para melhor contraste/leitura */
+  color: rgba(255, 255, 255, 0.85);
   text-align: center;
 }
 
-
-
-.social-icons { 
+.social-icons {
   margin-top: 1rem;
   display: flex;
   justify-content: center;
   gap: 1.2rem;
 }
 .social-icons a svg {
-  fill: #fff; /* Cor dos ícones no rodapé da landing page */
+  fill: #fff;
   transition: fill 0.3s ease;
 }
 .social-icons a:hover svg {
-  fill: #80cbc4; /* Cor no hover */
+  fill: #80cbc4;
 }
 
-.bottom .cnpj-info { /* Estilizando .cnpj-info dentro de .bottom */
-  font-size: 0.85em; /* Aumentado para melhor legibilidade em relação ao texto do rodapé */
-  opacity: 0.7; /* Leve opacidade */
+.bottom .cnpj-info {
+  font-size: 0.85em;
+  opacity: 0.7;
   margin-top: 0.5em;
 }
       </style>
