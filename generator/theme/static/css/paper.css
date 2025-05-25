@@ -1,26 +1,18 @@
 @font-face {
-  font-family: 'circularbold';
-  src: url("../../../font/circularstd-bold.eot");
-  src: url("../../../font/circularstd-boldd41d.eot?#iefix") format("embedded-opentype"), url("../../../font/circularstd-bold.svg#circularbold") format("svg"), url("../../../font/circularstd-bold.woff") format("woff"), url("../../../font/circularstd-bold.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
   font-family: 'circularbook';
-  src: url("../../../font/circularstd-book.eot");
-  src: url("../../../font/circularstd-bookd41d.eot?#iefix") format("embedded-opentype"), url("../../../font/circularstd-book.svg#circularbook") format("svg"), url("../../../font/circularstd-book.woff") format("woff"), url("../../../font/circularstd-book.ttf") format("truetype");
+  src: url("https://jardimsonoro.com/font/circularstd-book.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
+
+  /* Métricas para alinhar com fallback */
+  ascent-override: 90%;
+  descent-override: 10%;
+  line-gap-override: 0%;
+  size-adjust: 100%;
 }
 
 
-html { scroll-behavior: smooth; 
-font-family: 'circularbook', sans-serif;
-}
-
-* { box-sizing: border-box; 
-font-family: 'circularbook', sans-serif;
-}
 
 .highlight .hll { background-color: #49483e }
 .highlight  { background: #272822; color: #f8f8f2 }
@@ -391,9 +383,9 @@ img {
   margin-bottom: var(--header-height);
 }
 .first-entry .entry-header {
-  overflow: hidden;
-  display: box;
-  box-orient: vertical;
+  overflow: visible;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
   line-clamp: 3;
 }
 .first-entry .entry-header h2 {
@@ -435,9 +427,9 @@ img {
   color: var(--secondary);
   font-size: 0.875em;
   line-height: 1.6;
-  overflow: hidden;
-  display: box;
-  box-orient: vertical;
+  overflow: visible;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }
 .entry-footer {
   color: var(--secondary);
@@ -450,6 +442,7 @@ img {
   right: 0;
   top: 0;
   bottom: 0;
+  pointer-events: none;
 }
 /* Post single
 -------------------------------------------------- */
@@ -785,7 +778,7 @@ margin-top: 50px;
   flex-shrink: 0;
   width: 80px;
   height: 80px;
-  overflow: hidden;
+  overflow: visible;
   border-radius: var(--radius);
 }
 
@@ -816,3 +809,16 @@ margin-top: 50px;
 .cnpj-info {
   font-size: 0.5em; 
   }
+
+/* Truncar entrada de post apenas na home/listagem */
+.list .entry-content {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+}
+
+.single .entry-content {
+  display: block;
+  overflow: visible;
+}
