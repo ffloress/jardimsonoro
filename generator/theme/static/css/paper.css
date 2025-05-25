@@ -752,7 +752,15 @@ margin-top: 50px;
 }
 
 
-
+.youtube-placeholder {
+  width: 560px;
+  height: 315px;
+  margin: 2em auto;
+  display: block;
+  background-size: cover;
+  position: relative;
+  cursor: pointer;
+}
 
 
 

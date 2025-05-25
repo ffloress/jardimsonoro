@@ -99,5 +99,60 @@
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setTheme);
   </script>
   -->
+  
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const iframes = document.querySelectorAll("iframe");
+
+  iframes.forEach((iframe) => {
+    const src = iframe.src;
+    const youtubeMatch = src.match(/https?:\/\/(www\.)?youtube\.com\/embed\/([a-zA-Z0-9_-]{11})/);
+
+    if (youtubeMatch) {
+      const videoId = youtubeMatch[2];
+      const width = iframe.width || "560";
+      const height = iframe.height || "315";
+
+      // Criar placeholder
+      const placeholder = document.createElement("div");
+      placeholder.className = "youtube-placeholder";
+      placeholder.style.position = "relative";
+      placeholder.style.cursor = "pointer";
+      placeholder.style.background = `#000 url(https://img.youtube.com/vi/${videoId}/hqdefault.jpg) center center / cover no-repeat`;
+placeholder.style.width = "100%";
+placeholder.style.aspectRatio = "16 / 9";
+placeholder.style.maxWidth = "100%";
+placeholder.style.height = "auto";
+
+
+      // Ícone de play
+      const playBtn = document.createElement("div");
+      playBtn.style.position = "absolute";
+      playBtn.style.top = "50%";
+      playBtn.style.left = "50%";
+      playBtn.style.transform = "translate(-50%, -50%)";
+      playBtn.style.width = "60px";
+      playBtn.style.height = "60px";
+      playBtn.style.background = "url('https://img.icons8.com/ios-filled/100/ffffff/play-button-circled.png') center / contain no-repeat";
+      placeholder.appendChild(playBtn);
+
+      // Evento de clique: carregar iframe real
+      placeholder.addEventListener("click", () => {
+        const iframeClone = document.createElement("iframe");
+        iframeClone.src = src + "?autoplay=1";
+        iframeClone.width = width;
+        iframeClone.height = height;
+        iframeClone.allowFullscreen = true;
+        iframeClone.frameBorder = 0;
+        placeholder.replaceWith(iframeClone);
+      });
+
+      // Substituir iframe original pelo placeholder
+      iframe.parentNode.replaceChild(placeholder, iframe);
+    }
+  });
+});
+</script>
+
   </body>
 </html>
