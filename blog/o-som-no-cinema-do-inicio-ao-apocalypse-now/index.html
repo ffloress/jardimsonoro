@@ -16,8 +16,8 @@
   <meta name="twitter:description" content="Este ano, Apocalypse Now celebra 45 anos de lançamento. O filme é um marco na história do cinema pela sua profunda exploração da loucura da guerra e pelas inovações técnicas que redefiniram a narrativa cinematográfica, especialmente no uso do som, com uma trilha sonora narrativa repleta de significados. Neste artigo …">
   <meta property="og:description" content="Este ano, Apocalypse Now celebra 45 anos de lançamento. O filme é um marco na história do cinema pela sua profunda exploração da loucura da guerra e pelas inovações técnicas que redefiniram a narrativa cinematográfica, especialmente no uso do som, com uma trilha sonora narrativa repleta de significados. Neste artigo …">
 
-  <meta name="twitter:image" content="https://jardimsonoro.com/blog/img/somcinema.jpg">
-  <meta property="og:image" content="https://jardimsonoro.com/blog/img/somcinema.jpg">
+  <meta name="twitter:image" content="https://jardimsonoro.com/blog/img/somcinema.webp">
+  <meta property="og:image" content="https://jardimsonoro.com/blog/img/somcinema.webp">
 
 <meta property="og:url" content="https://jardimsonoro.com/blog/o-som-no-cinema-do-inicio-ao-apocalypse-now/">
 <meta property="og:title" content="O Som No Cinema - Do Início Ao Apocalypse Now.">
@@ -30,7 +30,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
 <style>
-/* Removidas as declarações @font-face para circularbook e circularbold */
+/* @font-face para circularbook e circularbold removidas, usando Ubuntu do Google Fonts */
 
 @keyframes animation-acid {
   0%, 100% { color: #5bc5aa; }
@@ -52,7 +52,7 @@
 .acidbg {
   animation: animation-acidbg 5s infinite;
   background-color: #5bc5aa;
-  font-weight: bold; /* Usará Ubuntu Bold (700) */
+  font-weight: 700; /* Ubuntu Bold */
   padding: 5px;
   border-radius: 0.25em;
 }
@@ -61,7 +61,7 @@
 .sublinhado { text-decoration: underline; }
 .acidborder { animation: animation-acidborder 3s infinite; background-color: #5bc5aa; }
 
-/* Theme Base */
+/* Theme Base (Paper theme inspired) */
 :root {
   --gap: 1.5em;
   --content-gap: 2.5em;
@@ -76,8 +76,8 @@
   --secondary: rgba(0, 0, 0, 0.56);
   --tertiary: rgba(0, 0, 0, 0.16);
   --content: rgba(0, 0, 0, 0.88);
-  --hljs-bg: #1c1d21;
-  --code-bg: #f5f5f5;
+  --hljs-bg: #1c1d21; 
+  --code-bg: #f5f5f5; 
   --border: #eee;
 }
 .dark {
@@ -91,71 +91,82 @@
   --code-bg: #37383e;
   --border: #5b5d67;
 }
-.list { background: var(--code-bg); }
+.list { background: var(--code-bg); } 
 .dark.list { background: var(--theme); }
 
 /* Reset */
-*, *::before, *::after { box-sizing: border-box; font-family: 'Ubuntu', sans-serif; } /* Alterado para Ubuntu */
-html { -webkit-tap-highlight-color: transparent; font-family: 'Ubuntu', sans-serif; } /* Alterado para Ubuntu */
+*, *::before, *::after { box-sizing: border-box; font-family: 'Ubuntu', sans-serif; }
+html { -webkit-tap-highlight-color: transparent; font-family: 'Ubuntu', sans-serif; }
 body {
   margin: 0;
   color: var(--primary);
-  font-size: 1.2em !important;
+  font-size: 1.2em !important; 
   line-height: 1.8;
   word-break: break-word;
   background: var(--theme);
-  font-family: 'Ubuntu', sans-serif; /* Alterado para Ubuntu */
-  /* font-weight: 400; */ /* Ubuntu Regular (400) é o padrão, descomente se quiser outro peso padrão como 300 (Light) */
+  font-family: 'Ubuntu', sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section { display: block; }
-h1, h2, h3, h4, h5, h6 { margin-top: 0; margin-bottom: 0; color: var(--primary); line-height: 1.2; font-weight: 500; } /* Exemplo: Títulos com peso Medium (500) da Ubuntu */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0; margin-bottom: 0;
+  color: var(--primary);
+  line-height: 1.2;
+  font-weight: 500; 
+}
 p { margin-top: 0; margin-bottom: 0; }
-strong, b { font-weight: 700; } /* Usa Ubuntu Bold (700) */
+strong, b { font-weight: 700; } /* Ubuntu Bold */
 ul { margin: 0; padding: 0; list-style: none; }
 a { color: var(--primary); text-decoration: none; }
 figure { margin: 0; }
 table { width: 100%; border-collapse: collapse; border-spacing: 0; }
-button, input, textarea { padding: 0; font: inherit; background: transparent; border: 0; appearance: none; -webkit-appearance: none; -moz-appearance: none; }
+button, input, textarea {
+  padding: 0; font: inherit; background: transparent; border: 0;
+  appearance: none; -webkit-appearance: none; -moz-appearance: none;
+}
 button, input[type='button'], input[type='submit'] { cursor: pointer; }
 input:autofill, textarea:autofill { box-shadow: 0 0 0 3.125em var(--theme) inset; }
 img { display: block; max-width: 100%; height: auto; }
 
 /* Header */
+.header { 
+  /* border-bottom: 1px solid var(--border); */ 
+}
 .nav {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Alterado de space-between para center */
+  justify-content: center; 
   align-items: center;
   gap: 1em;
-  /* text-align: center; Mantido, embora o justify-content: center seja mais direto para o item flex */
-  max-width: var(--nav-width);
+  max-width: var(--nav-width); 
   margin-left: auto;
   margin-right: auto;
-  padding: 0 var(--gap);
+  padding: 0 var(--gap); 
   height: var(--header-height);
 }
-.nav a { line-height: var(--header-height); }
-/* .logo é um h1 no seu HTML, estilizado abaixo ou herdará de h1 global */
-.logo a { font-size: 1em; font-weight: 700; /* Exemplo: Logo com Ubuntu Bold */ }
-.menu { display: flex; gap: 1em; flex-wrap: wrap; }
-.menu a { font-size: 1.0em; /* Peso normal (400) ou pode especificar ex: font-weight: 500; */ }
-.logo-container { margin-bottom: 0.5rem; }
-.logoimg { width: 25px; height: 25px; object-fit: cover; border-radius: 50%; }
+.nav a { line-height: var(--header-height); } 
+.logo { 
+}
+.logo a { font-size: 1em; font-weight: 700; /* Ubuntu Bold para o texto do logo */ }
+.menu { display: flex; gap: 1em; flex-wrap: wrap; } 
+.menu a { font-size: 1.0em; }
+.logo-container { margin-bottom: 0.5rem; } 
+.logoimg { width: 25px; height: 25px; object-fit: cover; border-radius: 50%; } 
 
-/* Main */
+/* Main Content Area */
 .main {
   position: relative;
-  flex-grow: 1;
+  flex-grow: 1; 
   max-width: calc(var(--main-width) + var(--gap) * 2);
   margin-left: auto;
   margin-right: auto;
   padding: var(--gap);
 }
 .page-header { margin-bottom: 1.5em; }
-.page-header h1 { font-size: 2.5em; /* Peso já definido em h1 global ou pode redefinir aqui */ }
+.page-header h1 { font-size: 2.5em; }
+
 .pagination { display: flex; margin-top: var(--content-gap); }
 .pagination a {
   color: var(--theme);
@@ -168,17 +179,20 @@ img { display: block; max-width: 100%; height: auto; }
 .pagination .prev { padding-left: 1.0em; padding-right: 1.125em; }
 .pagination .next { margin-left: auto; padding-left: 1.125em; padding-right: 1.0em; }
 
-/* Post entry */
-.first-entry {
+/* Post Entry (Listagens de Artigos) */
+/* REMOVIDAS AS REGRAS ESPECÍFICAS PARA .first-entry para uniformizar a lista */
+/*
+.first-entry { 
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: 20.0em;
-  margin-bottom: var(--header-height);
+  margin-bottom: var(--header-height); 
 }
-.first-entry .entry-header h2 { font-size: 2.5em; /* Peso já definido em h2 global */ }
+.first-entry .entry-header h2 { font-size: 2.5em; }
 .first-entry .entry-content { margin-top: 0.875em; margin-bottom: 0.875em; font-size: 1.0em; }
+*/
 
 .post-entry {
   position: relative;
@@ -188,40 +202,57 @@ img { display: block; max-width: 100%; height: auto; }
   border-radius: var(--radius);
   display: flex;
   flex-direction: column;
-  gap: 1em;
-  transition: transform 0.1s ease-out;
+  gap: 1em; 
+  transition: transform 0.1s ease-out, box-shadow 0.1s ease-out; 
+   width: 100%;
+}
+.post-entry:hover { 
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
 }
 .post-entry:active { transform: scale(0.98); }
 
-.entry-header h2 { font-size: 1.5em; /* Peso já definido em h2 global */ }
-.entry-header p { font-size: 0.7em; }
+.post-entry-thumb-container { display: flex; align-items: flex-start; gap: 1em; }
+.post-thumb {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  overflow: hidden; 
+  border-radius: var(--radius);
+}
+.post-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-.entry-content {
+.entry-header { 
+  flex-grow: 1; 
+}
+.entry-header h2 { font-size: 1.5em; } 
+.entry-header p { font-size: 0.7em; } 
+
+.entry-content { 
   margin-top: 0.5em; margin-bottom: 0.5em;
   color: var(--secondary);
   font-size: 0.875em;
   line-height: 1.6;
 }
-.list .entry-content {
+.list .entry-content { 
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 3; 
 }
-.single .entry-content { /* Garante que em páginas de post único ou page, o conteúdo não seja truncado */
-  display: block;
+.single .entry-content { 
+  display: block; 
   overflow: visible;
-  -webkit-line-clamp: unset; /* Remove a propriedade de line-clamp */
-  -webkit-box-orient: initial; /* Reseta a orientação */
+  -webkit-line-clamp: unset;
+  -webkit-box-orient: initial;
 }
-
 
 .entry-footer { color: var(--secondary); font-size: 0.8125em; text-align: right; }
-.entry-link { position: absolute; left: 0; right: 0; top: 0; bottom: 0; }
+.entry-link { position: absolute; left: 0; right: 0; top: 0; bottom: 0; } 
 
-/* Post single */
+/* Post Single (Página de Artigo Individual) */
 .post-header { margin-top: 1.5em; margin-bottom: var(--content-gap); }
-.post-title { margin-bottom: 0.125em; font-size: 2.5em; transform: translateX(-2px); /* Peso de h1 global */ }
+.post-title { margin-bottom: 0.125em; font-size: 2.5em; transform: translateX(-2px); }
 .post-by { color: var(--secondary); font-size: 0.875em; }
 .post-by a { color: var(--secondary); font-size: 1em; }
 .post-by a:hover { color: #80cbc4; border-bottom: 0.0625em solid var(--primary); text-decoration: underline; }
@@ -231,25 +262,25 @@ img { display: block; max-width: 100%; height: auto; }
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.5em 1em;
+  gap: 0.5em 1em; 
   color: var(--secondary);
   font-size: 0.875em;
-  margin-bottom: 1em;
+  margin-bottom: 1em; 
 }
 .post-date { font-size: 0.9em; color: #888; }
 .post-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5em;
+  gap: 0.5em; 
   margin: 0; padding: 0;
-  justify-content: flex-end;
+  justify-content: flex-end; 
 }
 .post-tags li { font-size: 0.85em; }
 .post-tags a { display: block; text-decoration: none; font-size: 0.875em; line-height: 2.125em; }
 
 .post-content { color: var(--content); }
 .post-content img, .post-content iframe { display: block; margin-left: auto; margin-right: auto; max-width: 100%; }
-/* Pesos de h1-h6 já definidos globalmente, tamanhos abaixo */
+/* Títulos dentro do conteúdo do post */
 .post-content h1 { margin-top: 2.5em; margin-bottom: 1.0em; font-size: 2.2em; }
 .post-content h2 { margin-top: 2.0em; margin-bottom: 0.8em; font-size: 1.8em; }
 .post-content h3, .post-content h4, .post-content h5, .post-content h6 { margin-top: 1.5em; margin-bottom: 0.6em; }
@@ -265,7 +296,7 @@ img { display: block; max-width: 100%; height: auto; }
 .post-content p { text-indent: 1.5em; }
 .post-content ul, .post-content ol { padding-left: 1.5em; }
 .post-content li { margin-top: 0.3125em; }
-.post-content li p { margin-bottom: 0; text-indent: 0; }
+.post-content li p { margin-bottom: 0; text-indent: 0; } 
 .post-content dl { display: flex; flex-wrap: wrap; margin: 0; }
 .post-content dt { width: 25%; font-weight: 700; /* Ubuntu Bold */ }
 .post-content dd { width: 75%; margin-left: 0; padding-left: 0.625em; }
@@ -275,44 +306,45 @@ img { display: block; max-width: 100%; height: auto; }
 .post-content table th { font-size: 0.875em; text-align: left; font-weight: 700; /* Ubuntu Bold */ }
 
 .post-content .highlight, .post-content pre {
-  margin-left: calc(var(--gap) * -1); margin-right: calc(var(--gap) * -1);
+  margin-left: calc(var(--gap) * -1); margin-right: calc(var(--gap) * -1); 
   margin-bottom: 2.0em;
-  background: var(--hljs-bg) !important;
+  background: var(--hljs-bg) !important; 
   border-radius: var(--radius);
   overflow-x: auto;
-  padding: var(--gap);
+  padding: var(--gap); 
 }
 .post-content ul pre, .post-content ol pre { margin-left: calc(var(--gap) * -2); }
 .post-content .highlight pre { margin: 0; padding: 0; }
 
-.right { text-align: center; }
+.right { text-align: center; } 
 .post-content .highlighttable { table-layout: fixed; }
-.post-content .highlighttable td:first-child { width: 2.5em; }
+.post-content .highlighttable td:first-child { width: 2.5em; } 
 .post-content .highlighttable td .linenodiv { padding-right: 0 !important; }
 .post-content .highlighttable td .linenodiv pre, .post-content .highlighttable td .highlight { margin-bottom: 0; }
-.post-content .highlight span { background: transparent !important; }
-.post-content code { /* `code` inline */
+.post-content .highlight span { background: transparent !important; } 
+
+.post-content code { 
   margin: 0 0.15em; padding: 0.2em 0.4em;
   font-size: 0.82em; line-height: initial;
   background: var(--code-bg);
   border-radius: 0.2em;
-  font-family: 'Ubuntu Mono', monospace; /* Sugestão: Ubuntu Mono para código, se importada, ou fallback para monospace genérico */
+  font-family: 'Ubuntu Mono', Consolas, 'Courier New', monospace; 
 }
-.post-content pre code { /* `code` dentro de `pre` */
+.post-content pre code { 
   display: block;
-  margin: 0; padding: 0;
-  color: rgba(255, 255, 255, 0.8);
-  background: transparent;
+  margin: 0; padding: 0; 
+  color: rgba(255, 255, 255, 0.8); 
+  background: transparent; 
   border-radius: 0;
-  font-family: 'Ubuntu Mono', monospace; /* Sugestão: Ubuntu Mono para código */
-  font-size: 0.9em;
+  font-family: 'Ubuntu Mono', Consolas, 'Courier New', monospace; 
+  font-size: 0.9em; 
   line-height: 1.6;
 }
 .post-content blockquote {
-  margin: 0 0 1.5em calc(var(--gap) * -1);
+  margin: 0 0 1.5em calc(var(--gap) * -1); 
   padding: 0.5em 1em 0.5em 1.3125em;
   border-left: 0.25em solid var(--primary);
-  background-color: var(--code-bg);
+  background-color: var(--code-bg); 
 }
 .post-content hr { height: 0.0625em; margin: 3.5em 0; background: var(--tertiary); border: 0; }
 
@@ -326,30 +358,23 @@ img { display: block; max-width: 100%; height: auto; }
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   text-align: center;
   line-height: 1.6;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--border); 
 }
 .footer span { margin: 0 0.0625em; }
 .footer a { color: var(--primary); font-weight: 700; /* Ubuntu Bold */ }
 .footer a:hover { color: #80cbc4; border-bottom: 0.0625em solid var(--primary); }
 
-/* 404 */
+/* Página 404 */
 .not-found {
   position: absolute; left: 0; right: 0;
   display: flex; align-items: center; justify-content: center;
-  height: 80%;
+  height: 80%; 
   font-size: 10.0em; font-weight: 700; /* Ubuntu Bold */
 }
 
-.space-top { margin-top: 50px; }
+.space-top { margin-top: 50px; } 
 
-.post-entry-thumb-container { display: flex; align-items: flex-start; gap: 1em; }
-.post-thumb {
-  flex-shrink: 0; width: 80px; height: 80px;
-  overflow: hidden;
-  border-radius: var(--radius);
-}
-.post-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
+/* Social Icons no Footer */
 .social-icons {
   margin-top: 1rem; display: flex; justify-content: center; gap: 1.2rem;
   list-style: none; padding: 0;
@@ -357,39 +382,39 @@ img { display: block; max-width: 100%; height: auto; }
 .social-icons a svg { fill: var(--primary); transition: fill 0.3s ease; width: 22px; height: 22px; }
 .social-icons a:hover svg { fill: #80cbc4; }
 
-.cnpj-info { font-size: 0.75em; opacity: 0.8; }
+.cnpj-info { font-size: 0.75em; opacity: 0.8; } 
 
 /* YouTube/Video Placeholder Styles */
-.youtube-placeholder {
+.youtube-placeholder { 
   display: block; width: 100%; max-width: 560px;
   aspect-ratio: 16 / 9;
-  margin: 1.5em auto;
-  background-color: #000;
+  margin: 1.5em auto; 
+  background-color: #000; 
   background-size: cover; background-position: center;
   position: relative; cursor: pointer;
   border-radius: var(--radius);
-  overflow: hidden;
+  overflow: hidden; 
 }
-.youtube-play-button {
+.youtube-play-button { 
   position: absolute; top: 50%; left: 50%;
   transform: translate(-50%, -50%);
   width: 60px; height: 60px;
   background: url('https://img.icons8.com/ios-filled/100/FFFFFF/play-button-circled.png') center / contain no-repeat;
-  filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
+  filter: drop-shadow(0 0 5px rgba(0,0,0,0.5)); 
   pointer-events: none;
 }
 .video-wrapper-with-caption {
   margin: 1.5em auto; max-width: 560px;
 }
-.video-wrapper-with-caption .youtube-placeholder {
+.video-wrapper-with-caption .youtube-placeholder { 
   margin-left: 0; margin-right: 0;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.5em; 
 }
 .video-caption {
   display: block; font-size: 0.9em;
   color: var(--secondary);
   text-align: center;
-  padding: 0.5em 0.1em; margin-top: 0;
+  padding: 0.5em 0.1em; margin-top: 0; 
   line-height: 1.4;
 }
 .video-caption a, .video-caption strong { color: inherit; font-weight: inherit; }
@@ -398,30 +423,51 @@ img { display: block; max-width: 100%; height: auto; }
 @media (max-width: 768px) {
   body { font-size: 1.1em !important; }
   .main { padding: var(--gap) 1em; }
-  .post-title, .first-entry .entry-header h2, .page-header h1 { font-size: 2em; }
+  .post-title, /*.first-entry .entry-header h2,*/ .page-header h1 { font-size: 2em; } /* .first-entry h2 removido da regra conjunta */
   .post-content h1 { font-size: 1.8em; }
   .post-content h2 { font-size: 1.6em; }
   .post-content h3 { font-size: 1.4em; }
   .post-content .highlight, .post-content pre {
     margin-left: -1em; margin-right: -1em;
-    border-radius: 0;
+    border-radius: 0; 
   }
-  .post-content ul pre, .post-content ol pre { margin-left: calc(-1em - 1.5em); }
+  .post-content ul pre, .post-content ol pre { margin-left: calc(-1em - 1.5em); } 
 }
 
 @media (max-width: 480px) {
   body { font-size: 1.05em !important; }
-  .post-title, .first-entry .entry-header h2, .page-header h1 { font-size: 1.7em; }
+  .post-title, /*.first-entry .entry-header h2,*/ .page-header h1 { font-size: 1.7em; } /* .first-entry h2 removido */
   .nav { flex-direction: column; height: auto; padding-top: 0.5em; padding-bottom: 0.5em; }
-  .logo a, .menu a { line-height: 1.8; }
+  .logo a, .menu a { line-height: 1.8; } 
   .menu { justify-content: center; }
   .post-meta { flex-direction: column; align-items: flex-start; gap: 0.5em; }
   .post-meta .post-tags { justify-content: flex-start; text-align: left; }
   .entry-footer { text-align: left; }
-  .post-entry-thumb-container { flex-direction: column; align-items: center; text-align: center; }
-  .post-thumb { width: 100%; max-width: 200px; height: auto; }
+
+  /* Correção para thumbnail e título em listas de artigos em telas pequenas */
+  .post-entry-thumb-container {
+    flex-direction: row; 
+    align-items: flex-start; 
+    gap: 0.8em; 
+  }
+  .post-thumb {
+    width: 60px;       
+    height: 60px;      
+    max-width: none;   
+  }
+  .post-entry .entry-header { 
+    text-align: left;
+  }
+  .post-entry .entry-header h2 {
+    font-size: 1.1em; 
+  }
+  /* Fim da correção para thumbnail */
+  
   .post-content p { text-indent: 1em; }
 }
+
+
+
 </style>
 
 
@@ -448,7 +494,7 @@ img { display: block; max-width: 100%; height: auto; }
 </div>
 
   </header>
-  <div class="post-content"><p><img alt="Walter Murch" src="../img/somcinema.jpg"></p>
+  <div class="post-content"><p><img alt="Walter Murch" src="../img/somcinema.webp"></p>
 <p>Este ano, <em>Apocalypse Now</em> celebra 45 anos de lançamento. O filme é um marco na história do cinema pela sua profunda exploração da loucura da guerra e pelas inovações técnicas que redefiniram a narrativa cinematográfica, especialmente no uso do som, com uma trilha sonora narrativa repleta de significados.</p>
 <p>Neste artigo, explorarei a história do som no cinema, desde suas origens até a realização de <em>Apocalypse Now</em>, a sequência de eventos que culminaram na produção deste filme e sua duradoura herança para o som no cinema.</p>
 <p>Como será detalhado, o som sempre influenciou a maneira como as histórias são contadas no cinema, desde seus primórdios até sua maturidade conceitual, representada aqui por <em>Apocalypse Now</em>, de Francis Ford Coppola.</p>
@@ -484,7 +530,7 @@ img { display: block; max-width: 100%; height: auto; }
 <p>"O som sincronizado dentro do filme mudou radicalmente o cinema. A estabilização da velocidade de projeção, feita necessária pela vinda do som, teve consequências que foram além do que qualquer um poderia ter previsto. O tempo fílmico não era mais um valor flexível, mais ou menos transposto dependendo do ritmo da projeção. O tempo ganhou um valor fixo; o cinema sonoro garantiu que x segundos na edição teriam a mesma duração na exibição. No cinema mudo, uma tomada não tinha uma duração interna exata; folhas balançando ao vento ou ondas na superfície da água não tinham uma temporalidade absoluta ou fixa. Cada sala tinha uma certa margem de liberdade em ajustar a velocidade da projeção. Não é coincidência que a mesa de editar motorizada com sua velocidade padrão (a Moviola) não tenha aparecido até a era do cinema sonoro." <sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></p>
 </blockquote>
 <p>Com o surgimento da Moviola, toda a indústria cinematográfica passou a adotar o som sincronizado, e novas técnicas de gravação, edição e mixagem de som formaram o conceito de montagem sonora.</p>
-<p><img alt="moviola" src="../img/moviola.jpg"></p>
+<p><img alt="moviola" src="../img/moviola.webp"></p>
 <blockquote>
 <p>"Com o decorrer do tempo, o uso do som aliado à montagem fílmica vai adquirindo graus maiores de sofisticação, na medida em que os subelementos constitutivos do som são destrinchados e trabalhados. Não somente as características de um som são 'exercitadas' — timbre, altura, intensidade, etc. —, mas também os diferentes elementos sonoros — diálogos, música, ruídos/efeitos, ambiência — são combinados, contribuindo com novas e variadas possibilidades para a gramática fílmica." <sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></p>
 <p>"A história inicial do som nos filmes produzido dentro dos estúdios é marcada pelas limitações dos microfones condensadores de carbono então usados. Não direcionais, frágeis, sensíveis ao vento e outros ruídos ambientes, necessitando de um estágio de amplificação muito próximo ao microfone, esses microfones requisitavam condições muito especiais. Prover essas condições influenciava também a gravação de imagens" <sup id="fnref:11"><a class="footnote-ref" href="#fn:11">11</a></sup>.</p>
@@ -511,7 +557,7 @@ img { display: block; max-width: 100%; height: auto; }
 <p><a href="https://www.youtube.com/watch?v=L8q3SwU0h88">Trailer Dolby Digital</a></p>
 <p>O surgimento de cursos específicos dentro das universidades permitiu que o círculo de discussões que existiu na época da consolidação do cinema sonoro, finalmente influenciasse uma nova geração de cineastas de uma maneira sonoro-consciente.</p>
 <p><em>Apocalypse Now</em> é um importante filme para a história do cinema, pela sua qualidade técnica, contexto social, aprovação da crítica, mas, talvez, sua maior inovação aconteceu em sua trilha sonora. Foi o primeiro filme a apresentar o som distribuído em 5 canais (mais uma caixa de subgraves) dentro da sala de exibição, formato que depois virou um padrão da indústria <sup id="fnref:23"><a class="footnote-ref" href="#fn:23">23</a></sup>.</p>
-<p><img alt="Walter Murch" src="../img/murch.jpg"></p>
+<p><img alt="Walter Murch" src="../img/murch.webp"></p>
 <p>O editor de som e imagens, Walter Murch, trabalhou os sons do filme com significado, valendo-se de um tempo e liberdade criativa raramente disponíveis na indústria.</p>
 <blockquote>
 <p>"Eu fui muito influenciado pela música concreta quando a conheci aos 10 anos de idade, e fiquei completamente encantado pela ideia de que você poderia fazer música a partir de sons. O que, desde então, tem sido uma constante influência sobre todo o meu trabalho. Mas os filmes que eu havia feito antes de <em>Apocalypse Now</em> tinham sido todos em mono (<em>American Graffiti</em>, <em>A Conversação</em>). Aqui não era apenas um filme estéreo, mas todo um novo formato" <sup id="fnref:24"><a class="footnote-ref" href="#fn:24">24</a></sup>.</p>
@@ -530,7 +576,7 @@ img { display: block; max-width: 100%; height: auto; }
 <p>"Quanto mais material houver para trabalhar, mais alternativas têm de ser consideradas, uma vez que um maior leque de opções exige naturalmente mais tempo de consideração. Isso é verdade para qualquer filme com uma média alta de material filmado, mas no caso particular de <em>Apocalypse Now</em> o problema foi maior pela função da temática delicada de que tratava, de uma estrutura cuidadosa e original, das inovações tecnológicas em todos os campos e da obrigação que todos os envolvidos sentiam de fazer o melhor trabalho de que eram capazes" <sup id="fnref:27"><a class="footnote-ref" href="#fn:27">27</a></sup>.</p>
 </blockquote>
 <h3>Teoria consolidada</h3>
-<p><img alt="Walter Murch" src="../img/soundvision.jpeg"></p>
+<p><img alt="Walter Murch" src="../img/soundvision.webp"></p>
 <p>Por trilha sonora, compreende-se todas as informações sonoras, que, assim como os constituintes do cinema como um todo, também não devem ser analisadas isoladamente, enquanto sua expressividade tenha sido concebida no conjunto desses elementos. Sendo assim:</p>
 <blockquote>
 <p>"O sistema expressivo sonoro integra quatro variantes: expressão oral, música, sons e silêncio.</p>
@@ -549,7 +595,7 @@ img { display: block; max-width: 100%; height: auto; }
 <p>"Quando a criança ainda não aprendeu a falar, mas já percebeu que a linguagem significa, a voz da mãe, com suas melodias e seus toques, é pura música, ou é aquilo que depois continuaremos para sempre a ouvir na música: uma linguagem em que se percebe o horizonte de um sentido que no entanto não se discrimina em signos isolados, mas que só se intui como uma globalidade em perpétuo recuo, não verbal, intraduzível, mas, à sua maneira, transparente" <sup id="fnref:29"><a class="footnote-ref" href="#fn:29">29</a></sup>.</p>
 </blockquote>
 <p>Nesta passagem do livro <em>O Som e o Sentido</em>, Wisniki convida à reflexão. É a trilha sonora uma linguagem? Ou um “sentido intraduzível, mas à sua maneira transparente”, como a própria música?</p>
-<p><img alt="Walter Murch" src="../img/wisnik.jpg"></p>
+<p><img alt="Walter Murch" src="../img/wisnik.webp"></p>
 <p>Em seu artigo <em>Teaching the Soundtrack</em>, Claudia Gorbman propôs que, na perspectiva narrativa, um elemento da trilha sonora pode ser diegético, não diegético ou metadiegético <sup id="fnref:30"><a class="footnote-ref" href="#fn:30">30</a></sup>. Sendo:</p>
 <ul>
 <li><strong>Diegético</strong>: sonoridades objetivas, pertencentes ao universo sonoro dos personagens (cena).</li>
@@ -905,12 +951,12 @@ document.addEventListener("DOMContentLoaded", function () {
     return null;
   }
 
-  function createVideoPlaceholder(linkElement, videoInfo, type, captionText) {
+ function createVideoPlaceholder(linkElement, videoInfo, type, captionText) {
     const videoWrapper = document.createElement("div");
     videoWrapper.className = "video-wrapper-with-caption";
 
     const placeholder = document.createElement("div");
-    placeholder.className = "youtube-placeholder"; // Reutilize esta classe para estilo consistente
+    placeholder.className = "youtube-placeholder";
 
     const playButton = document.createElement("div");
     playButton.className = "youtube-play-button";
@@ -918,53 +964,65 @@ document.addEventListener("DOMContentLoaded", function () {
     videoWrapper.appendChild(placeholder);
 
     if (captionText && captionText.trim() !== "") {
-      const caption = document.createElement("figcaption");
-      caption.className = "video-caption";
-      caption.innerHTML = captionText;
-      videoWrapper.appendChild(caption);
+        const caption = document.createElement("figcaption");
+        caption.className = "video-caption";
+
+        // --- INÍCIO DA MODIFICAÇÃO ---
+        const captionLink = document.createElement("a");
+        captionLink.href = linkElement.href; // URL original do vídeo
+        captionLink.innerHTML = captionText;  // Texto original do link (com <strong>, etc.)
+        captionLink.target = "_blank";      // Abrir em nova aba (recomendado para links externos)
+        captionLink.rel = "noopener noreferrer"; // Segurança para links em nova aba
+
+        caption.appendChild(captionLink);
+        // --- FIM DA MODIFICAÇÃO ---
+        
+        videoWrapper.appendChild(caption);
     }
 
     if (type === "youtube") {
-      placeholder.style.backgroundImage = `url(${videoInfo.thumbnailUrl})`;
+        placeholder.style.backgroundImage = `url(${videoInfo.thumbnailUrl})`;
     } else if (type === "vimeo") {
-      fetch(videoInfo.oEmbedUrl)
-        .then(response => {
-          if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-          return response.json();
-        })
-        .then(data => {
-          if (data.thumbnail_url) {
-            // Garante HTTPS para a miniatura do Vimeo também
-            placeholder.style.backgroundImage = `url(${data.thumbnail_url.replace(/^http:/i, 'https:')})`;
-          } else {
-            console.warn("Miniatura do Vimeo não encontrada para:", videoInfo.id);
-          }
-        })
-        .catch(error => console.error("Erro ao buscar miniatura do Vimeo:", error));
+        fetch(videoInfo.oEmbedUrl)
+            .then(response => {
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                return response.json();
+            })
+            .then(data => {
+                if (data.thumbnail_url) {
+                    placeholder.style.backgroundImage = `url(${data.thumbnail_url.replace(/^http:/i, 'https:')})`;
+                } else {
+                    console.warn("Miniatura do Vimeo não encontrada para:", videoInfo.id);
+                }
+            })
+            .catch(error => console.error("Erro ao buscar miniatura do Vimeo:", error));
     }
 
     placeholder.addEventListener("click", () => {
-      const iframe = document.createElement("iframe");
-      iframe.src = videoInfo.embedUrl; // Agora será HTTPS para YouTube
+        const iframe = document.createElement("iframe");
+        iframe.src = videoInfo.embedUrl;
 
-      iframe.className = placeholder.className; // Para herdar estilos de aspect-ratio, max-width
-      iframe.style.backgroundImage = 'none';
-      iframe.style.backgroundColor = '#000';
+        iframe.className = placeholder.className;
+        iframe.style.backgroundImage = 'none';
+        iframe.style.backgroundColor = '#000';
 
-      iframe.setAttribute("frameborder", "0");
-      iframe.setAttribute("allowfullscreen", "");
-      iframe.setAttribute("allow", "autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; web-share");
-      iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
-      iframe.setAttribute("title", captionText ? captionText.replace(/<[^>]*>?/gm, '') : (type === "youtube" ? "YouTube video player" : "Vimeo video player"));
+        iframe.setAttribute("frameborder", "0");
+        iframe.setAttribute("allowfullscreen", "");
+        iframe.setAttribute("allow", "autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; web-share");
+        iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+        
+        // Tenta usar o texto da legenda como título do iframe, removendo tags HTML
+        const iframeTitle = captionText ? captionText.replace(/<[^>]*>?/gm, '') : (type === "youtube" ? "YouTube video player" : "Vimeo video player");
+        iframe.setAttribute("title", iframeTitle);
 
-      videoWrapper.replaceChild(iframe, placeholder);
-      iframe.focus();
+        videoWrapper.replaceChild(iframe, placeholder);
+        iframe.focus();
     }, { once: true });
 
     if (linkElement.parentNode) {
-      linkElement.parentNode.replaceChild(videoWrapper, linkElement);
+        linkElement.parentNode.replaceChild(videoWrapper, linkElement);
     }
-  }
+}
 });
 </script>
 <!-- Google tag (gtag.js) -->

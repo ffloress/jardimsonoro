@@ -2,7 +2,7 @@ Title: O Som No Cinema - Do Início Ao Apocalypse Now.
 Tags: cinema, sound design
 Author: Frederico Flores
 
-![Walter Murch](../img/somcinema.jpg)
+![Walter Murch](../img/somcinema.webp)
 
 Este ano, *Apocalypse Now* celebra 45 anos de lançamento. O filme é um marco na história do cinema pela sua profunda exploração da loucura da guerra e pelas inovações técnicas que redefiniram a narrativa cinematográfica, especialmente no uso do som, com uma trilha sonora narrativa repleta de significados.
 
@@ -57,7 +57,7 @@ No filme *O Vampiro de Dusseldorf* (1931), considerado o primeiro filme a utiliz
 
 Com o surgimento da Moviola, toda a indústria cinematográfica passou a adotar o som sincronizado, e novas técnicas de gravação, edição e mixagem de som formaram o conceito de montagem sonora.
 
-![moviola](../img/moviola.jpg)
+![moviola](../img/moviola.webp)
 
 > "Com o decorrer do tempo, o uso do som aliado à montagem fílmica vai adquirindo graus maiores de sofisticação, na medida em que os subelementos constitutivos do som são destrinchados e trabalhados. Não somente as características de um som são 'exercitadas' — timbre, altura, intensidade, etc. —, mas também os diferentes elementos sonoros — diálogos, música, ruídos/efeitos, ambiência — são combinados, contribuindo com novas e variadas possibilidades para a gramática fílmica." [^5]
 
@@ -100,7 +100,7 @@ O surgimento de cursos específicos dentro das universidades permitiu que o cír
 
 *Apocalypse Now* é um importante filme para a história do cinema, pela sua qualidade técnica, contexto social, aprovação da crítica, mas, talvez, sua maior inovação aconteceu em sua trilha sonora. Foi o primeiro filme a apresentar o som distribuído em 5 canais (mais uma caixa de subgraves) dentro da sala de exibição, formato que depois virou um padrão da indústria [^23].
 
-![Walter Murch](../img/murch.jpg)
+![Walter Murch](../img/murch.webp)
 
 O editor de som e imagens, Walter Murch, trabalhou os sons do filme com significado, valendo-se de um tempo e liberdade criativa raramente disponíveis na indústria.
 
@@ -122,7 +122,7 @@ Em seu livro, *Num Piscar de Olhos*, Walter Murch explica por que *Apocalypse No
 
 ### Teoria consolidada
 
-![Walter Murch](../img/soundvision.jpeg)
+![Walter Murch](../img/soundvision.webp)
 
 Por trilha sonora, compreende-se todas as informações sonoras, que, assim como os constituintes do cinema como um todo, também não devem ser analisadas isoladamente, enquanto sua expressividade tenha sido concebida no conjunto desses elementos. Sendo assim:
 
@@ -146,7 +146,7 @@ Pode-se considerar toda a composição da trilha sonora uma espécie de composi�
 
 Nesta passagem do livro *O Som e o Sentido*, Wisniki convida à reflexão. É a trilha sonora uma linguagem? Ou um “sentido intraduzível, mas à sua maneira transparente”, como a própria música?
 
-![Walter Murch](../img/wisnik.jpg)
+![Walter Murch](../img/wisnik.webp)
 
 Em seu artigo *Teaching the Soundtrack*, Claudia Gorbman propôs que, na perspectiva narrativa, um elemento da trilha sonora pode ser diegético, não diegético ou metadiegético [^30]. Sendo:
 

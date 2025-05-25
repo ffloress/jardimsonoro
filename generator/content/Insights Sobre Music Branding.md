@@ -55,3 +55,5 @@ E eu gostaria de finalizar aqui com a pergunta:
 
 [^1]: Lutz Jäncke. *Music, memory and emotion.* [https://pmc.ncbi.nlm.nih.gov/articles/PMC2776393/](https://pmc.ncbi.nlm.nih.gov/articles/PMC2776393/)
 [^2]: Benítez-Burraco, A., & Nikolsky, A. (2023). *The (Co)Evolution of Language and Music Under Human Self-Domestication*. Human Nature, 34(2), 229–275. [https://pmc.ncbi.nlm.nih.gov/articles/PMC10354115/](https://pmc.ncbi.nlm.nih.gov/articles/PMC10354115/)
+
+

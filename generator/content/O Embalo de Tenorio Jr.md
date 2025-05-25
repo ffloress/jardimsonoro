@@ -6,9 +6,9 @@ Author: Frederico Flores
 
 Em uma loja de discos empoeirada no Rio de Janeiro, sob a iluminação âmbar o jornalista musical Jeff Harris descobre, quase por acaso, a música de Francisco Tenório Cerqueira Júnior. A fumaça preguiçosa de cigarro paira no ar, criando um cenário quase cinematográfico. O impacto é imediato, uma epifania sonora que o lança numa busca obsessiva: quem era aquele pianista virtuoso, autor de um único e seminal álbum, *[Embalo](https://www.discogs.com/master/228723-Tenório-Jr-Embalo)*, e tragicamente desaparecido nas brumas da ditadura argentina em 1976.
 
-![Screenshot 3 de Atiraram no Pianista](../img/pianistavista.jpg)
+![Screenshot 3 de Atiraram no Pianista](../img/pianistavista.webp)
 
-![Screenshot de Atiraram No Pianista](../img/pianistario.jpg)
+![Screenshot de Atiraram No Pianista](../img/pianistario.webp)
 
 ![Toca Do Vinicius](../img/tocadovinicius.webp)
 
@@ -26,7 +26,7 @@ Jeff Harris, repórter fictício da *The New Yorker*, com a voz inconfundível d
 
 ## Os Anos Dourados
 
-![Tenorinho 3](../img/tenorio3.jpeg)
+![Tenorinho 3](../img/tenorio3.webp)
 
 
 Francisco Tenório Cerqueira Júnior nasceu no Rio de Janeiro, em 4 de julho de 1941, no bairro de Laranjeiras. Já na juventude, emergiu na cena musical carioca como um talento nato, um pianista cuja habilidade parecia brotar com naturalidade, como se fosse um dom inato.
@@ -45,7 +45,7 @@ Nesse caldeirão sonoro, Tenório Jr. ombreava com gigantes de sua geração:
 - 🎸  Contrabaixistas Luiz Chaves, Tião Neto, Sérgio Barrozo, Bebeto Castilho e Jorge Marinho
 - 🎷 Gigantes do sax como Paulo Moura e J.T. Meirelles, o trombonista Raul de Souza, entre outros. 
 
-![Beco Das Garrafas](../img/becodasgarrafas1.jpg)
+![Beco Das Garrafas](../img/becodasgarrafas1.webp)
 
 Tenório Jr. destacou-se rapidamente como um dos pianistas mais inovadores de sua geração. Seu estilo era uma fusão potente: uma base rítmica inconfundivelmente brasileira, harmonias sofisticadas com um toque impressionista e a malícia da gafieira. Sua versatilidade o tornou um acompanhante requisitadíssimo, deixando sua marca em discos fundamentais como *[É Samba Novo](https://www.discogs.com/release/3949207-Edison-Machado-Edison-Machado-É-Samba-Novo?srsltid=AfmBOooE-1bxRTJ09Ew9rWS4VB3RcpoHVlB-uUAR1FpRu_hpvKFv6Lcj)* (1964), de Edson Machado, *[Vagamente](https://www.discogs.com/release/3277136-Wanda-Vagamente?srsltid=AfmBOoroOPO5TbxvREZUKih0Xi9URCpT7KWyqYJTwt4xmMrbVxfJ_3Oc)* (1964), de Wanda Sá, e espetacular album: *[A Arte Maior de Leny Andrade](https://www.discogs.com/release/6295104-Leny-Andrade-A-Arte-Maior-De-Leny-Andrade?srsltid=AfmBOorY00JtYaPR4vJy54V5qM6YDo9ZET5iAUHBEhYsuLdvm_EEUAM6)* (1963), de Leny Andrade, que conta com uma versão ao vivo de "Embalo".
 
@@ -56,7 +56,7 @@ Aos 23 anos, Tenório Jr. transitou de sideman cobiçado para líder de seu pró
 
 
 ## Embalo
-![Tenorio Jr. - Embalo](../img/tenorioembalo.jpg)
+![Tenorio Jr. - Embalo](../img/tenorioembalo.webp)
 
 O álbum *[Embalo](https://www.discogs.com/master/228723-Tenório-Jr-Embalo)* é uma joia do samba-jazz. A faixa-título, composta por Tenório com arranjo do saxofonista Paulo Moura, abre o disco com inspiração bebop e uma pegada inconfundivelmente brasileira. A sessão de sopros brilha intensamente, enquanto Milton Banana, na bateria, sintetiza uma concepção orquestral inovadora, trazendo a essência das rodas de samba para a percussão.
 
@@ -92,12 +92,12 @@ O fato de Tenório Jr. ser um músico, sem qualquer militância conhecida, apena
 
 Por anos, o destino de Tenório permaneceu envolto em mistério. Apenas em 1986, confissões de Claudio Vallejos, conhecido como "El Gordo", ex-agente da Marinha Argentina que atuou no centro de detenção e tortura da ESMA, trouxeram alguma luz. Vallejos admitiu ter participado da captura de Tenório. Seu corpo, como o de tantos outros desaparecidos, nunca foi encontrado.
 
-![Capa Revista Senhor 1986](../img/revistasenhor.jpeg)
+![Capa Revista Senhor 1986](../img/revistasenhor.webp)
 
 ## Memória e Legado
 
 
-![Placa no Hotel Normandie](../img/placahotelnormandie.jpg)
+![Placa no Hotel Normandie](../img/placahotelnormandie.webp)
 
 O desaparecimento e assassinato de Francisco Tenório Jr. representaram mais do que a perda de um músico talentoso: foram a interrupção brutal de uma trajetória que prometia contribuições inovadoras. Sua música, com sua fusão audaciosa de samba, jazz, bossa nova e elementos modais, continua a ecoar e inspirar músicos contemporâneos.
 
@@ -110,8 +110,8 @@ Como brasileiro, é difícil não refletir sobre a ironia de um "estrangeiro" �
 
 
 
-![Tenorinho 2](../img/tenoriojr2.jpeg)
-![Tenorinho 1](../img/tenoriojr1.jpeg)
+![Tenorinho 2](../img/tenoriojr2.webp)
+![Tenorinho 1](../img/tenoriojr1.webp)
 
 > *"Retornarán los libros, las canciones  
 > Que quemaron las manos asesinas  

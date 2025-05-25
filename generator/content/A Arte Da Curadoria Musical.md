@@ -3,7 +3,7 @@ Tags: playlists, music branding, spotify, festivais
 Author: Frederico Flores
 
 
-![A Arte Da Curadoria Musical](../img/artecuradoria.jpg)
+![A Arte Da Curadoria Musical](../img/artecuradoria.webp)
 
 ## 🎵 A música como um Diferencial
 
@@ -201,6 +201,7 @@ A Tasty cresce pelo Brasil como referência em alimentação nutritiva e autênt
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3mvdyXJ121dHGz7hvEuLdg?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
 🔗 Confira mais playlists da **Tasty Salad Shop** [clicando aqui](https://open.spotify.com/user/njipd6jzn6h54o68qbsqbnvig).
+
 
 
 

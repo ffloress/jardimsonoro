@@ -30,7 +30,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
 <style>
-/* Removidas as declarações @font-face para circularbook e circularbold */
+/* @font-face para circularbook e circularbold removidas, usando Ubuntu do Google Fonts */
 
 @keyframes animation-acid {
   0%, 100% { color: #5bc5aa; }
@@ -52,7 +52,7 @@
 .acidbg {
   animation: animation-acidbg 5s infinite;
   background-color: #5bc5aa;
-  font-weight: bold; /* Usará Ubuntu Bold (700) */
+  font-weight: 700; /* Ubuntu Bold */
   padding: 5px;
   border-radius: 0.25em;
 }
@@ -61,7 +61,7 @@
 .sublinhado { text-decoration: underline; }
 .acidborder { animation: animation-acidborder 3s infinite; background-color: #5bc5aa; }
 
-/* Theme Base */
+/* Theme Base (Paper theme inspired) */
 :root {
   --gap: 1.5em;
   --content-gap: 2.5em;
@@ -76,8 +76,8 @@
   --secondary: rgba(0, 0, 0, 0.56);
   --tertiary: rgba(0, 0, 0, 0.16);
   --content: rgba(0, 0, 0, 0.88);
-  --hljs-bg: #1c1d21;
-  --code-bg: #f5f5f5;
+  --hljs-bg: #1c1d21; 
+  --code-bg: #f5f5f5; 
   --border: #eee;
 }
 .dark {
@@ -91,71 +91,82 @@
   --code-bg: #37383e;
   --border: #5b5d67;
 }
-.list { background: var(--code-bg); }
+.list { background: var(--code-bg); } 
 .dark.list { background: var(--theme); }
 
 /* Reset */
-*, *::before, *::after { box-sizing: border-box; font-family: 'Ubuntu', sans-serif; } /* Alterado para Ubuntu */
-html { -webkit-tap-highlight-color: transparent; font-family: 'Ubuntu', sans-serif; } /* Alterado para Ubuntu */
+*, *::before, *::after { box-sizing: border-box; font-family: 'Ubuntu', sans-serif; }
+html { -webkit-tap-highlight-color: transparent; font-family: 'Ubuntu', sans-serif; }
 body {
   margin: 0;
   color: var(--primary);
-  font-size: 1.2em !important;
+  font-size: 1.2em !important; 
   line-height: 1.8;
   word-break: break-word;
   background: var(--theme);
-  font-family: 'Ubuntu', sans-serif; /* Alterado para Ubuntu */
-  /* font-weight: 400; */ /* Ubuntu Regular (400) é o padrão, descomente se quiser outro peso padrão como 300 (Light) */
+  font-family: 'Ubuntu', sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section { display: block; }
-h1, h2, h3, h4, h5, h6 { margin-top: 0; margin-bottom: 0; color: var(--primary); line-height: 1.2; font-weight: 500; } /* Exemplo: Títulos com peso Medium (500) da Ubuntu */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0; margin-bottom: 0;
+  color: var(--primary);
+  line-height: 1.2;
+  font-weight: 500; 
+}
 p { margin-top: 0; margin-bottom: 0; }
-strong, b { font-weight: 700; } /* Usa Ubuntu Bold (700) */
+strong, b { font-weight: 700; } /* Ubuntu Bold */
 ul { margin: 0; padding: 0; list-style: none; }
 a { color: var(--primary); text-decoration: none; }
 figure { margin: 0; }
 table { width: 100%; border-collapse: collapse; border-spacing: 0; }
-button, input, textarea { padding: 0; font: inherit; background: transparent; border: 0; appearance: none; -webkit-appearance: none; -moz-appearance: none; }
+button, input, textarea {
+  padding: 0; font: inherit; background: transparent; border: 0;
+  appearance: none; -webkit-appearance: none; -moz-appearance: none;
+}
 button, input[type='button'], input[type='submit'] { cursor: pointer; }
 input:autofill, textarea:autofill { box-shadow: 0 0 0 3.125em var(--theme) inset; }
 img { display: block; max-width: 100%; height: auto; }
 
 /* Header */
+.header { 
+  /* border-bottom: 1px solid var(--border); */ 
+}
 .nav {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Alterado de space-between para center */
+  justify-content: center; 
   align-items: center;
   gap: 1em;
-  /* text-align: center; Mantido, embora o justify-content: center seja mais direto para o item flex */
-  max-width: var(--nav-width);
+  max-width: var(--nav-width); 
   margin-left: auto;
   margin-right: auto;
-  padding: 0 var(--gap);
+  padding: 0 var(--gap); 
   height: var(--header-height);
 }
-.nav a { line-height: var(--header-height); }
-/* .logo é um h1 no seu HTML, estilizado abaixo ou herdará de h1 global */
-.logo a { font-size: 1em; font-weight: 700; /* Exemplo: Logo com Ubuntu Bold */ }
-.menu { display: flex; gap: 1em; flex-wrap: wrap; }
-.menu a { font-size: 1.0em; /* Peso normal (400) ou pode especificar ex: font-weight: 500; */ }
-.logo-container { margin-bottom: 0.5rem; }
-.logoimg { width: 25px; height: 25px; object-fit: cover; border-radius: 50%; }
+.nav a { line-height: var(--header-height); } 
+.logo { 
+}
+.logo a { font-size: 1em; font-weight: 700; /* Ubuntu Bold para o texto do logo */ }
+.menu { display: flex; gap: 1em; flex-wrap: wrap; } 
+.menu a { font-size: 1.0em; }
+.logo-container { margin-bottom: 0.5rem; } 
+.logoimg { width: 25px; height: 25px; object-fit: cover; border-radius: 50%; } 
 
-/* Main */
+/* Main Content Area */
 .main {
   position: relative;
-  flex-grow: 1;
+  flex-grow: 1; 
   max-width: calc(var(--main-width) + var(--gap) * 2);
   margin-left: auto;
   margin-right: auto;
   padding: var(--gap);
 }
 .page-header { margin-bottom: 1.5em; }
-.page-header h1 { font-size: 2.5em; /* Peso já definido em h1 global ou pode redefinir aqui */ }
+.page-header h1 { font-size: 2.5em; }
+
 .pagination { display: flex; margin-top: var(--content-gap); }
 .pagination a {
   color: var(--theme);
@@ -168,17 +179,20 @@ img { display: block; max-width: 100%; height: auto; }
 .pagination .prev { padding-left: 1.0em; padding-right: 1.125em; }
 .pagination .next { margin-left: auto; padding-left: 1.125em; padding-right: 1.0em; }
 
-/* Post entry */
-.first-entry {
+/* Post Entry (Listagens de Artigos) */
+/* REMOVIDAS AS REGRAS ESPECÍFICAS PARA .first-entry para uniformizar a lista */
+/*
+.first-entry { 
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: 20.0em;
-  margin-bottom: var(--header-height);
+  margin-bottom: var(--header-height); 
 }
-.first-entry .entry-header h2 { font-size: 2.5em; /* Peso já definido em h2 global */ }
+.first-entry .entry-header h2 { font-size: 2.5em; }
 .first-entry .entry-content { margin-top: 0.875em; margin-bottom: 0.875em; font-size: 1.0em; }
+*/
 
 .post-entry {
   position: relative;
@@ -188,40 +202,57 @@ img { display: block; max-width: 100%; height: auto; }
   border-radius: var(--radius);
   display: flex;
   flex-direction: column;
-  gap: 1em;
-  transition: transform 0.1s ease-out;
+  gap: 1em; 
+  transition: transform 0.1s ease-out, box-shadow 0.1s ease-out; 
+   width: 100%;
+}
+.post-entry:hover { 
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
 }
 .post-entry:active { transform: scale(0.98); }
 
-.entry-header h2 { font-size: 1.5em; /* Peso já definido em h2 global */ }
-.entry-header p { font-size: 0.7em; }
+.post-entry-thumb-container { display: flex; align-items: flex-start; gap: 1em; }
+.post-thumb {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  overflow: hidden; 
+  border-radius: var(--radius);
+}
+.post-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-.entry-content {
+.entry-header { 
+  flex-grow: 1; 
+}
+.entry-header h2 { font-size: 1.5em; } 
+.entry-header p { font-size: 0.7em; } 
+
+.entry-content { 
   margin-top: 0.5em; margin-bottom: 0.5em;
   color: var(--secondary);
   font-size: 0.875em;
   line-height: 1.6;
 }
-.list .entry-content {
+.list .entry-content { 
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 3; 
 }
-.single .entry-content { /* Garante que em páginas de post único ou page, o conteúdo não seja truncado */
-  display: block;
+.single .entry-content { 
+  display: block; 
   overflow: visible;
-  -webkit-line-clamp: unset; /* Remove a propriedade de line-clamp */
-  -webkit-box-orient: initial; /* Reseta a orientação */
+  -webkit-line-clamp: unset;
+  -webkit-box-orient: initial;
 }
-
 
 .entry-footer { color: var(--secondary); font-size: 0.8125em; text-align: right; }
-.entry-link { position: absolute; left: 0; right: 0; top: 0; bottom: 0; }
+.entry-link { position: absolute; left: 0; right: 0; top: 0; bottom: 0; } 
 
-/* Post single */
+/* Post Single (Página de Artigo Individual) */
 .post-header { margin-top: 1.5em; margin-bottom: var(--content-gap); }
-.post-title { margin-bottom: 0.125em; font-size: 2.5em; transform: translateX(-2px); /* Peso de h1 global */ }
+.post-title { margin-bottom: 0.125em; font-size: 2.5em; transform: translateX(-2px); }
 .post-by { color: var(--secondary); font-size: 0.875em; }
 .post-by a { color: var(--secondary); font-size: 1em; }
 .post-by a:hover { color: #80cbc4; border-bottom: 0.0625em solid var(--primary); text-decoration: underline; }
@@ -231,25 +262,25 @@ img { display: block; max-width: 100%; height: auto; }
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.5em 1em;
+  gap: 0.5em 1em; 
   color: var(--secondary);
   font-size: 0.875em;
-  margin-bottom: 1em;
+  margin-bottom: 1em; 
 }
 .post-date { font-size: 0.9em; color: #888; }
 .post-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5em;
+  gap: 0.5em; 
   margin: 0; padding: 0;
-  justify-content: flex-end;
+  justify-content: flex-end; 
 }
 .post-tags li { font-size: 0.85em; }
 .post-tags a { display: block; text-decoration: none; font-size: 0.875em; line-height: 2.125em; }
 
 .post-content { color: var(--content); }
 .post-content img, .post-content iframe { display: block; margin-left: auto; margin-right: auto; max-width: 100%; }
-/* Pesos de h1-h6 já definidos globalmente, tamanhos abaixo */
+/* Títulos dentro do conteúdo do post */
 .post-content h1 { margin-top: 2.5em; margin-bottom: 1.0em; font-size: 2.2em; }
 .post-content h2 { margin-top: 2.0em; margin-bottom: 0.8em; font-size: 1.8em; }
 .post-content h3, .post-content h4, .post-content h5, .post-content h6 { margin-top: 1.5em; margin-bottom: 0.6em; }
@@ -265,7 +296,7 @@ img { display: block; max-width: 100%; height: auto; }
 .post-content p { text-indent: 1.5em; }
 .post-content ul, .post-content ol { padding-left: 1.5em; }
 .post-content li { margin-top: 0.3125em; }
-.post-content li p { margin-bottom: 0; text-indent: 0; }
+.post-content li p { margin-bottom: 0; text-indent: 0; } 
 .post-content dl { display: flex; flex-wrap: wrap; margin: 0; }
 .post-content dt { width: 25%; font-weight: 700; /* Ubuntu Bold */ }
 .post-content dd { width: 75%; margin-left: 0; padding-left: 0.625em; }
@@ -275,44 +306,45 @@ img { display: block; max-width: 100%; height: auto; }
 .post-content table th { font-size: 0.875em; text-align: left; font-weight: 700; /* Ubuntu Bold */ }
 
 .post-content .highlight, .post-content pre {
-  margin-left: calc(var(--gap) * -1); margin-right: calc(var(--gap) * -1);
+  margin-left: calc(var(--gap) * -1); margin-right: calc(var(--gap) * -1); 
   margin-bottom: 2.0em;
-  background: var(--hljs-bg) !important;
+  background: var(--hljs-bg) !important; 
   border-radius: var(--radius);
   overflow-x: auto;
-  padding: var(--gap);
+  padding: var(--gap); 
 }
 .post-content ul pre, .post-content ol pre { margin-left: calc(var(--gap) * -2); }
 .post-content .highlight pre { margin: 0; padding: 0; }
 
-.right { text-align: center; }
+.right { text-align: center; } 
 .post-content .highlighttable { table-layout: fixed; }
-.post-content .highlighttable td:first-child { width: 2.5em; }
+.post-content .highlighttable td:first-child { width: 2.5em; } 
 .post-content .highlighttable td .linenodiv { padding-right: 0 !important; }
 .post-content .highlighttable td .linenodiv pre, .post-content .highlighttable td .highlight { margin-bottom: 0; }
-.post-content .highlight span { background: transparent !important; }
-.post-content code { /* `code` inline */
+.post-content .highlight span { background: transparent !important; } 
+
+.post-content code { 
   margin: 0 0.15em; padding: 0.2em 0.4em;
   font-size: 0.82em; line-height: initial;
   background: var(--code-bg);
   border-radius: 0.2em;
-  font-family: 'Ubuntu Mono', monospace; /* Sugestão: Ubuntu Mono para código, se importada, ou fallback para monospace genérico */
+  font-family: 'Ubuntu Mono', Consolas, 'Courier New', monospace; 
 }
-.post-content pre code { /* `code` dentro de `pre` */
+.post-content pre code { 
   display: block;
-  margin: 0; padding: 0;
-  color: rgba(255, 255, 255, 0.8);
-  background: transparent;
+  margin: 0; padding: 0; 
+  color: rgba(255, 255, 255, 0.8); 
+  background: transparent; 
   border-radius: 0;
-  font-family: 'Ubuntu Mono', monospace; /* Sugestão: Ubuntu Mono para código */
-  font-size: 0.9em;
+  font-family: 'Ubuntu Mono', Consolas, 'Courier New', monospace; 
+  font-size: 0.9em; 
   line-height: 1.6;
 }
 .post-content blockquote {
-  margin: 0 0 1.5em calc(var(--gap) * -1);
+  margin: 0 0 1.5em calc(var(--gap) * -1); 
   padding: 0.5em 1em 0.5em 1.3125em;
   border-left: 0.25em solid var(--primary);
-  background-color: var(--code-bg);
+  background-color: var(--code-bg); 
 }
 .post-content hr { height: 0.0625em; margin: 3.5em 0; background: var(--tertiary); border: 0; }
 
@@ -326,30 +358,23 @@ img { display: block; max-width: 100%; height: auto; }
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   text-align: center;
   line-height: 1.6;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--border); 
 }
 .footer span { margin: 0 0.0625em; }
 .footer a { color: var(--primary); font-weight: 700; /* Ubuntu Bold */ }
 .footer a:hover { color: #80cbc4; border-bottom: 0.0625em solid var(--primary); }
 
-/* 404 */
+/* Página 404 */
 .not-found {
   position: absolute; left: 0; right: 0;
   display: flex; align-items: center; justify-content: center;
-  height: 80%;
+  height: 80%; 
   font-size: 10.0em; font-weight: 700; /* Ubuntu Bold */
 }
 
-.space-top { margin-top: 50px; }
+.space-top { margin-top: 50px; } 
 
-.post-entry-thumb-container { display: flex; align-items: flex-start; gap: 1em; }
-.post-thumb {
-  flex-shrink: 0; width: 80px; height: 80px;
-  overflow: hidden;
-  border-radius: var(--radius);
-}
-.post-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
+/* Social Icons no Footer */
 .social-icons {
   margin-top: 1rem; display: flex; justify-content: center; gap: 1.2rem;
   list-style: none; padding: 0;
@@ -357,39 +382,39 @@ img { display: block; max-width: 100%; height: auto; }
 .social-icons a svg { fill: var(--primary); transition: fill 0.3s ease; width: 22px; height: 22px; }
 .social-icons a:hover svg { fill: #80cbc4; }
 
-.cnpj-info { font-size: 0.75em; opacity: 0.8; }
+.cnpj-info { font-size: 0.75em; opacity: 0.8; } 
 
 /* YouTube/Video Placeholder Styles */
-.youtube-placeholder {
+.youtube-placeholder { 
   display: block; width: 100%; max-width: 560px;
   aspect-ratio: 16 / 9;
-  margin: 1.5em auto;
-  background-color: #000;
+  margin: 1.5em auto; 
+  background-color: #000; 
   background-size: cover; background-position: center;
   position: relative; cursor: pointer;
   border-radius: var(--radius);
-  overflow: hidden;
+  overflow: hidden; 
 }
-.youtube-play-button {
+.youtube-play-button { 
   position: absolute; top: 50%; left: 50%;
   transform: translate(-50%, -50%);
   width: 60px; height: 60px;
   background: url('https://img.icons8.com/ios-filled/100/FFFFFF/play-button-circled.png') center / contain no-repeat;
-  filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
+  filter: drop-shadow(0 0 5px rgba(0,0,0,0.5)); 
   pointer-events: none;
 }
 .video-wrapper-with-caption {
   margin: 1.5em auto; max-width: 560px;
 }
-.video-wrapper-with-caption .youtube-placeholder {
+.video-wrapper-with-caption .youtube-placeholder { 
   margin-left: 0; margin-right: 0;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.5em; 
 }
 .video-caption {
   display: block; font-size: 0.9em;
   color: var(--secondary);
   text-align: center;
-  padding: 0.5em 0.1em; margin-top: 0;
+  padding: 0.5em 0.1em; margin-top: 0; 
   line-height: 1.4;
 }
 .video-caption a, .video-caption strong { color: inherit; font-weight: inherit; }
@@ -398,30 +423,51 @@ img { display: block; max-width: 100%; height: auto; }
 @media (max-width: 768px) {
   body { font-size: 1.1em !important; }
   .main { padding: var(--gap) 1em; }
-  .post-title, .first-entry .entry-header h2, .page-header h1 { font-size: 2em; }
+  .post-title, /*.first-entry .entry-header h2,*/ .page-header h1 { font-size: 2em; } /* .first-entry h2 removido da regra conjunta */
   .post-content h1 { font-size: 1.8em; }
   .post-content h2 { font-size: 1.6em; }
   .post-content h3 { font-size: 1.4em; }
   .post-content .highlight, .post-content pre {
     margin-left: -1em; margin-right: -1em;
-    border-radius: 0;
+    border-radius: 0; 
   }
-  .post-content ul pre, .post-content ol pre { margin-left: calc(-1em - 1.5em); }
+  .post-content ul pre, .post-content ol pre { margin-left: calc(-1em - 1.5em); } 
 }
 
 @media (max-width: 480px) {
   body { font-size: 1.05em !important; }
-  .post-title, .first-entry .entry-header h2, .page-header h1 { font-size: 1.7em; }
+  .post-title, /*.first-entry .entry-header h2,*/ .page-header h1 { font-size: 1.7em; } /* .first-entry h2 removido */
   .nav { flex-direction: column; height: auto; padding-top: 0.5em; padding-bottom: 0.5em; }
-  .logo a, .menu a { line-height: 1.8; }
+  .logo a, .menu a { line-height: 1.8; } 
   .menu { justify-content: center; }
   .post-meta { flex-direction: column; align-items: flex-start; gap: 0.5em; }
   .post-meta .post-tags { justify-content: flex-start; text-align: left; }
   .entry-footer { text-align: left; }
-  .post-entry-thumb-container { flex-direction: column; align-items: center; text-align: center; }
-  .post-thumb { width: 100%; max-width: 200px; height: auto; }
+
+  /* Correção para thumbnail e título em listas de artigos em telas pequenas */
+  .post-entry-thumb-container {
+    flex-direction: row; 
+    align-items: flex-start; 
+    gap: 0.8em; 
+  }
+  .post-thumb {
+    width: 60px;       
+    height: 60px;      
+    max-width: none;   
+  }
+  .post-entry .entry-header { 
+    text-align: left;
+  }
+  .post-entry .entry-header h2 {
+    font-size: 1.1em; 
+  }
+  /* Fim da correção para thumbnail */
+  
   .post-content p { text-indent: 1em; }
 }
+
+
+
 </style>
 
 
@@ -453,14 +499,14 @@ img { display: block; max-width: 100%; height: auto; }
   </header>
   <div class="post-content"><p><img alt="Capa Do Album Embaldo de Tenorio Jr." src="../img/tenoriojrdesenho.webp"></p>
 <p>Em uma loja de discos empoeirada no Rio de Janeiro, sob a iluminação âmbar o jornalista musical Jeff Harris descobre, quase por acaso, a música de Francisco Tenório Cerqueira Júnior. A fumaça preguiçosa de cigarro paira no ar, criando um cenário quase cinematográfico. O impacto é imediato, uma epifania sonora que o lança numa busca obsessiva: quem era aquele pianista virtuoso, autor de um único e seminal álbum, <em><a href="https://www.discogs.com/master/228723-Tenório-Jr-Embalo">Embalo</a></em>, e tragicamente desaparecido nas brumas da ditadura argentina em 1976.</p>
-<p><img alt="Screenshot 3 de Atiraram no Pianista" src="../img/pianistavista.jpg"></p>
-<p><img alt="Screenshot de Atiraram No Pianista" src="../img/pianistario.jpg"></p>
+<p><img alt="Screenshot 3 de Atiraram no Pianista" src="../img/pianistavista.webp"></p>
+<p><img alt="Screenshot de Atiraram No Pianista" src="../img/pianistario.webp"></p>
 <p><img alt="Toca Do Vinicius" src="../img/tocadovinicius.webp"></p>
 <p>Essa cena abre o animadoc <em>Atiraram no Pianista</em> <a href="https://www.imdb.com/pt/title/tt11242654/?reasonForLanguagePrompt=browser_header_mismatch">(2023)</a>, dos diretores espanhóis Fernando Trueba e Javier Mariscal, servindo como portal para uma história que, por décadas, permaneceu uma ferida aberta, uma melodia brutalmente interrompida.</p>
 <p>Jeff Harris, repórter fictício da <em>The New Yorker</em>, com a voz inconfundível de Jeff Goldblum, é um alter ego animado que espelha a jornada de descoberta do próprio Trueba e, por extensão, a do espectador. Trueba criou o personagem para escapar das armadilhas do documentário tradicional, evitando bustos parlantes lamentando um gênio perdido. Em vez disso, o filme imerge o público no vibrante mundo de Tenório Jr., um dos pianistas mais talentosos da música brasileira.</p>
 <p><a href="https://www.youtube.com/watch?v=heBfOfb4lXM">Trailer de Atiraram no Pianista</a></p>
 <h2>Os Anos Dourados</h2>
-<p><img alt="Tenorinho 3" src="../img/tenorio3.jpeg"></p>
+<p><img alt="Tenorinho 3" src="../img/tenorio3.webp"></p>
 <p>Francisco Tenório Cerqueira Júnior nasceu no Rio de Janeiro, em 4 de julho de 1941, no bairro de Laranjeiras. Já na juventude, emergiu na cena musical carioca como um talento nato, um pianista cuja habilidade parecia brotar com naturalidade, como se fosse um dom inato.</p>
 <p>O palco geralmente era no lendário <strong>Beco das Garrafas</strong>, um estreito corredor em Copacabana que, entre o final dos anos 1950 e meados dos 1960, pulsava como o epicentro da modernização da música brasileira. Boates minúsculas e esfumaçadas, como o <em>Little Club</em> e o <em>Bottle's Bar</em>, eram verdadeiros laboratórios de experimentação instrumental<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. Ali, o samba se encontrava despudoradamente com o jazz — o bebop ágil, o hard bop visceral —, dando origem ao que se convencionou chamar de <strong>samba-jazz</strong>, ou, nas palavras do crítico francês Robert Celerier, uma "hard bossa nova"<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. As jam sessions eram rituais de pura criação, onde jovens músicos testavam limites e inventavam novas linguagens sonoras.</p>
 <p>Nesse caldeirão sonoro, Tenório Jr. ombreava com gigantes de sua geração: </p>
@@ -470,12 +516,12 @@ img { display: block; max-width: 100%; height: auto; }
 <li>🎸  Contrabaixistas Luiz Chaves, Tião Neto, Sérgio Barrozo, Bebeto Castilho e Jorge Marinho</li>
 <li>🎷 Gigantes do sax como Paulo Moura e J.T. Meirelles, o trombonista Raul de Souza, entre outros. </li>
 </ul>
-<p><img alt="Beco Das Garrafas" src="../img/becodasgarrafas1.jpg"></p>
+<p><img alt="Beco Das Garrafas" src="../img/becodasgarrafas1.webp"></p>
 <p>Tenório Jr. destacou-se rapidamente como um dos pianistas mais inovadores de sua geração. Seu estilo era uma fusão potente: uma base rítmica inconfundivelmente brasileira, harmonias sofisticadas com um toque impressionista e a malícia da gafieira. Sua versatilidade o tornou um acompanhante requisitadíssimo, deixando sua marca em discos fundamentais como <em><a href="https://www.discogs.com/release/3949207-Edison-Machado-Edison-Machado-É-Samba-Novo?srsltid=AfmBOooE-1bxRTJ09Ew9rWS4VB3RcpoHVlB-uUAR1FpRu_hpvKFv6Lcj">É Samba Novo</a></em> (1964), de Edson Machado, <em><a href="https://www.discogs.com/release/3277136-Wanda-Vagamente?srsltid=AfmBOoroOPO5TbxvREZUKih0Xi9URCpT7KWyqYJTwt4xmMrbVxfJ_3Oc">Vagamente</a></em> (1964), de Wanda Sá, e espetacular album: <em><a href="https://www.discogs.com/release/6295104-Leny-Andrade-A-Arte-Maior-De-Leny-Andrade?srsltid=AfmBOorY00JtYaPR4vJy54V5qM6YDo9ZET5iAUHBEhYsuLdvm_EEUAM6">A Arte Maior de Leny Andrade</a></em> (1963), de Leny Andrade, que conta com uma versão ao vivo de "Embalo".</p>
 <p>Ele também colaborou com nomes como Tom Jobim, Vinicius de Moraes, Chico Buarque, Gal Costa, Milton Nascimento, Edu Lobo, Johnny Alf.</p>
 <p>Aos 23 anos, Tenório Jr. transitou de sideman cobiçado para líder de seu próprio (e único) álbum, <em><a href="https://www.discogs.com/master/351128-Ten%C3%B3rio-Jr-Embalo">Embalo</a></em> (1964), com carta branca da gravadora RGE. Esse trabalho atesta seu talento precoce e o prestígio acumulado, além de capturar o otimismo de uma era que investia no potencial do samba-jazz. A liberdade criativa resultou numa obra que, em retrospecto, parece o zênite de um momento único na música brasileira.</p>
 <h2>Embalo</h2>
-<p><img alt="Tenorio Jr. - Embalo" src="../img/tenorioembalo.jpg"></p>
+<p><img alt="Tenorio Jr. - Embalo" src="../img/tenorioembalo.webp"></p>
 <p>O álbum <em><a href="https://www.discogs.com/master/228723-Tenório-Jr-Embalo">Embalo</a></em> é uma joia do samba-jazz. A faixa-título, composta por Tenório com arranjo do saxofonista Paulo Moura, abre o disco com inspiração bebop e uma pegada inconfundivelmente brasileira. A sessão de sopros brilha intensamente, enquanto Milton Banana, na bateria, sintetiza uma concepção orquestral inovadora, trazendo a essência das rodas de samba para a percussão.</p>
 <p>Em "Inútil Paisagem" (de Tom Jobim e Aloysio de Oliveira), Tenório subverte expectativas com um arranjo engenhoso: o piano assume a melodia principal, enquanto os sopros tecem um diálogo intrincado de perguntas e respostas. O clássico "Fim de Semana em Eldorado", de Johnny Alf, é transformado num samba-jazz vibrante e energético.</p>
 <p>Já em "Nebulosa", uma pérola autoral, Tenório alterna momentos de lirismo melódico com improvisos vertiginosos sobre uma base rítmica pulsante e cheia de brasilidade.</p>
@@ -491,14 +537,14 @@ img { display: block; max-width: 100%; height: auto; }
 <p>O que se seguiu foi o desespero. Vinicius de Moraes, poeta e diplomata experiente, mobilizou contatos na embaixada, na imprensa, contratou advogados, percorreu hospitais e delegacias. Tudo em vão contra a máquina  da repressão argentina. </p>
 <p>O fato de Tenório Jr. ser um músico, sem qualquer militância conhecida, apenas sublinha a natureza indiscriminada e paranoica do terror de Estado. Sua prisão foi, ao que tudo indica, um "erro" crasso da repressão, uma confusão baseada em estereótipos. A tragédia pessoal de Tenório Jr, que aguardava o nascimento do quinto filho, converte-se, assim, num microcosmo da brutalidade que ceifou milhares de vidas, onde a simples suspeita, a aparência "errada" ou o azar de estar no lugar errado na hora errada podiam significar uma sentença de morte.</p>
 <p>Por anos, o destino de Tenório permaneceu envolto em mistério. Apenas em 1986, confissões de Claudio Vallejos, conhecido como "El Gordo", ex-agente da Marinha Argentina que atuou no centro de detenção e tortura da ESMA, trouxeram alguma luz. Vallejos admitiu ter participado da captura de Tenório. Seu corpo, como o de tantos outros desaparecidos, nunca foi encontrado.</p>
-<p><img alt="Capa Revista Senhor 1986" src="../img/revistasenhor.jpeg"></p>
+<p><img alt="Capa Revista Senhor 1986" src="../img/revistasenhor.webp"></p>
 <h2>Memória e Legado</h2>
-<p><img alt="Placa no Hotel Normandie" src="../img/placahotelnormandie.jpg"></p>
+<p><img alt="Placa no Hotel Normandie" src="../img/placahotelnormandie.webp"></p>
 <p>O desaparecimento e assassinato de Francisco Tenório Jr. representaram mais do que a perda de um músico talentoso: foram a interrupção brutal de uma trajetória que prometia contribuições inovadoras. Sua música, com sua fusão audaciosa de samba, jazz, bossa nova e elementos modais, continua a ecoar e inspirar músicos contemporâneos.</p>
 <p>O filme <em>Atiraram no Pianista</em> desempenha um papel crucial no resgate dessa memória. Ao apresentar Tenório Jr. a novas gerações e contextualizar sua tragédia dentro dos crimes das ditaduras latino-americanas, oferece uma reparação simbólica, tardia, mas necessária.</p>
 <p>Como brasileiro, é difícil não refletir sobre a ironia de um "estrangeiro" — seja o jornalista fictício, sejam os diretores espanhóis — redescobrir e revalorizar um tesouro cultural obscurecido pela violência política. Isso levanta questões incômodas sobre como o Brasil lida com seus traumas e heróis silenciados.</p>
-<p><img alt="Tenorinho 2" src="../img/tenoriojr2.jpeg">
-<img alt="Tenorinho 1" src="../img/tenoriojr1.jpeg"></p>
+<p><img alt="Tenorinho 2" src="../img/tenoriojr2.webp">
+<img alt="Tenorinho 1" src="../img/tenoriojr1.webp"></p>
 <blockquote>
 <p><em>"Retornarán los libros, las canciones<br>
 Que quemaron las manos asesinas<br>
@@ -651,12 +697,12 @@ document.addEventListener("DOMContentLoaded", function () {
     return null;
   }
 
-  function createVideoPlaceholder(linkElement, videoInfo, type, captionText) {
+ function createVideoPlaceholder(linkElement, videoInfo, type, captionText) {
     const videoWrapper = document.createElement("div");
     videoWrapper.className = "video-wrapper-with-caption";
 
     const placeholder = document.createElement("div");
-    placeholder.className = "youtube-placeholder"; // Reutilize esta classe para estilo consistente
+    placeholder.className = "youtube-placeholder";
 
     const playButton = document.createElement("div");
     playButton.className = "youtube-play-button";
@@ -664,53 +710,65 @@ document.addEventListener("DOMContentLoaded", function () {
     videoWrapper.appendChild(placeholder);
 
     if (captionText && captionText.trim() !== "") {
-      const caption = document.createElement("figcaption");
-      caption.className = "video-caption";
-      caption.innerHTML = captionText;
-      videoWrapper.appendChild(caption);
+        const caption = document.createElement("figcaption");
+        caption.className = "video-caption";
+
+        // --- INÍCIO DA MODIFICAÇÃO ---
+        const captionLink = document.createElement("a");
+        captionLink.href = linkElement.href; // URL original do vídeo
+        captionLink.innerHTML = captionText;  // Texto original do link (com <strong>, etc.)
+        captionLink.target = "_blank";      // Abrir em nova aba (recomendado para links externos)
+        captionLink.rel = "noopener noreferrer"; // Segurança para links em nova aba
+
+        caption.appendChild(captionLink);
+        // --- FIM DA MODIFICAÇÃO ---
+        
+        videoWrapper.appendChild(caption);
     }
 
     if (type === "youtube") {
-      placeholder.style.backgroundImage = `url(${videoInfo.thumbnailUrl})`;
+        placeholder.style.backgroundImage = `url(${videoInfo.thumbnailUrl})`;
     } else if (type === "vimeo") {
-      fetch(videoInfo.oEmbedUrl)
-        .then(response => {
-          if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-          return response.json();
-        })
-        .then(data => {
-          if (data.thumbnail_url) {
-            // Garante HTTPS para a miniatura do Vimeo também
-            placeholder.style.backgroundImage = `url(${data.thumbnail_url.replace(/^http:/i, 'https:')})`;
-          } else {
-            console.warn("Miniatura do Vimeo não encontrada para:", videoInfo.id);
-          }
-        })
-        .catch(error => console.error("Erro ao buscar miniatura do Vimeo:", error));
+        fetch(videoInfo.oEmbedUrl)
+            .then(response => {
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                return response.json();
+            })
+            .then(data => {
+                if (data.thumbnail_url) {
+                    placeholder.style.backgroundImage = `url(${data.thumbnail_url.replace(/^http:/i, 'https:')})`;
+                } else {
+                    console.warn("Miniatura do Vimeo não encontrada para:", videoInfo.id);
+                }
+            })
+            .catch(error => console.error("Erro ao buscar miniatura do Vimeo:", error));
     }
 
     placeholder.addEventListener("click", () => {
-      const iframe = document.createElement("iframe");
-      iframe.src = videoInfo.embedUrl; // Agora será HTTPS para YouTube
+        const iframe = document.createElement("iframe");
+        iframe.src = videoInfo.embedUrl;
 
-      iframe.className = placeholder.className; // Para herdar estilos de aspect-ratio, max-width
-      iframe.style.backgroundImage = 'none';
-      iframe.style.backgroundColor = '#000';
+        iframe.className = placeholder.className;
+        iframe.style.backgroundImage = 'none';
+        iframe.style.backgroundColor = '#000';
 
-      iframe.setAttribute("frameborder", "0");
-      iframe.setAttribute("allowfullscreen", "");
-      iframe.setAttribute("allow", "autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; web-share");
-      iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
-      iframe.setAttribute("title", captionText ? captionText.replace(/<[^>]*>?/gm, '') : (type === "youtube" ? "YouTube video player" : "Vimeo video player"));
+        iframe.setAttribute("frameborder", "0");
+        iframe.setAttribute("allowfullscreen", "");
+        iframe.setAttribute("allow", "autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; web-share");
+        iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+        
+        // Tenta usar o texto da legenda como título do iframe, removendo tags HTML
+        const iframeTitle = captionText ? captionText.replace(/<[^>]*>?/gm, '') : (type === "youtube" ? "YouTube video player" : "Vimeo video player");
+        iframe.setAttribute("title", iframeTitle);
 
-      videoWrapper.replaceChild(iframe, placeholder);
-      iframe.focus();
+        videoWrapper.replaceChild(iframe, placeholder);
+        iframe.focus();
     }, { once: true });
 
     if (linkElement.parentNode) {
-      linkElement.parentNode.replaceChild(videoWrapper, linkElement);
+        linkElement.parentNode.replaceChild(videoWrapper, linkElement);
     }
-  }
+}
 });
 </script>
 <!-- Google tag (gtag.js) -->
