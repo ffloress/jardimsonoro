@@ -753,18 +753,15 @@ margin-top: 50px;
 
 
 .youtube-placeholder {
-  width: 560px;
-  height: 315px;
-  margin: 2em auto;
-  display: block;
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 16 / 9;
+  margin: 1em auto;
   background-size: cover;
+  background-position: center;
   position: relative;
   cursor: pointer;
 }
-
-
-
-
 
 
 
