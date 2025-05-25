@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt">
    <head>
-      <link rel="stylesheet" href="main.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
       <link rel="shortcut icon" href="favicon.ico">
       <meta name="msapplication-TileColor" content="#ffffff">
       <meta name="theme-color" content="#ffffff">
-      <!-- METATAGS & SEO -->
       <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
       <meta charset="utf-8" />
-      <meta name=”description” content="Jardim Sonoro é uma plataforma especializada em criar e fornecer playlists musicais para lojas"/>
+      <meta name="description" content="Jardim Sonoro é uma plataforma especializada em fornecer playlists e muitas outras idéias musicais."/>
       <title>Jardim Sonoro</title>
-      <meta name=”keywords” content=”designer, freelance” />
-      <!-- SOCIAL META TAGS -->
+      <meta name="keywords" content="designer, freelance" />
       <meta property="og:title" content="Jardim Sonoro" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://jardimsonoro.com" />
@@ -19,191 +19,456 @@
       <meta property="og:description" content="Jardim Sonoro é uma plataforma especializada em criar e fornecer playlists musicais para lojas" />
       <meta property="og:site_name" content="Jardim Sonoro" />
       <meta itemprop="name" content="Jardim Sonoro">
-      <meta itemprop="description" content="Jardim Sonoro é uma plataforma especializada em criar playlists para marcas e muitas outras idéias musicais.">
-     <!-- <meta itemprop="image" content="https://jardimsonoro.com/preview.jpg">-->
-   </head>
-   <body>
-<video autoplay loop muted playsinline poster="bgpb.jpg">
-    <source src="bgpb.mp4" type="video/mp4" playsinline>
-    <source src="bgpb.webm" type="video/webm" playsinline>
-</video>
+      <meta itemprop="description" content="Jardim Sonoro é uma plataforma especializada em fernecer playlists e muitas outras idéias musicais.">
+      <style>
+      
+body, html {
+  height: 100%;
+  color: white;
+  font-family: 'Ubuntu', sans-serif;
+  transition: background 20s linear; /* Prefixos desnecessários removidos */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; /* Adicionado para melhor renderização de fonte no Firefox em macOS */
+  overflow-x: hidden;
+  font-size: 100%;
+  /* font-weight: 400; */ /* Ubuntu Regular (400) é o padrão. Ajuste se desejar um peso base diferente, ex: 300 para Light. */
+}
+body, video {
+  margin: 0;
+  padding: 0;
+}
+video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+main {
+  position: relative;
+  z-index: 1;
+}
+* {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: white;
+  font-weight: 700; /* Ubuntu Bold */
+}
+a:hover {
+  color: #80cbc4;
+  text-decoration: underline;
+}
 
+h3 {
+  font-size: 1.5em;
+  line-height: 1.2;
+  margin-bottom: 8vh;
+  font-weight: 500; /* Ubuntu Medium */
+}
+h4 {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 500; /* Ubuntu Medium */
+}
+.container {
+  max-width: 90%;
+  z-index: 1;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+.clearfix:after { /* Mantido para compatibilidade com o layout float existente de .featuresList */
+  content: "";
+  display: table;
+  clear: both;
+}
+.textContainer {
+  position: relative;
+  text-align: center;
+  font-size: 12vw;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700; /* Ubuntu Bold */
+  color: #fff;
+  letter-spacing: -0.38vw;
+  line-height: 0.98;
+  min-height: 88vh;
+  margin-bottom: 2em;
+}
+.titulotext { /* Classe presente no HTML, mas sem estilos específicos. Adicione se necessário. */
+  width: 100%;
+  padding-top: 2em;
+}
+
+.jstext {
+  width: 90%;
+  padding: 50px; /* Padding grande para um font-size de 0.5em do pai, verificar se intencional */
+  font-size: 0.5em;
+  animation: acid 5s linear infinite;
+}
+.jstext:after { /* Animação blinking estava comentada no CSS original, mantendo assim */
+  position: absolute;
+  transform: translate(10%, -10%); /* Prefixos desnecessários removidos */
+  z-index: -9999;
+}
+section {
+  margin-top: 50px;
+}
+
+section h4:after {
+  content: url("img/line.svg");
+  position: absolute;
+  transform: translate(5%, -20%); /* Prefixos desnecessários removidos */
+}
+
+/* Removido #about .info p - seletor não correspondia ao HTML e a animação era questionável sem trigger */
+
+.shortColumn {
+  width: 45%;
+}
+/* ------------------------------- ABOUT ----------------------------------*/
+.info {
+  position: relative;
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+.info ul {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  margin-top: 20px;
+  font-weight: 700; /* Ubuntu Bold */
+}
+
+.info .loopCol {
+  font-size:1.2em; /* Isso fará o texto dentro de .loopCol ser 1.2x o tamanho do .info (0.9em) */
+}
+
+/* ------------------------------- GET IN TOUCH ----------------------------------*/
+.email {
+  font-size: 2.5em !important;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700; /* Ubuntu Bold */
+  position: relative;
+  margin: 10px 0 4vh 0;
+  text-decoration: none !important;
+  border: none;
+}
+/* ------------------------------- FEATURES / CASES ----------------------------------*/
+/* Removido #features ul - seletor não correspondia */
+.featuresList {
+  list-style-type: none;
+}
+.featuresList li {
+  float: left; /* Mantido float para não alterar HTML com .row.clearfix */
+  padding-right: 2%;
+  margin-bottom: 30px;
+  width: 25%; /* 4 colunas. Ajustar para 33.33% se forem 3 por .row clearfix */
+}
+/* Removido .featuresList li.last - classe 'last' não utilizada no HTML */
+.featureTitle {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700; /* Ubuntu Bold */
+  font-size: 1em;
+}
+.linksli { /* Usado dentro de <a> para o link do Player Moods */
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700; /* Ubuntu Bold */
+  font-size: 1.2em;
+}
+.featureSubtitle {
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+
+
+/* ------------------------------- FIXED BACKGROUND ----------------------------------*/
+@keyframes animateFromBottom {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+@keyframes animateFadeOut {
+  from { transform: translateY(0); }
+  to { transform: translateY(100%); }
+}
+.fixedBg {
+  height: 100%;
+  width: 100%;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  text-align: center;
+  font-size: 80px;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700; /* Ubuntu Bold */
+  letter-spacing: -0.3vw;
+  line-height: 0.95;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out; /* 'transition' para opacity é suficiente, 'animation: acid' já está aqui */
+  animation: acid 5s linear infinite;
+  background: rgba(0, 0, 0, 0.7);
+}
+.fixedBg.show {
+  opacity: 1;
+}
+.fixedBg.show span {
+  animation: animateFromBottom 0.5s ease forwards;
+}
+.fixedBg:not(.show) span {
+  animation: animateFadeOut 1s ease forwards;
+  /* transition: 2s ease-in-out; Removido pois a animação já lida com a saída */
+}
+.fixedBg .container { /* Estilo para o .container dentro do .fixedBg */
+  padding-top: 11vh;
+  max-width: 90%; /* Mantendo consistência com o .container principal */
+  margin: 0 auto;
+}
+@keyframes acid { /* Uma definição é suficiente */
+  0%, 100% { color: #5bc5aa; }
+  33.33% { color: #b272e1; }
+  66.67% { color: #72b6e1; }
+}
+@keyframes acidbg { /* Uma definição é suficiente */
+  0%, 100% { background-color: #72b6e1; }
+  33.33% { background-color: #5bc5aa; }
+  66.67% { background-color: #b272e1; }
+}
+.fixedBg span {
+  display: block; 
+}
+.loopCol { 
+  animation: acidbg 5s linear infinite;
+  padding: 2px;
+  font-weight: 700; 
+}
+
+
+ul {
+  list-style-type: none;
+}
+li {
+  /* list-style-type: none;  Já coberto por ul */
+  display: block; /* li é block por padrão */
+}
+
+#jstext { /* ID para o texto que aparece/desaparece */
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+#jstext.hidden {
+  opacity: 0;
+}
+
+@media only screen and (max-width: 480px) {
+  .shortColumn {
+    width: 80%;
+  }
+  .featureTitle {
+    font-size: 0.7em;
+  }
+  .featureSubtitle {
+    font-size: 0.5em;
+  }
+  .textContainer {
+    min-height: 60vh;
+    margin-bottom: 1em;
+    font-size: 15vw; /* Ajustado para melhor leitura em telas pequenas */
+  }
+  .email {
+    font-size: 1.8em !important; /* Ajustado para melhor leitura em telas pequenas */
+  }
+  .fixedBg {
+    font-size: 50px; /* Ajustado para telas pequenas */
+  }
+  .featuresList li {
+    width: 100%; /* Empilha os cases em telas pequenas */
+    padding-right: 0;
+    text-align: center; /* Centraliza o conteúdo dos cases */
+  }
+}
+
+.bottom { /* Estilos para a seção de rodapé com id="footer" */
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85); /* Cor ajustada para melhor contraste/leitura */
+  text-align: center;
+}
+
+
+
+.social-icons { 
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+.social-icons a svg {
+  fill: #fff; /* Cor dos ícones no rodapé da landing page */
+  transition: fill 0.3s ease;
+}
+.social-icons a:hover svg {
+  fill: #80cbc4; /* Cor no hover */
+}
+
+.bottom .cnpj-info { /* Estilizando .cnpj-info dentro de .bottom */
+  font-size: 0.85em; /* Aumentado para melhor legibilidade em relação ao texto do rodapé */
+  opacity: 0.7; /* Leve opacidade */
+  margin-top: 0.5em;
+}
+      </style>
+     </head>
+   <body>
+      <video autoplay loop muted playsinline poster="bgpb.jpg">
+         <source src="bgpb.mp4" type="video/mp4" playsinline>
+         <source src="bgpb.webm" type="video/webm" playsinline>
+      </video>
       <main>
          <div class="container">
             <div class="textContainer">
                <div class="titulotext">Jardim Sonoro</div>
-     
                <div style="height: 1.2em; min-height: 1.2em;">
-               <div class="jstext" id="jstext">&nbsp</div>
+                  <div class="jstext" id="jstext">&nbsp</div>
+               </div>
             </div>
-            </div>
-            
-               <section id="sobre">
-                  <div class="shortColumn info">
-                     <h4>Sobre</h4>
-                     <div>
-                        Jardim Sonoro é uma plataforma especializada em fornecer playlists e outras idéias musicais para criar 
-                        <span class="loopCol">atmosferas</span>
-                        <div class="fixedBg">
-                           <div class="container">
-                              <span>cool</span></br><span>fun</span></br><span>lúdica</span></br><span>vintage</span></br><span></span></br>
-                           </div>
-                        </div>
-                        específicas e elevar a identidade da marca.
-                        <br>
-                        Através da linguagem universal da <span class="loopCol">música</span>
-                        <div class="fixedBg ">
-                           <div class="container">
-                              <span>jazz</span></br><span>bossa</span></br><span>soul</span></br><span>house</span></br>
-                           </div>
-                        </div>
-                        , conectamos pessoas e criamos experiências inesquecíveis.
-                        <!--
-                           <br>
-                           <span id="expandir">+</span>
-                           <div id="collapsible-content" style="display: none;">
-                           	_Com anos de experiência em branding e uma paixão inigualável pela música, pesquisamos conteúdo musical para a sua marca, faixa por faixa. A partir daí, ajustamos ao seu gosto, a base de clientes e a atmosfera de suas lojas.
-                           
-                           	_Compreendemos a importância da trilha sonora adequada. Nossa equipe de curadores especializados seleciona músicas que combinam perfeitamente com a estética e o clima de sua loja, garantindo que seus clientes se sintam envolvidos em uma experiência única.
-                           	
-                           	_Estamos dedicados a revolucionar o mundo das músicas dentro das lojas e estamos nessa jornada transformadora desde Outubro de 2009. Orgulhamo-nos de nossa capacidade de trazer uma abordagem completamente moderna à experiência de seu negócio.
-                           	
-                           	_Acreditamos firmemente no poder da diversidade, inclusão e igualdade de gênero. Nos esforçamos para criar um ambiente que celebre e abrace indivíduos de todas as origens. Esses valores estão no cerne de tudo o que fazemos.
-                           	
-                           	_De lojas de moda a galerias de arte, bares a salões de beleza, nossas playlists têm o poder de cativar e envolver públicos diversos. Música que anima, que estimula, que envolve, e é claro, tem tudo a ver com o sucesso da sua marca.
-                           	
-                           	_Não deixe a música ao acaso em seu negócio. Confie na expertise da Jardim Sonoro em curadoria musical para criar uma experiência sensorial única que encante seus clientes e consolide sua marca como líder na indústria.
-                           </div>
-                           
-                           -->
-                     </div>
-                  </div>
-               </section>
-               <section id="servicos">
-                  <div class="shortColumn info">
-                     <h4>Serviços</h4>
-                     <ul>
-                        <li>_ Music Branding</li>
-                        <li>_ Playlists para Spotify / Deezer / Apple Music</li>
-                        <li>_ Rádio Corporativa</li>
-                        <li>_ TV de Videoclipes para ambientes</li>
-                        <li>_ Ativações de Marca</li>
-                        <li>_ Sound Design</li>
-                        <li><a href="https://moods.com.br"><span class="linksli"><span class="loopCol">></span> Player Moods</span> (Receptor Digital para Lojas)</a></li>
-                      </ul>
-                  </div>
-               </section>
-               <section id="contato">
-                  <div class="shortColumn info">
-                     <h4>Contato</h4>
-                     <a href="mailto:oi@jardimsonoro.com" class="loopCol email" id="emaillink">oi@jardimsonoro.com</a>
-                                        <div class="fixedBg">
+            <section id="sobre">
+               <div class="shortColumn info">
+                  <h4>Sobre</h4>
+                  <div>
+                     Jardim Sonoro é uma plataforma especializada em fornecer playlists e outras idéias musicais para criar 
+                     <span class="loopCol">atmosferas</span>
+                     <div class="fixedBg">
                         <div class="container">
-                           <span>idéias</span></br><span>orçamentos</span></br><span>tomar um café</span></br><span></span>
+                           <span>cool</span><span>fun</span><span>lúdica</span><span>vintage</span><span></span>
                         </div>
-                       
                      </div>
-
-                     <div>
+                     específicas e elevar a identidade da marca.
+                     <br>
+                     Através da linguagem universal da <span class="loopCol">música</span>
+                     <div class="fixedBg ">
+                        <div class="container">
+                           <span>jazz</span><span>bossa</span><span>soul</span><span>house</span>
+                        </div>
                      </div>
+                     , conectamos pessoas e criamos experiências inesquecíveis.
                   </div>
-               </section>
-               <section id="clientes">
-                  <div class="shortColumn info">
-                     <h4>Cases</h4>
+               </div>
+            </section>
+            <section id="servicos">
+               <div class="shortColumn info">
+                  <h4>Serviços</h4>
+                  <ul>
+                     <li>_ Music Branding</li>
+                     <li>_ Playlists para Spotify / Deezer / Apple Music</li>
+                     <li>_ Rádio Corporativa</li>
+                     <li>_ TV de Videoclipes para ambientes</li>
+                     <li>_ Ativações de Marca</li>
+                     <li>_ Sound Design</li>
+                     <li><a href="https://moods.com.br"><span class="linksli"><span class="loopCol">></span> Player Moods</span></a></li>
+                     <li>(Receptor Digital para Lojas)</li>
+                  </ul>
+               </div>
+            </section>
+            <section id="contato">
+               <div class="shortColumn info">
+                  <h4>Contato</h4>
+                  <a href="mailto:oi@jardimsonoro.com" class="loopCol email" id="emaillink">oi@jardimsonoro.com</a>
+                  <div class="fixedBg">
+                     <div class="container">
+                        <span>idéias</span><span>orçamentos</span><span>tomar um café</span><span></span>
+                     </div>
                   </div>
                   <div>
-                     <ul class="featuresList clearfix">
-                        <div class="row clearfix">
-                           <li >
-                              <div class="featureTitle">Tasty Salad Shop</div>
-                              <div class="featureSubtitle">Música para as lojas da franquia</div>
-                              <div class="featureSubtitle">Playlists para as redes sociais da marca</div>
-                           </li>
-                           <li >
-                              <div class="featureTitle">Montblanc Patio Batel</div>
-                              <div class="featureSubtitle">Playlists para a loja</div>
-                           </li>
-                           <li >
-                              <div class="featureTitle">Bergerson Jóias</div>
-                              <div class="featureSubtitle">Música para as lojas da franquia</div>
-                           </li>
-                        </div>
-                        <div class="row clearfix">
-                           <li >
-                              <div class="featureTitle">King Temaki Japanese Food</div>
-                              <div class="featureSubtitle">Música para as lojas da franquia</div>
-                           </li>
-                           <li >
-                              <div class="featureTitle">Babilonia Gastronomia</div>
-                              <div class="featureSubtitle">TV de VideoClipes Musicais para o ambiente</div>
-                           </li>
-                           <li >
-                              <div class="featureTitle">Mynce Life</div>
-                              <div class="featureSubtitle">Playlists para a loja</div>
-                           </li>
-                        </div>
-                        <div class="row clearfix">
-                           <li >
-                              <div class="featureTitle">Boi And Beer</div>
-                              <div class="featureSubtitle">TV de VideoClipes Musicais para as lojas da franquia</div>
-                           </li>
-                           <li >
-                              <div class="featureTitle">Bemjá Conveniência</div>
-                              <div class="featureSubtitle">Música para as lojas da franquia</div>
-                           </li>
-                           <li >
-                              <div class="featureTitle">Nativa Spa / O Boticário</div>
-                              <div class="featureSubtitle">Desenvolvimento de Music Branding</div>
-                           </li>
-                        </div>
-                     </ul>
                   </div>
-               </section>
-               
-               <section id="links">
-                  <div class="shortColumn info">
-               
-                  
-                     
-                     
-                        <h2 class="email"><a href="blog"><span class="loopCol">:</span>Blog</a></h2>
-                   
-
-                  </div>
-               </section>
-
-
-            
+               </div>
+            </section>
+            <section id="clientes">
+               <div class="shortColumn info">
+                  <h4>Cases</h4>
+               </div>
+               <div>
+                  <ul class="featuresList clearfix">
+                     <div class="row clearfix">
+                        <li >
+                           <div class="featureTitle">Tasty Salad Shop</div>
+                           <div class="featureSubtitle">Música para as lojas da franquia</div>
+                           <div class="featureSubtitle">Playlists para as redes sociais da marca</div>
+                        </li>
+                        <li >
+                           <div class="featureTitle">Montblanc Patio Batel</div>
+                           <div class="featureSubtitle">Playlists para a loja</div>
+                        </li>
+                        <li >
+                           <div class="featureTitle">Bergerson Jóias</div>
+                           <div class="featureSubtitle">Música para as lojas da franquia</div>
+                        </li>
+                     </div>
+                     <div class="row clearfix">
+                        <li >
+                           <div class="featureTitle">King Temaki Japanese Food</div>
+                           <div class="featureSubtitle">Música para as lojas da franquia</div>
+                        </li>
+                        <li >
+                           <div class="featureTitle">Babilonia Gastronomia</div>
+                           <div class="featureSubtitle">TV de VideoClipes Musicais para o ambiente</div>
+                        </li>
+                        <li >
+                           <div class="featureTitle">Mynce Life</div>
+                           <div class="featureSubtitle">Playlists para a loja</div>
+                        </li>
+                     </div>
+                     <div class="row clearfix">
+                        <li >
+                           <div class="featureTitle">Boi And Beer</div>
+                           <div class="featureSubtitle">TV de VideoClipes Musicais para as lojas da franquia</div>
+                        </li>
+                        <li >
+                           <div class="featureTitle">Bemjá Conveniência</div>
+                           <div class="featureSubtitle">Música para as lojas da franquia</div>
+                        </li>
+                        <li >
+                           <div class="featureTitle">Nativa Spa / O Boticário</div>
+                           <div class="featureSubtitle">Desenvolvimento de Music Branding</div>
+                        </li>
+                     </div>
+                  </ul>
+               </div>
+            </section>
+            <section id="links">
+               <div class="shortColumn info">
+                  <h2 class="email"><a href="blog"><span class="loopCol">:</span>Blog</a></h2>
+               </div>
+            </section>
          </div>
-               <section id="footer" class="bottom">
-<div class="social-icons">
-  <a href="https://www.instagram.com/jardimsonoro.rio" target="_blank" aria-label="Instagram">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#aaa" viewBox="0 0 24 24">
-      <path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 2 .2 2.4.4.5.2.9.4 1.3.8s.6.8.8 1.3c.2.4.3 1.2.4 2.4.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 2-.4 2.4-.2.5-.4.9-.8 1.3s-.8.6-1.3.8c-.4.2-1.2.3-2.4.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-2-.2-2.4-.4a3.7 3.7 0 01-2.1-2.1c-.2-.4-.3-1.2-.4-2.4C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-2 .4-2.4A3.7 3.7 0 014.8 2.3c.4-.2 1.2-.3 2.4-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1 .1-1.6.2-2 .3a2 2 0 00-1.1 1.1c-.1.4-.2 1-.3 2-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1 .2 1.6.3 2a2 2 0 001.1 1.1c.4.1 1 .2 2 .3 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1-.1 1.6-.2 2-.3a2 2 0 001.1-1.1c.1-.4.2-1 .3-2 .1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1-.2-1.6-.3-2a2 2 0 00-1.1-1.1c-.4-.1-1-.2-2-.3-1.2-.1-1.6-.1-4.7-.1zM12 6.5a5.5 5.5 0 110 11 5.5 5.5 0 010-11zm0 1.8a3.7 3.7 0 100 7.4 3.7 3.7 0 000-7.4zm5.4-1.9a1.3 1.3 0 110 2.6 1.3 1.3 0 010-2.6z"/>
-    </svg>
-  </a>
-  <a href="https://x.com/jardimsonoro" target="_blank" aria-label="Twitter">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#aaa" viewBox="0 0 24 24">
-      <path d="M22.25 2l-7.56 8.87L23.5 22h-5.25l-5.83-6.88L6.5 22H.5l8.14-9.55L.5 2h5.25l5.25 6.18L17.5 2z"/>
-    </svg>
-  </a>
-</div>
-
-<p>© 2025 <a href="https://jardimsonoro.com">Jardim Sonoro</a> · Rio de Janeiro, Brasil.</p>
-<p class="cnpj-info">CNPJ: 12.553.127/0001­17/PR  ·  60.042.426/0001-30/RJ </p>
-    </section>
-         <!--CLOSE CONTAINER -->
-      </main>
+         <section id="footer" class="bottom">
+            <div class="social-icons">
+               <a href="https://www.instagram.com/jardimsonoro.rio" target="_blank" aria-label="Instagram">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#aaa" viewBox="0 0 24 24">
+                     <path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 2 .2 2.4.4.5.2.9.4 1.3.8s.6.8.8 1.3c.2.4.3 1.2.4 2.4.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 2-.4 2.4-.2.5-.4.9-.8 1.3s-.8.6-1.3.8c-.4.2-1.2.3-2.4.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-2-.2-2.4-.4a3.7 3.7 0 01-2.1-2.1c-.2-.4-.3-1.2-.4-2.4C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-2 .4-2.4A3.7 3.7 0 014.8 2.3c.4-.2 1.2-.3 2.4-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1 .1-1.6.2-2 .3a2 2 0 00-1.1 1.1c-.1.4-.2 1-.3 2-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1 .2 1.6.3 2a2 2 0 001.1 1.1c.4.1 1 .2 2 .3 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1-.1 1.6-.2 2-.3a2 2 0 001.1-1.1c.1-.4.2-1 .3-2 .1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1-.2-1.6-.3-2a2 2 0 00-1.1-1.1c-.4-.1-1-.2-2-.3-1.2-.1-1.6-.1-4.7-.1zM12 6.5a5.5 5.5 0 110 11 5.5 5.5 0 010-11zm0 1.8a3.7 3.7 0 100 7.4 3.7 3.7 0 000-7.4zm5.4-1.9a1.3 1.3 0 110 2.6 1.3 1.3 0 010-2.6z"/>
+                  </svg>
+               </a>
+               <a href="https://x.com/jardimsonoro" target="_blank" aria-label="Twitter">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#aaa" viewBox="0 0 24 24">
+                     <path d="M22.25 2l-7.56 8.87L23.5 22h-5.25l-5.83-6.88L6.5 22H.5l8.14-9.55L.5 2h5.25l5.25 6.18L17.5 2z"/>
+                  </svg>
+               </a>
+            </div>
+            <p>© 2025 <a href="https://jardimsonoro.com">Jardim Sonoro</a> · Rio de Janeiro, Brasil.</p>
+            <p class="cnpj-info">CNPJ: 12.553.127/0001­17/PR  ·  60.042.426/0001-30/RJ </p>
+         </section>
+         </main>
       <script src="script.js"></script>
-      <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-04D0PZM4N3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-04D0PZM4N3');
-</script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-04D0PZM4N3"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         
+         gtag('config', 'G-04D0PZM4N3');
+      </script>
    </body>
 </html>

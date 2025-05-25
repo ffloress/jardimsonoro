@@ -1,30 +1,15 @@
-@font-face {
-  font-family: 'circularbold';
-  src: url("font/circularstd-bold.eot");
-  src: url("font/circularstd-boldd41d.eot?#iefix") format("embedded-opentype"), url("font/circularstd-bold.svg#circularbold") format("svg"), url("font/circularstd-bold.woff") format("woff"), url("font/circularstd-bold.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'circularbook';
-  src: url("font/circularstd-book.eot");
-  src: url("font/circularstd-bookd41d.eot?#iefix") format("embedded-opentype"), url("font/circularstd-book.svg#circularbook") format("svg"), url("font/circularstd-book.woff") format("woff"), url("font/circularstd-book.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
+
 body, html {
   height: 100%;
   color: white;
-  font-family: 'circularbook', sans-serif;
-  -webkit-transition: background 20s linear;
-  -moz-transition: background 20s linear;
-  -ms-transition: background 20s linear;
-  -o-transition: background 20s linear;
-  transition: background 20s linear;
+  font-family: 'Ubuntu', sans-serif;
+  transition: background 20s linear; /* Prefixos desnecessários removidos */
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; /* Adicionado para melhor renderização de fonte no Firefox em macOS */
   overflow-x: hidden;
   font-size: 100%;
+  /* font-weight: 400; */ /* Ubuntu Regular (400) é o padrão. Ajuste se desejar um peso base diferente, ex: 300 para Light. */
 }
 body, video {
   margin: 0;
@@ -37,15 +22,11 @@ video {
   width: 100%;
   height: 100%;
   object-fit: cover;
- /* Ensure the video covers the entire screen */
   z-index: -1;
- /* Place the video behind other content */
 }
 main {
   position: relative;
   z-index: 1;
- /* Ensure content is in front of the video */
- /* Add any additional styling you need for your content */
 }
 * {
   box-sizing: border-box;
@@ -53,9 +34,8 @@ main {
 a {
   text-decoration: none;
   color: white;
-  font-weight: bold;
+  font-weight: 700; /* Ubuntu Bold */
 }
-
 a:hover {
   color: #80cbc4;
   text-decoration: underline;
@@ -65,11 +45,13 @@ h3 {
   font-size: 1.5em;
   line-height: 1.2;
   margin-bottom: 8vh;
+  font-weight: 500; /* Ubuntu Medium */
 }
 h4 {
   color: rgba(255, 255, 255, 0.75);
   font-size: 13px;
   text-transform: uppercase;
+  font-weight: 500; /* Ubuntu Medium */
 }
 .container {
   max-width: 90%;
@@ -77,7 +59,7 @@ h4 {
   margin: 0 auto;
   padding-bottom: 50px;
 }
-.clearfix:after {
+.clearfix:after { /* Mantido para compatibilidade com o layout float existente de .featuresList */
   content: "";
   display: table;
   clear: both;
@@ -85,39 +67,29 @@ h4 {
 .textContainer {
   position: relative;
   text-align: center;
- /* Optionally, center-align the text inside textContainer */
   font-size: 12vw;
-  font-family: 'circularbold', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700; /* Ubuntu Bold */
   color: #fff;
   letter-spacing: -0.38vw;
   line-height: 0.98;
   min-height: 88vh;
   margin-bottom: 2em;
 }
-.titulotext {
+.titulotext { /* Classe presente no HTML, mas sem estilos específicos. Adicione se necessário. */
   width: 100%;
   padding-top: 2em;
 }
 
 .jstext {
   width: 90%;
-  padding: 50px;
+  padding: 50px; /* Padding grande para um font-size de 0.5em do pai, verificar se intencional */
   font-size: 0.5em;
-  
   animation: acid 5s linear infinite;
 }
-.jstext:after {
- /* content: "_";
-  animation: blinking 1s infinite;
-  -webkit-animation: blinking 1s infinite;
-  -moz-animation: blinking 1s infinite;
-  -o-animation: blinking 1s infinite;
-  */
+.jstext:after { /* Animação blinking estava comentada no CSS original, mantendo assim */
   position: absolute;
-  -webkit-transform: translate(10%, -10%);
-  -moz-transform: translate(10%, -10%);
-  -ms-transform: translate(10%, -10%);
-  transform: translate(10%, -10%);
+  transform: translate(10%, -10%); /* Prefixos desnecessários removidos */
   z-index: -9999;
 }
 section {
@@ -127,25 +99,11 @@ section {
 section h4:after {
   content: url("img/line.svg");
   position: absolute;
-  -webkit-transform: translate(5%, -20%);
-  -moz-transform: translate(5%, -20%);
-  -ms-transform: translate(5%, -20%);
-  transform: translate(5%, -20%);
-  
+  transform: translate(5%, -20%); /* Prefixos desnecessários removidos */
 }
 
+/* Removido #about .info p - seletor não correspondia ao HTML e a animação era questionável sem trigger */
 
-#about .info p {
-  -webkit-transform: translateY(80px);
-  -moz-transform: translateY(80px);
-  -ms-transform: translateY(80px);
-  transform: translateY(80px);
-  -webkit-transition: -webkit-transform 1s;
-  -moz-transition: -moz-transform 1s;
-  -ms-transition: -ms-transform 1s;
-  -o-transition: -o-transform 1s;
-  transition: transform 1s;
-}
 .shortColumn {
   width: 45%;
 }
@@ -160,80 +118,59 @@ section h4:after {
   margin: 0;
   position: relative;
   margin-top: 20px;
-  font-weight: bold;
+  font-weight: 700; /* Ubuntu Bold */
 }
 
 .info .loopCol {
-font-size:1.2em;
+  font-size:1.2em; /* Isso fará o texto dentro de .loopCol ser 1.2x o tamanho do .info (0.9em) */
 }
 
 /* ------------------------------- GET IN TOUCH ----------------------------------*/
 .email {
   font-size: 2.5em !important;
-  font-family: 'circularbold', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700; /* Ubuntu Bold */
   position: relative;
   margin: 10px 0 4vh 0;
   text-decoration: none !important;
   border: none;
 }
-/* ------------------------------- FEATURES ----------------------------------*/
-#features ul {
-  margin: 0;
-  padding: 0;
-}
+/* ------------------------------- FEATURES / CASES ----------------------------------*/
+/* Removido #features ul - seletor não correspondia */
 .featuresList {
   list-style-type: none;
 }
 .featuresList li {
-  float: left;
+  float: left; /* Mantido float para não alterar HTML com .row.clearfix */
   padding-right: 2%;
   margin-bottom: 30px;
-  width: 25%;
-  
+  width: 25%; /* 4 colunas. Ajustar para 33.33% se forem 3 por .row clearfix */
 }
-.featuresList li.last {
-  float: right;
-  padding-right: 0;
-}
+/* Removido .featuresList li.last - classe 'last' não utilizada no HTML */
 .featureTitle {
-  font-family: 'circularbold', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700; /* Ubuntu Bold */
   font-size: 1em;
-
 }
-
-.linksli {
-  font-family: 'circularbold', sans-serif;
+.linksli { /* Usado dentro de <a> para o link do Player Moods */
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700; /* Ubuntu Bold */
   font-size: 1.2em;
-
 }
 .featureSubtitle {
   font-size: 0.8em;
   margin-top: 5px;
-
 }
 
-.links {
-text-align: right;
-font-size: 1.8em;
-}
-/* ------------------------------- FIXED BACKGROND ----------------------------------*/
-/* Define the animation for elements inside .fixedBg */
+
+/* ------------------------------- FIXED BACKGROUND ----------------------------------*/
 @keyframes animateFromBottom {
-  from {
-      transform: translateY(100%);
- }
-  to {
-      transform: translateY(0);
- }
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
 }
-/* Define the animation for fading out elements inside .fixedBg */
 @keyframes animateFadeOut {
-  from {
-      transform: translateY(0);
- }
-  to {
-      transform: translateY(100%);
- }
+  from { transform: translateY(0); }
+  to { transform: translateY(100%); }
 }
 .fixedBg {
   height: 100%;
@@ -244,131 +181,62 @@ font-size: 1.8em;
   z-index: -1;
   text-align: center;
   font-size: 80px;
-  font-family: 'circularbold', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700; /* Ubuntu Bold */
   letter-spacing: -0.3vw;
   line-height: 0.95;
   opacity: 0;
-  transition: 0.8s ease-in-out;
+  transition: opacity 0.8s ease-in-out; /* 'transition' para opacity é suficiente, 'animation: acid' já está aqui */
   animation: acid 5s linear infinite;
   background: rgba(0, 0, 0, 0.7);
 }
 .fixedBg.show {
   opacity: 1;
 }
-/* Apply the animation to specific elements inside .fixedBg */
 .fixedBg.show span {
   animation: animateFromBottom 0.5s ease forwards;
 }
-/* Apply the fade-out animation when .show is removed */
 .fixedBg:not(.show) span {
   animation: animateFadeOut 1s ease forwards;
-  transition: 2s ease-in-out;
+  /* transition: 2s ease-in-out; Removido pois a animação já lida com a saída */
 }
-.fixedBg .container {
+.fixedBg .container { /* Estilo para o .container dentro do .fixedBg */
   padding-top: 11vh;
+  max-width: 90%; /* Mantendo consistência com o .container principal */
+  margin: 0 auto;
 }
-@keyframes acid {
-  0%, 100% {
-      color: #5bc5aa;
- }
-  33.33% {
-      color: #b272e1;
- }
-  66.67% {
-      color: #72b6e1;
- }
+@keyframes acid { /* Uma definição é suficiente */
+  0%, 100% { color: #5bc5aa; }
+  33.33% { color: #b272e1; }
+  66.67% { color: #72b6e1; }
 }
-@keyframes acidbg {
-  0%, 100% {
-      background-color: #72b6e1;
- }
-  33.33% {
-      background-color: #5bc5aa;
- }
-  66.67% {
-      background-color: #b272e1;
- }
+@keyframes acidbg { /* Uma definição é suficiente */
+  0%, 100% { background-color: #72b6e1; }
+  33.33% { background-color: #5bc5aa; }
+  66.67% { background-color: #b272e1; }
 }
 .fixedBg span {
-  position: absolute;
+  display: block; 
 }
-.loopCol {
+.loopCol { 
   animation: acidbg 5s linear infinite;
   padding: 2px;
-  font-weight: bold;
- /* Opcional: Adicione preenchimento para tornar o destaque mais visível */
+  font-weight: 700; 
 }
 
-.acidbgtext {
-  animation: acidbg 5s linear infinite;
-  padding: 2px;
-  font-weight: bold;
- /* Opcional: Adicione preenchimento para tornar o destaque mais visível */
-}
-/* ------------------------------- ANIMATIONS ----------------------------------*/
-@keyframes blinking {
-  0% {
-      opacity: 0;
- }
-  50% {
-      opacity: 1;
- }
-  100% {
-      opacity: 0;
- }
-}
-@-webkit-keyframes blinking {
-  0% {
-      opacity: 0;
- }
-  50% {
-      opacity: 1;
- }
-  100% {
-      opacity: 0;
- }
-}
-@-moz-keyframes blinking {
-  0% {
-      opacity: 0;
- }
-  50% {
-      opacity: 1;
- }
-  100% {
-      opacity: 0;
- }
-}
-@-o-keyframes blinking {
-  0% {
-      opacity: 0;
- }
-  50% {
-      opacity: 1;
- }
-  100% {
-      opacity: 0;
- }
-}
 
-.centertext {
-  text-align: center;
-}
 ul {
   list-style-type: none;
 }
-
 li {
-  list-style-type: none;
-  display: block;
+  /* list-style-type: none;  Já coberto por ul */
+  display: block; /* li é block por padrão */
 }
 
-
-#jstext {
+#jstext { /* ID para o texto que aparece/desaparece */
   opacity: 1;
-  transition: opacity 0.5s; /* You can adjust the transition duration (0.5s in this example) to make it faster or slower */
+  transition: opacity 0.5s;
 }
-
 #jstext.hidden {
   opacity: 0;
 }
@@ -377,72 +245,55 @@ li {
   .shortColumn {
     width: 80%;
   }
-
   .featureTitle {
     font-size: 0.7em;
-  
   }
   .featureSubtitle {
     font-size: 0.5em;
- 
   }
-
   .textContainer {
     min-height: 60vh;
     margin-bottom: 1em;
+    font-size: 15vw; /* Ajustado para melhor leitura em telas pequenas */
   }
-
   .email {
-    font-size: 2em !important;
+    font-size: 1.8em !important; /* Ajustado para melhor leitura em telas pequenas */
+  }
+  .fixedBg {
+    font-size: 50px; /* Ajustado para telas pequenas */
+  }
+  .featuresList li {
+    width: 100%; /* Empilha os cases em telas pequenas */
+    padding-right: 0;
+    text-align: center; /* Centraliza o conteúdo dos cases */
   }
 }
 
-
-    .bottom {
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: var(--muted);
-      text-align: center;
-    }
-    
-        .detail{
-      font-size: 0.2rem;
-
-    }
-
-    .logo-container {
-  margin-bottom: 0.5rem;
+.bottom { /* Estilos para a seção de rodapé com id="footer" */
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85); /* Cor ajustada para melhor contraste/leitura */
+  text-align: center;
 }
 
 
 
-
-.logo {
-  width: 25px;
-  height: 25px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid var(--border);
-}
-
-.social-icons {
+.social-icons { 
   margin-top: 1rem;
   display: flex;
   justify-content: center;
   gap: 1.2rem;
 }
-
 .social-icons a svg {
-  fill: #fff;
+  fill: #fff; /* Cor dos ícones no rodapé da landing page */
   transition: fill 0.3s ease;
 }
-
 .social-icons a:hover svg {
-  fill: #80cbc4;
+  fill: #80cbc4; /* Cor no hover */
 }
 
-
-.bottom .cnpj-info {
-  font-size: 0.7em; /* Isso tornará o texto 90% do tamanho da fonte do rodapé. Ajuste conforme necessário. */
-                   /* Por exemplo, 0.8em para 80% do tamanho. */
+.bottom .cnpj-info { /* Estilizando .cnpj-info dentro de .bottom */
+  font-size: 0.85em; /* Aumentado para melhor legibilidade em relação ao texto do rodapé */
+  opacity: 0.7; /* Leve opacidade */
+  margin-top: 0.5em;
 }
