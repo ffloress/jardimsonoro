@@ -215,7 +215,7 @@ html {
 body {
   margin: 0;
   color: var(--primary);
-  font-size: 1.2em;
+  font-size: 1.2em !important;
   line-height: 1.8;
   word-break: break-word;
   background: var(--theme);
