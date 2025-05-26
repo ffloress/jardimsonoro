@@ -580,24 +580,48 @@ No meu Jardim Sonoro tem muito Rock, Jazz, Blues, Soul, House, Dub, Samba...</p>
 
 <div id="disqus_thread" class="space-top"></div>
 <script>
-    /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-    /*
+function loadDisqus() {
+    // Configuração do Disqus específica para esta página de artigo
     var disqus_config = function () {
-    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = "https://jardimsonoro.com/blogquanta-musica-e-suficiente-alguns-insights-sobre-music-branding/";       // URL canônica da página do artigo
+        this.page.identifier = "quanta-musica-e-suficiente-alguns-insights-sobre-music-branding"; // Identificador único (slug do artigo ou URL como fallback)
     };
-    */
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://https-jardimsonoro-com-blog.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
+    // Código de carregamento do Disqus
+    (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-jardimsonoro-com-blog.disqus.com/embed.js'; // URL COMPLETA AQUI
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+
+    // Opcional: Remover placeholder de carregamento se você adicionou um dentro de #disqus_thread
+    // const disqusPlaceholder = document.querySelector("#disqus_thread > p");
+    // if (disqusPlaceholder) {
+    //     disqusPlaceholder.remove();
+    // }
+}
+
+const disqusMountNode = document.querySelector("#disqus_thread");
+
+if (disqusMountNode) {
+    const observerOptions = {
+        rootMargin: '200px 0px' // Começa a carregar Disqus quando estiver a 200px de entrar na viewport
+    };
+
+    const disqusObserver = new IntersectionObserver((entries, observerInstance) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                // console.log("Disqus está visível, inicializando!"); // Para debug
+                loadDisqus();
+                observerInstance.unobserve(entry.target); // Para de observar após o carregamento
+            }
+        });
+    }, observerOptions);
+
+    disqusObserver.observe(disqusMountNode);
+}
+</script>
     </main>
                <footer class="footer">
 <div class="social-icons">
