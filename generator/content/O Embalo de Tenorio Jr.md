@@ -4,7 +4,7 @@ Author: Frederico Flores
 
 ![Capa Do Album Embaldo de Tenorio Jr.](../img/tenoriojrdesenho.webp)
 
-Em uma loja de discos empoeirada no Rio de Janeiro, sob a iluminação âmbar o jornalista musical Jeff Harris descobre, quase por acaso, a música de Francisco Tenório Cerqueira Júnior. A fumaça preguiçosa de cigarro paira no ar, criando um cenário quase cinematográfico. O impacto é imediato, uma epifania sonora que o lança numa busca obsessiva: quem era aquele pianista virtuoso, autor de um único e seminal álbum, *[Embalo](https://www.discogs.com/master/228723-Tenório-Jr-Embalo)*, e tragicamente desaparecido nas brumas da ditadura argentina em 1976.
+Em uma loja de discos empoeirada no Rio de Janeiro, sob a iluminação âmbar e fumaça de cigarro no ar, o jornalista musical Jeff Harris descobre, quase por acaso, a música de Francisco Tenório Cerqueira Júnior. O impacto é imediato, uma epifania sonora que o lança numa busca obsessiva: quem era aquele pianista virtuoso, autor de um único e seminal álbum, *[Embalo](https://www.discogs.com/master/228723-Tenório-Jr-Embalo)*, e tragicamente desaparecido nas brumas da ditadura argentina em 1976.
 
 ![Screenshot 3 de Atiraram no Pianista](../img/pianistavista.webp)
 
