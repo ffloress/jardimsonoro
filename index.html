@@ -21,8 +21,6 @@
       <meta itemprop="name" content="Jardim Sonoro">
       <meta itemprop="description" content="Jardim Sonoro é uma plataforma especializada em fernecer playlists e muitas outras idéias musicais.">
       <style>
-      /* Fontes 'circularbold' e 'circularbook' @font-face removidas - Ubuntu será importada via <link> no HTML */
-
 body, html {
   height: 100%;
   color: white;
@@ -33,7 +31,6 @@ body, html {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   font-size: 100%;
-  /* font-weight: 400; */ /* Ubuntu Regular (400) é o padrão. Ajuste se desejar um peso base diferente, ex: 300 para Light. */
 }
 body, video {
   margin: 0;
@@ -58,24 +55,23 @@ main {
 a {
   text-decoration: none;
   color: white;
-  font-weight: 700; /* Ubuntu Bold */
+  font-weight: 700; 
 }
 a:hover {
   color: #80cbc4;
   text-decoration: underline;
 }
-
 h3 {
   font-size: 1.5em;
   line-height: 1.2;
   margin-bottom: 8vh;
-  font-weight: 500; /* Ubuntu Medium para h3 */
+  font-weight: 500; 
 }
 h4 {
   color: rgba(255, 255, 255, 0.75);
   font-size: 13px;
   text-transform: uppercase;
-  font-weight: 500; /* Ubuntu Medium para h4 */
+  font-weight: 500; 
 }
 .container {
   max-width: 90%;
@@ -91,28 +87,27 @@ h4 {
 .textContainer {
   position: relative;
   text-align: center;
-  font-size: 12vw; /* Tamanho base para telas maiores */
+  font-size: 12vw; 
   font-family: 'Ubuntu', sans-serif;
-  font-weight: 700; /* Ubuntu Bold */
+  font-weight: 700; 
   color: #fff;
   letter-spacing: -0.38vw;
   line-height: 0.98;
   min-height: 88vh;
   margin-bottom: 2em;
-  white-space: nowrap; /* Impede a quebra de linha do conteúdo direto */
+  white-space: nowrap; 
 }
 .titulotext {
   width: 100%;
   padding-top: 2em;
-  white-space: nowrap; /* Garante que "Jardim Sonoro" fique em uma linha */
+  white-space: nowrap; 
 }
-
 .jstext {
-  width: 90%; /* Pode precisar de ajuste se .textContainer for muito estreito e causar quebra no &nbsp; <br> */
+  width: 90%; 
   padding: 50px;
   font-size: 0.5em;
   animation: acid 5s linear infinite;
-  white-space: normal; /* Permite que as frases do JSText quebrem normalmente */
+  white-space: normal; 
 }
 .jstext:after {
   position: absolute;
@@ -122,17 +117,14 @@ h4 {
 section {
   margin-top: 50px;
 }
-
 section h4:after {
   content: url("img/line.svg");
   position: absolute;
   transform: translate(5%, -20%);
 }
-
 .shortColumn {
   width: 45%;
 }
-/* ------------------------------- ABOUT ----------------------------------*/
 .info {
   position: relative;
   font-size: 0.9em;
@@ -143,53 +135,47 @@ section h4:after {
   margin: 0;
   position: relative;
   margin-top: 20px;
-  font-weight: 700; /* Ubuntu Bold */
+  font-weight: 700; 
 }
-
 .info .loopCol {
   font-size:1.2em;
 }
-
-/* ------------------------------- GET IN TOUCH ----------------------------------*/
 .email {
   font-size: 2.5em !important;
   font-family: 'Ubuntu', sans-serif;
-  font-weight: 700; /* Ubuntu Bold */
+  font-weight: 700; 
   position: relative;
   margin: 10px 0 4vh 0;
   text-decoration: none !important;
   border: none;
 }
-/* ------------------------------- FEATURES / CASES ----------------------------------*/
 .featuresList {
   list-style-type: none;
-  padding: 0; /* Adicionado para resetar padding de ul */
-  margin: 0; /* Adicionado para resetar margin de ul */
+  padding: 0; 
+  margin: 0; 
 }
 .featuresList li {
   float: left;
   padding-left: 1%;
   padding-right: 1%;
   margin-bottom: 30px;
-  width: 22%; /* Para 3 colunas */
+  width: 21%; 
   box-sizing: border-box;
 }
 .featureTitle {
   font-family: 'Ubuntu', sans-serif;
-  font-weight: 700; /* Ubuntu Bold */
+  font-weight: 700; 
   font-size: 0.8em;
 }
 .linksli {
   font-family: 'Ubuntu', sans-serif;
-  font-weight: 700; /* Ubuntu Bold */
+  font-weight: 700; 
   font-size: 1.2em;
 }
 .featureSubtitle {
   font-size: 0.6em;
   margin-top: 5px;
 }
-
-/* ------------------------------- FIXED BACKGROUND ----------------------------------*/
 @keyframes animateFromBottom {
   from { transform: translateY(100%); }
   to { transform: translateY(0); }
@@ -205,10 +191,10 @@ section h4:after {
   top: 0;
   left: 0;
   z-index: -1;
-  text-align: center;
-  font-size: 80px;
+  text-align: right;
+  font-size: 100px;
   font-family: 'Ubuntu', sans-serif;
-  font-weight: 700; /* Ubuntu Bold */
+  font-weight: 700; 
   letter-spacing: -0.3vw;
   line-height: 0.95;
   opacity: 0;
@@ -246,18 +232,14 @@ section h4:after {
 .loopCol {
   animation: acidbg 5s linear infinite;
   padding: 2px;
-  font-weight: 700; /* Ubuntu Bold */
+  font-weight: 700; 
 }
-
-/* ------------------------------- ANIMATIONS (Blinking - não utilizada) -------------------*/
-
 ul {
   list-style-type: none;
 }
 li {
   display: block;
 }
-
 #jstext {
   opacity: 1;
   transition: opacity 0.5s;
@@ -265,54 +247,43 @@ li {
 #jstext.hidden {
   opacity: 0;
 }
-
 @media only screen and (max-width: 480px) {
   .shortColumn {
-    width: 80%; /* Mantém as colunas de info mais largas que os cases */
+    width: 80%; 
   }
-
   .textContainer {
     min-height: 60vh;
     margin-bottom: 1em;
-    font-size: 10vw; /* Ajuste este valor para "Jardim Sonoro" caber em uma linha */
-    letter-spacing: -0.3vw; /* Pode precisar de ajuste fino com o font-size */
+    font-size: 10vw; 
+    letter-spacing: -0.3vw; 
   }
-
   .email {
     font-size: 1.8em !important;
   }
-
   .fixedBg {
-    font-size: 40px; /* Reduzido para telas menores */
-    line-height: 1.1; /* Ajustado para melhor encaixe */
+    font-size: 60px; 
+    line-height: 1.1; 
   }
-  
   .fixedBg .container {
-    padding-top: 15vh; /* Ajuste para centralizar melhor o texto no fixedBg */
+    padding-top: 15vh; 
   }
-
-  /* Para .featuresList li, não sobrescrevemos para width: 100% para manter as 3 colunas. */
-  /* Apenas ajustamos o tamanho da fonte dentro deles, se necessário. */
   .featuresList li {
-    /* Mantém width: 33.333%; float: left; etc. da regra principal */
-    /* Se o texto estiver muito grande, ajuste aqui: */
-    font-size: 0.9em; /* Exemplo: Reduz um pouco o tamanho geral do texto nos LIs */
+    font-size: 0.9em; 
+    width: 50%; 
   }
   .featureTitle {
-    font-size: 0.95em; /* Relativo ao novo font-size do li, ou um valor absoluto menor */
+    font-size: 0.95em; 
   }
   .featureSubtitle {
-    font-size: 0.85em; /* Relativo ao novo font-size do li, ou um valor absoluto menor */
+    font-size: 0.85em; 
   }
 }
-
 .bottom {
   margin-top: 3rem;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.85);
   text-align: center;
 }
-
 .social-icons {
   margin-top: 1rem;
   display: flex;
@@ -326,7 +297,6 @@ li {
 .social-icons a:hover svg {
   fill: #80cbc4;
 }
-
 .bottom .cnpj-info {
   font-size: 0.85em;
   opacity: 0.7;
@@ -380,8 +350,8 @@ li {
                      <li>_ TV de Videoclipes para ambientes</li>
                      <li>_ Ativações de Marca</li>
                      <li>_ Sound Design</li>
-                     <li><a href="https://moods.com.br"><span class="linksli"><span class="loopCol">></span> Player Moods</span></a></li>
-                     <li>(Receptor Digital para Lojas)</li>
+                     <li><a href="https://moods.com.br"><span class="linksli"><span class="loopCol">> </span>Player Moods: Receptor Digital</span></a></li>
+                    
                   </ul>
                </div>
             </section>
