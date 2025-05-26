@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globo Terrestre 3D Interativo</title>
+    <style>
+        body { 
+            margin: 0; 
+            overflow: hidden; 
+            font-family: sans-serif; 
+            background-color: #111; 
+            color: #fff; 
+        }
+        #info-bar { /* Renomeado de #info para evitar conflito com userData */
+            position: absolute; 
+            top: 10px; 
+            width: 100%; 
+            text-align: center; 
+            z-index: 100; 
+            display:block; 
+            font-size: 0.9em;
+        }
+        #loading { 
+            position: absolute; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            font-size: 1.5em; 
+            color: #fff;
+            background-color: rgba(0,0,0,0.5);
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        canvas { 
+            display: block; 
+        }
+
+        /* Estilos para o Painel de Informações do País */
+        #country-info-panel {
+            display: none; 
+            position: fixed; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            background-color: rgba(40, 40, 70, 0.95); /* Cor de fundo do painel */
+            color: #f0f0f0; /* Cor do texto do painel */
+            padding: 25px; 
+            border-radius: 10px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.7); 
+            z-index: 1000; /* Para garantir que fique na frente */
+            width: 90%;
+            max-width: 350px; /* Largura máxima do painel */
+            text-align: left;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        #country-info-panel h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #87CEFA; /* Azul claro para o título */
+            border-bottom: 1px solid #87CEFA;
+            padding-bottom: 10px;
+            font-size: 1.4em;
+        }
+        #country-info-panel p {
+            margin-bottom: 20px;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        #country-info-panel button {
+            background-color: #e74c3c; /* Vermelho para o botão */
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            font-size: 1em;
+            transition: background-color 0.2s ease;
+        }
+        #country-info-panel button:hover {
+            background-color: #c0392b; /* Vermelho mais escuro no hover */
+        }
+    </style>
+</head>
+<body>
+    <div id="info-bar">
+        Globo Terrestre 3D (Estilo Low Poly)<br/>
+        Arraste para girar. Scroll/Pinça para zoom. Clique nos pontos para info.
+    </div>
+    <div id="loading">Carregando...</div>
+    <div id="globe-container"></div>
+
+    <div id="country-info-panel">
+        <h2 id="info-panel-name">Nome do País</h2>
+        <p id="info-panel-text">Informações detalhadas aqui...</p>
+        <button id="info-panel-close">Fechar</button>
+    </div>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.164.1/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.164.1/examples/jsm/"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        let scene, camera, renderer, globe, controls;
+        const loadingManager = new THREE.LoadingManager();
+        const textureLoader = new THREE.TextureLoader(loadingManager);
+        const globeContainer = document.getElementById('globe-container');
+        const loadingDiv = document.getElementById('loading');
+
+        // Elementos do painel de informações
+        const infoPanel = document.getElementById('country-info-panel');
+        const infoPanelName = document.getElementById('info-panel-name');
+        const infoPanelText = document.getElementById('info-panel-text');
+        const infoPanelCloseBtn = document.getElementById('info-panel-close');
+
+        const raycaster = new THREE.Raycaster();
+        const pointer = new THREE.Vector2();
+        let clickableMarkers = [];
+        const globeRadius = 1.5;
+
+        const countriesData = [
+            { name: "Brasil", lat: -10.33, lon: -55.49, info: "O Brasil é o maior país da América do Sul, conhecido pela Floresta Amazônica, sua diversidade cultural e o Carnaval." },
+            { name: "Estados Unidos", lat: 39.82, lon: -98.57, info: "Os Estados Unidos possuem uma geografia e cultura vastas, com muitos marcos icônicos como a Estátua da Liberdade e o Grand Canyon." },
+            { name: "Egito", lat: 26.82, lon: 30.80, info: "O Egito é famoso por seus monumentos antigos, como as Pirâmides de Gizé, a Grande Esfinge e os templos ao longo do Nilo." },
+            { name: "Austrália", lat: -25.27, lon: 133.77, info: "A Austrália é um país e continente conhecido por sua vida selvagem única, como cangurus e coalas, e paisagens deslumbrantes como o Outback e a Grande Barreira de Coral." },
+            { name: "Japão", lat: 36.20, lon: 138.25, info: "O Japão é uma nação insular no Oceano Pacífico, conhecida por suas cidades densas, palácios imperiais, parques nacionais montanhosos e uma rica herança cultural." },
+            { name: "África do Sul", lat: -30.55, lon: 22.93, info: "A África do Sul é um país no extremo sul do continente africano, com uma paisagem diversificada que inclui savanas, praias, vinhedos e montanhas como a Table Mountain."}
+        ];
+
+        function init() {
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x101018); // Fundo um pouco mais escuro
+
+            camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 3.5; 
+
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            globeContainer.appendChild(renderer.domElement);
+
+            const ambientLight = new THREE.AmbientLight(0xcccccc, 1.2); // Luz ambiente um pouco mais forte
+            scene.add(ambientLight);
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
+            directionalLight.position.set(5, 5, 5); // Posição da luz direcional
+            scene.add(directionalLight);
+
+            const globeGeometry = new THREE.SphereGeometry(globeRadius, 64, 32);
+            
+            // !!! IMPORTANTE: SUBSTITUA PELA URL DA SUA TEXTURA LOW POLY !!!
+            // Se você salvou a imagem que gerei anteriormente, coloque o nome do arquivo aqui.
+            // Exemplo: const textureUrl = 'sua-textura-lowpoly.png'; 
+            const textureUrl = 'mundo.jpg'; // Placeholder! (Textura genérica de nuvens/terra)
+                                                                    // Esta textura não é "low poly", use a sua!
+
+            const globeMaterial = new THREE.MeshStandardMaterial({
+                color: 0x88aaff, // Cor de fallback azulada
+                roughness: 0.8,
+                metalness: 0.2,
+                transparent: true, // Para ver através se a textura tiver transparência
+                opacity: 1 
+            });
+            
+            loadingManager.onStart = function ( url, itemsLoaded, itemsTotal ) {
+                loadingDiv.style.display = 'block';
+                loadingDiv.textContent = 'Carregando textura...';
+            };
+            loadingManager.onLoad = function ( ) {
+                loadingDiv.style.display = 'none';
+                console.log("Textura do globo e marcadores carregados/criados!");
+                createCountryMarkers(); 
+            };
+            loadingManager.onError = function ( url ) {
+                console.error( 'Erro ao carregar a textura do globo:', url );
+                loadingDiv.textContent = 'Erro ao carregar textura. Usando cor fallback.';
+                // Mesmo com erro na textura, criar os marcadores.
+                createCountryMarkers();
+            };
+
+            textureLoader.load(
+                textureUrl,
+                function ( texture ) {
+                    globeMaterial.map = texture;
+                    globeMaterial.needsUpdate = true;
+                }
+                // Callbacks de progresso e erro agora são tratados pelo LoadingManager
+            );
+
+            globe = new THREE.Mesh(globeGeometry, globeMaterial);
+            // Inicialmente, rotaciona o globo para um melhor alinhamento inicial (opcional)
+            // globe.rotation.y = Math.PI * -0.2; // Ajuste conforme sua textura
+            scene.add(globe);
+
+            controls = new OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.minDistance = 2.2; 
+            controls.maxDistance = 15;
+            controls.autoRotate = true;
+            controls.autoRotateSpeed = 0.15; 
+
+            window.addEventListener('resize', onWindowResize, false);
+            renderer.domElement.addEventListener('pointerdown', onPointerDown, false);
+
+            if(infoPanelCloseBtn) {
+                infoPanelCloseBtn.addEventListener('click', () => {
+                    if(infoPanel) infoPanel.style.display = 'none';
+                    controls.autoRotate = true; // Retoma a rotação automática
+                });
+            }
+            animate();
+        }
+
+        function convertLatLonToVec3(lat, lon, radius = globeRadius) {
+            const phi = THREE.MathUtils.degToRad(90 - lat);    
+            const theta = THREE.MathUtils.degToRad(lon + 180); // Ajuste para textura equiretangular padrão
+            
+            const vector = new THREE.Vector3();
+            vector.setFromSphericalCoords(radius, phi, theta);
+            return vector;
+        }
+
+        function createCountryMarkers() {
+            const markerGeometry = new THREE.SphereGeometry(0.035, 16, 8); // Marcadores um pouco menores
+            
+            countriesData.forEach(country => {
+                const markerMaterial = new THREE.MeshPhongMaterial({ 
+                    color: 0xff4444, 
+                    emissive: 0x661111,
+                    shininess: 60,
+                    specular: 0x222222
+                }); 
+                const marker = new THREE.Mesh(markerGeometry, markerMaterial);
+                
+                const position = convertLatLonToVec3(country.lat, country.lon);
+                marker.position.copy(position);
+
+                marker.userData = { name: country.name, info: country.info, type: 'countryMarker' }; 
+                
+                globe.add(marker); 
+                clickableMarkers.push(marker); 
+            });
+        }
+
+        function onPointerDown(event) {
+            const rect = renderer.domElement.getBoundingClientRect();
+            pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+            pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+            raycaster.setFromCamera(pointer, camera); 
+            const intersects = raycaster.intersectObjects(clickableMarkers, false); 
+
+            if (intersects.length > 0) {
+                const clickedMarker = intersects[0].object; 
+                
+                if (clickedMarker.userData && clickedMarker.userData.type === 'countryMarker') {
+                    controls.autoRotate = false; 
+
+                    const countryData = clickedMarker.userData;
+                    
+                    if(infoPanelName) infoPanelName.textContent = countryData.name;
+                    if(infoPanelText) infoPanelText.textContent = countryData.info;
+                    if(infoPanel) infoPanel.style.display = 'block';
+                }
+            }
+        }
+
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        init();
+    </script>
+</body>
+</html>
