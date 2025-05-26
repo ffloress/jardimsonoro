@@ -198,7 +198,7 @@ A Tasty cresce pelo Brasil como referência em alimentação nutritiva e autênt
 
 🎧 Além da música nas lojas, criamos um perfil da marca no Spotify para levar a experiência completa da marca para os clientes em casa.
 
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3mvdyXJ121dHGz7hvEuLdg?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+[Playlist de Verão - Tasty Salad Shop](https://open.spotify.com/playlist/3mvdyXJ121dHGz7hvEuLdg?si=mrvPpOJURuWZv7s2RM7nMQ)
 
 🔗 Confira mais playlists da **Tasty Salad Shop** [clicando aqui](https://open.spotify.com/user/njipd6jzn6h54o68qbsqbnvig).
 
