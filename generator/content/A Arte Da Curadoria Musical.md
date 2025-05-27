@@ -1,7 +1,7 @@
 Title: A Arte Da Curadoria Musical
 Tags: playlists, music branding, spotify, festivais
 Author: Frederico Flores
-
+Date: 2025-04-03 10:20
 
 ![A Arte Da Curadoria Musical](../img/artecuradoria.webp)
 
@@ -133,48 +133,6 @@ Além de playlists digitais, blogs, revista e site especializados, é vital **ma
 
 - [Louder Than War](https://louderthanwar.com)  
   Cultura alternativa, punk, indie, post-punk, eletrônica e mais. Com resenhas e entrevistas provocativas.
-
-
-### 🎪 Festivais de Música como fontes vivas de descoberta sonora:
-
-Festivais são muito mais do que eventos: são **caldeirões culturais** onde se misturam curadoria, experimentação e os futuros sons da indústria. 
-
-- [Sónar Festival – 🇪🇸 Espanha](https://sonar.es/en)  
-  Um dos maiores e mais respeitados festivais de música eletrônica e arte digital do mundo. Referência absoluta em vanguarda.
-
-- [Green Man – 🇬🇧 Reino Unido](https://www.greenman.net)  
-  Festival independente em meio às montanhas galesas, com curadoria sensível e atmosfera mágica. Perfeito para descobrir folk, indie e psicodelia contemporânea.
-
-- [Les Vieilles Charrues – 🇫🇷 França](https://www.vieillescharrues.asso.fr)  
-  Um dos maiores festivais franceses, mesclando pop, world music e rock alternativo com artistas globais e descobertas locais.
-
-- [A Porta – 🇵🇹 Portugal](https://festivalaporta.pt)  
-  Festival intimista na cidade de Leiria com forte foco na **música independente lusófona**, experimentações sonoras e ocupação urbana.
-
-- [SXSW – 🇺🇸 Estados Unidos](https://www.sxsw.com)  
-  Mistura de festival e conferência em Austin, Texas, é o principal palco da indústria musical para descobertas internacionais e inovação cultural.
-
-- [Treefort Music Fest – 🇺🇸 Boise, Idaho](https://www.treefortmusicfest.com)  
-  Um dos festivais independentes mais amados dos EUA, com line-ups repletos de bandas emergentes e showcases de cena local.
-
-- [Le Guess Who? – 🇳🇱 Holanda](https://leguesswho.com)  
-  Festival dedicado à música global e experimental. Com curadorias de artistas convidados, é uma viagem sonora incomparável.
-
-- [MUTEK – 🇨🇦 Canadá / 🇯🇵 Japão / 🇲🇽 México](https://mutek.org)  
-  Plataforma internacional dedicada à música eletrônica de ponta, arte digital e performance audiovisual.
-
-- [BIGSOUND – 🇦🇺 Austrália](https://www.bigsound.org.au)  
-  Principal evento da indústria musical australiana, voltado à descoberta de novos artistas da Oceania e conexões globais.
-
-
-
-## 🚨 Quando a Trilha Vira Cilada
-
-Escolher a música errada pode ser mais desastroso do que não escolher música alguma. 
-
-A música errada é como um perfume enjoativo: difícil de esquecer e fácil de evitar na próxima vez. Ela distorce a mensagem da marca, quebra o encanto e, em casos extremos, expulsa o cliente pela porta da frente antes mesmo que ele alcance a prateleira.
-
-Mais do que causar incômodo, a música desalinhada transmite uma sensação de amadorismo, de falta de cuidado com os detalhes — exatamente o oposto do que se espera de marcas que buscam relevância e conexão emocional. Afinal, se nem o som está em sintonia, o que mais estará fora do tom?
 
 
 ## 🔁 Estratégia Como Verbo

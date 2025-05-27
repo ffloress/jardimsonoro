@@ -1,6 +1,7 @@
 Title: O Embalo de Tenorio Jr.
 Tags: cinema, bossa nova, samba jazz, mpb, brasil
 Author: Frederico Flores
+Date: 2025-05-20 10:20
 
 ![Capa Do Album Embaldo de Tenorio Jr.](../img/tenoriojrdesenho.webp)
 
