@@ -1,7 +1,7 @@
 Title: Quanta música é suficiente? Alguns insights sobre Music Branding.
 Tags: playlists, music branding
 Author: Frederico Flores
-Date: 2025-03-03 10:20
+Date: 2024-03-03 10:20
 
 Este ano, minha empresa [Jardim Sonoro](https://jardimsonoro.com) completa 15 anos de curadoria musical para algumas das marcas mais legais do Brasil.
 ![So Much Music Too Little Time](../img/somuch.webp)
