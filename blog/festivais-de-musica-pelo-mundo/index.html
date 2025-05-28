@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+  <meta charset="utf-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"></noscript>
+<title>Jardim Sonoro - Blog</title>
+<meta name="author" content="Frederico Flores">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@jardimsonoro">
+
+
+  <link rel="canonical" href="https://jardimsonoro.com/blog/festivais-de-musica-pelo-mundo/">
+
+  <meta name="description" content="Este ano, minha empresa Jardim Sonoro completa 15 anos de curadoria musical para algumas das marcas mais legais do Brasil. Com orgulho, posso dizer que nomes como o Grupo Boticário, Tasty Salad Shop e Mont Blanc se tornaram um pouquinho mais musicais quando nossos caminhos se cruzaram. Essa jornada começou …">
+  <meta name="twitter:description" content="Este ano, minha empresa Jardim Sonoro completa 15 anos de curadoria musical para algumas das marcas mais legais do Brasil. Com orgulho, posso dizer que nomes como o Grupo Boticário, Tasty Salad Shop e Mont Blanc se tornaram um pouquinho mais musicais quando nossos caminhos se cruzaram. Essa jornada começou …">
+  <meta property="og:description" content="Este ano, minha empresa Jardim Sonoro completa 15 anos de curadoria musical para algumas das marcas mais legais do Brasil. Com orgulho, posso dizer que nomes como o Grupo Boticário, Tasty Salad Shop e Mont Blanc se tornaram um pouquinho mais musicais quando nossos caminhos se cruzaram. Essa jornada começou …">
+
+  <meta name="twitter:image" content="https://jardimsonoro.com/blog/img/somuch.webp">
+  <meta property="og:image" content="https://jardimsonoro.com/blog/img/somuch.webp">
+
+<meta property="og:url" content="https://jardimsonoro.com/blog/festivais-de-musica-pelo-mundo/">
+<meta property="og:title" content="Festivais de Musica Pelo Mundo">
+<meta property="og:type" content="article">
+
+<link rel="icon" type="image/x-icon" href="https://jardimsonoro.com/favicon.ico">
+
+<link rel="alternate" type="application/atom+xml" href="https://jardimsonoro.com/blog/" title="Atom Feed">
+<link rel="alternate" type="application/atom+xml" href="https://jardimsonoro.com/blog/feeds/all.atom.xml" title="Full Atom Feed">
+
+<style>
+/* @font-face para circularbook e circularbold removidas, usando Ubuntu do Google Fonts */
+
+@keyframes animation-acid {
+  0%, 100% { color: #5bc5aa; }
+  33.33% { color: #b272e1; }
+  66.67% { color: #72b6e1; }
+}
+@keyframes animation-acidbg {
+  0%, 100% { background-color: #336b99; }
+  33.33% { background-color: #287c66; }
+  66.67% { background-color: #6d3d99; }
+}
+@keyframes animation-acidborder {
+  0%, 100% { border-color: #5bc5aa; }
+  33.33% { border-color: #b272e1; }
+  66.67% { border-color: #72b6e1; }
+}
+
+.acid { animation: animation-acid 3s infinite; color: #5bc5aa; }
+.acidbg {
+  animation: animation-acidbg 5s infinite;
+  background-color: #5bc5aa;
+  font-weight: 700; /* Ubuntu Bold */
+  padding: 5px;
+  border-radius: 0.25em;
+}
+.acidbg:hover { filter: invert(100%); }
+.white { color: white; }
+.sublinhado { text-decoration: underline; }
+.acidborder { animation: animation-acidborder 3s infinite; background-color: #5bc5aa; }
+
+/* Theme Base (Paper theme inspired) */
+:root {
+  --gap: 1.5em;
+  --content-gap: 2.5em;
+  --nav-width: 64.0em;
+  --main-width: 40.0em;
+  --header-height: 3.75em;
+  --footer-height: 3.75em;
+  --radius: 0.5em;
+  --theme: #fff;
+  --entry: #fff;
+  --primary: rgba(0, 0, 0, 0.88);
+  --secondary: rgba(0, 0, 0, 0.56);
+  --tertiary: rgba(0, 0, 0, 0.16);
+  --content: rgba(0, 0, 0, 0.88);
+  --hljs-bg: #1c1d21; 
+  --code-bg: #f5f5f5; 
+  --border: #eee;
+}
+.dark {
+  --theme: #1d1e20;
+  --entry: #2e2e33;
+  --primary: rgba(255, 255, 255, 0.84);
+  --secondary: rgba(255, 255, 255, 0.56);
+  --tertiary: rgba(255, 255, 255, 0.16);
+  --content: rgba(255, 255, 255, 0.75);
+  --hljs-bg: #2e2e33;
+  --code-bg: #37383e;
+  --border: #5b5d67;
+}
+.list { background: var(--code-bg); } 
+.dark.list { background: var(--theme); }
+
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; font-family: 'Ubuntu', sans-serif; }
+html { -webkit-tap-highlight-color: transparent; font-family: 'Ubuntu', sans-serif; }
+body {
+  margin: 0;
+  color: var(--primary);
+  font-size: 1.2em !important; 
+  line-height: 1.8;
+  word-break: break-word;
+  background: var(--theme);
+  font-family: 'Ubuntu', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section { display: block; }
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0; margin-bottom: 0;
+  color: var(--primary);
+  line-height: 1.2;
+  font-weight: 500; 
+}
+p { margin-top: 0; margin-bottom: 0; }
+strong, b { font-weight: 700; } /* Ubuntu Bold */
+ul { margin: 0; padding: 0; list-style: none; }
+a { color: var(--primary); text-decoration: none; }
+figure { margin: 0; }
+table { width: 100%; border-collapse: collapse; border-spacing: 0; }
+button, input, textarea {
+  padding: 0; font: inherit; background: transparent; border: 0;
+  appearance: none; -webkit-appearance: none; -moz-appearance: none;
+}
+button, input[type='button'], input[type='submit'] { cursor: pointer; }
+input:autofill, textarea:autofill { box-shadow: 0 0 0 3.125em var(--theme) inset; }
+img { display: block; max-width: 100%; height: auto; }
+
+/* Header */
+.header { 
+  /* border-bottom: 1px solid var(--border); */ 
+}
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  align-items: center;
+  gap: 1em;
+  max-width: var(--nav-width); 
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 var(--gap); 
+  height: var(--header-height);
+}
+.nav a { line-height: var(--header-height); } 
+.logo { 
+}
+.logo a { font-size: 1em; font-weight: 700; /* Ubuntu Bold para o texto do logo */ }
+.menu { display: flex; gap: 1em; flex-wrap: wrap; } 
+.menu a { font-size: 1.0em; }
+.logo-container { margin-bottom: 0.5rem; } 
+.logoimg { width: 25px; height: 25px; object-fit: cover; border-radius: 50%; } 
+
+/* Main Content Area */
+.main {
+  position: relative;
+  flex-grow: 1; 
+  max-width: calc(var(--main-width) + var(--gap) * 2);
+  margin-left: auto;
+  margin-right: auto;
+  padding: var(--gap);
+}
+.page-header { margin-bottom: 1.5em; }
+.page-header h1 { font-size: 2.5em; }
+
+.pagination { display: flex; margin-top: var(--content-gap); }
+.pagination a {
+  color: var(--theme);
+  font-size: 0.8125em;
+  line-height: 2.25em;
+  background: var(--primary);
+  border-radius: calc(2.25em / 2);
+  padding: 0 1em;
+}
+.pagination .prev { padding-left: 1.0em; padding-right: 1.125em; }
+.pagination .next { margin-left: auto; padding-left: 1.125em; padding-right: 1.0em; }
+
+/* Post Entry (Listagens de Artigos) */
+/* REMOVIDAS AS REGRAS ESPECÍFICAS PARA .first-entry para uniformizar a lista */
+/*
+.first-entry { 
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 20.0em;
+  margin-bottom: var(--header-height); 
+}
+.first-entry .entry-header h2 { font-size: 2.5em; }
+.first-entry .entry-content { margin-top: 0.875em; margin-bottom: 0.875em; font-size: 1.0em; }
+*/
+
+.post-entry {
+  position: relative;
+  margin-bottom: var(--gap);
+  padding: var(--gap);
+  background: var(--entry);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 1em; 
+  transition: transform 0.1s ease-out, box-shadow 0.1s ease-out; 
+   width: 100%;
+}
+.post-entry:hover { 
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+.post-entry:active { transform: scale(0.98); }
+
+.post-entry-thumb-container { display: flex; align-items: flex-start; gap: 1em; }
+.post-thumb {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  overflow: hidden; 
+  border-radius: var(--radius);
+}
+.post-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.entry-header { 
+  flex-grow: 1; 
+}
+.entry-header h2 { font-size: 1.5em; } 
+.entry-header p { font-size: 0.7em; } 
+
+.entry-content { 
+  margin-top: 0.5em; margin-bottom: 0.5em;
+  color: var(--secondary);
+  font-size: 0.875em;
+  line-height: 1.6;
+}
+.list .entry-content { 
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; 
+}
+.single .entry-content { 
+  display: block; 
+  overflow: visible;
+  -webkit-line-clamp: unset;
+  -webkit-box-orient: initial;
+}
+
+.entry-footer { color: var(--secondary); font-size: 0.8125em; text-align: right; }
+.entry-link { position: absolute; left: 0; right: 0; top: 0; bottom: 0; } 
+
+/* Post Single (Página de Artigo Individual) */
+.post-header { margin-top: 1.5em; margin-bottom: var(--content-gap); }
+.post-title { margin-bottom: 0.125em; font-size: 2.5em; transform: translateX(-2px); }
+.post-by { color: var(--secondary); font-size: 0.875em; }
+.post-by a { color: var(--secondary); font-size: 1em; }
+.post-by a:hover { color: #80cbc4; border-bottom: 0.0625em solid var(--primary); text-decoration: underline; }
+
+.post-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5em 1em; 
+  color: var(--secondary);
+  font-size: 0.875em;
+  margin-bottom: 1em; 
+}
+.post-date { font-size: 0.9em; color: #888; }
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em; 
+  margin: 0; padding: 0;
+  justify-content: flex-end; 
+}
+.post-tags li { font-size: 0.85em; }
+.post-tags a { display: block; text-decoration: none; font-size: 0.875em; line-height: 2.125em; }
+
+.post-content { color: var(--content); }
+.post-content img, .post-content iframe { display: block; margin-left: auto; margin-right: auto; max-width: 100%; }
+/* Títulos dentro do conteúdo do post */
+.post-content h1 { margin-top: 2.5em; margin-bottom: 1.0em; font-size: 2.2em; }
+.post-content h2 { margin-top: 2.0em; margin-bottom: 0.8em; font-size: 1.8em; }
+.post-content h3, .post-content h4, .post-content h5, .post-content h6 { margin-top: 1.5em; margin-bottom: 0.6em; }
+.post-content h3 { font-size: 1.5em; }
+.post-content h4 { font-size: 1.2em; }
+.post-content h5 { font-size: 1.0em; }
+.post-content h6 { font-size: 0.875em; }
+
+.post-content a { box-shadow: 0 0.0625em 0 var(--primary); }
+.post-content a code { margin-left: 0; margin-right: 0; border-radius: 0; box-shadow: 0 -0.0625em 0 var(--primary) inset; }
+.post-content del { text-decoration: none; background: linear-gradient(to right, var(--primary) 100%, transparent 0) 0 50% / 0.0625em 0.0625em repeat-x; }
+.post-content p, .post-content ul, .post-content ol, .post-content dl { margin-bottom: 1.2em; }
+.post-content p { text-indent: 1.5em; }
+.post-content ul, .post-content ol { padding-left: 1.5em; }
+.post-content li { margin-top: 0.3125em; }
+.post-content li p { margin-bottom: 0; text-indent: 0; } 
+.post-content dl { display: flex; flex-wrap: wrap; margin: 0; }
+.post-content dt { width: 25%; font-weight: 700; /* Ubuntu Bold */ }
+.post-content dd { width: 75%; margin-left: 0; padding-left: 0.625em; }
+.post-content dt ~ dt, .post-content dd ~ dd { margin-top: 0.625em; }
+.post-content table { margin-bottom: 2.0em; }
+.post-content table th, .post-content table:not(.highlighttable) td { min-width: 5.0em; padding: 0.75em 0.5em; line-height: 1.5; border-bottom: 0.0625em solid var(--border); }
+.post-content table th { font-size: 0.875em; text-align: left; font-weight: 700; /* Ubuntu Bold */ }
+
+.post-content .highlight, .post-content pre {
+  margin-left: calc(var(--gap) * -1); margin-right: calc(var(--gap) * -1); 
+  margin-bottom: 2.0em;
+  background: var(--hljs-bg) !important; 
+  border-radius: var(--radius);
+  overflow-x: auto;
+  padding: var(--gap); 
+}
+.post-content ul pre, .post-content ol pre { margin-left: calc(var(--gap) * -2); }
+.post-content .highlight pre { margin: 0; padding: 0; }
+
+.right { text-align: center; } 
+.post-content .highlighttable { table-layout: fixed; }
+.post-content .highlighttable td:first-child { width: 2.5em; } 
+.post-content .highlighttable td .linenodiv { padding-right: 0 !important; }
+.post-content .highlighttable td .linenodiv pre, .post-content .highlighttable td .highlight { margin-bottom: 0; }
+.post-content .highlight span { background: transparent !important; } 
+
+.post-content code { 
+  margin: 0 0.15em; padding: 0.2em 0.4em;
+  font-size: 0.82em; line-height: initial;
+  background: var(--code-bg);
+  border-radius: 0.2em;
+  font-family: 'Ubuntu Mono', Consolas, 'Courier New', monospace; 
+}
+.post-content pre code { 
+  display: block;
+  margin: 0; padding: 0; 
+  color: rgba(255, 255, 255, 0.8); 
+  background: transparent; 
+  border-radius: 0;
+  font-family: 'Ubuntu Mono', Consolas, 'Courier New', monospace; 
+  font-size: 0.9em; 
+  line-height: 1.6;
+}
+.post-content blockquote {
+  margin: 0 0 1.5em calc(var(--gap) * -1); 
+  padding: 0.5em 1em 0.5em 1.3125em;
+  border-left: 0.25em solid var(--primary);
+  background-color: var(--code-bg); 
+}
+.post-content hr { height: 0.0625em; margin: 3.5em 0; background: var(--tertiary); border: 0; }
+
+/* Footer */
+.footer {
+  max-width: calc(var(--main-width) + var(--gap) * 2);
+  margin-left: auto; margin-right: auto;
+  padding: calc((var(--footer-height) - var(--gap)) / 2) var(--gap);
+  color: var(--secondary);
+  font-size: 0.8em;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+  line-height: 1.6;
+  border-top: 1px solid var(--border); 
+}
+.footer span { margin: 0 0.0625em; }
+.footer a { color: var(--primary); font-weight: 700; /* Ubuntu Bold */ }
+.footer a:hover { color: #80cbc4; border-bottom: 0.0625em solid var(--primary); }
+
+/* Página 404 */
+.not-found {
+  position: absolute; left: 0; right: 0;
+  display: flex; align-items: center; justify-content: center;
+  height: 80%; 
+  font-size: 10.0em; font-weight: 700; /* Ubuntu Bold */
+}
+
+.space-top { margin-top: 50px; } 
+
+/* Social Icons no Footer */
+.social-icons {
+  margin-top: 1rem; display: flex; justify-content: center; gap: 1.2rem;
+  list-style: none; padding: 0;
+}
+.social-icons a svg { fill: var(--primary); transition: fill 0.3s ease; width: 22px; height: 22px; }
+.social-icons a:hover svg { fill: #80cbc4; }
+
+.cnpj-info { font-size: 0.75em; opacity: 0.8; } 
+
+/* YouTube/Video Placeholder Styles */
+.youtube-placeholder { 
+  display: block; width: 100%; max-width: 560px;
+  aspect-ratio: 16 / 9;
+  margin: 1.5em auto; 
+  background-color: #000; 
+  background-size: cover; background-position: center;
+  position: relative; cursor: pointer;
+  border-radius: var(--radius);
+  overflow: hidden; 
+}
+
+.spotify-placeholder {
+
+  height: 352px; /* Tamanho típico do player Spotify */
+  background-color: transparent; /* Remove o fundo preto */
+ display: block; 
+ width: 100%; max-width: 560px;
+  margin: 1.5em auto; 
+  background-size: cover; background-position: center;
+  position: relative; cursor: pointer;
+  border-radius: var(--radius);
+  overflow: hidden; 
+}
+
+.spotify-play-button { 
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px; height: 60px;
+  background: url('/img/play-button-circled.webp') center / contain no-repeat;
+  filter: drop-shadow(0 0 5px rgba(0,0,0,0.5)); 
+  pointer-events: none;
+}
+
+.youtube-play-button { 
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px; height: 60px;
+  background: url('/img/play-button-circled.webp') center / contain no-repeat;
+  filter: drop-shadow(0 0 5px rgba(0,0,0,0.5)); 
+  pointer-events: none;
+}
+.video-wrapper-with-caption {
+  margin: 1.5em auto; max-width: 560px;
+}
+.video-wrapper-with-caption .youtube-placeholder { 
+  margin-left: 0; margin-right: 0;
+  margin-bottom: 0.5em; 
+}
+.video-caption {
+  display: block; font-size: 0.9em;
+  color: var(--secondary);
+  text-align: center;
+  padding: 0.5em 0.1em; margin-top: 0; 
+  line-height: 1.4;
+}
+.video-caption a, .video-caption strong { color: inherit; font-weight: inherit; }
+
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  body { font-size: 1.1em !important; }
+  .main { padding: var(--gap) 1em; }
+  .post-title, /*.first-entry .entry-header h2,*/ .page-header h1 { font-size: 2em; } /* .first-entry h2 removido da regra conjunta */
+  .post-content h1 { font-size: 1.8em; }
+  .post-content h2 { font-size: 1.6em; }
+  .post-content h3 { font-size: 1.4em; }
+  .post-content .highlight, .post-content pre {
+    margin-left: -1em; margin-right: -1em;
+    border-radius: 0; 
+  }
+  .post-content ul pre, .post-content ol pre { margin-left: calc(-1em - 1.5em); } 
+}
+
+@media (max-width: 480px) {
+  body { font-size: 1.05em !important; }
+  .post-title, /*.first-entry .entry-header h2,*/ .page-header h1 { font-size: 1.7em; } /* .first-entry h2 removido */
+  .nav { flex-direction: column; height: auto; padding-top: 0.5em; padding-bottom: 0.5em; }
+  .logo a, .menu a { line-height: 1.8; } 
+  .menu { justify-content: center; }
+  .post-meta { flex-direction: column; align-items: flex-start; gap: 0.5em; }
+  .post-meta .post-tags { justify-content: flex-start; text-align: left; }
+  .entry-footer { text-align: left; }
+
+  /* Correção para thumbnail e título em listas de artigos em telas pequenas */
+  .post-entry-thumb-container {
+    flex-direction: row; 
+    align-items: flex-start; 
+    gap: 0.8em; 
+  }
+  .post-thumb {
+    width: 60px;       
+    height: 60px;      
+    max-width: none;   
+  }
+  .post-entry .entry-header { 
+    text-align: left;
+  }
+  .post-entry .entry-header h2 {
+    font-size: 1.1em; 
+  }
+  /* Fim da correção para thumbnail */
+  
+  .post-content p { text-indent: 1em; }
+}
+
+
+
+</style>
+
+
+  </head>
+  <body class="list">
+ 
+    <header class="header">
+      <nav class="nav">
+        <h1 class="logo"><a href="/">Jardim Sonoro</a><a href=".."><span class="acidbg white">Blog</span></a></h1>
+      </nav>
+    </header>
+    <main class="main">
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Festivais de Musica Pelo Mundo</h1>
+<div class="post-meta">
+  <div class="post-by">
+   <a href="..">Frederico Flores</a> · Qua 28 Maio 2025
+  </div>
+  <ul class="post-tags">
+    <li><a href="../tags/festivais/"><span class="acidbg white">festivais</span></a></li>
+    <li><a href="../tags/music-branding/"><span class="acidbg white">music branding</span></a></li>
+  </ul>
+</div>
+
+  </header>
+  <div class="post-content"><p>Este ano, minha empresa <a href="https://jardimsonoro.com">Jardim Sonoro</a> completa 15 anos de curadoria musical para algumas das marcas mais legais do Brasil.
+<img alt="So Much Music Too Little Time" src="../img/somuch.webp"></p>
+<p>Com orgulho, posso dizer que nomes como o Grupo Boticário, Tasty Salad Shop e Mont Blanc se tornaram um pouquinho mais musicais quando nossos caminhos se cruzaram.</p>
+<p>Essa jornada começou enquanto eu cursava Música na UFPR, e o mesmo tempo, ganhava experiência como DJ em diversos tipos de eventos. Logo, passei a ser procurado como “fazedor de playlists” por amigos, familiares e seus conhecidos.  </p>
+<p>Na verdade, desde criança eu gostava de passar tardes criando mixagens em fita K7 no estéreo do meu pai.</p>
+<div id="globe-parent-container" style="position: relative; width: 100%; height: 500px; margin: 20px auto;">
+
+    <div id="globe-container" style="width: 100%; height: 100%; position: relative; overflow: hidden; background-color: transparent;">
+        </div>
+
+    <div id="loading" style="display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 1em; color: #333; background-color: rgba(255,255,255,0.85); padding: 10px 15px; border-radius: 5px; z-index: 1001; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        Carregando...
+    </div>
+
+    <div id="info-bar" style="position: absolute; top: 10px; left: 50%; transform: translateX(-50%); font-size: 0.8em; color: #333; background-color: rgba(240,240,240,0.8); padding: 3px 8px; border-radius: 3px; z-index: 1001;">
+        Jardim Sonoro
+    </div>
+
+    <div id="country-info-panel" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(40, 40, 70, 0.97); color: #f0f0f0; padding: 20px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.5); z-index: 10000; width: 90%; max-width: 320px; text-align: left; border: 1px solid rgba(255,255,255,0.2);">
+        <h2 id="info-panel-name" style="margin-top: 0; margin-bottom: 12px; color: #87CEFA; border-bottom: 1px solid #87CEFA; padding-bottom: 8px; font-size: 1.2em;">Nome do Local</h2>
+        <div id="info-panel-text" style="margin-bottom: 18px; font-size: 0.9em; line-height: 1.6; max-height: 200px; overflow-y: auto;">Informações detalhadas aqui...</div>
+        <button id="info-panel-close" style="background-color: #e74c3c; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; display: block; width: 100%; font-size: 0.9em; transition: background-color 0.2s ease;">Fechar</button>
+    </div>
+
+    <div id="festival-info-data-container" style="display: none;">
+        <div id="info-sonar" style="display:none;">Um dos maiores e mais respeitados festivais de música eletrônica e arte digital do mundo, realizado em Barcelona, Espanha. Site oficial: <a href="https://sonar.es" target="_blank" style="color: #87CEFA;">https://sonar.es</a></div>
+        <div id="info-greenman" style="display:none;">Festival independente nas montanhas galesas, próximo a Crickhowell, com curadoria sensível e atmosfera mágica. Site oficial: <a href="https://www.greenman.net" target="_blank" style="color: #87CEFA;">https://www.greenman.net</a></div>
+        <div id="info-vieillescharrues" style="display:none;">Um dos maiores festivais franceses, realizado em Carhaix-Plouguer, mesclando pop, world music e rock alternativo. Site oficial: <a href="https://www.vieillescharrues.asso.fr" target="_blank" style="color: #87CEFA;">https://www.vieillescharrues.asso.fr</a></div>
+        <div id="info-aporta" style="display:none;">Festival intimista na cidade de Leiria, com foco na música independente lusófona e ocupação urbana criativa. Site oficial: <a href="https://www.festivalaporta.com" target="_blank" style="color: #87CEFA;">https://www.festivalaporta.com</a></div>
+        <div id="info-sxsw" style="display:none;">Mistura de festival e conferência em Austin, Texas, sendo um dos principais palcos da indústria musical para descobertas internacionais e inovação cultural. Site oficial: <a href="https://www.sxsw.com" target="_blank" style="color: #87CEFA;">https://www.sxsw.com</a></div>
+        <div id="info-treefort" style="display:none;">Festival independente em Boise, Idaho, com line-ups repletos de bandas emergentes e showcases da cena local. Site oficial: <a href="https://www.treefortmusicfest.com" target="_blank" style="color: #87CEFA;">https://www.treefortmusicfest.com</a></div>
+        <div id="info-leguesswho" style="display:none;">Festival dedicado à música global e experimental, realizado em Utrecht, com curadorias de artistas convidados. Site oficial: <a href="https://www.leguesswho.com" target="_blank" style="color: #87CEFA;">https://www.leguesswho.com</a></div>
+        <div id="info-mutekca" style="display:none;">Plataforma internacional dedicada à música eletrônica de ponta e arte digital, com edições em Montreal. Site oficial: <a href="https://montreal.mutek.org" target="_blank" style="color: #87CEFA;">https://montreal.mutek.org</a></div>
+        <div id="info-mutekjp" style="display:none;">Edição japonesa do MUTEK, realizada em Tóquio, promovendo criatividade digital e música eletrônica. Site oficial: <a href="https://tokyo.mutek.org" target="_blank" style="color: #87CEFA;">https://tokyo.mutek.org</a></div>
+        <div id="info-mutekmx" style="display:none;">Edição mexicana do MUTEK, realizada na Cidade do México, explorando arte digital e performances audiovisuais. Site oficial: <a href="https://mexico.mutek.org" target="_blank" style="color: #87CEFA;">https://mexico.mutek.org</a></div>
+        <div id="info-bigsound" style="display:none;">Principal evento da indústria musical australiana, realizado em Brisbane, voltado à descoberta de novos artistas da Oceania. Site oficial: <a href="https://www.bigsound.org.au" target="_blank" style="color: #87CEFA;">https://www.bigsound.org.au</a></div>
+        <div id="info-br135" style="display:none;">Realizado em São Luís, Maranhão, o Festival BR-135 promove a música autoral e conecta artistas independentes, celebrando a diversidade cultural do estado. Site oficial: <a href="https://festivalbr135.com.br" target="_blank" style="color: #87CEFA;">https://festivalbr135.com.br</a></div>
+        <div id="info-exporockrecife" style="display:none;">Festival anual em Recife, Pernambuco, que promove bandas e artistas independentes do estado e do nordeste brasileiro, oferecendo uma experiência cultural completa. Site oficial não disponível; informações geralmente divulgadas via redes sociais ou plataformas locais.</div>
+        <div id="info-2d2nmusicaua" style="display:none;">Festival anual de 48 horas em Odessa, apresentando novas músicas de artistas ucranianos e internacionais, principalmente no gênero experimental. Site oficial não disponível; informações limitadas devido a possíveis interrupções causadas por conflitos na região.</div>
+        <div id="info-kazantip" style="display:none;">Festival de música eletrônica que ocorre anualmente na Crimeia, conhecido por sua atmosfera única e por se autodenominar uma 'república' com suas próprias regras. Site oficial não disponível; o festival foi suspenso ou realocado em anos recentes devido a questões geopolíticas.</div>
+        <div id="info-leopolisjazz" style="display:none;">Festival internacional de jazz realizado em Lviv, considerado um dos maiores da Europa, com apresentações de músicos de diversos países. Site oficial: <a href="https://leopolisjazz.com" target="_blank" style="color: #87CEFA;">https://leopolisjazz.com</a></div>
+        <div id="info-electriccastle" style="display:none;">Festival alternativo realizado no Castelo Bánffy, na Transilvânia, combinando música, tecnologia e arte em um cenário histórico. Site oficial: <a href="https://electriccastle.ro" target="_blank" style="color: #87CEFA;">https://electriccastle.ro</a></div>
+        <div id="info-exitfest" style="display:none;">Realizado na Fortaleza de Petrovaradin, em Novi Sad, o Exit é conhecido por sua origem politizada e por promover questões sociais através da música. Site oficial: <a href="https://www.exitfest.org" target="_blank" style="color: #87CEFA;">https://www.exitfest.org</a></div>
+        <div id="info-pohoda" style="display:none;">Maior evento musical da Eslováquia, realizado no aeroporto de Trenčín, com line-up eclético e diversas atividades culturais. Site oficial: <a href="https://www.pohodafestival.sk" target="_blank" style="color: #87CEFA;">https://www.pohodafestival.sk</a></div>
+        <div id="info-soundwavehr" style="display:none;">Festival realizado em The Garden Tisno, combinando música eletrônica com festas na praia e em barcos, em um cenário paradisíaco. Site oficial: <a href="https://www.soundwavecroatia.com" target="_blank" style="color: #87CEFA;">https://www.soundwavecroatia.com</a></div>
+        <div id="info-cosmicconvergence" style="display:none;">Festival único no Lago Atitlán que celebra arte, música e espiritualidade, promovendo a co-criação de mudanças positivas. Site oficial: <a href="https://cosmicconvergence.org" target="_blank" style="color: #87CEFA;">https://cosmicconvergence.org</a></div>
+        <div id="info-envisioncr" style="display:none;">Evento imersivo em Uvita que combina música, arte, ioga e vida consciente, promovendo conexão com a natureza e autoexpressão. Site oficial: <a href="https://envisionfestival.com" target="_blank" style="color: #87CEFA;">https://envisionfestival.com</a></div>
+        <div id="info-wethefestid" style="display:none;">Festival em Jacarta que celebra música, arte, moda e culinária, com uma atmosfera vibrante e eclética. Site oficial: <a href="https://www.wethefest.com" target="_blank" style="color: #87CEFA;">https://www.wethefest.com</a></div>
+        <div id="info-fujirock" style="display:none;">Realizado na estação de esqui Naeba, é um dos maiores festivais de música do Japão, com foco em rock e música alternativa. Site oficial: <a href="https://www.fujirockfestival.com" target="_blank" style="color: #87CEFA;">https://www.fujirockfestival.com</a></div>
+        <div id="info-goodvibesmy" style="display:none;">Festival em Kuala Lumpur que apresenta uma variedade de gêneros musicais, promovendo uma experiência vibrante para os participantes. Site oficial: <a href="https://www.goodvibesfestival.com" target="_blank" style="color: #87CEFA;">https://www.goodvibesfestival.com</a></div>
+        <div id="info-rockalparqueco" style="display:none;">Maior festival gratuito e ao ar livre da América, realizado em Bogotá, promovendo bandas de rock e programas de convivência entre os jovens. Site oficial: <a href="https://www.rockalparque.gov.co" target="_blank" style="color: #87CEFA;">https://www.rockalparque.gov.co</a></div>
+        <div id="info-noisepopca" style="display:none;">Festival de música independente em San Francisco, celebrando artistas emergentes e cultura local. Site oficial: <a href="https://www.noisepop.com" target="_blank" style="color: #87CEFA;">https://www.noisepop.com</a></div>
+        <div id="info-montereyjazzca" style="display:none;">Um dos festivais de jazz mais antigos e prestigiados do mundo, realizado anualmente em Monterey. Site oficial: <a href="https://montereyjazzfestival.org" target="_blank" style="color: #87CEFA;">https://montereyjazzfestival.org</a></div>
+        <div id="info-sautizabusaratz" style="display:none;">Festival anual em Zanzibar, destacando a diversidade da música africana com artistas de todo o continente. Site oficial: <a href="https://www.busaramusic.org" target="_blank" style="color: #87CEFA;">https://www.busaramusic.org</a></div>
+        <div id="info-gnaouama" style="display:none;">Evento em Essaouira que celebra a música tradicional Gnaoua e promove intercâmbios culturais globais. Site oficial: <a href="https://www.festival-gnaoua.net" target="_blank" style="color: #87CEFA;">https://www.festival-gnaoua.net</a></div>
+        <div id="info-bushfiresz" style="display:none;">Festival multicultural no Vale de Ezulwini, combinando música, arte e engajamento social. Site oficial: <a href="https://www.bush-fire.com" target="_blank" style="color: #87CEFA;">https://www.bush-fire.com</a></div>
+        <div id="info-capetownjazzza" style="display:none;">Maior festival de jazz da África, realizado anualmente na Cidade do Cabo, reunindo artistas locais e internacionais. Site oficial: <a href="https://www.capetownjazzfest.com" target="_blank" style="color: #87CEFA;">https://www.capetownjazzfest.com</a></div>
+        <div id="info-azgomz" style="display:none;">Festival em Maputo que promove música, cinema e arte contemporânea africana. Site oficial: <a href="https://azgo.co.mz" target="_blank" style="color: #87CEFA;">https://azgo.co.mz</a></div>
+        <div id="info-krioljazzcv" style="display:none;">Festival na cidade da Praia que celebra a música crioula e promove intercâmbios culturais. Site oficial: <a href="https://krioljazzfestival.com" target="_blank" style="color: #87CEFA;">https://krioljazzfestival.com</a></div>
+        <div id="info-nationalartsza" style="display:none;">Evento em Makhanda que abrange música, teatro, dança e artes visuais, destacando a diversidade artística sul-africana. Site oficial: <a href="https://www.nationalartsfestival.co.za" target="_blank" style="color: #87CEFA;">https://www.nationalartsfestival.co.za</a></div>
+        <div id="info-cosquinfolk" style="display:none;">Um dos maiores festivais de música folclórica da América do Sul, realizado anualmente em Cosquín, Córdoba. Site oficial: <a href="https://www.aquicosquin.org" target="_blank" style="color: #87CEFA;">https://www.aquicosquin.org</a></div>
+        <div id="info-musicacontempcl" style="display:none;">Evento em Santiago que promove a música contemporânea e a experimentação sonora. Site oficial: <a href="https://musica-contemporanea.uchile.cl" target="_blank" style="color: #87CEFA;">https://musica-contemporanea.uchile.cl</a></div>
+        <div id="info-jazzbuenosaires" style="display:none;">Festival anual na capital argentina que celebra o jazz com artistas locais e internacionais. Site oficial: <a href="https://festivales.buenosaires.gob.ar/jazz" target="_blank" style="color: #87CEFA;">https://festivales.buenosaires.gob.ar/jazz</a></div>
+        <div id="info-rockthemountainbr" style="display:none;">Festival de música e arte realizado em Itaipava, Petrópolis (RJ), reunindo artistas nacionais e internacionais em meio à natureza da serra fluminense. Site oficial: <a href="https://rockthemountain.com.br" target="_blank" style="color: #87CEFA;">https://rockthemountain.com.br</a></div>
+        <div id="info-rockinriobr" style="display:none;">Um dos maiores festivais de música do mundo, realizado na Cidade do Rock, no Rio de Janeiro, com edições também em Lisboa e outros países. Site oficial: <a href="https://www.rockinrio.com" target="_blank" style="color: #87CEFA;">https://www.rockinrio.com</a></div>
+        <div id="info-coachella" style="display:none;">Festival anual de música e artes realizado no Empire Polo Club, em Indio, Califórnia, conhecido por sua diversidade musical e instalações artísticas. Site oficial: <a href="https://www.coachella.com" target="_blank" style="color: #87CEFA;">https://www.coachella.com</a></div>
+        <div id="info-sunburnin" style="display:none;">Um dos maiores festivais de música eletrônica da Ásia, realizado em Vagator, Goa, com apresentações de DJs renomados e uma atmosfera vibrante. Site oficial: <a href="https://www.sunburn.in" target="_blank" style="color: #87CEFA;">https://www.sunburn.in</a></div>
+        <div id="info-lollapaloozaar" style="display:none;">Edição argentina do famoso festival Lollapalooza, realizada no Hipódromo de San Isidro, em Buenos Aires, com line-ups internacionais e locais. Site oficial: <a href="https://www.lollapaloozaar.com" target="_blank" style="color: #87CEFA;">https://www.lollapaloozaar.com</a></div>
+        <div id="info-primaverasoundar" style="display:none;">Versão argentina do festival espanhol Primavera Sound, realizada no Parque Sarmiento, destacando artistas alternativos e experimentais. Site oficial: <a href="https://www.primaverasound.com/buenosaires" target="_blank" style="color: #87CEFA;">https://www.primaverasound.com/buenosaires</a></div>
+        <div id="info-ultraar" style="display:none;">Edição argentina do festival de música eletrônica Ultra, realizada no Parque de la Ciudad, reunindo DJs internacionais e fãs de música eletrônica. Site oficial: <a href="https://www.ultraargentina.com" target="_blank" style="color: #87CEFA;">https://www.ultraargentina.com</a></div>
+        <div id="info-burningman" style="display:none;">Realizado no deserto de Black Rock, Nevada, o Burning Man é um experimento em comunidade, arte e autoexpressão radical. Site oficial: <a href="https://burningman.org" target="_blank" style="color: #87CEFA;">https://burningman.org</a></div>
+    </div>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.164.1/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.164.1/examples/jsm/"
+        }
+    }
+    </script>
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        let scene, camera, renderer, globe, controls;
+        const loadingManager = new THREE.LoadingManager();
+        const textureLoader = new THREE.TextureLoader(loadingManager);
+
+        // Referências aos elementos HTML
+        const globeParentContainer = document.getElementById('globe-parent-container');
+        const globeContainerElement = document.getElementById('globe-container');
+        const loadingDiv = document.getElementById('loading');
+        const infoPanel = document.getElementById('country-info-panel');
+        const infoPanelName = document.getElementById('info-panel-name');
+        const infoPanelText = document.getElementById('info-panel-text');
+        const infoPanelCloseBtn = document.getElementById('info-panel-close');
+
+        const raycaster = new THREE.Raycaster();
+        const pointer = new THREE.Vector2();
+        let clickableMarkers = [];
+        const globeRadius = 1.5; // Raio do globo
+
+        const countriesData = [
+          { name: "Sónar Festival – 🇪🇸 Espanha", lat: 41.3545, lon: 2.1282, infoDivId: "info-sonar" },
+          { name: "Green Man – 🇬🇧 Reino Unido", lat: 51.8590, lon: -3.1370, infoDivId: "info-greenman" },
+          { name: "Les Vieilles Charrues – 🇫🇷 França", lat: 48.2760, lon: -3.5720, infoDivId: "info-vieillescharrues" },
+          { name: "A Porta – 🇵🇹 Portugal", lat: 39.7436, lon: -8.8077, infoDivId: "info-aporta" },
+          { name: "SXSW – 🇺🇸 Estados Unidos", lat: 30.2667, lon: -97.7333, infoDivId: "info-sxsw" },
+          { name: "Treefort Music Fest – 🇺🇸 Boise, Idaho", lat: 43.6150, lon: -116.2023, infoDivId: "info-treefort" },
+          { name: "Le Guess Who? – 🇳🇱 Holanda", lat: 52.0907, lon: 5.1214, infoDivId: "info-leguesswho" },
+          { name: "MUTEK – 🇨🇦 Canadá", lat: 45.5017, lon: -73.5673, infoDivId: "info-mutekca" },
+          { name: "MUTEK – 🇯🇵 Japão", lat: 35.6895, lon: 139.6917, infoDivId: "info-mutekjp" },
+          { name: "MUTEK – 🇲🇽 México", lat: 19.4326, lon: -99.1332, infoDivId: "info-mutekmx" },
+          { name: "BIGSOUND – 🇦🇺 Austrália", lat: -27.4701, lon: 153.0211, infoDivId: "info-bigsound" },
+          { name: "Festival BR-135 – 🇧🇷 Brasil", lat: -2.5297, lon: -44.3028, infoDivId: "info-br135" },
+          { name: "Expo Rock Recife – 🇧🇷 Brasil", lat: -8.0476, lon: -34.8770, infoDivId: "info-exporockrecife" },
+          { name: "Dois Dias e Duas Noites de Música Nova – 🇺🇦 Ucrânia", lat: 46.4825, lon: 30.7233, infoDivId: "info-2d2nmusicaua" },
+          { name: "KaZantip – 🇺🇦 Ucrânia", lat: 45.2958, lon: 33.9608, infoDivId: "info-kazantip" },
+          { name: "Leopolis Jazz Fest – 🇺🇦 Ucrânia", lat: 49.8397, lon: 24.0297, infoDivId: "info-leopolisjazz" },
+          { name: "Electric Castle – 🇷🇴 Romênia", lat: 46.9037, lon: 23.7771, infoDivId: "info-electriccastle" },
+          { name: "Exit Festival – 🇷🇸 Sérvia", lat: 45.2520, lon: 19.8610, infoDivId: "info-exitfest" },
+          { name: "Pohoda Festival – 🇸🇰 Eslováquia", lat: 48.8945, lon: 18.0400, infoDivId: "info-pohoda" },
+          { name: "Soundwave Festival – 🇭🇷 Croácia", lat: 43.8000, lon: 15.6500, infoDivId: "info-soundwavehr" },
+          { name: "Convergência Cósmica – 🇬🇹 Guatemala", lat: 14.7000, lon: -91.2000, infoDivId: "info-cosmicconvergence" },
+          { name: "Envision Festival – 🇨🇷 Costa Rica", lat: 9.1520, lon: -83.7420, infoDivId: "info-envisioncr" },
+          { name: "We The Fest – 🇮🇩 Indonésia", lat: -6.2088, lon: 106.8456, infoDivId: "info-wethefestid" },
+          { name: "Fuji Rock Festival – 🇯🇵 Japão", lat: 36.9400, lon: 138.8000, infoDivId: "info-fujirock" },
+          { name: "Good Vibes Festival – 🇲🇾 Malásia", lat: 3.1390, lon: 101.6869, infoDivId: "info-goodvibesmy" },
+          { name: "Rock al Parque – 🇨🇴 Colômbia", lat: 4.7110, lon: -74.0721, infoDivId: "info-rockalparqueco" },
+          { name: "Noise Pop Festival – 🇺🇸 Califórnia", lat: 37.7749, lon: -122.4194, infoDivId: "info-noisepopca" },
+          { name: "Monterey Jazz Festival – 🇺🇸 Califórnia", lat: 36.6002, lon: -121.8947, infoDivId: "info-montereyjazzca" },
+          { name: "Sauti za Busara – 🇹🇿 Tanzânia", lat: -6.1659, lon: 39.2026, infoDivId: "info-sautizabusaratz" },
+          { name: "Festival Gnaoua e de Músicas do Mundo – 🇲🇦 Marrocos", lat: 31.5085, lon: -9.7595, infoDivId: "info-gnaouama" },
+          { name: "Bushfire Festival – 🇸🇿 Essuatíni", lat: -26.4626, lon: 31.2483, infoDivId: "info-bushfiresz" },
+          { name: "Cape Town International Jazz Festival – 🇿🇦 África do Sul", lat: -33.9249, lon: 18.4241, infoDivId: "info-capetownjazzza" },
+          { name: "Festival AZGO – 🇲🇿 Moçambique", lat: -25.9692, lon: 32.5732, infoDivId: "info-azgomz" },
+          { name: "Kriol Jazz Festival – 🇨🇻 Cabo Verde", lat: 14.9330, lon: -23.5133, infoDivId: "info-krioljazzcv" },
+          { name: "Festival Nacional de Artes – 🇿🇦 África do Sul", lat: -33.3000, lon: 26.5300, infoDivId: "info-nationalartsza" },
+          { name: "Festival Folclórico de Cosquín – 🇦🇷 Argentina", lat: -31.2450, lon: -64.4650, infoDivId: "info-cosquinfolk" },
+          { name: "Festival Internacional de Música Contemporânea – 🇨🇱 Chile", lat: -33.4489, lon: -70.6693, infoDivId: "info-musicacontempcl" },
+          { name: "Festival de Jazz de Buenos Aires – 🇦🇷 Argentina", lat: -34.6037, lon: -58.3816, infoDivId: "info-jazzbuenosaires" },
+          { name: "Rock The Mountain – 🇧🇷 Brasil", lat: -22.4241, lon: -43.0916, infoDivId: "info-rockthemountainbr" },
+          { name: "Rock in Rio – 🇧🇷 Brasil", lat: -22.9756, lon: -43.3658, infoDivId: "info-rockinriobr" },
+          { name: "Coachella Valley Music and Arts Festival – 🇺🇸 Califórnia", lat: 33.6784, lon: -116.2377, infoDivId: "info-coachella" },
+          { name: "Sunburn Festival – 🇮🇳 Índia", lat: 15.6010, lon: 73.7396, infoDivId: "info-sunburnin" },
+          { name: "Lollapalooza Argentina – 🇦🇷 Argentina", lat: -34.4890, lon: -58.5120, infoDivId: "info-lollapaloozaar" },
+          { name: "Primavera Sound Buenos Aires – 🇦🇷 Argentina", lat: -34.5679, lon: -58.5125, infoDivId: "info-primaverasoundar" },
+          { name: "Ultra Buenos Aires – 🇦🇷 Argentina", lat: -34.6570, lon: -58.4780, infoDivId: "info-ultraar" },
+          { name: "Burning Man – 🇺🇸 Estados Unidos", lat: 40.7864, lon: -119.2044, infoDivId: "info-burningman"}
+        ];
+
+        function init() {
+            scene = new THREE.Scene(); // Não definir scene.background para ser transparente
+
+            const containerWidth = globeContainerElement.clientWidth;
+            const containerHeight = globeContainerElement.clientHeight;
+
+            camera = new THREE.PerspectiveCamera(60, containerWidth / containerHeight, 0.1, 1000);
+            camera.position.z = 3.5; // Ajuste a posição da câmera conforme necessário
+
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); // alpha:true para fundo transparente
+            renderer.setSize(containerWidth, containerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            globeContainerElement.appendChild(renderer.domElement);
+            // Certifique-se que o canvas não quebre o layout se o container for pequeno
+            if (renderer.domElement.style) {
+                 renderer.domElement.style.maxWidth = '100%';
+                 renderer.domElement.style.maxHeight = '100%';
+            }
+
+
+            const globeGeometry = new THREE.SphereGeometry(globeRadius, 64, 32);
+            const globeMaterial = new THREE.MeshBasicMaterial({ transparent: true, opacity: 1 }); // Material transparente
+
+            loadingManager.onStart = () => {
+                if (loadingDiv) loadingDiv.style.display = 'block';
+            };
+            loadingManager.onLoad = () => {
+                if (loadingDiv) loadingDiv.style.display = 'none';
+                createCountryMarkers();
+            };
+            loadingManager.onError = (url) => {
+                console.error('Erro ao carregar a textura:', url);
+                if (loadingDiv) loadingDiv.textContent = 'Erro textura.';
+                globeMaterial.color.set(0x226699); // Fallback color
+                globeMaterial.map = null;
+                globeMaterial.needsUpdate = true;
+                createCountryMarkers();
+            };
+
+            textureLoader.load('/mundo4.jpg', // Use uma URL de textura acessível publicamente
+                (texture) => {
+                    globeMaterial.map = texture;
+                    globeMaterial.needsUpdate = true;
+                },
+                undefined, // onProgress (não usado aqui)
+                (error) => { // onError específico para a textura
+                    console.error('Falha ao carregar a textura do globo:', error);
+                    if (loadingDiv) loadingDiv.textContent = 'Textura indisponível.';
+                    globeMaterial.color.set(0x226699); // Cor sólida como fallback
+                    globeMaterial.map = null;
+                    globeMaterial.needsUpdate = true;
+                    createCountryMarkers(); // Ainda cria marcadores mesmo sem textura
+                }
+            );
+
+            globe = new THREE.Mesh(globeGeometry, globeMaterial);
+            scene.add(globe);
+
+            controls = new OrbitControls(camera, renderer.domElement);
+            controls.target.set(0, 0, 0);
+            controls.enableDamping = false; // Sem inércia
+            controls.autoRotate = false;   // Sem rotação automática
+            controls.minDistance = globeRadius * 1.1; // Mais próximo do raio do globo
+            controls.maxDistance = 15;
+            controls.rotateSpeed = 0.6;
+            controls.zoomSpeed = 0.8;
+
+            // O listener de resize da janela pode ser menos útil se o container do globo tiver tamanho fixo.
+            // Se o container do globo puder mudar de tamanho (ex: % da largura do blog),
+            // um ResizeObserver no 'globeParentContainer' seria mais apropriado.
+            // Por simplicidade, manteremos o window.resize, mas ele recalculará com base no container.
+            window.addEventListener('resize', onWindowResize, false);
+
+
+            if(infoPanelCloseBtn) {
+                infoPanelCloseBtn.addEventListener('click', () => {
+                    if(infoPanel) infoPanel.style.display = 'none';
+                    // controls.autoRotate = false; // Garante que não rotaciona
+                });
+            }
+
+            let pointerDown = false;
+            let pointerDownPos = { x: 0, y: 0 };
+            renderer.domElement.addEventListener('pointerdown', (event) => {
+                pointerDown = true;
+                pointerDownPos.x = event.clientX;
+                pointerDownPos.y = event.clientY;
+            });
+            renderer.domElement.addEventListener('pointerup', (event) => {
+                if (!pointerDown) return;
+                pointerDown = false;
+                const dx = event.clientX - pointerDownPos.x;
+                const dy = event.clientY - pointerDownPos.y;
+                if (Math.sqrt(dx * dx + dy * dy) < 5) {
+                    handleClick(event);
+                }
+            });
+
+            animate();
+        }
+
+        function convertLatLonToVec3(lat, lon, radius = globeRadius) {
+            const phi = THREE.MathUtils.degToRad(90 - lat);
+            const theta = THREE.MathUtils.degToRad(lon + 90); // Ajuste para o mapa
+            return new THREE.Vector3().setFromSphericalCoords(radius, phi, theta);
+        }
+
+        function createAnimatedSphereMarker() {
+            const radius = 0.015; // Tamanho do marcador
+            const geometry = new THREE.SphereGeometry(radius, 16, 16);
+            const material = new THREE.MeshBasicMaterial({ color: 0x5bc5aa });
+            const mesh = new THREE.Mesh(geometry, material);
+            const colorList = [new THREE.Color('#5bc5aa'), new THREE.Color('#b272e1'), new THREE.Color('#72b6e1')];
+            let currentColor = colorList[0].clone();
+            let targetColor = colorList[1].clone();
+            let colorIndex = 0;
+            let transitionProgress = 0;
+            const transitionSpeed = 0.05;
+            mesh.isSelected = false;
+
+            mesh.updateColorTransition = function () {
+                if (!mesh.isSelected) {
+                    transitionProgress += transitionSpeed;
+                    if (transitionProgress >= 1) {
+                        transitionProgress = 0;
+                        colorIndex = (colorIndex + 1) % colorList.length;
+                        currentColor.copy(targetColor); // Correção: currentColor recebe a cor alvo anterior
+                        targetColor.copy(colorList[(colorIndex + 1) % colorList.length]); // Correção: targetColor recebe a próxima cor
+                    }
+                    material.color.copy(currentColor).lerp(targetColor, t => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t);
+                }
+            };
+            mesh.select = function () {
+                mesh.isSelected = true;
+                material.color.set('#00ff00'); // Verde ao selecionar
+            };
+            return mesh;
+        }
+
+        function easeInOut(t) { return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; }
+
+        function createCountryMarkers() {
+            countriesData.forEach(country => {
+                const marker = createAnimatedSphereMarker();
+                const position = convertLatLonToVec3(country.lat, country.lon, globeRadius + 0.001); // Levemente acima da superfície
+                marker.position.copy(position);
+                marker.lookAt(0,0,0); // Faz o marcador "olhar" para o centro, útil se não for esfera
+                marker.userData = { name: country.name, infoDivId: country.infoDivId, type: 'countryMarker' };
+                globe.add(marker); // Adiciona marcador como filho do globo
+                clickableMarkers.push(marker);
+            });
+        }
+
+        function handleClick(event) {
+            const rect = renderer.domElement.getBoundingClientRect();
+            pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+            pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+            raycaster.setFromCamera(pointer, camera);
+            const intersects = raycaster.intersectObjects(clickableMarkers, false); // Não recursivo
+
+            // Reset visual dos marcadores não selecionados
+            clickableMarkers.forEach(m => {
+                if (m.isSelected && (!intersects.length || intersects[0].object !== m)) {
+                    m.isSelected = false; // Permite que a animação de cor volte
+                }
+            });
+
+            if (intersects.length > 0) {
+                const clickedMarker = intersects[0].object;
+                if (clickedMarker.select) clickedMarker.select();
+
+                if (clickedMarker.userData && clickedMarker.userData.type === 'countryMarker') {
+                    // controls.autoRotate = false; // Já está desabilitado
+                    const countryData = clickedMarker.userData;
+                    if (infoPanelName) infoPanelName.textContent = countryData.name;
+                    const infoDiv = document.getElementById(countryData.infoDivId);
+                    if (infoDiv && infoPanelText) {
+                        infoPanelText.innerHTML = infoDiv.innerHTML;
+                    } else if (infoPanelText) {
+                        infoPanelText.innerHTML = "Informação não encontrada para este local.";
+                    }
+                    if (infoPanel) infoPanel.style.display = 'block';
+                }
+            }
+        }
+
+        function onWindowResize() {
+            if (globeContainerElement && camera && renderer) {
+                const containerWidth = globeContainerElement.clientWidth;
+                const containerHeight = globeContainerElement.clientHeight;
+                camera.aspect = containerWidth / containerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(containerWidth, containerHeight);
+            }
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            if(controls) controls.update(); // Necessário para OrbitControls
+            clickableMarkers.forEach(marker => {
+                if (marker.updateColorTransition) marker.updateColorTransition();
+            });
+            if(scene && camera && renderer) renderer.render(scene, camera);
+        }
+
+        // Atrasar um pouco a inicialização para garantir que o DOM do blog esteja pronto, se necessário.
+        // Para um post de blog, isso geralmente não é um problema se o script estiver no final.
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    </script>
+</div></div>
+<div class="post-meta">
+  <div class="post-by">
+    <a href="..">Frederico Flores</a> · Qua 28 Maio 2025
+  </div>
+  <ul class="post-tags">
+    <li><a href="../tags/festivais/"><span class="acidbg white">festivais</span></a></li>
+    <li><a href="../tags/music-branding/"><span class="acidbg white">music branding</span></a></li>
+  </ul>
+</div>
+
+</article>
+
+
+
+<div id="disqus_thread" class="space-top"></div>
+<script>
+function loadDisqus() {
+    // Configuração do Disqus específica para esta página de artigo
+    var disqus_config = function () {
+        this.page.url = "https://jardimsonoro.com/blogfestivais-de-musica-pelo-mundo/";       // URL canônica da página do artigo
+        this.page.identifier = "festivais-de-musica-pelo-mundo"; // Identificador único (slug do artigo ou URL como fallback)
+    };
+
+    // Código de carregamento do Disqus
+    (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-jardimsonoro-com-blog.disqus.com/embed.js'; // URL COMPLETA AQUI
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+
+    // Opcional: Remover placeholder de carregamento se você adicionou um dentro de #disqus_thread
+    // const disqusPlaceholder = document.querySelector("#disqus_thread > p");
+    // if (disqusPlaceholder) {
+    //     disqusPlaceholder.remove();
+    // }
+}
+
+const disqusMountNode = document.querySelector("#disqus_thread");
+
+if (disqusMountNode) {
+    const observerOptions = {
+        rootMargin: '200px 0px' // Começa a carregar Disqus quando estiver a 200px de entrar na viewport
+    };
+
+    const disqusObserver = new IntersectionObserver((entries, observerInstance) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                // console.log("Disqus está visível, inicializando!"); // Para debug
+                loadDisqus();
+                observerInstance.unobserve(entry.target); // Para de observar após o carregamento
+            }
+        });
+    }, observerOptions);
+
+    disqusObserver.observe(disqusMountNode);
+}
+</script>
+    </main>
+               <footer class="footer">
+<div class="social-icons">
+  <a href="https://www.instagram.com/jardimsonoro.rio" aria-label="Instagram">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#aaa" viewBox="0 0 24 24">
+      <path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 2 .2 2.4.4.5.2.9.4 1.3.8s.6.8.8 1.3c.2.4.3 1.2.4 2.4.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 2-.4 2.4-.2.5-.4.9-.8 1.3s-.8.6-1.3.8c-.4.2-1.2.3-2.4.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-2-.2-2.4-.4a3.7 3.7 0 01-2.1-2.1c-.2-.4-.3-1.2-.4-2.4C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-2 .4-2.4A3.7 3.7 0 014.8 2.3c.4-.2 1.2-.3 2.4-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1 .1-1.6.2-2 .3a2 2 0 00-1.1 1.1c-.1.4-.2 1-.3 2-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1 .2 1.6.3 2a2 2 0 001.1 1.1c.4.1 1 .2 2 .3 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1-.1 1.6-.2 2-.3a2 2 0 001.1-1.1c.1-.4.2-1 .3-2 .1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1-.2-1.6-.3-2a2 2 0 00-1.1-1.1c-.4-.1-1-.2-2-.3-1.2-.1-1.6-.1-4.7-.1zM12 6.5a5.5 5.5 0 110 11 5.5 5.5 0 010-11zm0 1.8a3.7 3.7 0 100 7.4 3.7 3.7 0 000-7.4zm5.4-1.9a1.3 1.3 0 110 2.6 1.3 1.3 0 010-2.6z"/>
+    </svg>
+  </a>
+  <a href="https://x.com/jardimsonoro" aria-label="Twitter">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#aaa" viewBox="0 0 24 24">
+      <path d="M22.25 2l-7.56 8.87L23.5 22h-5.25l-5.83-6.88L6.5 22H.5l8.14-9.55L.5 2h5.25l5.25 6.18L17.5 2z"/>
+    </svg>
+  </a>
+</div>
+
+<p>© 2025 <a href="https://jardimsonoro.com">Jardim Sonoro</a> · Rio de Janeiro, Brasil.</p>
+<p class="cnpj-info">CNPJ: 12.553.127/0001­17/PR  ·  60.042.426/0001-30/RJ </p>
+    </footer>
+  <!--   
+  <script>
+    function setTheme() {
+      const logo = document.getElementById('logo-img');
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+        if (logo) logo.src = 'https://jardimsonoro.com/jslogo.png'; // versão dark
+      } else {
+        document.body.classList.remove('dark');
+        if (logo) logo.src = 'https://jardimsonoro.com/jslogob.png'; // versão light
+      }
+    }
+
+    // Executar ao carregar a página
+    setTheme();
+
+    // Escutar mudanças no sistema do usuário
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setTheme);
+  </script>
+  -->
+  
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const videoLinks = document.querySelectorAll(
+    ".post-content a[href*='youtube.com/watch'], .post-content a[href*='youtu.be/'], .post-content a[href*='vimeo.com/'], .post-content a[href*='open.spotify.com/playlist/']"
+  );
+
+  videoLinks.forEach(async (link) => { // Adicionado async aqui
+    const url = link.href;
+    const linkText = link.innerHTML;
+    let videoInfo = null;
+
+    if (url.includes("youtube.com") || url.includes("youtu.be")) {
+      videoInfo = getYoutubeInfo(url); // Síncrono
+      if (videoInfo) {
+        createVideoPlaceholder(link, videoInfo, "youtube", linkText);
+      }
+    } else if (url.includes("vimeo.com/")) {
+      videoInfo = await getVimeoInfo(url); // Agora assíncrono
+      if (videoInfo) {
+        createVideoPlaceholder(link, videoInfo, "vimeo", linkText);
+      }
+    } else if (url.includes("open.spotify.com/playlist/")) {
+      videoInfo = await getSpotifyInfo(url); // Agora assíncrono
+      if (videoInfo) {
+        createVideoPlaceholder(link, videoInfo, "spotify", linkText);
+      }
+    }
+  });
+
+  function getYoutubeInfo(url) {
+    const regex = /(?:youtube\.com\/(?:watch\?v=|embed\/|v\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+    const match = url.match(regex);
+    if (match && match[1]) {
+      return {
+        id: match[1],
+        thumbnailUrl: `https://i.ytimg.com/vi/${match[1]}/hqdefault.jpg`,
+        embedUrl: `https://www.youtube.com/embed/${match[1]}?autoplay=1&rel=0&vq=hd720`
+      };
+    }
+    return null;
+  }
+
+  async function getVimeoInfo(url) { // Tornou-se async
+    const regex = /vimeo\.com\/(?:video\/)?([0-9]+)/;
+    const match = url.match(regex);
+    if (match && match[1]) {
+      const videoId = match[1];
+      const oEmbedUrl = `https://vimeo.com/api/oembed.json?url=${encodeURIComponent(url)}`;
+      let thumbnailUrl = null;
+
+      try {
+        const response = await fetch(oEmbedUrl);
+        if (!response.ok) throw new Error(`Vimeo oEmbed request failed: ${response.status}`);
+        const data = await response.json();
+        thumbnailUrl = data.thumbnail_url ? data.thumbnail_url.replace(/^http:/i, 'https:') : null;
+      } catch (error) {
+        console.error("Erro ao buscar dados oEmbed do Vimeo:", error, url);
+      }
+
+      return {
+        id: videoId,
+        embedUrl: `https://player.vimeo.com/video/${videoId}?autoplay=1&transparent=0&dnt=1`,
+        thumbnailUrl: thumbnailUrl // Retorna a URL da miniatura diretamente
+      };
+    }
+    return null;
+  }
+
+  async function getSpotifyInfo(url) { // Tornou-se async
+    const playlistRegex = /open\.spotify\.com\/playlist\/([a-zA-Z0-9]+)/;
+    const playlistMatch = url.match(playlistRegex);
+
+    if (playlistMatch && playlistMatch[1]) {
+      const playlistId = playlistMatch[1];
+      // Usa o endpoint oEmbed do Spotify para obter informações, incluindo a thumbnail_url
+      const oEmbedSpotifyUrl = `https://open.spotify.com/oembed?url=${encodeURIComponent(url)}`;
+      let thumbnailUrl = null;
+
+      try {
+        const response = await fetch(oEmbedSpotifyUrl);
+        if (!response.ok) {
+          throw new Error(`Spotify oEmbed request failed: ${response.status}`);
+        }
+        const data = await response.json();
+        thumbnailUrl = data.thumbnail_url ? data.thumbnail_url.replace(/^http:/i, 'https:') : null;
+        // Opcional: data.html contém o iframe completo, poderia ser usado no futuro se a embedUrl mudar
+        // console.log("Spotify oEmbed data:", data);
+      } catch (error) {
+        console.error("Erro ao buscar dados oEmbed do Spotify:", error, url);
+      }
+
+      return {
+        id: playlistId,
+        embedUrl: `https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator`,
+        thumbnailUrl: thumbnailUrl // URL da miniatura (pode ser null se não encontrada ou erro)
+      };
+    }
+    return null;
+  }
+
+  function createVideoPlaceholder(linkElement, videoInfo, type, captionText) {
+    const videoWrapper = document.createElement("div");
+    videoWrapper.className = "video-wrapper-with-caption";
+
+    const placeholder = document.createElement("div");
+    placeholder.className = `${type}-placeholder`; // Ex: "youtube-placeholder", "spotify-placeholder"
+
+    const playButton = document.createElement("div");
+    playButton.className = "youtube-play-button";
+    placeholder.appendChild(playButton);
+    videoWrapper.appendChild(placeholder);
+
+    if (captionText && captionText.trim() !== "") {
+      const caption = document.createElement("figcaption");
+      caption.className = "video-caption";
+      const captionLink = document.createElement("a");
+      captionLink.href = linkElement.href;
+      captionLink.innerHTML = captionText;
+      captionLink.target = "_blank";
+      captionLink.rel = "noopener noreferrer";
+      caption.appendChild(captionLink);
+      videoWrapper.appendChild(caption);
+    }
+
+    // Define a imagem de fundo se a thumbnailUrl estiver disponível
+    if (videoInfo.thumbnailUrl) {
+      placeholder.style.backgroundImage = `url(${videoInfo.thumbnailUrl})`;
+    } else {
+      // Fallback se não houver miniatura (opcional: pode definir uma cor de fundo ou ícone genérico)
+      console.warn(`Miniatura não encontrada para ${type}:`, videoInfo.id);
+    }
+
+    placeholder.addEventListener("click", () => {
+      const iframe = document.createElement("iframe");
+      iframe.src = videoInfo.embedUrl;
+      iframe.className = placeholder.className;
+      iframe.style.backgroundImage = 'none';
+      iframe.style.backgroundColor = '#000';
+      iframe.setAttribute("frameborder", "0");
+      iframe.setAttribute("allowfullscreen", "");
+      iframe.setAttribute("allow", "autoplay; clipboard-write; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; web-share");
+      iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+      if (type === "spotify") {
+        iframe.setAttribute("loading", "lazy");
+      }
+
+      let iframeTitleText = "Media Player";
+      if (type === "youtube") iframeTitleText = "YouTube video player";
+      else if (type === "vimeo") iframeTitleText = "Vimeo video player";
+      else if (type === "spotify") iframeTitleText = "Spotify playlist player";
+      const iframeTitle = captionText ? captionText.replace(/<[^>]*>?/gm, '') : iframeTitleText;
+      iframe.setAttribute("title", iframeTitle);
+
+      videoWrapper.replaceChild(iframe, placeholder);
+      iframe.focus();
+    }, { once: true });
+
+    if (linkElement.parentNode) {
+      linkElement.parentNode.replaceChild(videoWrapper, linkElement);
+    }
+  }
+});
+</script>
+<!-- Google tag (gtag.js) -->
+<script>
+let analytics_loaded = false;
+let analytics_script_id = 'G-04D0PZM4N3';
+
+function swd_load_analytics() {
+	if (!analytics_loaded) {
+		let analytics_script = document.createElement('script');
+		analytics_script.src = 'https://www.googletagmanager.com/gtag/js?id=' + analytics_script_id;
+		analytics_script.onload = function() {
+    		window.dataLayer = window.dataLayer || [];
+			  function gtag(){dataLayer.push(arguments);}
+			  gtag('js', new Date());
+			  gtag('config', analytics_script_id);
+		};
+		document.head.appendChild(analytics_script);
+		analytics_loaded = true;
+	}
+}
+document.addEventListener('DOMContentLoaded', function() {
+	window.addEventListener('scroll', swd_load_analytics);
+	window.addEventListener('mousemove', swd_load_analytics);
+});
+</script>
+  </body>
+</html>
