@@ -138,7 +138,7 @@ body {
     <div id="info-bar">
 Jardim Sonoro
     </div>
-    <div id="loading">Carregando...</div>
+ 
     <div id="globe-container"></div>
 
     <div id="country-info-panel">
@@ -198,38 +198,36 @@ Jardim Sonoro
 </div>
 
 
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://unpkg.com/three@0.164.1/build/three.module.js",
-                "three/addons/": "https://unpkg.com/three@0.164.1/examples/jsm/"
-            }
-        }
-    </script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.164.1/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.164.1/examples/jsm/"
+      }
+    }
+  </script>
 
-    <script type="module">
- 
-
+  <script type="module">
     import * as THREE from 'three';
     import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
     let scene, camera, renderer, globe, controls;
-    const loadingManager = new THREE.LoadingManager();
-    const textureLoader = new THREE.TextureLoader(loadingManager);
-    const globeContainer = document.getElementById('globe-container');
-    const loadingDiv = document.getElementById('loading');
+    const globeRadius = 1.5;
+    const clickableMarkers = [];
 
+    const pointer = new THREE.Vector2();
+    const raycaster = new THREE.Raycaster();
+
+    const globeContainer = document.getElementById('globe-container');
     const infoPanel = document.getElementById('country-info-panel');
     const infoPanelName = document.getElementById('info-panel-name');
     const infoPanelText = document.getElementById('info-panel-text');
     const infoPanelCloseBtn = document.getElementById('info-panel-close');
+    const clickSound = new Audio('coin.mp3');
+clickSound.volume = 0.6; // opcional: volume de 0.0 a 1.0
 
-    const raycaster = new THREE.Raycaster();
-    const pointer = new THREE.Vector2();
-    let clickableMarkers = [];
-    const globeRadius = 1.5;
 
-const countriesData = [
+ const countriesData = [
   { name: "Sónar Festival – 🇪🇸 Espanha", lat: 41.3545, lon: 2.1282, infoDivId: "info-sonar" },
   { name: "Green Man – 🇬🇧 Reino Unido", lat: 51.8590, lon: -3.1370, infoDivId: "info-greenman" },
   { name: "Les Vieilles Charrues – 🇫🇷 França", lat: 48.2760, lon: -3.5720, infoDivId: "info-vieillescharrues" },
@@ -278,221 +276,223 @@ const countriesData = [
   { name: "Burning Man – 🇺🇸 Estados Unidos", lat: 40.7864, lon: -119.2044, infoDivId: "info-burningman"}
 ];
 
-    function init() {
-        scene = new THREE.Scene();
-        camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-        camera.position.z = 3.5;
-        
-
-        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        renderer.domElement.addEventListener('touchmove', (e) => {
-    if (e.touches.length > 1) {
-        e.preventDefault();
+    function convertLatLonToVec3(lat, lon, radius = globeRadius) {
+      const phi = THREE.MathUtils.degToRad(90 - lat);
+      const theta = THREE.MathUtils.degToRad(lon + 90);
+      const vector = new THREE.Vector3();
+      vector.setFromSphericalCoords(radius, phi, theta);
+      return vector;
     }
-}, { passive: false });
 
+ function create3DPinMarker(color = 0x6e9cd0, lat, lon) {
+    const group = new THREE.Group();
+
+    // Cabeça do pino (esfera azul)
+    const sphere = new THREE.Mesh(
+        new THREE.SphereGeometry(0.025, 16, 16),
+        new THREE.MeshStandardMaterial({ color: 0x6e9cd0 })
+    );
+    sphere.position.y = 0.08;
+    group.add(sphere);
+
+    // Haste (cilindro cinza)
+    const stem = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.004, 0.004, 0.1, 8),
+        new THREE.MeshStandardMaterial({ color: 0xaaaaaa })
+    );
+    stem.position.y = 0.03;
+    group.add(stem);
+
+    // Posição no globo
+    const radius = globeRadius + 0.02;
+    const pos = convertLatLonToVec3(lat, lon, radius);
+    group.position.copy(pos);
+
+    // Inclinação normal
+    const normal = pos.clone().normalize();
+    const baseQuat = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), normal);
+
+    // Variação aleatória de inclinação
+    const angleDeg = THREE.MathUtils.randFloat(-20, 20); // de -5° a +5°
+    const angleRad = THREE.MathUtils.degToRad(angleDeg);
+    const axis = new THREE.Vector3().randomDirection().cross(normal).normalize(); // eixo aleatório perpendicular
+
+    const tiltQuat = new THREE.Quaternion().setFromAxisAngle(axis, angleRad);
+    group.quaternion.copy(baseQuat).premultiply(tiltQuat);
+
+    // Dados e seleção
+    group.userData._lat = lat;
+    group.userData._lon = lon;
+    group.userData.material = sphere.material;
+
+    group.setLatLon = (la, lo) => {
+        group.userData._lat = la;
+        group.userData._lon = lo;
+    };
+
+    group.updateHoverEffect = () => {
+        const targetRadius = group.userData.isHovered ? globeRadius + 0.05 : globeRadius + 0.02;
+        const newPos = convertLatLonToVec3(group.userData._lat, group.userData._lon, targetRadius);
+        group.position.lerp(newPos, 0.1);
+    };
+
+    group.select = () => {
+        group.userData.material.color.set(0x80e5c4); // verde água claro no clique
+    };
+
+    return group;
+}
+
+
+
+  function createCountryMarkers() {
+    countriesData.forEach(country => {
+        const marker = create3DPinMarker(0x6e9cd0, country.lat, country.lon); // azul
+        marker.setLatLon(country.lat, country.lon);
+
+        marker.userData = {
+            ...marker.userData,
+            name: country.name,
+            infoDivId: country.infoDivId,
+            type: 'countryMarker'
+        };
+
+        globe.add(marker);
+
+        // Para clicar em partes individuais
+        marker.children.forEach(child => {
+            child.userData = marker.userData;
+            child.select = marker.select;
+            clickableMarkers.push(child);
+            child.parentMarker = marker;
+
+        });
+    });
+}
+
+
+ function handleClick(event) {
+    const rect = renderer.domElement.getBoundingClientRect();
+    pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+    pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+    raycaster.setFromCamera(pointer, camera);
+    const intersects = raycaster.intersectObjects(clickableMarkers, false);
+
+    if (intersects.length > 0) {
+        const clickedMarker = intersects[0].object;
+        const marker = clickedMarker.parentMarker;
+
+        // Seleciona o pino e muda cor
+        if (marker && marker.select) marker.select();
+
+        // Toca o som de clique
+        if (clickSound) {
+            clickSound.currentTime = 0;
+            clickSound.play().catch(e => console.warn("Falha ao tocar som:", e));
+        }
+
+        // Exibe informações do painel
+        if (clickedMarker.userData && clickedMarker.userData.type === 'countryMarker') {
+            controls.autoRotate = false;
+            const countryData = clickedMarker.userData;
+
+            if (infoPanelName) infoPanelName.textContent = countryData.name;
+            const infoDiv = document.getElementById(countryData.infoDivId);
+            if (infoDiv && infoPanelText) {
+                infoPanelText.innerHTML = infoDiv.innerHTML;
+            } else if (infoPanelText) {
+                infoPanelText.textContent = "Informação não encontrada.";
+            }
+
+            if (infoPanel) infoPanel.style.display = 'block';
+        }
+    }
+
+    // Log da latitude/longitude do ponto clicado no globo
+    const intersectsGlobe = raycaster.intersectObject(globe);
+    if (intersectsGlobe.length > 0) {
+        const point = intersectsGlobe[0].point.clone().normalize();
+        const lat = 90 - THREE.MathUtils.radToDeg(Math.acos(point.y));
+        const lon = THREE.MathUtils.radToDeg(Math.atan2(point.z, point.x));
+        console.log(`📍 Clique: latitude ${lat.toFixed(4)}, longitude ${lon.toFixed(4)}`);
+    }
+}
+
+
+    function animate() {
+      requestAnimationFrame(animate);
+      controls.update();
+
+      clickableMarkers.forEach(child => {
+        const group = child.parentMarker;
+        if (group && group.updateHoverEffect) group.updateHoverEffect();
+      });
+
+      renderer.render(scene, camera);
+    }
+
+    function init() {
+      scene = new THREE.Scene();
+
+      camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+      camera.position.z = 3.5;
+
+      const ambientLight = new THREE.AmbientLight(0xffffff, 3.0); 
+      scene.add(ambientLight);
+
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
+   directionalLight.position.set(10, 5, 5);
+
+      scene.add(directionalLight);
+
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(window.devicePixelRatio);
+      renderer.outputEncoding = THREE.sRGBEncoding;
+      globeContainer.appendChild(renderer.domElement);
+
+      window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(window.devicePixelRatio);
-        globeContainer.appendChild(renderer.domElement);
+      });
 
-        const globeGeometry = new THREE.SphereGeometry(globeRadius, 128, 64);
+      const textureLoader = new THREE.TextureLoader();
+      const globeGeometry = new THREE.SphereGeometry(globeRadius, 64, 64);
+      const globeMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff });
 
-        const globeMaterial = new THREE.MeshBasicMaterial({ transparent: false, opacity: 1 });
-
-        loadingManager.onStart = () => {
-            loadingDiv.style.display = 'block';
-            loadingDiv.textContent = 'Carregando textura...';
-        };
-        loadingManager.onLoad = () => {
-            loadingDiv.style.display = 'none';
-            console.log("Textura do globo carregada! Criando marcadores...");
-            createCountryMarkers();
-        };
-        loadingManager.onError = (url) => {
-            console.error('Erro ao carregar a textura do globo:', url);
-            loadingDiv.textContent = 'Erro ao carregar textura. Usando cor fallback.';
-            createCountryMarkers();
-        };
-
-textureLoader.load('mundo17.jpg', (texture) => {
-    texture.encoding = THREE.sRGBEncoding;
-    texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
-    globeMaterial.map = texture;
-    globeMaterial.needsUpdate = true;
-});
-
-
-renderer.outputEncoding = THREE.sRGBEncoding;
+      textureLoader.load('mundo17.jpg', texture => {
+        texture.encoding = THREE.sRGBEncoding;
+        texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
+        globeMaterial.map = texture;
+        globeMaterial.needsUpdate = true;
 
         globe = new THREE.Mesh(globeGeometry, globeMaterial);
         scene.add(globe);
 
-        controls = new OrbitControls(camera, renderer.domElement);
-        controls.target.set(0, 0, 0);
-        controls.enableDamping = false;
-        controls.dampingFactor = 0.06;
-        controls.minDistance = 2.2;
-        controls.maxDistance = 15;
-        controls.autoRotate = false;
-        controls.autoRotateSpeed = 0.15;
- 
-        window.addEventListener('resize', onWindowResize, false);
+        createCountryMarkers();
+      });
 
-        if(infoPanelCloseBtn) {
-            infoPanelCloseBtn.addEventListener('click', () => {
-                if(infoPanel) infoPanel.style.display = 'none';
-                controls.autoRotate = false;
-            });
-        }
+      controls = new OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.05;
+      controls.minDistance = 2;
+      controls.maxDistance = 10;
+      controls.enablePan = false;
 
-        // Lógica de clique vs arrasto
-        let pointerDown = false;
-        let pointerDownPos = { x: 0, y: 0 };
+      renderer.domElement.addEventListener('pointerup', handleClick);
 
-        renderer.domElement.addEventListener('pointerdown', (event) => {
-            pointerDown = true;
-            pointerDownPos.x = event.clientX;
-            pointerDownPos.y = event.clientY;
+      if (infoPanelCloseBtn) {
+        infoPanelCloseBtn.addEventListener('click', () => {
+          infoPanel.style.display = 'none';
         });
+      }
 
-        renderer.domElement.addEventListener('pointerup', (event) => {
-            if (!pointerDown) return;
-            pointerDown = false;
-
-            const dx = event.clientX - pointerDownPos.x;
-            const dy = event.clientY - pointerDownPos.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < 5) {
-                handleClick(event);
-            }
-        });
-
-        animate();
-    }
-
-    function convertLatLonToVec3(lat, lon, radius = globeRadius) {
-        const phi = THREE.MathUtils.degToRad(90 - lat);
-        const theta = THREE.MathUtils.degToRad(lon + 90);
-        const vector = new THREE.Vector3();
-        vector.setFromSphericalCoords(radius, phi, theta);
-        return vector;
-    }
-
-    function createAnimatedSphereMarker() {
-        const radius = 0.015;
-        const geometry = new THREE.SphereGeometry(radius, 16, 16);
-        const material = new THREE.MeshBasicMaterial({ color: 0x5bc5aa });
-        const mesh = new THREE.Mesh(geometry, material);
-
-        const colorList = [new THREE.Color('#5bc5aa'), new THREE.Color('#b272e1'), new THREE.Color('#72b6e1')];
-        let currentColor = colorList[0].clone();
-        let targetColor = colorList[1].clone();
-        let colorIndex = 0;
-        let transitionProgress = 0;
-        const transitionSpeed = 0.05;
-
-        mesh.isSelected = false;
-
-        mesh.updateColorTransition = function () {
-            if (!mesh.isSelected) {
-                transitionProgress += transitionSpeed;
-                if (transitionProgress >= 1) {
-                    transitionProgress = 0;
-                    colorIndex = (colorIndex + 1) % colorList.length;
-                    currentColor = targetColor;
-                    targetColor = colorList[(colorIndex + 1) % colorList.length];
-                }
-                material.color.copy(currentColor.clone().lerp(targetColor, easeInOut(transitionProgress)));
-            }
-        };
-
-        mesh.select = function () {
-            mesh.isSelected = true;
-            material.color.set('#00ff00');
-        };
-
-        return mesh;
-    }
-
-    function easeInOut(t) {
-        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-    }
-
-    function createCountryMarkers() {
-        countriesData.forEach(country => {
-            const marker = createAnimatedSphereMarker();
-            const position = convertLatLonToVec3(country.lat, country.lon, globeRadius);
-            marker.position.copy(position);
-            marker.userData = {
-                name: country.name,
-                infoDivId: country.infoDivId,
-                type: 'countryMarker'
-            };
-            globe.add(marker);
-            clickableMarkers.push(marker);
-        });
-    }
-
-    function handleClick(event) {
-        const rect = renderer.domElement.getBoundingClientRect();
-        pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-        pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-
-        raycaster.setFromCamera(pointer, camera);
-        const intersects = raycaster.intersectObjects(clickableMarkers, false);
-
-        clickableMarkers.forEach(marker => {
-            if (marker.setHover) marker.setHover(false);
-        });
-
-        if (intersects.length > 0) {
-            const clickedMarker = intersects[0].object;
-            if (clickedMarker.select) clickedMarker.select();
-
-            if (clickedMarker.userData && clickedMarker.userData.type === 'countryMarker') {
-                controls.autoRotate = false;
-                const countryData = clickedMarker.userData;
-
-                if (infoPanelName) infoPanelName.textContent = countryData.name;
-                const infoDiv = document.getElementById(countryData.infoDivId);
-                if (infoDiv && infoPanelText) {
-                    infoPanelText.innerHTML = infoDiv.innerHTML;
-                } else if (infoPanelText) {
-                    infoPanelText.textContent = "Informação não encontrada.";
-                }
-
-                if (infoPanel) infoPanel.style.display = 'block';
-            }
-        }
-
-        const intersectsGlobe = raycaster.intersectObject(globe);
-        if (intersectsGlobe.length > 0) {
-            const point = intersectsGlobe[0].point.clone().normalize();
-            const lat = 90 - THREE.MathUtils.radToDeg(Math.acos(point.y));
-            const lon = THREE.MathUtils.radToDeg(Math.atan2(point.z, point.x));
-            console.log(`Coordenadas clicadas: latitude ${lat.toFixed(4)}, longitude ${lon.toFixed(4)}`);
-        }
-    }
-
-    function onWindowResize() {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-    }
-
-    function animate() {
-        requestAnimationFrame(animate);
-        controls.update();
-        clickableMarkers.forEach(marker => {
-            if (marker.updateColorTransition) marker.updateColorTransition();
-        });
-        renderer.render(scene, camera);
+      animate();
     }
 
     init();
-
-
-    </script>
+  </script>
 </body>
 </html>
