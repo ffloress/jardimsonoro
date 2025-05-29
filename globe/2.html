@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globo Terrestre 3D Interativo</title>
+    <style>
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: sans-serif;
+  background-color: #000028;
+  color: #eee;
+  min-height: 100vh;
+  background-image:  
+    radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%),
+    radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%),
+    radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%), 
+    radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%),
+    radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%),
+    radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%),
+    radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%),
+    radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%),
+    radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%),
+    radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%),
+    radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%),
+    radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%), 
+    radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%),
+    radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%),
+    radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%),
+    radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%),
+    radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%),
+    radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%);
+  background-size: 4px 4px, 3px 3px, 5px 5px, 3px 3px, 6px 6px, 4px 4px, 5px 5px, 4px 4px, 6px 6px, 3px 3px, 5px 5px, 4px 4px, 3px 3px, 6px 6px, 5px 5px, 4px 4px, 5px 5px, 6px 6px;
+  background-position: 20% 10%, 5% 20%, 10% 75%, 22% 35%, 30% 30%, 40% 50%, 45% 20%, 65% 20%, 85% 30%, 98% 90%, 20% 80%, 50% 80%, 75% 80%, 89% 75%, 90% 95%, 60% 70%, 65% 40%, 90% 20%;
+  background-repeat: no-repeat;
+  animation: twinkle ease-in 0.3s infinite;
+}
+
+@keyframes twinkle {
+  to {
+    background-image:  
+      radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%),
+      radial-gradient(circle, #fff 20%, transparent 30%),
+      radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%), 
+      radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%),
+      radial-gradient(circle, #fff 20%, transparent 30%),
+      radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%),
+      radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%),
+      radial-gradient(circle, #fff 20%, transparent 30%),
+      radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%),
+      radial-gradient(circle, #fff 20%, transparent 30%),
+      radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%),
+      radial-gradient(circle, #fff 20%, transparent 30%), 
+      radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%),
+      radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%),
+      radial-gradient(circle, #fff 20%, transparent 30%),
+      radial-gradient(circle, rgba(255,255,255,0.7) 20%, transparent 30%),
+      radial-gradient(circle, #fff 20%, transparent 30%),
+      radial-gradient(circle, #fff 20%, transparent 30%);
+  }
+}
+
+        #info-bar {
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            text-align: center;
+            z-index: 100;
+            display:block;
+            font-size: 0.9em;
+        }
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5em;
+            color: #fff;
+            background-color: rgba(0,0,0,0.5);
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        canvas {
+            display: block;
+        }
+        #country-info-panel {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(40, 40, 70, 0.95);
+            color: #f0f0f0;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.7);
+            z-index: 1000;
+            width: 90%;
+            max-width: 350px;
+            text-align: left;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        #country-info-panel h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #87CEFA;
+            border-bottom: 1px solid #87CEFA;
+            padding-bottom: 10px;
+            font-size: 1.4em;
+        }
+        #country-info-panel p {
+            margin-bottom: 20px;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        #country-info-panel button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            font-size: 1em;
+            transition: background-color 0.2s ease;
+        }
+        #country-info-panel button:hover {
+            background-color: #c0392b;
+        }
+        .festival-info-data {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="info-bar">
+Jardim Sonoro
+    </div>
+    <div id="loading">Carregando...</div>
+    <div id="globe-container"></div>
+
+    <div id="country-info-panel">
+        <h2 id="info-panel-name">Nome do País</h2>
+        <p id="info-panel-text">Informações detalhadas aqui...</p>
+        <button id="info-panel-close">Fechar</button>
+    </div>
+
+ <div id="festival-info-data-container">
+    <div id="info-sonar" class="festival-info-data">Um dos maiores e mais respeitados festivais de música eletrônica e arte digital do mundo, realizado em Barcelona, Espanha. Site oficial: <a href="https://sonar.es" target="_blank">https://sonar.es</a></div>
+    <div id="info-greenman" class="festival-info-data">Festival independente nas montanhas galesas, próximo a Crickhowell, com curadoria sensível e atmosfera mágica. Site oficial: <a href="https://www.greenman.net" target="_blank">https://www.greenman.net</a></div>
+    <div id="info-vieillescharrues" class="festival-info-data">Um dos maiores festivais franceses, realizado em Carhaix-Plouguer, mesclando pop, world music e rock alternativo. Site oficial: <a href="https://www.vieillescharrues.asso.fr" target="_blank">https://www.vieillescharrues.asso.fr</a></div>
+    <div id="info-aporta" class="festival-info-data">Festival intimista na cidade de Leiria, com foco na música independente lusófona e ocupação urbana criativa. Site oficial: <a href="https://www.festivalaporta.com" target="_blank">https://www.festivalaporta.com</a></div>
+    <div id="info-sxsw" class="festival-info-data">Mistura de festival e conferência em Austin, Texas, sendo um dos principais palcos da indústria musical para descobertas internacionais e inovação cultural. Site oficial: <a href="https://www.sxsw.com" target="_blank">https://www.sxsw.com</a></div>
+    <div id="info-treefort" class="festival-info-data">Festival independente em Boise, Idaho, com line-ups repletos de bandas emergentes e showcases da cena local. Site oficial: <a href="https://www.treefortmusicfest.com" target="_blank">https://www.treefortmusicfest.com</a></div>
+    <div id="info-leguesswho" class="festival-info-data">Festival dedicado à música global e experimental, realizado em Utrecht, com curadorias de artistas convidados. Site oficial: <a href="https://www.leguesswho.com" target="_blank">https://www.leguesswho.com</a></div>
+    <div id="info-mutekca" class="festival-info-data">Plataforma internacional dedicada à música eletrônica de ponta e arte digital, com edições em Montreal. Site oficial: <a href="https://montreal.mutek.org" target="_blank">https://montreal.mutek.org</a></div>
+    <div id="info-mutekjp" class="festival-info-data">Edição japonesa do MUTEK, realizada em Tóquio, promovendo criatividade digital e música eletrônica. Site oficial: <a href="https://tokyo.mutek.org" target="_blank">https://tokyo.mutek.org</a></div>
+    <div id="info-mutekmx" class="festival-info-data">Edição mexicana do MUTEK, realizada na Cidade do México, explorando arte digital e performances audiovisuais. Site oficial: <a href="https://mexico.mutek.org" target="_blank">https://mexico.mutek.org</a></div>
+    <div id="info-bigsound" class="festival-info-data">Principal evento da indústria musical australiana, realizado em Brisbane, voltado à descoberta de novos artistas da Oceania. Site oficial: <a href="https://www.bigsound.org.au" target="_blank">https://www.bigsound.org.au</a></div>
+    <div id="info-br135" class="festival-info-data">Realizado em São Luís, Maranhão, o Festival BR-135 promove a música autoral e conecta artistas independentes, celebrando a diversidade cultural do estado. Site oficial: <a href="https://festivalbr135.com.br" target="_blank">https://festivalbr135.com.br</a></div>
+    <!-- Trechos com "Site oficial não disponível" mantêm texto original -->
+    <div id="info-exporockrecife" class="festival-info-data">Festival anual em Recife, Pernambuco, que promove bandas e artistas independentes do estado e do nordeste brasileiro, oferecendo uma experiência cultural completa. Site oficial não disponível; informações geralmente divulgadas via redes sociais ou plataformas locais.</div>
+    <div id="info-2d2nmusicaua" class="festival-info-data">Festival anual de 48 horas em Odessa, apresentando novas músicas de artistas ucranianos e internacionais, principalmente no gênero experimental. Site oficial não disponível; informações limitadas devido a possíveis interrupções causadas por conflitos na região.</div>
+    <div id="info-kazantip" class="festival-info-data">Festival de música eletrônica que ocorre anualmente na Crimeia, conhecido por sua atmosfera única e por se autodenominar uma 'república' com suas próprias regras. Site oficial não disponível; o festival foi suspenso ou realocado em anos recentes devido a questões geopolíticas.</div>
+    <div id="info-leopolisjazz" class="festival-info-data">Festival internacional de jazz realizado em Lviv, considerado um dos maiores da Europa, com apresentações de músicos de diversos países. Site oficial: <a href="https://leopolisjazz.com" target="_blank">https://leopolisjazz.com</a></div>
+    <div id="info-electriccastle" class="festival-info-data">Festival alternativo realizado no Castelo Bánffy, na Transilvânia, combinando música, tecnologia e arte em um cenário histórico. Site oficial: <a href="https://electriccastle.ro" target="_blank">https://electriccastle.ro</a></div>
+    <div id="info-exitfest" class="festival-info-data">Realizado na Fortaleza de Petrovaradin, em Novi Sad, o Exit é conhecido por sua origem politizada e por promover questões sociais através da música. Site oficial: <a href="https://www.exitfest.org" target="_blank">https://www.exitfest.org</a></div>
+    <div id="info-pohoda" class="festival-info-data">Maior evento musical da Eslováquia, realizado no aeroporto de Trenčín, com line-up eclético e diversas atividades culturais. Site oficial: <a href="https://www.pohodafestival.sk" target="_blank">https://www.pohodafestival.sk</a></div>
+    <div id="info-soundwavehr" class="festival-info-data">Festival realizado em The Garden Tisno, combinando música eletrônica com festas na praia e em barcos, em um cenário paradisíaco. Site oficial: <a href="https://www.soundwavecroatia.com" target="_blank">https://www.soundwavecroatia.com</a></div>
+    <div id="info-cosmicconvergence" class="festival-info-data">Festival único no Lago Atitlán que celebra arte, música e espiritualidade, promovendo a co-criação de mudanças positivas. Site oficial: <a href="https://cosmicconvergence.org" target="_blank">https://cosmicconvergence.org</a></div>
+    <div id="info-envisioncr" class="festival-info-data">Evento imersivo em Uvita que combina música, arte, ioga e vida consciente, promovendo conexão com a natureza e autoexpressão. Site oficial: <a href="https://envisionfestival.com" target="_blank">https://envisionfestival.com</a></div>
+    <div id="info-wethefestid" class="festival-info-data">Festival em Jacarta que celebra música, arte, moda e culinária, com uma atmosfera vibrante e eclética. Site oficial: <a href="https://www.wethefest.com" target="_blank">https://www.wethefest.com</a></div>
+    <div id="info-fujirock" class="festival-info-data">Realizado na estação de esqui Naeba, é um dos maiores festivais de música do Japão, com foco em rock e música alternativa. Site oficial: <a href="https://www.fujirockfestival.com" target="_blank">https://www.fujirockfestival.com</a></div>
+    <div id="info-goodvibesmy" class="festival-info-data">Festival em Kuala Lumpur que apresenta uma variedade de gêneros musicais, promovendo uma experiência vibrante para os participantes. Site oficial: <a href="https://www.goodvibesfestival.com" target="_blank">https://www.goodvibesfestival.com</a></div>
+    <div id="info-rockalparqueco" class="festival-info-data">Maior festival gratuito e ao ar livre da América, realizado em Bogotá, promovendo bandas de rock e programas de convivência entre os jovens. Site oficial: <a href="https://www.rockalparque.gov.co" target="_blank">https://www.rockalparque.gov.co</a></div>
+    <div id="info-noisepopca" class="festival-info-data">Festival de música independente em San Francisco, celebrando artistas emergentes e cultura local. Site oficial: <a href="https://www.noisepop.com" target="_blank">https://www.noisepop.com</a></div>
+    <div id="info-montereyjazzca" class="festival-info-data">Um dos festivais de jazz mais antigos e prestigiados do mundo, realizado anualmente em Monterey. Site oficial: <a href="https://montereyjazzfestival.org" target="_blank">https://montereyjazzfestival.org</a></div>
+    <div id="info-sautizabusaratz" class="festival-info-data">Festival anual em Zanzibar, destacando a diversidade da música africana com artistas de todo o continente. Site oficial: <a href="https://www.busaramusic.org" target="_blank">https://www.busaramusic.org</a></div>
+    <div id="info-gnaouama" class="festival-info-data">Evento em Essaouira que celebra a música tradicional Gnaoua e promove intercâmbios culturais globais. Site oficial: <a href="https://www.festival-gnaoua.net" target="_blank">https://www.festival-gnaoua.net</a></div>
+    <div id="info-bushfiresz" class="festival-info-data">Festival multicultural no Vale de Ezulwini, combinando música, arte e engajamento social. Site oficial: <a href="https://www.bush-fire.com" target="_blank">https://www.bush-fire.com</a></div>
+    <div id="info-capetownjazzza" class="festival-info-data">Maior festival de jazz da África, realizado anualmente na Cidade do Cabo, reunindo artistas locais e internacionais. Site oficial: <a href="https://www.capetownjazzfest.com" target="_blank">https://www.capetownjazzfest.com</a></div>
+    <div id="info-azgomz" class="festival-info-data">Festival em Maputo que promove música, cinema e arte contemporânea africana. Site oficial: <a href="https://azgo.co.mz" target="_blank">https://azgo.co.mz</a></div>
+    <div id="info-krioljazzcv" class="festival-info-data">Festival na cidade da Praia que celebra a música crioula e promove intercâmbios culturais. Site oficial: <a href="https://krioljazzfestival.com" target="_blank">https://krioljazzfestival.com</a></div>
+    <div id="info-nationalartsza" class="festival-info-data">Evento em Makhanda que abrange música, teatro, dança e artes visuais, destacando a diversidade artística sul-africana. Site oficial: <a href="https://www.nationalartsfestival.co.za" target="_blank">https://www.nationalartsfestival.co.za</a></div>
+    <div id="info-cosquinfolk" class="festival-info-data">Um dos maiores festivais de música folclórica da América do Sul, realizado anualmente em Cosquín, Córdoba. Site oficial: <a href="https://www.aquicosquin.org" target="_blank">https://www.aquicosquin.org</a></div>
+    <div id="info-musicacontempcl" class="festival-info-data">Evento em Santiago que promove a música contemporânea e a experimentação sonora. Site oficial: <a href="https://musica-contemporanea.uchile.cl" target="_blank">https://musica-contemporanea.uchile.cl</a></div>
+    <div id="info-jazzbuenosaires" class="festival-info-data">Festival anual na capital argentina que celebra o jazz com artistas locais e internacionais. Site oficial: <a href="https://festivales.buenosaires.gob.ar/jazz" target="_blank">https://festivales.buenosaires.gob.ar/jazz</a></div>
+    <div id="info-rockthemountainbr" class="festival-info-data">Festival de música e arte realizado em Itaipava, Petrópolis (RJ), reunindo artistas nacionais e internacionais em meio à natureza da serra fluminense. Site oficial: <a href="https://rockthemountain.com.br" target="_blank">https://rockthemountain.com.br</a></div>
+    <div id="info-rockinriobr" class="festival-info-data">Um dos maiores festivais de música do mundo, realizado na Cidade do Rock, no Rio de Janeiro, com edições também em Lisboa e outros países. Site oficial: <a href="https://www.rockinrio.com" target="_blank">https://www.rockinrio.com</a></div>
+    <div id="info-coachella" class="festival-info-data">Festival anual de música e artes realizado no Empire Polo Club, em Indio, Califórnia, conhecido por sua diversidade musical e instalações artísticas. Site oficial: <a href="https://www.coachella.com" target="_blank">https://www.coachella.com</a></div>
+    <div id="info-sunburnin" class="festival-info-data">Um dos maiores festivais de música eletrônica da Ásia, realizado em Vagator, Goa, com apresentações de DJs renomados e uma atmosfera vibrante. Site oficial: <a href="https://www.sunburn.in" target="_blank">https://www.sunburn.in</a></div>
+    <div id="info-lollapaloozaar" class="festival-info-data">Edição argentina do famoso festival Lollapalooza, realizada no Hipódromo de San Isidro, em Buenos Aires, com line-ups internacionais e locais. Site oficial: <a href="https://www.lollapaloozaar.com" target="_blank">https://www.lollapaloozaar.com</a></div>
+    <div id="info-primaverasoundar" class="festival-info-data">Versão argentina do festival espanhol Primavera Sound, realizada no Parque Sarmiento, destacando artistas alternativos e experimentais. Site oficial: <a href="https://www.primaverasound.com/buenosaires" target="_blank">https://www.primaverasound.com/buenosaires</a></div>
+    <div id="info-ultraar" class="festival-info-data">Edição argentina do festival de música eletrônica Ultra, realizada no Parque de la Ciudad, reunindo DJs internacionais e fãs de música eletrônica. Site oficial: <a href="https://www.ultraargentina.com" target="_blank">https://www.ultraargentina.com</a></div>
+    <div id="info-burningman" class="festival-info-data">Realizado no deserto de Black Rock, Nevada, o Burning Man é um experimento em comunidade, arte e autoexpressão radical. Milhares de pessoas criam uma cidade temporária baseada em princípios de inclusão, participação e sustentabilidade. Site oficial: <a href="https://burningman.org" target="_blank">https://burningman.org</a></div>
+</div>
+
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.164.1/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.164.1/examples/jsm/"
+            }
+        }
+    </script>
+
+    <script type="module">
+ 
+
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+    let scene, camera, renderer, globe, controls, directionalLight;
+
+    const loadingManager = new THREE.LoadingManager();
+    const textureLoader = new THREE.TextureLoader(loadingManager);
+    const globeContainer = document.getElementById('globe-container');
+    const loadingDiv = document.getElementById('loading');
+
+    const infoPanel = document.getElementById('country-info-panel');
+    const infoPanelName = document.getElementById('info-panel-name');
+    const infoPanelText = document.getElementById('info-panel-text');
+    const infoPanelCloseBtn = document.getElementById('info-panel-close');
+
+    const raycaster = new THREE.Raycaster();
+    const pointer = new THREE.Vector2();
+    let clickableMarkers = [];
+    const globeRadius = 1.5;
+
+const countriesData = [
+  { name: "Sónar Festival – 🇪🇸 Espanha", lat: 41.3545, lon: 2.1282, infoDivId: "info-sonar" },
+  { name: "Green Man – 🇬🇧 Reino Unido", lat: 51.8590, lon: -3.1370, infoDivId: "info-greenman" },
+  { name: "Les Vieilles Charrues – 🇫🇷 França", lat: 48.2760, lon: -3.5720, infoDivId: "info-vieillescharrues" },
+  { name: "A Porta – 🇵🇹 Portugal", lat: 39.7436, lon: -8.8077, infoDivId: "info-aporta" },
+  { name: "SXSW – 🇺🇸 Estados Unidos", lat: 30.2667, lon: -97.7333, infoDivId: "info-sxsw" },
+  { name: "Treefort Music Fest – 🇺🇸 Boise, Idaho", lat: 43.6150, lon: -116.2023, infoDivId: "info-treefort" },
+  { name: "Le Guess Who? – 🇳🇱 Holanda", lat: 52.0907, lon: 5.1214, infoDivId: "info-leguesswho" },
+  { name: "MUTEK – 🇨🇦 Canadá", lat: 45.5017, lon: -73.5673, infoDivId: "info-mutekca" },
+  { name: "MUTEK – 🇯🇵 Japão", lat: 35.6895, lon: 139.6917, infoDivId: "info-mutekjp" },
+  { name: "MUTEK – 🇲🇽 México", lat: 19.4326, lon: -99.1332, infoDivId: "info-mutekmx" },
+  { name: "BIGSOUND – 🇦🇺 Austrália", lat: -27.4701, lon: 153.0211, infoDivId: "info-bigsound" },
+  { name: "Festival BR-135 – 🇧🇷 Brasil", lat: -2.5297, lon: -44.3028, infoDivId: "info-br135" },
+  { name: "Expo Rock Recife – 🇧🇷 Brasil", lat: -8.0476, lon: -34.8770, infoDivId: "info-exporockrecife" },
+  { name: "Dois Dias e Duas Noites de Música Nova – 🇺🇦 Ucrânia", lat: 46.4825, lon: 30.7233, infoDivId: "info-2d2nmusicaua" },
+  { name: "KaZantip – 🇺🇦 Ucrânia", lat: 45.2958, lon: 33.9608, infoDivId: "info-kazantip" },
+  { name: "Leopolis Jazz Fest – 🇺🇦 Ucrânia", lat: 49.8397, lon: 24.0297, infoDivId: "info-leopolisjazz" },
+  { name: "Electric Castle – 🇷🇴 Romênia", lat: 46.9037, lon: 23.7771, infoDivId: "info-electriccastle" },
+  { name: "Exit Festival – 🇷🇸 Sérvia", lat: 45.2520, lon: 19.8610, infoDivId: "info-exitfest" },
+  { name: "Pohoda Festival – 🇸🇰 Eslováquia", lat: 48.8945, lon: 18.0400, infoDivId: "info-pohoda" },
+  { name: "Soundwave Festival – 🇭🇷 Croácia", lat: 43.8000, lon: 15.6500, infoDivId: "info-soundwavehr" },
+  { name: "Convergência Cósmica – 🇬🇹 Guatemala", lat: 14.7000, lon: -91.2000, infoDivId: "info-cosmicconvergence" },
+  { name: "Envision Festival – 🇨🇷 Costa Rica", lat: 9.1520, lon: -83.7420, infoDivId: "info-envisioncr" },
+  { name: "We The Fest – 🇮🇩 Indonésia", lat: -6.2088, lon: 106.8456, infoDivId: "info-wethefestid" },
+  { name: "Fuji Rock Festival – 🇯🇵 Japão", lat: 36.9400, lon: 138.8000, infoDivId: "info-fujirock" },
+  { name: "Good Vibes Festival – 🇲🇾 Malásia", lat: 3.1390, lon: 101.6869, infoDivId: "info-goodvibesmy" },
+  { name: "Rock al Parque – 🇨🇴 Colômbia", lat: 4.7110, lon: -74.0721, infoDivId: "info-rockalparqueco" },
+  { name: "Noise Pop Festival – 🇺🇸 Califórnia", lat: 37.7749, lon: -122.4194, infoDivId: "info-noisepopca" },
+  { name: "Monterey Jazz Festival – 🇺🇸 Califórnia", lat: 36.6002, lon: -121.8947, infoDivId: "info-montereyjazzca" },
+  { name: "Sauti za Busara – 🇹🇿 Tanzânia", lat: -6.1659, lon: 39.2026, infoDivId: "info-sautizabusaratz" },
+  { name: "Festival Gnaoua e de Músicas do Mundo – 🇲🇦 Marrocos", lat: 31.5085, lon: -9.7595, infoDivId: "info-gnaouama" },
+  { name: "Bushfire Festival – 🇸🇿 Essuatíni", lat: -26.4626, lon: 31.2483, infoDivId: "info-bushfiresz" },
+  { name: "Cape Town International Jazz Festival – 🇿🇦 África do Sul", lat: -33.9249, lon: 18.4241, infoDivId: "info-capetownjazzza" },
+  { name: "Festival AZGO – 🇲🇿 Moçambique", lat: -25.9692, lon: 32.5732, infoDivId: "info-azgomz" },
+  { name: "Kriol Jazz Festival – 🇨🇻 Cabo Verde", lat: 14.9330, lon: -23.5133, infoDivId: "info-krioljazzcv" },
+  { name: "Festival Nacional de Artes – 🇿🇦 África do Sul", lat: -33.3000, lon: 26.5300, infoDivId: "info-nationalartsza" },
+  { name: "Festival Folclórico de Cosquín – 🇦🇷 Argentina", lat: -31.2450, lon: -64.4650, infoDivId: "info-cosquinfolk" },
+  { name: "Festival Internacional de Música Contemporânea – 🇨🇱 Chile", lat: -33.4489, lon: -70.6693, infoDivId: "info-musicacontempcl" },
+  { name: "Festival de Jazz de Buenos Aires – 🇦🇷 Argentina", lat: -34.6037, lon: -58.3816, infoDivId: "info-jazzbuenosaires" },
+  { name: "Rock The Mountain – 🇧🇷 Brasil", lat: -22.4241, lon: -43.0916, infoDivId: "info-rockthemountainbr" },
+  { name: "Rock in Rio – 🇧🇷 Brasil", lat: -22.9756, lon: -43.3658, infoDivId: "info-rockinriobr" },
+  { name: "Coachella Valley Music and Arts Festival – 🇺🇸 Califórnia", lat: 33.6784, lon: -116.2377, infoDivId: "info-coachella" },
+  { name: "Sunburn Festival – 🇮🇳 Índia", lat: 15.6010, lon: 73.7396, infoDivId: "info-sunburnin" },
+  { name: "Lollapalooza Argentina – 🇦🇷 Argentina", lat: -34.4890, lon: -58.5120, infoDivId: "info-lollapaloozaar" },
+  { name: "Primavera Sound Buenos Aires – 🇦🇷 Argentina", lat: -34.5679, lon: -58.5125, infoDivId: "info-primaverasoundar" },
+  { name: "Ultra Buenos Aires – 🇦🇷 Argentina", lat: -34.6570, lon: -58.4780, infoDivId: "info-ultraar" },
+  { name: "Burning Man – 🇺🇸 Estados Unidos", lat: 40.7864, lon: -119.2044, infoDivId: "info-burningman"}
+];
+
+let directionalLight;
+
+    function init() {
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.z = 3.5;
+
+        directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        directionalLight.position.copy(camera.position);
+        scene.add(directionalLight);
+
+        const ambientLight = new THREE.AmbientLight(0x404040, 0.5);
+        scene.add(ambientLight);
+
+        
+
+        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.domElement.addEventListener('touchmove', (e) => {
+    if (e.touches.length > 1) {
+        e.preventDefault();
+    }
+}, { passive: false });
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        globeContainer.appendChild(renderer.domElement);
+
+        const globeGeometry = new THREE.SphereGeometry(globeRadius, 128, 64);
+
+        const globeMaterial = new THREE.MeshStandardMaterial({ transparent: false, opacity: 1 });
+
+        loadingManager.onStart = () => {
+            loadingDiv.style.display = 'block';
+            loadingDiv.textContent = 'Carregando textura...';
+        };
+        loadingManager.onLoad = () => {
+            loadingDiv.style.display = 'none';
+            console.log("Textura do globo carregada! Criando marcadores...");
+            createCountryMarkers();
+        };
+        loadingManager.onError = (url) => {
+            console.error('Erro ao carregar a textura do globo:', url);
+            loadingDiv.textContent = 'Erro ao carregar textura. Usando cor fallback.';
+            createCountryMarkers();
+        };
+
+textureLoader.load('mundo17.jpg', (texture) => {
+    texture.encoding = THREE.sRGBEncoding;
+    texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
+    globeMaterial.map = texture;
+    globeMaterial.needsUpdate = true;
+});
+
+
+renderer.outputEncoding = THREE.sRGBEncoding;
+
+        globe = new THREE.Mesh(globeGeometry, globeMaterial);
+        scene.add(globe);
+
+        controls = new OrbitControls(camera, renderer.domElement);
+        controls.target.set(0, 0, 0);
+        controls.enableDamping = false;
+        controls.dampingFactor = 0.06;
+        controls.minDistance = 2.2;
+        controls.maxDistance = 15;
+        controls.autoRotate = false;
+        controls.autoRotateSpeed = 0.15;
+ 
+        window.addEventListener('resize', onWindowResize, false);
+
+        if(infoPanelCloseBtn) {
+            infoPanelCloseBtn.addEventListener('click', () => {
+                if(infoPanel) infoPanel.style.display = 'none';
+                controls.autoRotate = false;
+            });
+        }
+
+        // Lógica de clique vs arrasto
+        let pointerDown = false;
+        let pointerDownPos = { x: 0, y: 0 };
+
+        renderer.domElement.addEventListener('pointerdown', (event) => {
+            pointerDown = true;
+            pointerDownPos.x = event.clientX;
+            pointerDownPos.y = event.clientY;
+        });
+
+        renderer.domElement.addEventListener('pointerup', (event) => {
+            if (!pointerDown) return;
+            pointerDown = false;
+
+            const dx = event.clientX - pointerDownPos.x;
+            const dy = event.clientY - pointerDownPos.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < 5) {
+                handleClick(event);
+            }
+        });
+
+        animate();
+    }
+
+    function convertLatLonToVec3(lat, lon, radius = globeRadius) {
+        const phi = THREE.MathUtils.degToRad(90 - lat);
+        const theta = THREE.MathUtils.degToRad(lon + 90);
+        const vector = new THREE.Vector3();
+        vector.setFromSphericalCoords(radius, phi, theta);
+        return vector;
+    }
+
+    function createAnimatedSphereMarker() {
+        const radius = 0.015;
+        const geometry = new THREE.SphereGeometry(radius, 16, 16);
+        const material = new THREE.MeshStandardMaterial({ color: 0x5bc5aa });
+        const mesh = new THREE.Mesh(geometry, material);
+
+        const colorList = [new THREE.Color('#5bc5aa'), new THREE.Color('#b272e1'), new THREE.Color('#72b6e1')];
+        let currentColor = colorList[0].clone();
+        let targetColor = colorList[1].clone();
+        let colorIndex = 0;
+        let transitionProgress = 0;
+        const transitionSpeed = 0.05;
+
+        mesh.isSelected = false;
+
+        mesh.updateColorTransition = function () {
+            if (!mesh.isSelected) {
+                transitionProgress += transitionSpeed;
+                if (transitionProgress >= 1) {
+                    transitionProgress = 0;
+                    colorIndex = (colorIndex + 1) % colorList.length;
+                    currentColor = targetColor;
+                    targetColor = colorList[(colorIndex + 1) % colorList.length];
+                }
+                material.color.copy(currentColor.clone().lerp(targetColor, easeInOut(transitionProgress)));
+            }
+        };
+
+        mesh.select = function () {
+            mesh.isSelected = true;
+            material.color.set('#00ff00');
+        };
+
+        return mesh;
+    }
+
+    function easeInOut(t) {
+        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    }
+
+    function createCountryMarkers() {
+        countriesData.forEach(country => {
+            const marker = createAnimatedSphereMarker();
+            const position = convertLatLonToVec3(country.lat, country.lon, globeRadius);
+            marker.position.copy(position);
+            marker.userData = {
+                name: country.name,
+                infoDivId: country.infoDivId,
+                type: 'countryMarker'
+            };
+            globe.add(marker);
+            clickableMarkers.push(marker);
+        });
+    }
+
+    function handleClick(event) {
+        const rect = renderer.domElement.getBoundingClientRect();
+        pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+        pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+        raycaster.setFromCamera(pointer, camera);
+        const intersects = raycaster.intersectObjects(clickableMarkers, false);
+
+        clickableMarkers.forEach(marker => {
+            if (marker.setHover) marker.setHover(false);
+        });
+
+        if (intersects.length > 0) {
+            const clickedMarker = intersects[0].object;
+            if (clickedMarker.select) clickedMarker.select();
+
+            if (clickedMarker.userData && clickedMarker.userData.type === 'countryMarker') {
+                controls.autoRotate = false;
+                const countryData = clickedMarker.userData;
+
+                if (infoPanelName) infoPanelName.textContent = countryData.name;
+                const infoDiv = document.getElementById(countryData.infoDivId);
+                if (infoDiv && infoPanelText) {
+                    infoPanelText.innerHTML = infoDiv.innerHTML;
+                } else if (infoPanelText) {
+                    infoPanelText.textContent = "Informação não encontrada.";
+                }
+
+                if (infoPanel) infoPanel.style.display = 'block';
+            }
+        }
+
+        const intersectsGlobe = raycaster.intersectObject(globe);
+        if (intersectsGlobe.length > 0) {
+            const point = intersectsGlobe[0].point.clone().normalize();
+            const lat = 90 - THREE.MathUtils.radToDeg(Math.acos(point.y));
+            const lon = THREE.MathUtils.radToDeg(Math.atan2(point.z, point.x));
+            console.log(`Coordenadas clicadas: latitude ${lat.toFixed(4)}, longitude ${lon.toFixed(4)}`);
+        }
+    }
+
+    function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+
+    function animate() {
+        requestAnimationFrame(animate);
+        controls.update();
+        clickableMarkers.forEach(marker => {
+            if (marker.updateColorTransition) marker.updateColorTransition();
+        });
+        
+if (directionalLight) {
+    directionalLight.position.copy(camera.position);
+    directionalLight.lookAt(scene.position);
+}
+
+
+        renderer.render(scene, camera);
+    }
+
+
+    init();
+
+
+    </script>
+</body>
+</html>

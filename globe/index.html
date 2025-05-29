@@ -295,8 +295,9 @@ const countriesData = [
         renderer.setPixelRatio(window.devicePixelRatio);
         globeContainer.appendChild(renderer.domElement);
 
-        const globeGeometry = new THREE.SphereGeometry(globeRadius, 64, 32);
-        const globeMaterial = new THREE.MeshBasicMaterial({ transparent: true, opacity: 1 });
+        const globeGeometry = new THREE.SphereGeometry(globeRadius, 128, 64);
+
+        const globeMaterial = new THREE.MeshBasicMaterial({ transparent: false, opacity: 1 });
 
         loadingManager.onStart = () => {
             loadingDiv.style.display = 'block';
@@ -313,10 +314,15 @@ const countriesData = [
             createCountryMarkers();
         };
 
-        textureLoader.load('mundo4.jpg', (texture) => {
-            globeMaterial.map = texture;
-            globeMaterial.needsUpdate = true;
-        });
+textureLoader.load('mundo17.jpg', (texture) => {
+    texture.encoding = THREE.sRGBEncoding;
+    texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
+    globeMaterial.map = texture;
+    globeMaterial.needsUpdate = true;
+});
+
+
+renderer.outputEncoding = THREE.sRGBEncoding;
 
         globe = new THREE.Mesh(globeGeometry, globeMaterial);
         scene.add(globe);
