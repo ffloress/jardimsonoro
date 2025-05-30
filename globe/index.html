@@ -211,31 +211,6 @@ border-radius: 24px;
   background-size: 100% 100%;
   opacity: 0.9;
 }
-.spotify-loader {
-  
-  width: 100%;
-  height: 40%;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.spotify-loader::after {
-  content: "";
-  width: 40px;
-  height: 40px;
-  border: 4px solid #ccc;
-  border-top-color: #1db954; /* cor do Spotify */
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 
 </style>
@@ -486,40 +461,31 @@ panel.style.backgroundImage = data.imageUrl ? `url('${data.imageUrl}')` : 'none'
       document.getElementById("info-panel-country").textContent = `${data.countryFlag} ${data.countryName}`;
       document.getElementById("info-panel-text").innerHTML = data.festivalInfo;
 
-   const spotifyContainer = document.getElementById("info-panel-spotify");
-spotifyContainer.innerHTML = ''; // limpa anterior
+      // Spotify embed direto (sem placeholder)
+      const spotifyContainer = document.getElementById("info-panel-spotify");
+      if (data.playlistUrl) {
+        const match = data.playlistUrl.match(/open\.spotify\.com\/playlist\/([a-zA-Z0-9]+)/);
+        if (match && match[1]) {
+          const playlistId = match[1];
+          const embedUrl = `https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator`;
 
-const loader = document.createElement("div");
-loader.className = "spotify-loader";
-spotifyContainer.appendChild(loader);
-
-if (data.playlistUrl) {
-  const match = data.playlistUrl.match(/open\.spotify\.com\/playlist\/([a-zA-Z0-9]+)/);
-  if (match && match[1]) {
-    const playlistId = match[1];
-    const embedUrl = `https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator`;
-
-    const iframe = document.createElement("iframe");
-    iframe.src = embedUrl;
-    iframe.width = "100%";
-    iframe.height = "380";
-    iframe.frameBorder = "0";
-    iframe.allowTransparency = true;
-    iframe.allow = "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
-    iframe.loading = "lazy";
-    iframe.style.borderRadius = "12px";
-iframe.style.display = "block"; // mostra imediatamente
-spotifyContainer.appendChild(iframe);
-
-// Remove o loader depois de X segundos como fallback
-setTimeout(() => {
-  loader.remove();
-}, 1200); // espera 1.2s, ajustável
-
-
-  }
-}
-
+          spotifyContainer.innerHTML = `
+            <iframe 
+              src="${embedUrl}" 
+              width="100%" 
+              height="380" 
+              frameborder="0" 
+              allowtransparency="true" 
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+              loading="lazy" 
+              style="border-radius: 12px;">
+            </iframe>`;
+        } else {
+          spotifyContainer.innerHTML = '';
+        }
+      } else {
+        spotifyContainer.innerHTML = '';
+      }
 
       // Mostra o painel e o overlay
       document.getElementById("country-info-panel").style.display = 'block';
