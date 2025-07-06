@@ -71,6 +71,8 @@ Em "Inútil Paisagem" (de Tom Jobim e Aloysio de Oliveira), Tenório subverte ex
  
 [Nebulosa de Tenorio Jr.](https://www.youtube.com/watch?v=h6VkI2Kz56o)
 
+[Partitura musical de Nebulosa para Piano](https://jardimsonoro.com/downloads/Tenorio_Jr_-_Nebulosa.pdf)
+
  > “Tudo me foi creditado, desde a escolha dos temas e arranjos até os detalhes mais técnicos, como estúdio, engenheiro de som, capa etc. Isto contribuiu definitivamente para que eu me entregasse a diversas experiências com tipos diferentes de conjunto, tentativas minhas de arranjos, enfim, uma série de incursões num terreno que eu havia apenas tateado”. 
  
  > Tenório Jr. relata na *contracapa do album*.
