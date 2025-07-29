@@ -431,6 +431,26 @@ img { display: block; max-width: 100%; height: auto; }
   filter: drop-shadow(0 0 5px rgba(0,0,0,0.5)); 
   pointer-events: none;
 }
+
+.instagram-placeholder {
+  background-size: cover;
+  background-position: center;
+  aspect-ratio: 9 / 16; /* Reels são verticais */
+  position: relative;
+  cursor: pointer;
+}
+
+.instagram-media {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block;       /* para que margin auto funcione */
+  max-width: 540px;     /* máximo permitido pelo Instagram */
+  width: 100% !important; /* para responsividade */
+}
+
+
+
+
 .video-wrapper-with-caption {
   margin: 1.5em auto; max-width: 560px;
 }
@@ -580,28 +600,48 @@ img { display: block; max-width: 100%; height: auto; }
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const videoLinks = document.querySelectorAll(
-    ".post-content a[href*='youtube.com/watch'], .post-content a[href*='youtu.be/'], .post-content a[href*='vimeo.com/'], .post-content a[href*='open.spotify.com/playlist/']"
+    ".post-content a[href*='youtube.com/watch'], " +
+    ".post-content a[href*='youtu.be/'], " +
+    ".post-content a[href*='vimeo.com/'], " +
+    ".post-content a[href*='open.spotify.com/playlist/'], " +
+    ".post-content a[href*='instagram.com/reel/'], " +
+    ".post-content a[href*='instagram.com/p/'], " +
+    ".post-content a[href*='instagram.com/tv/']"
   );
 
-  videoLinks.forEach(async (link) => { // Adicionado async aqui
+  // Para garantir que o Instagram embed.js seja carregado só 1x
+  let instagramScriptLoaded = false;
+
+  videoLinks.forEach(async (link) => {
     const url = link.href;
     const linkText = link.innerHTML;
     let videoInfo = null;
 
     if (url.includes("youtube.com") || url.includes("youtu.be")) {
-      videoInfo = getYoutubeInfo(url); // Síncrono
+      videoInfo = getYoutubeInfo(url);
       if (videoInfo) {
         createVideoPlaceholder(link, videoInfo, "youtube", linkText);
       }
     } else if (url.includes("vimeo.com/")) {
-      videoInfo = await getVimeoInfo(url); // Agora assíncrono
+      videoInfo = await getVimeoInfo(url);
       if (videoInfo) {
         createVideoPlaceholder(link, videoInfo, "vimeo", linkText);
       }
     } else if (url.includes("open.spotify.com/playlist/")) {
-      videoInfo = await getSpotifyInfo(url); // Agora assíncrono
+      videoInfo = await getSpotifyInfo(url);
       if (videoInfo) {
         createVideoPlaceholder(link, videoInfo, "spotify", linkText);
+      }
+    } else if (
+      url.includes("instagram.com/reel/") ||
+      url.includes("instagram.com/p/") ||
+      url.includes("instagram.com/tv/")
+    ) {
+      // Instagram embed via blockquote + script (sem fetch)
+      createInstagramEmbed(link, url);
+      if (!instagramScriptLoaded) {
+        loadInstagramEmbedScript();
+        instagramScriptLoaded = true;
       }
     }
   });
@@ -613,13 +653,13 @@ document.addEventListener("DOMContentLoaded", function () {
       return {
         id: match[1],
         thumbnailUrl: `https://i.ytimg.com/vi/${match[1]}/hqdefault.jpg`,
-        embedUrl: `https://www.youtube.com/embed/${match[1]}?autoplay=1&rel=0&vq=hd720`
+        embedUrl: `https://www.youtube.com/embed/${match[1]}?autoplay=1&rel=0&vq=hd720`,
       };
     }
     return null;
   }
 
-  async function getVimeoInfo(url) { // Tornou-se async
+  async function getVimeoInfo(url) {
     const regex = /vimeo\.com\/(?:video\/)?([0-9]+)/;
     const match = url.match(regex);
     if (match && match[1]) {
@@ -631,7 +671,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const response = await fetch(oEmbedUrl);
         if (!response.ok) throw new Error(`Vimeo oEmbed request failed: ${response.status}`);
         const data = await response.json();
-        thumbnailUrl = data.thumbnail_url ? data.thumbnail_url.replace(/^http:/i, 'https:') : null;
+        thumbnailUrl = data.thumbnail_url ? data.thumbnail_url.replace(/^http:/i, "https:") : null;
       } catch (error) {
         console.error("Erro ao buscar dados oEmbed do Vimeo:", error, url);
       }
@@ -639,31 +679,26 @@ document.addEventListener("DOMContentLoaded", function () {
       return {
         id: videoId,
         embedUrl: `https://player.vimeo.com/video/${videoId}?autoplay=1&transparent=0&dnt=1`,
-        thumbnailUrl: thumbnailUrl // Retorna a URL da miniatura diretamente
+        thumbnailUrl: thumbnailUrl,
       };
     }
     return null;
   }
 
-  async function getSpotifyInfo(url) { // Tornou-se async
+  async function getSpotifyInfo(url) {
     const playlistRegex = /open\.spotify\.com\/playlist\/([a-zA-Z0-9]+)/;
     const playlistMatch = url.match(playlistRegex);
 
     if (playlistMatch && playlistMatch[1]) {
       const playlistId = playlistMatch[1];
-      // Usa o endpoint oEmbed do Spotify para obter informações, incluindo a thumbnail_url
       const oEmbedSpotifyUrl = `https://open.spotify.com/oembed?url=${encodeURIComponent(url)}`;
       let thumbnailUrl = null;
 
       try {
         const response = await fetch(oEmbedSpotifyUrl);
-        if (!response.ok) {
-          throw new Error(`Spotify oEmbed request failed: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`Spotify oEmbed request failed: ${response.status}`);
         const data = await response.json();
-        thumbnailUrl = data.thumbnail_url ? data.thumbnail_url.replace(/^http:/i, 'https:') : null;
-        // Opcional: data.html contém o iframe completo, poderia ser usado no futuro se a embedUrl mudar
-        // console.log("Spotify oEmbed data:", data);
+        thumbnailUrl = data.thumbnail_url ? data.thumbnail_url.replace(/^http:/i, "https:") : null;
       } catch (error) {
         console.error("Erro ao buscar dados oEmbed do Spotify:", error, url);
       }
@@ -671,7 +706,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return {
         id: playlistId,
         embedUrl: `https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator`,
-        thumbnailUrl: thumbnailUrl // URL da miniatura (pode ser null se não encontrada ou erro)
+        thumbnailUrl: thumbnailUrl,
       };
     }
     return null;
@@ -682,7 +717,7 @@ document.addEventListener("DOMContentLoaded", function () {
     videoWrapper.className = "video-wrapper-with-caption";
 
     const placeholder = document.createElement("div");
-    placeholder.className = `${type}-placeholder`; // Ex: "youtube-placeholder", "spotify-placeholder"
+    placeholder.className = `${type}-placeholder`;
 
     const playButton = document.createElement("div");
     playButton.className = "youtube-play-button";
@@ -701,45 +736,76 @@ document.addEventListener("DOMContentLoaded", function () {
       videoWrapper.appendChild(caption);
     }
 
-    // Define a imagem de fundo se a thumbnailUrl estiver disponível
     if (videoInfo.thumbnailUrl) {
       placeholder.style.backgroundImage = `url(${videoInfo.thumbnailUrl})`;
     } else {
-      // Fallback se não houver miniatura (opcional: pode definir uma cor de fundo ou ícone genérico)
       console.warn(`Miniatura não encontrada para ${type}:`, videoInfo.id);
     }
 
-    placeholder.addEventListener("click", () => {
-      const iframe = document.createElement("iframe");
-      iframe.src = videoInfo.embedUrl;
-      iframe.className = placeholder.className;
-      iframe.style.backgroundImage = 'none';
-      iframe.style.backgroundColor = '#000';
-      iframe.setAttribute("frameborder", "0");
-      iframe.setAttribute("allowfullscreen", "");
-      iframe.setAttribute("allow", "autoplay; clipboard-write; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; web-share");
-      iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
-      if (type === "spotify") {
-        iframe.setAttribute("loading", "lazy");
-      }
+    placeholder.addEventListener(
+      "click",
+      () => {
+        const iframe = document.createElement("iframe");
+        iframe.src = videoInfo.embedUrl;
+        iframe.className = placeholder.className;
+        iframe.style.backgroundImage = "none";
+        iframe.style.backgroundColor = "#000";
+        iframe.setAttribute("frameborder", "0");
+        iframe.setAttribute("allowfullscreen", "");
+        iframe.setAttribute(
+          "allow",
+          "autoplay; clipboard-write; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; web-share"
+        );
+        iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+        if (type === "spotify" || type === "instagram") {
+          iframe.setAttribute("loading", "lazy");
+        }
 
-      let iframeTitleText = "Media Player";
-      if (type === "youtube") iframeTitleText = "YouTube video player";
-      else if (type === "vimeo") iframeTitleText = "Vimeo video player";
-      else if (type === "spotify") iframeTitleText = "Spotify playlist player";
-      const iframeTitle = captionText ? captionText.replace(/<[^>]*>?/gm, '') : iframeTitleText;
-      iframe.setAttribute("title", iframeTitle);
+        let iframeTitleText = "Media Player";
+        if (type === "youtube") iframeTitleText = "YouTube video player";
+        else if (type === "vimeo") iframeTitleText = "Vimeo video player";
+        else if (type === "spotify") iframeTitleText = "Spotify playlist player";
+        else if (type === "instagram") iframeTitleText = "Instagram embed";
+        const iframeTitle = captionText ? captionText.replace(/<[^>]*>?/gm, "") : iframeTitleText;
+        iframe.setAttribute("title", iframeTitle);
 
-      videoWrapper.replaceChild(iframe, placeholder);
-      iframe.focus();
-    }, { once: true });
+        videoWrapper.replaceChild(iframe, placeholder);
+        iframe.focus();
+      },
+      { once: true }
+    );
 
     if (linkElement.parentNode) {
       linkElement.parentNode.replaceChild(videoWrapper, linkElement);
     }
   }
+
+  function createInstagramEmbed(linkElement, url) {
+    const blockquote = document.createElement("blockquote");
+    blockquote.className = "instagram-media";
+    blockquote.setAttribute("data-instgrm-permalink", url);
+    blockquote.setAttribute("data-instgrm-version", "14");
+    blockquote.style = "background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px rgba(0,0,0,0.5),0 1px 10px rgba(0,0,0,0.15); margin: 1px auto; max-width:540px; min-width:326px; padding:0; width:100%;";
+
+    // Troca o link pelo blockquote
+    if (linkElement.parentNode) {
+      linkElement.parentNode.replaceChild(blockquote, linkElement);
+    }
+  }
+
+  function loadInstagramEmbedScript() {
+    if (!document.querySelector('script[src="//www.instagram.com/embed.js"]')) {
+      const script = document.createElement("script");
+      script.src = "//www.instagram.com/embed.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }
 });
 </script>
+
+
+
 <!-- Google tag (gtag.js) -->
 <script>
 let analytics_loaded = false;
