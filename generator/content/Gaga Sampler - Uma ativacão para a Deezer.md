@@ -12,7 +12,19 @@ A ficha talvez ainda não tenha caído. Parece inacreditável: tantos ícones re
 O projeto criada pelo time de arquitetas e designers do Studio Queen era uma cabine telefônica cenográfica, no formato de um jogo analógico interativo, onde fãs da Lady Gaga poderiam brincar e, com sorte, ganhar convites para a área VIP do show. O conceito era puro suco de gamificação: fichas, sequências lógicas, botões coloridos, efeitos sonoros nostálgicos… E muito Abracadraba.
 
 Assim nasceu o Gaga Sampler:
-👉 https://jardimsonoro.com/gagasampler
+
+<iframe
+  src="https://jardimsonoro.com/gagasampler"
+  width="100%"
+  height="600"
+  style="border:0;"
+  allowfullscreen
+  loading="lazy"
+  title="Jardim Sonoro - Gagasampler"
+></iframe>
+
+
+
 (protótipo do jogo em versão digital, que depois virou uma cabine analógica na ativação)
 
 Com o conceito definido, o desafio foi transformar isso em uma mecânica física funcional — com botões reais, sons sincronizados, uma interface híbrida analógico-digital. Aqui entra o lado tecnológico da Jardim Sonoro: além de músico, sou engenheiro da computação, e nesse projeto tive a honra de contar com a parceria extra do genial Marlon Souza, engenheiro e hacker de primeira, afinal não é sempre que desenhamos o som de uma moeda sendo inserida no slot machine, e logo em seguida soldamos os cabos de um botão de arcade.
