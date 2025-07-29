@@ -579,45 +579,26 @@ document.addEventListener("DOMContentLoaded", function () {
     ".post-content a[href*='youtube.com/watch'], .post-content a[href*='youtu.be/'], .post-content a[href*='vimeo.com/'], .post-content a[href*='open.spotify.com/playlist/']"
   );
 
-  videoLinks.forEach(async (link) => {
+  videoLinks.forEach(async (link) => { // Adicionado async aqui
     const url = link.href;
     const linkText = link.innerHTML;
     let videoInfo = null;
 
     if (url.includes("youtube.com") || url.includes("youtu.be")) {
-      videoInfo = getYoutubeInfo(url);
+      videoInfo = getYoutubeInfo(url); // Síncrono
       if (videoInfo) {
         createVideoPlaceholder(link, videoInfo, "youtube", linkText);
       }
     } else if (url.includes("vimeo.com/")) {
-      videoInfo = await getVimeoInfo(url);
+      videoInfo = await getVimeoInfo(url); // Agora assíncrono
       if (videoInfo) {
         createVideoPlaceholder(link, videoInfo, "vimeo", linkText);
       }
     } else if (url.includes("open.spotify.com/playlist/")) {
-      videoInfo = await getSpotifyInfo(url);
+      videoInfo = await getSpotifyInfo(url); // Agora assíncrono
       if (videoInfo) {
         createVideoPlaceholder(link, videoInfo, "spotify", linkText);
       }
-    }
-  });
-
-  const genericIframes = document.querySelectorAll(".post-content iframe[src]");
-  genericIframes.forEach(async (iframe) => {
-    const src = iframe.src;
-
-    // Ignora iframes já tratados
-    if (
-      src.includes("youtube.com") ||
-      src.includes("youtu.be") ||
-      src.includes("vimeo.com") ||
-      src.includes("open.spotify.com")
-    ) return;
-
-    const videoInfo = await getIframeMetaOgImage(src);
-    if (videoInfo) {
-      const captionText = iframe.title || src;
-      createVideoPlaceholder(iframe, videoInfo, "generic", captionText);
     }
   });
 
@@ -634,7 +615,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return null;
   }
 
-  async function getVimeoInfo(url) {
+  async function getVimeoInfo(url) { // Tornou-se async
     const regex = /vimeo\.com\/(?:video\/)?([0-9]+)/;
     const match = url.match(regex);
     if (match && match[1]) {
@@ -654,26 +635,31 @@ document.addEventListener("DOMContentLoaded", function () {
       return {
         id: videoId,
         embedUrl: `https://player.vimeo.com/video/${videoId}?autoplay=1&transparent=0&dnt=1`,
-        thumbnailUrl: thumbnailUrl
+        thumbnailUrl: thumbnailUrl // Retorna a URL da miniatura diretamente
       };
     }
     return null;
   }
 
-  async function getSpotifyInfo(url) {
+  async function getSpotifyInfo(url) { // Tornou-se async
     const playlistRegex = /open\.spotify\.com\/playlist\/([a-zA-Z0-9]+)/;
     const playlistMatch = url.match(playlistRegex);
 
     if (playlistMatch && playlistMatch[1]) {
       const playlistId = playlistMatch[1];
+      // Usa o endpoint oEmbed do Spotify para obter informações, incluindo a thumbnail_url
       const oEmbedSpotifyUrl = `https://open.spotify.com/oembed?url=${encodeURIComponent(url)}`;
       let thumbnailUrl = null;
 
       try {
         const response = await fetch(oEmbedSpotifyUrl);
-        if (!response.ok) throw new Error(`Spotify oEmbed request failed: ${response.status}`);
+        if (!response.ok) {
+          throw new Error(`Spotify oEmbed request failed: ${response.status}`);
+        }
         const data = await response.json();
         thumbnailUrl = data.thumbnail_url ? data.thumbnail_url.replace(/^http:/i, 'https:') : null;
+        // Opcional: data.html contém o iframe completo, poderia ser usado no futuro se a embedUrl mudar
+        // console.log("Spotify oEmbed data:", data);
       } catch (error) {
         console.error("Erro ao buscar dados oEmbed do Spotify:", error, url);
       }
@@ -681,28 +667,8 @@ document.addEventListener("DOMContentLoaded", function () {
       return {
         id: playlistId,
         embedUrl: `https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator`,
-        thumbnailUrl: thumbnailUrl
+        thumbnailUrl: thumbnailUrl // URL da miniatura (pode ser null se não encontrada ou erro)
       };
-    }
-    return null;
-  }
-
-  async function getIframeMetaOgImage(url) {
-    try {
-      const response = await fetch(url, { method: "GET", mode: "cors" });
-      if (!response.ok) throw new Error(`Erro HTTP: ${response.status}`);
-      const html = await response.text();
-      const doc = new DOMParser().parseFromString(html, "text/html");
-      const ogImage = doc.querySelector("meta[property='og:image']");
-      if (ogImage && ogImage.content) {
-        return {
-          id: url,
-          embedUrl: url,
-          thumbnailUrl: ogImage.content
-        };
-      }
-    } catch (error) {
-      console.warn("Não foi possível obter og:image para iframe:", url, error);
     }
     return null;
   }
@@ -712,7 +678,7 @@ document.addEventListener("DOMContentLoaded", function () {
     videoWrapper.className = "video-wrapper-with-caption";
 
     const placeholder = document.createElement("div");
-    placeholder.className = `${type}-placeholder`;
+    placeholder.className = `${type}-placeholder`; // Ex: "youtube-placeholder", "spotify-placeholder"
 
     const playButton = document.createElement("div");
     playButton.className = "youtube-play-button";
@@ -723,7 +689,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const caption = document.createElement("figcaption");
       caption.className = "video-caption";
       const captionLink = document.createElement("a");
-      captionLink.href = videoInfo.embedUrl;
+      captionLink.href = linkElement.href;
       captionLink.innerHTML = captionText;
       captionLink.target = "_blank";
       captionLink.rel = "noopener noreferrer";
@@ -731,9 +697,11 @@ document.addEventListener("DOMContentLoaded", function () {
       videoWrapper.appendChild(caption);
     }
 
+    // Define a imagem de fundo se a thumbnailUrl estiver disponível
     if (videoInfo.thumbnailUrl) {
       placeholder.style.backgroundImage = `url(${videoInfo.thumbnailUrl})`;
     } else {
+      // Fallback se não houver miniatura (opcional: pode definir uma cor de fundo ou ícone genérico)
       console.warn(`Miniatura não encontrada para ${type}:`, videoInfo.id);
     }
 
@@ -755,7 +723,6 @@ document.addEventListener("DOMContentLoaded", function () {
       if (type === "youtube") iframeTitleText = "YouTube video player";
       else if (type === "vimeo") iframeTitleText = "Vimeo video player";
       else if (type === "spotify") iframeTitleText = "Spotify playlist player";
-      else if (type === "generic") iframeTitleText = "Embedded content";
       const iframeTitle = captionText ? captionText.replace(/<[^>]*>?/gm, '') : iframeTitleText;
       iframe.setAttribute("title", iframeTitle);
 
@@ -769,7 +736,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 </script>
-
 <!-- Google tag (gtag.js) -->
 <script>
 let analytics_loaded = false;

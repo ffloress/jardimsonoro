@@ -1,0 +1,3 @@
+pelican-featured-image
+pelican-sitemap
+
