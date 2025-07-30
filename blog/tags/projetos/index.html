@@ -609,7 +609,6 @@ document.addEventListener("DOMContentLoaded", function () {
     ".post-content a[href*='instagram.com/tv/']"
   );
 
-  // Para garantir que o Instagram embed.js seja carregado só 1x
   let instagramScriptLoaded = false;
 
   videoLinks.forEach(async (link) => {
@@ -637,8 +636,7 @@ document.addEventListener("DOMContentLoaded", function () {
       url.includes("instagram.com/p/") ||
       url.includes("instagram.com/tv/")
     ) {
-      // Instagram embed via blockquote + script (sem fetch)
-      createInstagramEmbed(link, url);
+      createInstagramEmbed(link, url, linkText);
       if (!instagramScriptLoaded) {
         loadInstagramEmbedScript();
         instagramScriptLoaded = true;
@@ -742,54 +740,61 @@ document.addEventListener("DOMContentLoaded", function () {
       console.warn(`Miniatura não encontrada para ${type}:`, videoInfo.id);
     }
 
-    placeholder.addEventListener(
-      "click",
-      () => {
-        const iframe = document.createElement("iframe");
-        iframe.src = videoInfo.embedUrl;
-        iframe.className = placeholder.className;
-        iframe.style.backgroundImage = "none";
-        iframe.style.backgroundColor = "#000";
-        iframe.setAttribute("frameborder", "0");
-        iframe.setAttribute("allowfullscreen", "");
-        iframe.setAttribute(
-          "allow",
-          "autoplay; clipboard-write; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; web-share"
-        );
-        iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
-        if (type === "spotify" || type === "instagram") {
-          iframe.setAttribute("loading", "lazy");
-        }
+    placeholder.addEventListener("click", () => {
+      const iframe = document.createElement("iframe");
+      iframe.src = videoInfo.embedUrl;
+      iframe.className = placeholder.className;
+      iframe.style.backgroundImage = "none";
+      iframe.style.backgroundColor = "#000";
+      iframe.setAttribute("frameborder", "0");
+      iframe.setAttribute("allowfullscreen", "");
+      iframe.setAttribute(
+        "allow",
+        "autoplay; clipboard-write; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; web-share"
+      );
+      iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+      if (type === "spotify" || type === "instagram") {
+        iframe.setAttribute("loading", "lazy");
+      }
 
-        let iframeTitleText = "Media Player";
-        if (type === "youtube") iframeTitleText = "YouTube video player";
-        else if (type === "vimeo") iframeTitleText = "Vimeo video player";
-        else if (type === "spotify") iframeTitleText = "Spotify playlist player";
-        else if (type === "instagram") iframeTitleText = "Instagram embed";
-        const iframeTitle = captionText ? captionText.replace(/<[^>]*>?/gm, "") : iframeTitleText;
-        iframe.setAttribute("title", iframeTitle);
+      const iframeTitle = captionText ? captionText.replace(/<[^>]*>?/gm, "") : "Media Player";
+      iframe.setAttribute("title", iframeTitle);
 
-        videoWrapper.replaceChild(iframe, placeholder);
-        iframe.focus();
-      },
-      { once: true }
-    );
+      videoWrapper.replaceChild(iframe, placeholder);
+      iframe.focus();
+    }, { once: true });
 
     if (linkElement.parentNode) {
       linkElement.parentNode.replaceChild(videoWrapper, linkElement);
     }
   }
 
-  function createInstagramEmbed(linkElement, url) {
+  function createInstagramEmbed(linkElement, url, captionText) {
+    const wrapper = document.createElement("div");
+    wrapper.className = "video-wrapper-with-caption";
+
     const blockquote = document.createElement("blockquote");
     blockquote.className = "instagram-media";
     blockquote.setAttribute("data-instgrm-permalink", url);
     blockquote.setAttribute("data-instgrm-version", "14");
     blockquote.style = "background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px rgba(0,0,0,0.5),0 1px 10px rgba(0,0,0,0.15); margin: 1px auto; max-width:540px; min-width:326px; padding:0; width:100%;";
 
-    // Troca o link pelo blockquote
+    wrapper.appendChild(blockquote);
+
+    if (captionText && captionText.trim() !== "") {
+      const caption = document.createElement("figcaption");
+      caption.className = "video-caption";
+      const captionLink = document.createElement("a");
+      captionLink.href = url;
+      captionLink.innerHTML = captionText;
+      captionLink.target = "_blank";
+      captionLink.rel = "noopener noreferrer";
+      caption.appendChild(captionLink);
+      wrapper.appendChild(caption);
+    }
+
     if (linkElement.parentNode) {
-      linkElement.parentNode.replaceChild(blockquote, linkElement);
+      linkElement.parentNode.replaceChild(wrapper, linkElement);
     }
   }
 
@@ -803,6 +808,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 </script>
+
 
 
 
