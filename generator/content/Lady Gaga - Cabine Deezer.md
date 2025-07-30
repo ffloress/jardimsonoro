@@ -5,7 +5,7 @@ Date: 2025-07-29 10:20
 
 
 
-O propósito da Jardim Sonoro é desenvolver ideias musicais. No dia a dia, isso significa criar playlists — muitas delas — para as marcas que confiam na gente. Confesso: eu amo fazer playlists. Faria até de graça. Mas existe um tipo de alegria ainda mais rara, que chega para mim a demanda por um projeto musical inédito, como por exemplo o criar uma experiência musical imersiva, montar uma instalação sonora ou desenvolvimento de sound design.
+O propósito da Jardim Sonoro é desenvolver ideias musicais. No dia a dia, isso significa criar playlists — muitas delas — para as marcas que confiam na gente. Confesso: eu amo fazer playlists. Faria até de graça. Mas existe um tipo de alegria ainda mais rara, que chega para mim a demanda por um projeto musical inédito, como por exemplo o criar uma experiência musical imersiva, montar uma instalação sonora ou simplesmente desenvolvimento de sound design.
 O caso que quero contar aqui teve tudo isso junto.
 
 
@@ -14,7 +14,7 @@ Em março de 2025, recebi uma mensagem da Júlia Paula, mente brilhante por trá
 ![Lady Gaga](../img/gaga.webp)
 
 A ficha talvez ainda não tenha caído. Parece inacreditável: tantos ícones reunidos num só projeto. 
-O projeto criada pelo time de arquitetas e designers do Studio Queen era uma cabine telefônica cenográfica, no formato de um jogo analógico interativo, onde fãs da Lady Gaga poderiam brincar e, com sorte, ganhar convites para a área VIP do show. O conceito era puro suco de gamificação: fichas, sequências lógicas, botões coloridos, efeitos sonoros nostálgicos… E muito Abracadraba.
+A experiência era uma cabine telefônica cenográfica, no formato de um jogo analógico interativo, onde fãs da Lady Gaga poderiam brincar e, com sorte, ganhar convites para a área VIP do show. O conceito era puro suco de gamificação: fichas, sequências lógicas, botões coloridos, efeitos sonoros nostálgicos… E muito Abracadraba.
 
 Assim nasceu o Gaga Sampler:
 
@@ -32,15 +32,15 @@ Assim nasceu o Gaga Sampler:
 
 (protótipo do jogo em versão digital, que depois virou uma cabine analógica na ativação)
 
-Com o conceito definido, o desafio foi transformar isso em uma mecânica física funcional — com botões reais, sons sincronizados, uma interface híbrida analógico-digital. Aqui entra o lado tecnológico da Jardim Sonoro: além de músico, sou engenheiro da computação, e nesse projeto tive a honra de contar com a parceria extra do genial Marlon Souza, engenheiro e hacker de primeira, afinal não é sempre que desenhamos o som de uma moeda sendo inserida no slot machine, e logo em seguida soldamos os cabos de um botão de arcade.
+Com o conceito definido, o desafio foi transformar isso em uma mecânica física funcional — com botões reais, sons sincronizados, uma interface híbrida analógico-digital. Aqui entra o lado tecnológico da Jardim Sonoro: além de músico, sou engenheiro da computação, e nesse projeto tive a honra de contar com a parceria extra do genial Marlon Souza, colega de faculdade e hacker de primeira, afinal não é sempre que desenhamos o som de uma moeda sendo inserida no slot machine, e logo em seguida soldamos os cabos de um botão de arcade.
 
 ![Interface Analogica Digital](../img/raspi.webp)
 
-O cérebro eletrônico do jogo foi enviado para a marcenaria e No dia D, tudo foi montado bem ali, de frente pro mar de Ipanema, sob o céu azul e a expectativa no ar.
+O cérebro eletrônico do jogo foi enviado para a marcenaria e no dia D, tudo foi montado bem ali no calçadão, de frente pro mar de Ipanema, sob o céu azul e a expectativa no ar.
 
 ![Cabine Deezer](../img/cabinedeezer.webp)
 
-Mais emocionante do que o periodo de desenvolvimento  foi ver a reação dos fãs ao vivo. Cada botão, som, lógica e efeito foram pensados para proporcionar alegria e surpresa — e isso ficou visível nos rostos de quem passou por lá.
+Ainda mais emocionante do que o periodo de desenvolvimento  foi ver a reação dos fãs ao vivo. Cada botão, som, lógica e efeito foram pensados para proporcionar alegria e surpresa — e isso ficou visível nos rostos de quem passou por lá.
 
 
 
@@ -48,7 +48,7 @@ Mais emocionante do que o periodo de desenvolvimento  foi ver a reação dos fã
 
 Foram seis horas seguidas de ativação. No fim da tarde, todos estávamos meio “Zombie Boy”… mas com o coração cheio.
 
-E havia ainda mais por vir. Uma eletricidade especial pairava no ar do Rio de Janeiro na véspera do grande evento. E que noite! Lady Gaga fez questão de levar muitos instrumentos para o palco, tocar muito, arrepiar o público e dizer em alto e bom son que "The Music Matters!".
+E havia ainda mais por vir. Uma eletricidade especial pairava no ar do Rio de Janeiro na véspera do grande evento. E que noite! Lady Gaga fez questão de levar músicos e instrumentos de verdade para o palco, tocar muito, arrepiar o público e dizer em alto e bom som que "The Music Matters!".
 
 
 [Lady Gaga em Copacabana - Zombie Boy](https://www.youtube.com/watch?v=zLKOawrVFjI)
