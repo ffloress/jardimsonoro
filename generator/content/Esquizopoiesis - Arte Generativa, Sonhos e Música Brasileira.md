@@ -102,7 +102,7 @@ Contra a visão de uma tecnologia neutra, eu gostaria de distribuir a todos os i
 ![Gilberto Gil](../img/dipirona.jpg)
 
 
-No sábado, após o evento, acordei com dores musculares — talvez resquícios da minha virose recente ou das caminhadas entre sol e ar-condicionado gelado do evento. Tomei dipirona novamente, óleo de CBD, e minha cabeça começou a girar. Uma nuvem de palavras-chave se materializou na minha neve visual: O Cérebro Eletrônico de Gilberto Gil + Inteligência Artificial + Sonhos + Sidarta Ribeiro
+No sábado, após o evento, acordei com dores musculares — talvez resquícios da minha virose recente ou das caminhadas entre sol e ar-condicionado gelado do evento. Tomei dipirona novamente, óleo de CBD, e minha cabeça começou a girar. Uma nuvem de palavras-chave se materializou na minha neve visual: O Cérebro Eletrônico de Gilberto Gil + Inteligência Artificial + Sonhos + Sidarta Ribeiro...
 
 Me perguntei se tinha visto Sidarta Ribeiro em algum palco do RiW ou se sonhei acordado. Certamente ele já esteve em alguma edição do Rio Innovation Week. 
 
