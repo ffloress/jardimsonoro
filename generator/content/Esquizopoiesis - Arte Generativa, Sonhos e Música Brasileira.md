@@ -95,7 +95,9 @@ Contra a visão de uma tecnologia neutra, eu gostaria de distribuir a todos os i
 **<a href="https://revistas.marilia.unesp.br/index.php/orgdemo/article/view/411/311" target="_blank">O Fetiche da Tecnologia</a>**, de Henrique Novaes,  onde se le:
 
 
-> "Por ser a  tecnologia uma construção social -um campo de batalha -historicamente determinado, sendo resultado de um processo onde intervêm múltiplos atores com distintos interesses, a trajetória de inovação científica e tecnológica poderia ser redirecionada, dependendo da capacidade dos atores interessados na mudança social
+> "Por ser a  tecnologia uma construção social -um campo de batalha -historicamente determinado, sendo resultado de um processo onde intervêm múltiplos atores com distintos interesses, a trajetória de inovação científica e tecnológica poderia ser redirecionada, dependendo da capacidade dos atores interessados na mudança social"
+
+----
 
 ![Gilberto Gil](../img/dipirona.jpg)
 
