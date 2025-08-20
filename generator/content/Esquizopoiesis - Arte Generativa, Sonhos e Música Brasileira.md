@@ -17,12 +17,12 @@ Date: 2025-08-20 10:20
 
 Neste mês de agosto, a cidade do Rio de Janeiro recebeu o **<a href="https://rioinnovationweek.com.br/" target="_blank">Rio Innovation Week</a>**, um festival de encontros, conversas e palestras que, como o nome em inglês já denuncia, trata de inovação em áreas que vão de saúde a políticas públicas. E, claro, com muita arte e tecnologia na pauta.  
 
-Quando ganhei meu passaporte para os quatro dias de evento, o clima estava frio e nublado, eu estava gripado, e confesso: a ideia de me juntar a uma enorme plateia em um galpão fechado para ouvir influenciadores digitais discutirem sobre as mais novas  
+Quando ganhei um passaporte para os quatro dias de evento, o clima estava frio e nublado, eu estava gripado, e confesso: a ideia de me juntar a uma enorme plateia em um galpão fechado para ouvir influenciadores digitais discutirem sobre as mais novas  
 <a href="https://chat.openai.com/?q=%22Um%20artigo%20sat%C3%ADrico%20sobre%20as%20%C3%BAltimas%20buzzwords%20utilizadas%20por%20marketeiros%2C%20techbros%2C%20e%20gente%20do%20linkedin%20em%20geral.%22" target="_blank"><b>Buzzwords</b></a> do momento não me animava. De influenza já bastava a que estava instalada nos meus brônquios. Então, nem olhei com atenção a extensa programação. Sabia apenas que haveria muita Inteligência Artificial associada aos mais diversos temas.  
 
 ![Rio Innovation Week](../img/riw.gif)
 
-No entanto, na terça-feira, quando o evento começou, o sol voltou, a dipirona fez o seu trabalho, e eu acordei animado com a possibilidade de deparar com o novo. Peguei o metrô, depois o VLT e, chegando no Pier Mauá, uma ótima surpresa: havia um palco exclusivo sobre o mercado da música, **<Music Forward**, promovido pelos ídolos da <a href="https://teclamusic.com.br" target="_blank">Tecla Music</a>  . Dali não saí mais. Voltei todos os quatro dias seguintes. Foi intenso: conheci pessoas e trabalhos que eu nem imaginava, fiz contatos novos e, ao final, tive uma epifania que resultou na criação de uma palavra: **Esquizopoiesis**.  
+No entanto, na terça-feira, quando o evento começou, o sol voltou, a dipirona fez o seu trabalho, e eu acordei animado com a possibilidade de me deparar com o novo. Peguei o metrô, depois o VLT e, chegando no Pier Mauá, uma ótima surpresa: havia um palco exclusivo sobre o mercado da música promovido pelos ídolos da <a href="https://teclamusic.com.br" target="_blank">Tecla Music</a>  . Dali não saí mais. Voltei todos os quatro dias seguintes. Foi intenso: conheci pessoas e trabalhos que eu nem imaginava, fiz contatos novos e, ao final, tive uma epifania que resultou na criação de uma palavra: **Esquizopoiesis**.  
 
 
 
