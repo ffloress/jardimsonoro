@@ -81,7 +81,7 @@ Sempre que nos deparamos com a obra de Gil, lembramos porque temos orgulho de se
 
 ![Gilberto Gil](../img/gil.jpeg)
 
-Na hora das perguntas da platéia, tive vontade de levantar a mão e perguntar por que, em tempos de IA, não incluíram **Cérebro Eletrônico** na playlist. Afinal, nesta letra Gil preveu o debate atual, e já deu todas as respostas. A criação humana tem origem na vida que sabe que um dia vai morrer. Mas, deixando a minha timidez habitual vencer eu guardei o assunto para este texto.
+Além do tema da palestra, tive vontade de levantar a mão e perguntar por que, em tempos de IA, não incluíram **Cérebro Eletrônico** na playlist. Afinal, nesta letra Gil preveu o debate atual, e já deu todas as respostas. A criação humana tem origem na vida que sabe que um dia vai morrer. Acho que poderia provocar um debate relevante na hora, mas, deixei a minha timidez habitual prevalecer e guardei o assunto para este texto.
 
 
 ### 🤖 Autores, compositores e algoritmos: criar ainda é humano? – Ricardo Moreno, <a href="https://www.instagram.com/pietroreis/" target="_blank">Pietro Reis</a>, <a href="https://www.instagram.com/julia_mestre/" target="_blank">Julia Mestre</a>  
