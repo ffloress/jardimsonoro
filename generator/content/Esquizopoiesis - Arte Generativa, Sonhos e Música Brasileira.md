@@ -201,7 +201,7 @@ Em **<a href="https://libraryofbabel.info/" target="_blank">libraryofbabel.info<
 
 
 
-A inteligência artificial generativa organiza um mosaico de intenções cristalizadas em matemática de rede neural para estruturar uma resposta a uma requisição do usuário. Sua matéria prima, o conteúdo que serviu para gerar seu treinamento e pesos, agora pela primeira vez na história estão separadas da suas intenção de criação. O ser humano é o único portador possível da poiesis, que acende — como Prometeu — o fogo que ilumina a escuridão.
+A inteligência artificial generativa organiza um mosaico de intenções cristalizadas em matemática de rede neural para estruturar uma resposta a uma requisição do usuário. Esta rede neural é modelada nas formas poéticas propostas por muitos no passado. No entando o ser humano é o único portador possível da poiesis, que acende — como Prometeu — o fogo que ilumina a escuridão.
 
 
   
