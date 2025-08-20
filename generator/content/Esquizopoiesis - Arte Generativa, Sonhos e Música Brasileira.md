@@ -51,7 +51,7 @@ Uma história emocionante sobre como utilizaram o aprendizado de máquina para r
 
 ### 📻 15 anos do Festival Novas Frequências – <a href="https://www.instagram.com/chicodub/" target="_blank">Chico Dub</a>  
 
-Em tempos de atenção fragmentada e produção automatizada de áudio e vídeo, a experiência de shows ao vivo se mostra urgente. Aposto que a overdose de artistas gerados por IA vai banalizar a suposta “sonoridade comum” dos estilos musicais — e o público vai buscar, cada vez mais, <a href="https://www.novasfrequencias.com/" target="_blank">Festival Novas Frequências</a> .  
+Em tempos de atenção fragmentada e produção automatizada de áudio e vídeo, a experiência de shows ao vivo se mostra urgente. Aposto que a overdose de artistas gerados por IA vai banalizar a suposta “sonoridade comum” dos estilos musicais — e o público vai buscar, cada vez mais, <a href="https://www.novasfrequencias.com/" target="_blank">"novas frequências"</a> .  
 
 [Novas Frequencias](https://www.instagram.com/p/DNDodNRun28/)
 
