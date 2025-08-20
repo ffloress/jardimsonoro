@@ -149,8 +149,8 @@ Como experimento e para ilustrar esta explicação, fiz a geração de uma nova 
  Se tudo é dado, nada é dado de graça.
  Se tudo é arte, cadê a praça?
  / No fim, a maior buzzword: Inteligência Artificial, Prazer sou eu a plagiadora oficial."
- 
 -ChatGPT (treinado no repertório da União Brasileira Dos Compositores)
+ 
  
 
 Eu até que me orgulho do resultado que consegui depois de alguns ajustes na letra. Me senti co-criador por não mais do que um minuto. Mas quem escutar atentamente o resultado terá uma estranha sensação de miragem: fragmentos de estilos e vozes parecem emergir como ecos reconhecíveis: Maria Rita, Emicida, talvez Claudia Leitte ou Vanessa Rangel, mas, assim que se delineiam, logo se desfazem no ar, dissolvidos em outro timbre, em outro fraseado musical característico. O efeito é um mosaico instável de influências, feito de cintilações que nunca se fixam, justamente porque à máquina falta o núcleo vital da criação.
