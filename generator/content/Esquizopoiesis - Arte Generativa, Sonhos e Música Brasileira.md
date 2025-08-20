@@ -119,7 +119,7 @@ Até que veio a epifania e levantei-me subitamente com uma palavra nova na mente
 
 A resposta que eu buscava estava no fenômeno que eu acabava de experimentar, e sua potência: pessoas elaborando pensamentos e falas em tempo real. Eu jamais experimentaria o mesmo assistindo essas palestras pelo youtube. Foi o contato direto com as pessoas que provocou uma mudança no meu diálogo interno.
 
-Inteligências artificiais generativas são ferramentas poderosas, mas como arte eu aposto na tendencia de que será consumida como uma forma de entretenimento em si mesma. O público ao invés de navegar em infinitas bibliotecas de conteúdo gerado por I.A.,  vai preferir gerar o seu próprio conteúdo em tempo real — e pagar por esse tipo de entretenimento. E enquanto vivermos em uma sociedade capitalista, os criadores cujas obras alimentaram o aprendizado de máquina desses provedores de serviços, são merecedores de todos os royalties a que têm direito. Estamos falando de um "streaming" de fragmentos poieséticos.
+Inteligências artificiais generativas são ferramentas poderosas, mas como arte eu aposto na tendencia de que será consumida como uma forma de entretenimento em si mesma. O público ao invés de navegar em infinitas bibliotecas de conteúdo gerado por I.A.,  vai preferir gerar o seu próprio conteúdo em tempo real — e pagar por esse tipo de entretenimento. E enquanto vivermos em uma sociedade capitalista, os criadores cujas obras alimentaram o aprendizado de máquina desses provedores de serviços, são merecedores de todos os royalties a que têm direito. 
 
 Como experimento e para ilustrar esta explicação, fiz a geração de uma nova música no site <a href="https://suno.com/" target="_blank">Suno</a>. Cantando sobre este assunto:  
 
@@ -168,7 +168,7 @@ O musicólogo Murray Schaffer,  propos em seu livro *<a href="https://monoskop.o
 
 ![O Ouvido Pensante](../img/ouvidopensante.jpg)
 
-O século XX, com suas formas industriais de mídia, possibilitou a difusão massiva de criações, mas que carregavam a representação de sua forma poética. Uma exopoiesis. Agora com o escalonamento do conteúdo "generativo" vivemos um novo paradigma: fragmentos de formas separados de seus criadores para compar a resposta a um comando. 
+O século XX, com suas formas industriais de mídia, possibilitou a difusão massiva de criações, mas que carregavam a representação íntegra de sua forma poética. Aqui cabe mais um neologismo: **exopoiesis**. Agora com o escalonamento do conteúdo "generativo" vivemos um novo paradigma: fragmentos de formas separados de seus criadores para compar a resposta a um comando. 
 
 
 
