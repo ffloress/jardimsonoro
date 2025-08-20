@@ -57,7 +57,7 @@ Em tempos de atenção fragmentada e produção automatizada de áudio e vídeo,
 
 
 
-### 👩‍🚀 Narrativas Espaciais: design, tecnologia e experiência em projetos imersivos – <a href="https://www.instagram.com/debaroba/" target="_blank">Débora Marquesi</a>  
+### 👩‍🚀 Narrativas Espaciais: design, tecnologia e experiência em projetos imersivos – Débora Marquesi
 
 Em tantos anos trabalhando com marcas, foi a melhor síntese que já vi de como a história a ser contada guia a experiência que uma marca quer passar. 
 A palestra de Debora Marquesi foi inspirada, e envolveu o público, começando com um convite para perguntarmos a pessoa que sentava em nosso lado, qual era a história do nome dela. E para minha surpresa meu vizinho de platéia também se chamava Frederico.
