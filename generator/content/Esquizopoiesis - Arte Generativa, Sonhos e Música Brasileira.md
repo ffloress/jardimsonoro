@@ -168,7 +168,7 @@ O musicólogo Murray Schaffer,  propos em seu livro *<a href="https://monoskop.o
 
 ![O Ouvido Pensante](../img/ouvidopensante.jpg)
 
-O século XX, com suas formas industriais de mídia, possibilitou a difusão massiva de criações, mas que carregavam a representação íntegra de sua forma poética. Agora com o escalonamento do conteúdo gerado por I.A. nos deparamos com um novo paradigma da total fragmentação.
+O século XX, com suas formas industriais de mídia, possibilitou a difusão massiva de criações, mas que carregavam a representação íntegra de sua forma poética. Agora com o escalonamento do conteúdo gerado por I.A. nos deparamos com um novo paradigma, da separação entre criador, obra e forma.
 
 
 
