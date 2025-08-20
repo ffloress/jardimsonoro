@@ -155,7 +155,7 @@ Eu até que me orgulho do resultado que consegui depois de alguns ajustes na let
 
 As big techs poderiam — e, sinceramente, deveriam — colar aos seus serviços um cálculo de quanto cada obra protegida por direitos autorais foi utilizada para os pesos e treinamentos que geraram cada resposta, para que parte da grana das mensalidades desses serviços possam ir direto para os artistas, e outra parte para a educação em arte. Tipo um regime de royalties do petróleo poético: você extrai, mas tem que devolver algo ao solo de origem.
 
-#### ⌨️ <a href="https://chat.openai.com/?q=%22Um%20pseudocódigo%20de%20algoritmo%20para%20calcular%20a%20porcentagem%20de%20diretos%20autorais%20devidas%20em%20cada%20resposta%20gerada%20por%20um%20serviço%20comercial%20de%20I.A.%20generativa%20treinada%20com%20conteúdo%20protegido%20por%20direitos%20autorais" target="_blank"><b>Algo conceitualmente simples de ser implementado! Na dúvida, clique aqui.</b></a>
+#### ⌨️ <a href="https://chat.openai.com/?q=%22Um%20pseudocódigo%20de%20algoritmo%20para%20calcular%20a%20porcentagem%20de%20diretos%20autorais%20devidas%20em%20cada%20resposta%20gerada%20por%20um%20serviço%20comercial%20de%20I.A.%20generativa%20treinada%20com%20conteúdo%20protegido%20por%20direitos%20autorais" target="_blank"><b>Algo conceitualmente simples de ser implementado!</b></a>
 
 ---
 
@@ -171,22 +171,30 @@ O século XX, com suas formas industriais de mídia, possibilitou a difusão mas
 
 >"Poiesis é um substantivo que se forma do verbo grego poiein. Este assinala no grego a ação de fazer diversificada, mas sobretudo a questão da essência do agir, daí estar ligada à poiesis, no sentido que hoje consideramos criação. Esta pressupõe um fazer surgir, um figurar algo a partir do nada, ou no pensamento mítico, a partir da Terra, e mais tarde a partir da physis. Mas o que é o nada, a Terra, a physis? São estas questões que remetem para a essência do agir. Poiesis é, pois, todo agir criativo ou essencial."
 
-- [Manuel Antônio de Castro](https://travessiapoetica.blogspot.com/2006/09/perguntas-sobre-entrevista-de-rosa-05.html)
+-[Manuel Antônio de Castro](https://travessiapoetica.blogspot.com/2006/09/perguntas-sobre-entrevista-de-rosa-05.html)
 
 
 
-A experiência com ferramentas de IA generativa seria semelhante a experiência de sonho lúcido. Podemos simular mundos possíveis, sem objetivo prático — um fim em si mesmo. Aqui nos deparamos talvez com **[A Biblioteca de Babel](https://site.ufvjm.edu.br/cafeliterario/a-biblioteca-de-babel-jorge-luis-borges/)**, do conto de Jorge Luis Borges [1], que imagina uma biblioteca infinita, cujas páginas dos livros contem todas as combinações aleatórias possíveis com as letras do alfebato, e por isso acaba contendo todos os livros já escritos e todos os que ainda poderiam ser. 
+A experiência com ferramentas de IA generativa é semelhante a experiência de sonho lúcido. Podemos simular mundos possíveis, sem objetivo prático, um fim em si mesmo. Aqui nos deparamos com **[A Biblioteca de Babel](https://site.ufvjm.edu.br/cafeliterario/a-biblioteca-de-babel-jorge-luis-borges/)**, de Jorge Luis Borges, que imagina uma biblioteca infinita, cujas páginas dos livros contem todas as combinações aleatórias possíveis com as letras do alfebato, e por isso acaba contendo todos os livros já escritos e todos os que ainda poderiam ser. 
 
-Primeiro, o narrador do conto se deslumbra com a promessa de conhecimento absoluto; depois, sucumbe ao peso opressor de um labirinto no qual o sentido se dissolve entre ruídos indistintos.
+Primeiro se deslumbra com a promessa de conhecimento absoluto; depois, sucumbe-se ao peso opressor de um labirinto no qual o sentido se dissolve entre ruídos indistintos.
+
+
 
 <iframe width="100%" height="60" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=%2Ffredfs99%2Fthe-library-of-babel-jorge-luis-borges%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" ></iframe>
 
 
-Hoje, essa metáfora ganha corpo na internet graças ao site **<a href="https://libraryofbabel.info/" target="_blank">libraryofbabel.info</a>**, idealizado e implementado por Jonathan Basile, autor e programador, o site é baseado em um algoritmo que gera cada página virtualmente  **todas as páginas possíveis de 3 200 caracteres**. Ao navegar, você pode tropeçar no texto que já existe — e até naquele que ainda não foi escrito, inclusive tudo o que um dia será. É uma biblioteca **esquizopoiesética**.
+
+
+No site **<a href="https://libraryofbabel.info/" target="_blank">libraryofbabel.info</a>**, idealizado e programado por Jonathan Basile, o algoritmo cria a Biblioteca de Babel virtualmente  **todas as combinações possíveis de 3 200 caracteres** pode ser vistas. Ao navegar, com o devido tempo que pode ser de 1 minuto ou 1 milhão de anos, você pode tropeçar em texto que já existe, e até naquele que ainda não foi escrito, inclusive tudo o que um dia será. É o olhar humano que pode identificar uma obra. A Biblioteca de Babel é um acervo **esquizopoiesético**.
+
+
 
 ![The Library Of Babel](../img/babel.jpg)
 
-A inteligência artificial generativa organiza um mosaico de intenções de formas para estruturar suas saídas. Mas essas micropartículas, agora pela primeira vez na história, separadas de seus criadores, não são poéticas. É o humano o único portador possível da poiesis, que acende — como Prometeu — o fogo que ilumina a escuridão.
+
+
+A inteligência artificial generativa organiza um mosaico de intenções cristalizadas em matemática de rede neural para estruturar uma resposta a uma requisição do usuário. Sua matéria prima, o conteúdo que serviu para gerar seu treinamento e pesos, agora pela primeira vez na história estão separadas da suas intenção de criação. O ser humano é o único portador possível da poiesis, que acende — como Prometeu — o fogo que ilumina a escuridão.
 
 
   
