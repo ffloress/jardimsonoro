@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+  <meta charset="utf-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"></noscript>
+<title>Jardim Sonoro - Blog</title>
+<meta name="author" content="Frederico Flores">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@jardimsonoro">
+
+
+  <link rel="canonical" href="https://jardimsonoro.com/blog/esquizopoiesis-arte-generativa-sonhos-e-musica-brasileira-4-dias-de-rio-innovation-week/">
+
+  <meta name="description" content=""O universo não é uma ideia minha. A minha ideia de universo é que é uma ideia minha. A noite não anoitece pelos meus olhos. A minha ideia de noite é que anoitece pelos meus olhos. Fora de eu pensar e de haver quaisquer pensamentos A noite anoitece concretamente E …">
+  <meta name="twitter:description" content=""O universo não é uma ideia minha. A minha ideia de universo é que é uma ideia minha. A noite não anoitece pelos meus olhos. A minha ideia de noite é que anoitece pelos meus olhos. Fora de eu pensar e de haver quaisquer pensamentos A noite anoitece concretamente E …">
+  <meta property="og:description" content=""O universo não é uma ideia minha. A minha ideia de universo é que é uma ideia minha. A noite não anoitece pelos meus olhos. A minha ideia de noite é que anoitece pelos meus olhos. Fora de eu pensar e de haver quaisquer pensamentos A noite anoitece concretamente E …">
+
+  <meta name="twitter:image" content="https://jardimsonoro.com/blog/img/esquizopoiesis.webp">
+  <meta property="og:image" content="https://jardimsonoro.com/blog/img/esquizopoiesis.webp">
+
+<meta property="og:url" content="https://jardimsonoro.com/blog/esquizopoiesis-arte-generativa-sonhos-e-musica-brasileira-4-dias-de-rio-innovation-week/">
+<meta property="og:title" content="Esquizopoiesis - Arte Generativa, Sonhos e Música Brasileira - 4 Dias de Rio Innovation Week">
+<meta property="og:type" content="article">
+
+<link rel="icon" type="image/x-icon" href="https://jardimsonoro.com/favicon.ico">
+
+<link rel="alternate" type="application/atom+xml" href="https://jardimsonoro.com/blog/" title="Atom Feed">
+<link rel="alternate" type="application/atom+xml" href="https://jardimsonoro.com/blog/feeds/all.atom.xml" title="Full Atom Feed">
+
+<style>
+/* @font-face para circularbook e circularbold removidas, usando Ubuntu do Google Fonts */
+
+@keyframes animation-acid {
+  0%, 100% { color: #5bc5aa; }
+  33.33% { color: #b272e1; }
+  66.67% { color: #72b6e1; }
+}
+@keyframes animation-acidbg {
+  0%, 100% { background-color: #336b99; }
+  33.33% { background-color: #287c66; }
+  66.67% { background-color: #6d3d99; }
+}
+@keyframes animation-acidborder {
+  0%, 100% { border-color: #5bc5aa; }
+  33.33% { border-color: #b272e1; }
+  66.67% { border-color: #72b6e1; }
+}
+
+.acid { animation: animation-acid 3s infinite; color: #5bc5aa; }
+.acidbg {
+  animation: animation-acidbg 5s infinite;
+  background-color: #5bc5aa;
+  font-weight: 700; /* Ubuntu Bold */
+  padding: 5px;
+  border-radius: 0.25em;
+}
+.acidbg:hover { filter: invert(100%); }
+.white { color: white; }
+.sublinhado { text-decoration: underline; }
+.acidborder { animation: animation-acidborder 3s infinite; background-color: #5bc5aa; }
+
+/* Theme Base (Paper theme inspired) */
+:root {
+  --gap: 1.5em;
+  --content-gap: 2.5em;
+  --nav-width: 64.0em;
+  --main-width: 40.0em;
+  --header-height: 3.75em;
+  --footer-height: 3.75em;
+  --radius: 0.5em;
+  --theme: #fff;
+  --entry: #fff;
+  --primary: rgba(0, 0, 0, 0.88);
+  --secondary: rgba(0, 0, 0, 0.56);
+  --tertiary: rgba(0, 0, 0, 0.16);
+  --content: rgba(0, 0, 0, 0.88);
+  --hljs-bg: #1c1d21; 
+  --code-bg: #f5f5f5; 
+  --border: #eee;
+}
+.dark {
+  --theme: #1d1e20;
+  --entry: #2e2e33;
+  --primary: rgba(255, 255, 255, 0.84);
+  --secondary: rgba(255, 255, 255, 0.56);
+  --tertiary: rgba(255, 255, 255, 0.16);
+  --content: rgba(255, 255, 255, 0.75);
+  --hljs-bg: #2e2e33;
+  --code-bg: #37383e;
+  --border: #5b5d67;
+}
+.list { background: var(--code-bg); } 
+.dark.list { background: var(--theme); }
+
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; font-family: 'Ubuntu', sans-serif; }
+html { -webkit-tap-highlight-color: transparent; font-family: 'Ubuntu', sans-serif; }
+body {
+  margin: 0;
+  color: var(--primary);
+  font-size: 1.2em !important; 
+  line-height: 1.8;
+  word-break: break-word;
+  background: var(--theme);
+  font-family: 'Ubuntu', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section { display: block; }
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0; margin-bottom: 0;
+  color: var(--primary);
+  line-height: 1.2;
+  font-weight: 500; 
+}
+p { margin-top: 0; margin-bottom: 0; }
+strong, b { font-weight: 700; } /* Ubuntu Bold */
+ul { margin: 0; padding: 0; list-style: none; }
+a { color: var(--primary); text-decoration: none; }
+figure { margin: 0; }
+table { width: 100%; border-collapse: collapse; border-spacing: 0; }
+button, input, textarea {
+  padding: 0; font: inherit; background: transparent; border: 0;
+  appearance: none; -webkit-appearance: none; -moz-appearance: none;
+}
+button, input[type='button'], input[type='submit'] { cursor: pointer; }
+input:autofill, textarea:autofill { box-shadow: 0 0 0 3.125em var(--theme) inset; }
+img { display: block; max-width: 100%; height: auto; }
+
+/* Header */
+.header { 
+  /* border-bottom: 1px solid var(--border); */ 
+}
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  align-items: center;
+  gap: 1em;
+  max-width: var(--nav-width); 
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 var(--gap); 
+  height: var(--header-height);
+}
+.nav a { line-height: var(--header-height); } 
+.logo { 
+}
+.logo a { font-size: 1em; font-weight: 700; /* Ubuntu Bold para o texto do logo */ }
+.menu { display: flex; gap: 1em; flex-wrap: wrap; } 
+.menu a { font-size: 1.0em; }
+.logo-container { margin-bottom: 0.5rem; } 
+.logoimg { width: 25px; height: 25px; object-fit: cover; border-radius: 50%; } 
+
+/* Main Content Area */
+.main {
+  position: relative;
+  flex-grow: 1; 
+  max-width: calc(var(--main-width) + var(--gap) * 2);
+  margin-left: auto;
+  margin-right: auto;
+  padding: var(--gap);
+}
+.page-header { margin-bottom: 1.5em; }
+.page-header h1 { font-size: 2.5em; }
+
+.pagination { display: flex; margin-top: var(--content-gap); }
+.pagination a {
+  color: var(--theme);
+  font-size: 0.8125em;
+  line-height: 2.25em;
+  background: var(--primary);
+  border-radius: calc(2.25em / 2);
+  padding: 0 1em;
+}
+.pagination .prev { padding-left: 1.0em; padding-right: 1.125em; }
+.pagination .next { margin-left: auto; padding-left: 1.125em; padding-right: 1.0em; }
+
+/* Post Entry (Listagens de Artigos) */
+/* REMOVIDAS AS REGRAS ESPECÍFICAS PARA .first-entry para uniformizar a lista */
+/*
+.first-entry { 
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 20.0em;
+  margin-bottom: var(--header-height); 
+}
+.first-entry .entry-header h2 { font-size: 2.5em; }
+.first-entry .entry-content { margin-top: 0.875em; margin-bottom: 0.875em; font-size: 1.0em; }
+*/
+
+.post-entry {
+  position: relative;
+  margin-bottom: var(--gap);
+  padding: var(--gap);
+  background: var(--entry);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 1em; 
+  transition: transform 0.1s ease-out, box-shadow 0.1s ease-out; 
+   width: 100%;
+}
+.post-entry:hover { 
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+.post-entry:active { transform: scale(0.98); }
+
+.post-entry-thumb-container { display: flex; align-items: flex-start; gap: 1em; }
+.post-thumb {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  overflow: hidden; 
+  border-radius: var(--radius);
+}
+.post-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.entry-header { 
+  flex-grow: 1; 
+}
+.entry-header h2 { font-size: 1.5em; } 
+.entry-header p { font-size: 0.7em; } 
+
+.entry-content { 
+  margin-top: 0.5em; margin-bottom: 0.5em;
+  color: var(--secondary);
+  font-size: 0.875em;
+  line-height: 1.6;
+}
+.list .entry-content { 
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; 
+}
+.single .entry-content { 
+  display: block; 
+  overflow: visible;
+  -webkit-line-clamp: unset;
+  -webkit-box-orient: initial;
+}
+
+.entry-footer { color: var(--secondary); font-size: 0.8125em; text-align: right; }
+.entry-link { position: absolute; left: 0; right: 0; top: 0; bottom: 0; } 
+
+/* Post Single (Página de Artigo Individual) */
+.post-header { margin-top: 1.5em; margin-bottom: var(--content-gap); }
+.post-title { margin-bottom: 0.125em; font-size: 2.5em; transform: translateX(-2px); }
+.post-by { color: var(--secondary); font-size: 0.875em; }
+.post-by a { color: var(--secondary); font-size: 1em; }
+.post-by a:hover { color: #80cbc4; border-bottom: 0.0625em solid var(--primary); text-decoration: underline; }
+
+.post-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5em 1em; 
+  color: var(--secondary);
+  font-size: 0.875em;
+  margin-bottom: 1em; 
+}
+.post-date { font-size: 0.9em; color: #888; }
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em; 
+  margin: 0; padding: 0;
+  justify-content: flex-end; 
+}
+.post-tags li { font-size: 0.85em; }
+.post-tags a { display: block; text-decoration: none; font-size: 0.875em; line-height: 2.125em; }
+
+.post-content { color: var(--content); }
+.post-content img, .post-content iframe { display: block; margin-left: auto; margin-right: auto; max-width: 100%; }
+/* Títulos dentro do conteúdo do post */
+.post-content h1 { margin-top: 2.5em; margin-bottom: 1.0em; font-size: 2.2em; }
+.post-content h2 { margin-top: 2.0em; margin-bottom: 0.8em; font-size: 1.8em; }
+.post-content h3, .post-content h4, .post-content h5, .post-content h6 { margin-top: 1.5em; margin-bottom: 0.6em; }
+.post-content h3 { font-size: 1.5em; }
+.post-content h4 { font-size: 1.2em; }
+.post-content h5 { font-size: 1.0em; }
+.post-content h6 { font-size: 0.875em; }
+
+.post-content a { box-shadow: 0 0.0625em 0 var(--primary); }
+.post-content a code { margin-left: 0; margin-right: 0; border-radius: 0; box-shadow: 0 -0.0625em 0 var(--primary) inset; }
+.post-content del { text-decoration: none; background: linear-gradient(to right, var(--primary) 100%, transparent 0) 0 50% / 0.0625em 0.0625em repeat-x; }
+.post-content p, .post-content ul, .post-content ol, .post-content dl { margin-bottom: 1.2em; }
+.post-content p { text-indent: 1.5em; }
+.post-content ul, .post-content ol { padding-left: 1.5em; }
+.post-content li { margin-top: 0.3125em; }
+.post-content li p { margin-bottom: 0; text-indent: 0; } 
+.post-content dl { display: flex; flex-wrap: wrap; margin: 0; }
+.post-content dt { width: 25%; font-weight: 700; /* Ubuntu Bold */ }
+.post-content dd { width: 75%; margin-left: 0; padding-left: 0.625em; }
+.post-content dt ~ dt, .post-content dd ~ dd { margin-top: 0.625em; }
+.post-content table { margin-bottom: 2.0em; }
+.post-content table th, .post-content table:not(.highlighttable) td { min-width: 5.0em; padding: 0.75em 0.5em; line-height: 1.5; border-bottom: 0.0625em solid var(--border); }
+.post-content table th { font-size: 0.875em; text-align: left; font-weight: 700; /* Ubuntu Bold */ }
+
+.post-content .highlight, .post-content pre {
+  margin-left: calc(var(--gap) * -1); margin-right: calc(var(--gap) * -1); 
+  margin-bottom: 2.0em;
+  background: var(--hljs-bg) !important; 
+  border-radius: var(--radius);
+  overflow-x: auto;
+  padding: var(--gap); 
+}
+.post-content ul pre, .post-content ol pre { margin-left: calc(var(--gap) * -2); }
+.post-content .highlight pre { margin: 0; padding: 0; }
+
+.right { text-align: center; } 
+.post-content .highlighttable { table-layout: fixed; }
+.post-content .highlighttable td:first-child { width: 2.5em; } 
+.post-content .highlighttable td .linenodiv { padding-right: 0 !important; }
+.post-content .highlighttable td .linenodiv pre, .post-content .highlighttable td .highlight { margin-bottom: 0; }
+.post-content .highlight span { background: transparent !important; } 
+
+.post-content code { 
+  margin: 0 0.15em; padding: 0.2em 0.4em;
+  font-size: 0.82em; line-height: initial;
+  background: var(--code-bg);
+  border-radius: 0.2em;
+  font-family: 'Ubuntu Mono', Consolas, 'Courier New', monospace; 
+}
+.post-content pre code { 
+  display: block;
+  margin: 0; padding: 0; 
+  color: rgba(255, 255, 255, 0.8); 
+  background: transparent; 
+  border-radius: 0;
+  font-family: 'Ubuntu Mono', Consolas, 'Courier New', monospace; 
+  font-size: 0.9em; 
+  line-height: 1.6;
+}
+.post-content blockquote {
+  margin: 0 0 1.5em calc(var(--gap) * -1); 
+  padding: 0.5em 1em 0.5em 1.3125em;
+  border-left: 0.25em solid var(--primary);
+  background-color: var(--code-bg); 
+}
+.post-content hr { height: 0.0625em; margin: 3.5em 0; background: var(--tertiary); border: 0; }
+
+/* Footer */
+.footer {
+  max-width: calc(var(--main-width) + var(--gap) * 2);
+  margin-left: auto; margin-right: auto;
+  padding: calc((var(--footer-height) - var(--gap)) / 2) var(--gap);
+  color: var(--secondary);
+  font-size: 0.8em;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+  line-height: 1.6;
+  border-top: 1px solid var(--border); 
+}
+.footer span { margin: 0 0.0625em; }
+.footer a { color: var(--primary); font-weight: 700; /* Ubuntu Bold */ }
+.footer a:hover { color: #80cbc4; border-bottom: 0.0625em solid var(--primary); }
+
+/* Página 404 */
+.not-found {
+  position: absolute; left: 0; right: 0;
+  display: flex; align-items: center; justify-content: center;
+  height: 80%; 
+  font-size: 10.0em; font-weight: 700; /* Ubuntu Bold */
+}
+
+.space-top { margin-top: 50px; } 
+
+/* Social Icons no Footer */
+.social-icons {
+  margin-top: 1rem; display: flex; justify-content: center; gap: 1.2rem;
+  list-style: none; padding: 0;
+}
+.social-icons a svg { fill: var(--primary); transition: fill 0.3s ease; width: 22px; height: 22px; }
+.social-icons a:hover svg { fill: #80cbc4; }
+
+.cnpj-info { font-size: 0.75em; opacity: 0.8; } 
+
+/* YouTube/Video Placeholder Styles */
+.youtube-placeholder { 
+  display: block; width: 100%; max-width: 560px;
+  aspect-ratio: 16 / 9;
+  margin: 1.5em auto; 
+  background-color: #000; 
+  background-size: cover; background-position: center;
+  position: relative; cursor: pointer;
+  border-radius: var(--radius);
+  overflow: hidden; 
+}
+
+.spotify-placeholder {
+
+  height: 352px; /* Tamanho típico do player Spotify */
+  background-color: transparent; /* Remove o fundo preto */
+ display: block; 
+ width: 100%; max-width: 560px;
+  margin: 1.5em auto; 
+  background-size: cover; background-position: center;
+  position: relative; cursor: pointer;
+  border-radius: var(--radius);
+  overflow: hidden; 
+}
+
+.spotify-play-button { 
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px; height: 60px;
+  background: url('/img/play-button-circled.webp') center / contain no-repeat;
+  filter: drop-shadow(0 0 5px rgba(0,0,0,0.5)); 
+  pointer-events: none;
+}
+
+.youtube-play-button { 
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px; height: 60px;
+  background: url('/img/play-button-circled.webp') center / contain no-repeat;
+  filter: drop-shadow(0 0 5px rgba(0,0,0,0.5)); 
+  pointer-events: none;
+}
+
+.instagram-placeholder {
+  background-size: cover;
+  background-position: center;
+  aspect-ratio: 9 / 16; /* Reels são verticais */
+  position: relative;
+  cursor: pointer;
+}
+
+.instagram-media {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block;       /* para que margin auto funcione */
+  max-width: 540px;     /* máximo permitido pelo Instagram */
+  width: 100% !important; /* para responsividade */
+}
+
+
+
+
+.video-wrapper-with-caption {
+  margin: 1.5em auto; max-width: 560px;
+}
+.video-wrapper-with-caption .youtube-placeholder { 
+  margin-left: 0; margin-right: 0;
+  margin-bottom: 0.5em; 
+}
+.video-caption {
+  display: block; font-size: 0.9em;
+  color: var(--secondary);
+  text-align: center;
+  padding: 0.5em 0.1em; margin-top: 0; 
+  line-height: 1.4;
+}
+.video-caption a, .video-caption strong { color: inherit; font-weight: inherit; }
+
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  body { font-size: 1.1em !important; }
+  .main { padding: var(--gap) 1em; }
+  .post-title, /*.first-entry .entry-header h2,*/ .page-header h1 { font-size: 2em; } /* .first-entry h2 removido da regra conjunta */
+  .post-content h1 { font-size: 1.8em; }
+  .post-content h2 { font-size: 1.6em; }
+  .post-content h3 { font-size: 1.4em; }
+  .post-content .highlight, .post-content pre {
+    margin-left: -1em; margin-right: -1em;
+    border-radius: 0; 
+  }
+  .post-content ul pre, .post-content ol pre { margin-left: calc(-1em - 1.5em); } 
+}
+
+@media (max-width: 480px) {
+  body { font-size: 1.05em !important; }
+  .post-title, /*.first-entry .entry-header h2,*/ .page-header h1 { font-size: 1.7em; } /* .first-entry h2 removido */
+  .nav { flex-direction: column; height: auto; padding-top: 0.5em; padding-bottom: 0.5em; }
+  .logo a, .menu a { line-height: 1.8; } 
+  .menu { justify-content: center; }
+  .post-meta { flex-direction: column; align-items: flex-start; gap: 0.5em; }
+  .post-meta .post-tags { justify-content: flex-start; text-align: left; }
+  .entry-footer { text-align: left; }
+
+  /* Correção para thumbnail e título em listas de artigos em telas pequenas */
+  .post-entry-thumb-container {
+    flex-direction: row; 
+    align-items: flex-start; 
+    gap: 0.8em; 
+  }
+  .post-thumb {
+    width: 60px;       
+    height: 60px;      
+    max-width: none;   
+  }
+  .post-entry .entry-header { 
+    text-align: left;
+  }
+  .post-entry .entry-header h2 {
+    font-size: 1.1em; 
+  }
+  /* Fim da correção para thumbnail */
+  
+  .post-content p { text-indent: 1em; }
+}
+
+
+
+</style>
+
+
+  </head>
+  <body class="list">
+ 
+    <header class="header">
+      <nav class="nav">
+        <h1 class="logo"><a href="/">Jardim Sonoro</a><a href=".."><span class="acidbg white">Blog</span></a></h1>
+      </nav>
+    </header>
+    <main class="main">
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Esquizopoiesis - Arte Generativa, Sonhos e Música Brasileira - 4 Dias de Rio Innovation Week</h1>
+<div class="post-meta">
+  <div class="post-by">
+   <a href="..">Frederico Flores</a> · Qua 20 Agosto 2025
+  </div>
+  <ul class="post-tags">
+    <li><a href="../tags/ia/"><span class="acidbg white">I.A.</span></a></li>
+    <li><a href="../tags/futurismo/"><span class="acidbg white">Futurismo</span></a></li>
+    <li><a href="../tags/arte/"><span class="acidbg white">Arte</span></a></li>
+  </ul>
+</div>
+
+  </header>
+  <div class="post-content"><p><img alt="esquizopoiesis" src="../img/esquizopoiesis.webp"></p>
+<blockquote>
+<p>"O universo não é uma ideia minha.<br>
+A minha ideia de universo é que é uma ideia minha.<br>
+A noite não anoitece pelos meus olhos.<br>
+A minha ideia de noite é que anoitece pelos meus olhos.<br>
+Fora de eu pensar e de haver quaisquer pensamentos<br>
+A noite anoitece concretamente<br>
+E o fulgor das estrelas existe como se tivesse peso."  </p>
+</blockquote>
+<p>— Alberto Caeiro (Fernando Pessoa) </p>
+<p>Neste mês de agosto, a cidade do Rio de Janeiro recebeu o <strong><a href="https://rioinnovationweek.com.br/" target="_blank">Rio Innovation Week</a></strong>, um festival de encontros, conversas e palestras que, como o nome em inglês já denuncia, trata de inovação em áreas que vão de saúde a políticas públicas. E, claro, com muita arte e tecnologia na pauta.  </p>
+<p>Quando ganhei meu passaporte para os quatro dias de evento, o clima estava frio e nublado, eu estava gripado, e confesso: a ideia de me juntar a uma enorme plateia em um galpão fechado para ouvir influenciadores digitais discutirem sobre as mais novas<br>
+<a href="https://chat.openai.com/?q=%22Um%20artigo%20sat%C3%ADrico%20sobre%20as%20%C3%BAltimas%20buzzwords%20utilizadas%20por%20marketeiros%2C%20techbros%2C%20e%20gente%20do%20linkedin%20em%20geral.%22" target="_blank"><b>Buzzwords</b></a> do momento não me animava. De influenza já bastava a que estava instalada nos meus brônquios. Então, nem olhei com atenção a extensa programação. Sabia apenas que haveria muita Inteligência Artificial associada aos mais diversos temas.  </p>
+<p><img alt="Rio Innovation Week" src="../img/riw.gif"></p>
+<p>No entanto, na terça-feira, quando o evento começou, o sol voltou, a dipirona fez o seu trabalho, e eu acordei animado com a possibilidade de deparar com o novo. Peguei o metrô, depois o VLT e, chegando no Pier Mauá, uma ótima surpresa: havia um palco exclusivo sobre o mercado da música, <strong><a href="https://www.instagram.com/musicforwardbrasil/" target="_blank">Music Forwad</a></strong>, promovido pelos ídolos da Tecla Music. Dali não saí mais. Voltei todos os quatro dias seguintes. Foi intenso: conheci pessoas e trabalhos que eu nem imaginava, fiz contatos novos e, ao final, tive uma epifania que resultou na criação de uma palavra: <strong>Esquizopoiesis</strong>.  </p>
+<p>Um termo que define o rompimento entre o impulso de criação e o seu criador. Uma palavra que, ouso dizer, poderá ser muito usada daqui para frente — caso este artigo viralize. Estou orgulhoso. Não é todo dia que alguém que não se chama <strong>Guimarães Rosa</strong> ou <strong>Carlinhos Brown</strong> inventa uma palavra nova decente.</p>
+<p><img alt="Forma Poetica" src="../img/poesia.webp">  </p>
+<p>Mas longe de mim querer assumir os louros sozinho. Ninguém cria sozinho. Eu estive exposto a uma série de ideias, de pessoas, que me fizeram refletir até chegar a esta conclusão. Diferente da OpenAI, que não cita suas fontes, eu consigo atribuir o devido crédito a quem me inspirou nesses dias. E faço questão de citar as palestras que mais me marcaram:  </p>
+<h3>👾 Visual Flow: Programação visual em tempo real com <a href="https://derivative.ca/" target="_blank">TouchDesigner</a> – <a href="https://www.instagram.com/marlus.xyz/" target="_blank">Marlus Araújo</a></h3>
+<p>Adorei conhecer o <a href="https://derivative.ca/" target="_blank">TouchDesigner</a>, um software de programação visual semelhante ao <a href="https://cycling74.com/products/max" target="_blank">Max/MSP</a>, conhecido por nós músicos. Foi um teletransporte direto para minha época de faculdade, nas aulas de composição eletroacústica com <a href="https://www.babelscores.com/es/composer?userid=9877&view=vendorprofile" target="_blank">Mauricio Dottori</a>: geradores, osciladores e filtros combinados para criar o que se chama de <strong>arte generativa</strong>.  </p>
+<p><img alt="esquizopoiesis" src="../img/touchdesigner.webp"></p>
+<p>Saí da palestra cheio de ideias para aplicar nos cases dos clientes que usam o nosso <strong><a href="https://moods.com.br" target="_blank">Player Moods</a></strong>: vitrines que reagem à presença do público, projeções interativas em chão, teto e parede da loja, e muito mais.  </p>
+<h3>💿 Memória, Música e Inteligência Artificial – <a href="https://www.instagram.com/poetacleberaugusto/" target="_blank">Cleber Augusto</a>, <a href="https://www.instagram.com/alessandrocardozo13/" target="_blank">Alessandro Couto Cardozo</a>, <a href="https://www.instagram.com/ferrugem/" target="_blank">Ferrugem</a></h3>
+<p>Uma história emocionante sobre como utilizaram o aprendizado de máquina para reconstruir a voz de <a href="https://www.instagram.com/poetacleberaugusto/" target="_blank">Cleber Augusto</a> em seu mais novo album. Ele próprio dirigiu a interpretação de outros cantores nas suas músicas, e com o software reconstruiram o seu timbre de voz pessoal. Um exemplo único no mundo de como a tecnologia pode potencializar o artista.  </p>
+<p><a href="https://open.spotify.com/album/3yPJ9jMG3NUaCYKPsfrGNL?si=blBv1K_DTI6v6MBowWL5Ug">Cleber Augusto - Minhas Andanças</a></p>
+<h3>📻 15 anos do Festival Novas Frequências – <a href="https://www.instagram.com/chicodub/" target="_blank">Chico Dub</a></h3>
+<p>Em tempos de atenção fragmentada e produção automatizada de áudio e vídeo, a experiência de shows ao vivo se mostra urgente. Aposto que a overdose de artistas gerados por IA vai banalizar a suposta “sonoridade comum” dos estilos musicais — e o público vai buscar, cada vez mais, <a href="https://www.novasfrequencias.com/" target="_blank">Festival Novas Frequências</a> .  </p>
+<p><a href="https://www.instagram.com/p/DNDodNRun28/">Novas Frequencias</a></p>
+<h3>👩‍🚀 Narrativas Espaciais: design, tecnologia e experiência em projetos imersivos – <a href="https://www.instagram.com/debaroba/" target="_blank">Débora Marquesi</a></h3>
+<p>Em tantos anos trabalhando com marcas, foi a melhor síntese que já vi de como a história a ser contada guia a experiência que uma marca quer passar. Impressionante também a capacidade técnica da equipe da Chroma Garden — os mesmos que fizeram até o palco do 50 Cent. Inteligência real, humana, é o que o Brasil tem de sobra.  </p>
+<p><a href="https://www.instagram.com/p/DIb979avDD3/?img_index=1">Chroma Garden</a></p>
+<h3>🇧🇷 Do Som à Imagem: O Projeto Visual da Última Turnê de <a href="https://www.instagram.com/gilbertogil/" target="_blank">Gilberto Gil</a> – <a href="https://www.instagram.com/zandaniguan/" target="_blank">Fernanda Guizan</a>, Pedro Antonio Garavaglia, Olivia Ribeiro Ferreira, Eduardo Carvalho dos Santos</h3>
+<p>Sempre que nos deparamos com a obra de <a href="https://www.instagram.com/gilbertogil/" target="_blank">Gil</a>, lembramos porque temos orgulho de ser brasileiros. Em nenhuma das grandes turnês globais recentes vi um LED em formato tão único quanto aquele espiral criado para o palco do Gil.  </p>
+<p><img alt="Gilberto Gil" src="../img/gil.jpeg"></p>
+<p>Na hora das perguntas da platéia, tive vontade de levantar a mão e perguntar por que, em tempos de IA, não incluíram <strong>Cérebro Eletrônico</strong> na playlist. Afinal, nesta letra Gil já deu todas as respostas sobre criação e a poiesis humana — algo que nasce da vida que sabe que um dia vai morrer. Mas deixei minha timidez habitual vencer, e guardei o assunto para este texto.</p>
+<h3>🤖 Autores, compositores e algoritmos: criar ainda é humano? – Ricardo Moreno, <a href="https://www.instagram.com/pietroreis/" target="_blank">Pietro Reis</a>, <a href="https://www.instagram.com/julia_mestre/" target="_blank">Julia Mestre</a></h3>
+<p>Uma discussão fundamental sobre os direitos autorais apropriados pela maioria dos serviços de inteligência artificial generativa. <a href="https://www.instagram.com/julia_mestre/" target="_blank">Julia Mestre</a> explicou como a <a href="https://www.ubc.org.br/" target="_blank">União Brasileira de Compositores</a> busca <a href="https://www.ubc.org.br/publicacoes/noticia/23363/comissao-do-pl-da-ia-na-camara-ja-traz-desafios-ao-direito-autoral">representatividade no Congresso Nacional para regulamentar essa prática das Big Techs</a> — algo que também acontece em outros países.  </p>
+<p><a href="https://www.instagram.com/p/DNeK5Eqxpr8/">Julia Mestre</a></p>
+<p>Foi aqui o gatilho para produzir este artigo. O tema esteve presente em várias palestras. Notei, na voz de alguns palestrantes em outros palcos, que relativizam a apropriação de direitos autorais, uma tendência a classificar a IA como algo generalizado ou “inevitável”. Não é, pois a forma antecede o conteúdo. </p>
+<p>Quem está treinando máquinas com acervos colossais de livros, músicas e filmes protegidos por direitos autorais, sem pagar nada por isso, são empresas (Big Techs) específicas. A sociedade tem o dever de convidar cada uma dessas empresas para sentar na mesa. Contra a visão de uma tecnologia neutra e fetichizada, eu levaria para esse debate uma cópia do excelente artigo 
+<strong><a href="https://revistas.marilia.unesp.br/index.php/orgdemo/article/view/411/311" target="_blank">O Fetiche da Tecnologia</a></strong>, de Henrique Novaes,  onde se le:</p>
+<blockquote>
+<p>"por ser a  tecnologia uma construção social -um campo de batalha -historicamente determinado, sendo resultado de um processo onde intervêm múltiplos atores com distintos interesses, a trajetória de inovação científica e tecnológica poderia ser redirecionada, dependendo da capacidade dos atores interessados na mudança social</p>
+</blockquote>
+<p><img alt="Gilberto Gil" src="../img/dipirona.jpg"></p>
+<p>No sábado, após o evento, acordei com dores musculares — talvez resquícios da minha virose recente ou das caminhadas entre sol e ar-condicionado gelado do evento. Tomei dipirona novamente, óleo de CBD, e minha cabeça começou a girar. Uma nuvem de palavras-chave se materializou na minha neve visual: O Cérebro Eletrônico de Gilberto Gil + Inteligência Artificial + Sonhos + Sidarta Ribeiro</p>
+<p>Me perguntei se tinha visto Sidarta Ribeiro em algum palco do RiW ou se sonhei acordado. Certamente ele já esteve em alguma edição do Rio Innovation Week. </p>
+<p><img alt="Gilberto Gil" src="../img/android.jpeg"></p>
+<blockquote>
+<p>Será que as IAs sonham com <em>OvelhasGPTs</em>?  </p>
+</blockquote>
+<p>Até que veio a epifania e levantei-me subitamente com uma palavra nova na mente: <strong>Esquizopoiesis!</strong>  </p>
+<p><strong>Esquizo</strong> – do grego, dividir, separar.<br>
+<strong>Poiesis</strong> – do verbo grego <em>poiein</em>, ação de fazer, criar. É todo agir criativo ou essencial.  </p>
+<p>A resposta que eu buscava estava no fenômeno que eu acabava de experimentar, e sua potência: pessoas elaborando pensamentos e falas em tempo real.</p>
+<p>Obviamente as I.A. generativas são ferramentas poderosas, mas como arte eu aposto na tendencia de que será consumida como uma forma de entretenimento em si mesma. O público não vai se interessar em ser fã de artistas gerados por IA, mas quando quiser consumir esse tipo de conteúdo, como uma nova forma de entretenimento, vai preferir gerar o seu próprio ao vivo — e pagar por esse tipo de entretenimento. Porém enquanto vivermos em uma sociedade capitalista, os criadores cujas obras alimentaram o aprendizado de máquina desses provedores de serviços, são merecedores de todos os royalties a que têm direito.  </p>
+<p>Como experimento, levei cerca de cinco minutos para gerar uma nova banda no site <a href="https://suno.com/" target="_blank">Suno</a>, pronta para o sucesso comercial:  </p>
+<p><a href="https://youtu.be/bscbehcX8cA?si=bnZzsBlzdlFZSMDu">Geração Digital - Plagiadora Oficial</a></p>
+<p>Quem escutar atentamente o resultado terá uma estranha sensação de miragem: fragmentos de estilos e vozes parecem emergir como ecos reconhecíveis — ora Maria Rita, ora Emicida, talvez Claudia Leitte ou Vanessa Rangel — mas, assim que se delineiam, logo se desfazem no ar, dissolvidos em outro timbre, em outro fraseado musical característico. O efeito é um mosaico instável de influências, feito de cintilações que nunca se fixam, justamente porque à máquina falta o núcleo vital da criação.</p>
+<p>As big techs poderiam — e, sinceramente, deveriam — colar aos seus serviços um cálculo de quanto cada obra protegida por direitos autorais foi utilizada para os pesos e treinamentos que geraram cada resposta, para que parte da grana das mensalidades desses serviços possam ir direto para os artistas, e outra parte para a educação em arte. Tipo um regime de royalties do petróleo poético: você extrai, mas tem que devolver algo ao solo de origem.</p>
+<h4>⌨️ <a href="https://chat.openai.com/?q=%22Um%20pseudocódigo%20de%20algoritmo%20para%20calcular%20a%20porcentagem%20de%20diretos%20autorais%20devidas%20em%20cada%20resposta%20gerada%20por%20um%20serviço%20comercial%20de%20I.A.%20generativa%20treinada%20com%20conteúdo%20protegido%20por%20direitos%20autorais" target="_blank"><b>Algo extremamente simples de ser implementado. (Na dúvida, clique aqui.)</b></a></h4>
+<p>O musicólogo Murray Schaffer,  propos em seu livro <em><a href="https://monoskop.org/images/2/21/Schafer_R_Murray_O_ouvido_pensante.pdf" target="_blank">O Ouvido Pensante</a></em> o termo <strong>esquizofonia</strong> para se referir a separação do som de sua fonte original.  </p>
+<p>Fenômeno que surgiu a partir da invenção dos equipamentos eletroacústicos para transmissão de som, que permitiram gravar e enviar qualquer som para qualquer lugar do mundo. Antes disso, cada som era único e inseparável de sua fonte.  </p>
+<p>O século XX, com suas formas industriais de mídia, possibilitou a difusão massiva de criações, mas que carregavam a representação de sua forma poética. Uma exopoiesis. Agora com o escalonamento do conteúdo "generativo" vivemos um novo paradigma: fragmentos de formas separados de seus criadores para compar a resposta a um comando. </p>
+<blockquote>
+<p>"Poiesis é um substantivo que se forma do verbo grego poiein. Este assinala no grego a ação de fazer diversificada, mas sobretudo a questão da essência do agir, daí estar ligada à poiesis, no sentido que hoje consideramos criação. Esta pressupõe um fazer surgir, um figurar algo a partir do nada, ou no pensamento mítico, a partir da Terra, e mais tarde a partir da physis. Mas o que é o nada, a Terra, a physis? São estas questões que remetem para a essência do agir. Poiesis é, pois, todo agir criativo ou essencial."</p>
+</blockquote>
+<ul>
+<li><a href="https://travessiapoetica.blogspot.com/2006/09/perguntas-sobre-entrevista-de-rosa-05.html">Manuel Antônio de Castro</a></li>
+</ul>
+<p>A experiência com ferramentas de IA generativa seria semelhante a experiência de sonho lúcido. Podemos simular mundos possíveis, sem objetivo prático — um fim em si mesmo. Aqui nos deparamos talvez com <strong><a href="https://site.ufvjm.edu.br/cafeliterario/a-biblioteca-de-babel-jorge-luis-borges/">A Biblioteca de Babel</a></strong>, do conto de Jorge Luis Borges [1], que imagina uma biblioteca infinita, cujas páginas dos livros contem todas as combinações aleatórias possíveis com as letras do alfebato, e por isso acaba contendo todos os livros já escritos e todos os que ainda poderiam ser. </p>
+<p>Primeiro, o narrador do conto se deslumbra com a promessa de conhecimento absoluto; depois, sucumbe ao peso opressor de um labirinto no qual o sentido se dissolve entre ruídos indistintos.</p>
+<p>Hoje, essa metáfora ganha corpo na internet graças ao site <strong><a href="https://libraryofbabel.info/" target="_blank">libraryofbabel.info</a></strong>, idealizado e implementado por Jonathan Basile, autor e programador, o site é baseado em um algoritmo que gera cada página virtualmente  <strong>todas as páginas possíveis de 3 200 caracteres</strong>. Ao navegar, você pode tropeçar no texto que já existe — e até naquele que ainda não foi escrito, inclusive tudo o que um dia será. É uma biblioteca <strong>esquizopoiesética</strong>.</p>
+<p><img alt="The Library Of Babel" src="../img/babel.jpg"></p>
+<p>A inteligência artificial generativa organiza um mosaico de intenções de formas para estruturar suas saídas. Mas essas micropartículas, agora pela primeira vez na história, separadas de seus criadores, não são poéticas. É o humano o único portador possível da poiesis, que acende — como Prometeu — o fogo que ilumina a escuridão.</p>
+<blockquote>
+<p>"O cérebro eletrônico faz tudo<br>
+Faz quase tudo<br>
+Faz quase tudo<br>
+Mas ele é mudo<br>
+O cérebro eletrônico comanda<br>
+Manda e desmanda<br>
+Ele é quem manda<br>
+Mas ele não anda<br>
+Só eu posso pensar<br>
+Se Deus existe<br>
+Só eu<br>
+Só eu posso chorar<br>
+Quando estou triste<br>
+Só eu<br>
+Eu cá com meus botões<br>
+De carne e osso<br>
+Eu falo e ouço. Hum<br>
+Eu penso e posso<br>
+Eu posso decidir<br>
+Se vivo ou morro porque<br>
+Porque sou vivo<br>
+Vivo pra cachorro e sei<br>
+Que cérebro eletrônico nenhum me dá socorro<br>
+No meu caminho inevitável para a morte<br>
+Porque sou vivo<br>
+Sou muito vivo e sei<br>
+Que a morte é nosso impulso primitivo e sei<br>
+Que cérebro eletrônico nenhum me dá socorro<br>
+Com seus botões de ferro e seus<br>
+Olhos de vidro"  </p>
+</blockquote>
+<p>— Gilberto Gil</p>
+<p><a href="https://youtu.be/ygu7Np-WRWc">Gilberto Gil - O Cérebro Eletônico</a></p></div>
+<div class="post-meta">
+  <div class="post-by">
+    <a href="..">Frederico Flores</a> · Qua 20 Agosto 2025
+  </div>
+  <ul class="post-tags">
+    <li><a href="../tags/ia/"><span class="acidbg white">I.A.</span></a></li>
+    <li><a href="../tags/futurismo/"><span class="acidbg white">Futurismo</span></a></li>
+    <li><a href="../tags/arte/"><span class="acidbg white">Arte</span></a></li>
+  </ul>
+</div>
+
+</article>
+
+
+
+<div id="disqus_thread" class="space-top"></div>
+<script>
+function loadDisqus() {
+    // Configuração do Disqus específica para esta página de artigo
+    var disqus_config = function () {
+        this.page.url = "https://jardimsonoro.com/blogesquizopoiesis-arte-generativa-sonhos-e-musica-brasileira-4-dias-de-rio-innovation-week/";       // URL canônica da página do artigo
+        this.page.identifier = "esquizopoiesis-arte-generativa-sonhos-e-musica-brasileira-4-dias-de-rio-innovation-week"; // Identificador único (slug do artigo ou URL como fallback)
+    };
+
+    // Código de carregamento do Disqus
+    (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-jardimsonoro-com-blog.disqus.com/embed.js'; // URL COMPLETA AQUI
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+
+    // Opcional: Remover placeholder de carregamento se você adicionou um dentro de #disqus_thread
+    // const disqusPlaceholder = document.querySelector("#disqus_thread > p");
+    // if (disqusPlaceholder) {
+    //     disqusPlaceholder.remove();
+    // }
+}
+
+const disqusMountNode = document.querySelector("#disqus_thread");
+
+if (disqusMountNode) {
+    const observerOptions = {
+        rootMargin: '200px 0px' // Começa a carregar Disqus quando estiver a 200px de entrar na viewport
+    };
+
+    const disqusObserver = new IntersectionObserver((entries, observerInstance) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                // console.log("Disqus está visível, inicializando!"); // Para debug
+                loadDisqus();
+                observerInstance.unobserve(entry.target); // Para de observar após o carregamento
+            }
+        });
+    }, observerOptions);
+
+    disqusObserver.observe(disqusMountNode);
+}
+</script>
+    </main>
+               <footer class="footer">
+<div class="social-icons">
+  <a href="https://www.instagram.com/jardimsonoro.rio" aria-label="Instagram">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#aaa" viewBox="0 0 24 24">
+      <path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 2 .2 2.4.4.5.2.9.4 1.3.8s.6.8.8 1.3c.2.4.3 1.2.4 2.4.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 2-.4 2.4-.2.5-.4.9-.8 1.3s-.8.6-1.3.8c-.4.2-1.2.3-2.4.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-2-.2-2.4-.4a3.7 3.7 0 01-2.1-2.1c-.2-.4-.3-1.2-.4-2.4C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-2 .4-2.4A3.7 3.7 0 014.8 2.3c.4-.2 1.2-.3 2.4-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1 .1-1.6.2-2 .3a2 2 0 00-1.1 1.1c-.1.4-.2 1-.3 2-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1 .2 1.6.3 2a2 2 0 001.1 1.1c.4.1 1 .2 2 .3 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1-.1 1.6-.2 2-.3a2 2 0 001.1-1.1c.1-.4.2-1 .3-2 .1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1-.2-1.6-.3-2a2 2 0 00-1.1-1.1c-.4-.1-1-.2-2-.3-1.2-.1-1.6-.1-4.7-.1zM12 6.5a5.5 5.5 0 110 11 5.5 5.5 0 010-11zm0 1.8a3.7 3.7 0 100 7.4 3.7 3.7 0 000-7.4zm5.4-1.9a1.3 1.3 0 110 2.6 1.3 1.3 0 010-2.6z"/>
+    </svg>
+  </a>
+  <a href="https://x.com/jardimsonoro" aria-label="Twitter">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#aaa" viewBox="0 0 24 24">
+      <path d="M22.25 2l-7.56 8.87L23.5 22h-5.25l-5.83-6.88L6.5 22H.5l8.14-9.55L.5 2h5.25l5.25 6.18L17.5 2z"/>
+    </svg>
+  </a>
+</div>
+
+<p>© 2025 <a href="https://jardimsonoro.com">Jardim Sonoro</a> · Rio de Janeiro, Brasil.</p>
+<p class="cnpj-info">CNPJ: 12.553.127/0001­17/PR  ·  60.042.426/0001-30/RJ </p>
+    </footer>
+  <!--   
+  <script>
+    function setTheme() {
+      const logo = document.getElementById('logo-img');
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+        if (logo) logo.src = 'https://jardimsonoro.com/jslogo.png'; // versão dark
+      } else {
+        document.body.classList.remove('dark');
+        if (logo) logo.src = 'https://jardimsonoro.com/jslogob.png'; // versão light
+      }
+    }
+
+    // Executar ao carregar a página
+    setTheme();
+
+    // Escutar mudanças no sistema do usuário
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setTheme);
+  </script>
+  -->
+  
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const videoLinks = document.querySelectorAll(
+    ".post-content a[href*='youtube.com/watch'], " +
+    ".post-content a[href*='youtu.be/'], " +
+    ".post-content a[href*='vimeo.com/'], " +
+    ".post-content a[href*='open.spotify.com/playlist/'], " +
+    ".post-content a[href*='open.spotify.com/album/'], " +  // 👈 agora também albums
+    ".post-content a[href*='instagram.com/reel/'], " +
+    ".post-content a[href*='instagram.com/p/'], " +
+    ".post-content a[href*='instagram.com/tv/']"
+  );
+
+  let instagramScriptLoaded = false;
+
+  videoLinks.forEach(async (link) => {
+    const url = link.href;
+    const linkText = link.innerHTML;
+    let videoInfo = null;
+
+    if (url.includes("youtube.com") || url.includes("youtu.be")) {
+      videoInfo = getYoutubeInfo(url);
+      if (videoInfo) {
+        createVideoPlaceholder(link, videoInfo, "youtube", linkText);
+      }
+    } else if (url.includes("vimeo.com/")) {
+      videoInfo = await getVimeoInfo(url);
+      if (videoInfo) {
+        createVideoPlaceholder(link, videoInfo, "vimeo", linkText);
+      }
+    } else if (url.includes("open.spotify.com/playlist/") || url.includes("open.spotify.com/album/")) {
+      videoInfo = await getSpotifyInfo(url);
+      if (videoInfo) {
+        createVideoPlaceholder(link, videoInfo, "spotify", linkText);
+      }
+    } else if (
+      url.includes("instagram.com/reel/") ||
+      url.includes("instagram.com/p/") ||
+      url.includes("instagram.com/tv/")
+    ) {
+      createInstagramEmbed(link, url, linkText);
+      if (!instagramScriptLoaded) {
+        loadInstagramEmbedScript();
+        instagramScriptLoaded = true;
+      }
+    }
+  });
+
+  function getYoutubeInfo(url) {
+    const regex = /(?:youtube\.com\/(?:watch\?v=|embed\/|v\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+    const match = url.match(regex);
+    if (match && match[1]) {
+      return {
+        id: match[1],
+        thumbnailUrl: `https://i.ytimg.com/vi/${match[1]}/hqdefault.jpg`,
+        embedUrl: `https://www.youtube.com/embed/${match[1]}?autoplay=1&rel=0&vq=hd720`,
+      };
+    }
+    return null;
+  }
+
+  async function getVimeoInfo(url) {
+    const regex = /vimeo\.com\/(?:video\/)?([0-9]+)/;
+    const match = url.match(regex);
+    if (match && match[1]) {
+      const videoId = match[1];
+      const oEmbedUrl = `https://vimeo.com/api/oembed.json?url=${encodeURIComponent(url)}`;
+      let thumbnailUrl = null;
+
+      try {
+        const response = await fetch(oEmbedUrl);
+        if (!response.ok) throw new Error(`Vimeo oEmbed request failed: ${response.status}`);
+        const data = await response.json();
+        thumbnailUrl = data.thumbnail_url ? data.thumbnail_url.replace(/^http:/i, "https:") : null;
+      } catch (error) {
+        console.error("Erro ao buscar dados oEmbed do Vimeo:", error, url);
+      }
+
+      return {
+        id: videoId,
+        embedUrl: `https://player.vimeo.com/video/${videoId}?autoplay=1&transparent=0&dnt=1`,
+        thumbnailUrl: thumbnailUrl,
+      };
+    }
+    return null;
+  }
+
+  async function getSpotifyInfo(url) {
+    const playlistRegex = /open\.spotify\.com\/playlist\/([a-zA-Z0-9]+)/;
+    const albumRegex = /open\.spotify\.com\/album\/([a-zA-Z0-9]+)/;
+
+    let match = url.match(playlistRegex);
+    let type = "playlist";
+    if (!match) {
+      match = url.match(albumRegex);
+      type = "album";
+    }
+
+    if (match && match[1]) {
+      const id = match[1];
+      const oEmbedSpotifyUrl = `https://open.spotify.com/oembed?url=${encodeURIComponent(url)}`;
+      let thumbnailUrl = null;
+
+      try {
+        const response = await fetch(oEmbedSpotifyUrl);
+        if (!response.ok) throw new Error(`Spotify oEmbed request failed: ${response.status}`);
+        const data = await response.json();
+        thumbnailUrl = data.thumbnail_url ? data.thumbnail_url.replace(/^http:/i, "https:") : null;
+      } catch (error) {
+        console.error("Erro ao buscar dados oEmbed do Spotify:", error, url);
+      }
+
+      return {
+        id: id,
+        embedUrl: `https://open.spotify.com/embed/${type}/${id}?utm_source=generator`,
+        thumbnailUrl: thumbnailUrl,
+      };
+    }
+    return null;
+  }
+
+  function createVideoPlaceholder(linkElement, videoInfo, type, captionText) {
+    const videoWrapper = document.createElement("div");
+    videoWrapper.className = "video-wrapper-with-caption";
+
+    const placeholder = document.createElement("div");
+    placeholder.className = `${type}-placeholder`;
+
+    const playButton = document.createElement("div");
+    playButton.className = "youtube-play-button";
+    placeholder.appendChild(playButton);
+    videoWrapper.appendChild(placeholder);
+
+    if (captionText && captionText.trim() !== "") {
+      const caption = document.createElement("figcaption");
+      caption.className = "video-caption";
+      const captionLink = document.createElement("a");
+      captionLink.href = linkElement.href;
+      captionLink.innerHTML = captionText;
+      captionLink.target = "_blank";
+      captionLink.rel = "noopener noreferrer";
+      caption.appendChild(captionLink);
+      videoWrapper.appendChild(caption);
+    }
+
+    if (videoInfo.thumbnailUrl) {
+      placeholder.style.backgroundImage = `url(${videoInfo.thumbnailUrl})`;
+    } else {
+      console.warn(`Miniatura não encontrada para ${type}:`, videoInfo.id);
+    }
+
+    placeholder.addEventListener("click", () => {
+      const iframe = document.createElement("iframe");
+      iframe.src = videoInfo.embedUrl;
+      iframe.className = placeholder.className;
+      iframe.style.backgroundImage = "none";
+      iframe.style.backgroundColor = "#000";
+      iframe.setAttribute("frameborder", "0");
+      iframe.setAttribute("allowfullscreen", "");
+      iframe.setAttribute(
+        "allow",
+        "autoplay; clipboard-write; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; web-share"
+      );
+      iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+      if (type === "spotify" || type === "instagram") {
+        iframe.setAttribute("loading", "lazy");
+      }
+
+      const iframeTitle = captionText ? captionText.replace(/<[^>]*>?/gm, "") : "Media Player";
+      iframe.setAttribute("title", iframeTitle);
+
+      videoWrapper.replaceChild(iframe, placeholder);
+      iframe.focus();
+    }, { once: true });
+
+    if (linkElement.parentNode) {
+      linkElement.parentNode.replaceChild(videoWrapper, linkElement);
+    }
+  }
+
+  function createInstagramEmbed(linkElement, url, captionText) {
+    const wrapper = document.createElement("div");
+    wrapper.className = "video-wrapper-with-caption";
+
+    const blockquote = document.createElement("blockquote");
+    blockquote.className = "instagram-media";
+    blockquote.setAttribute("data-instgrm-permalink", url);
+    blockquote.setAttribute("data-instgrm-version", "14");
+    blockquote.style = "background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px rgba(0,0,0,0.5),0 1px 10px rgba(0,0,0,0.15); margin: 1px auto; max-width:540px; min-width:326px; padding:0; width:100%;";
+
+    wrapper.appendChild(blockquote);
+
+    if (captionText && captionText.trim() !== "") {
+      const caption = document.createElement("figcaption");
+      caption.className = "video-caption";
+      const captionLink = document.createElement("a");
+      captionLink.href = url;
+      captionLink.innerHTML = captionText;
+      captionLink.target = "_blank";
+      captionLink.rel = "noopener noreferrer";
+      caption.appendChild(captionLink);
+      wrapper.appendChild(caption);
+    }
+
+    if (linkElement.parentNode) {
+      linkElement.parentNode.replaceChild(wrapper, linkElement);
+    }
+  }
+
+  function loadInstagramEmbedScript() {
+    if (!document.querySelector('script[src="//www.instagram.com/embed.js"]')) {
+      const script = document.createElement("script");
+      script.src = "//www.instagram.com/embed.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }
+});
+</script>
+
+
+
+
+
+<!-- Google tag (gtag.js) -->
+<script>
+let analytics_loaded = false;
+let analytics_script_id = 'G-04D0PZM4N3';
+
+function swd_load_analytics() {
+	if (!analytics_loaded) {
+		let analytics_script = document.createElement('script');
+		analytics_script.src = 'https://www.googletagmanager.com/gtag/js?id=' + analytics_script_id;
+		analytics_script.onload = function() {
+    		window.dataLayer = window.dataLayer || [];
+			  function gtag(){dataLayer.push(arguments);}
+			  gtag('js', new Date());
+			  gtag('config', analytics_script_id);
+		};
+		document.head.appendChild(analytics_script);
+		analytics_loaded = true;
+	}
+}
+document.addEventListener('DOMContentLoaded', function() {
+	window.addEventListener('scroll', swd_load_analytics);
+	window.addEventListener('mousemove', swd_load_analytics);
+});
+</script>
+  </body>
+</html>

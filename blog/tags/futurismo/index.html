@@ -1,0 +1,849 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+  <meta charset="utf-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"></noscript>
+<title>Jardim Sonoro - Blog</title>
+<meta name="author" content="Frederico Flores">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@jardimsonoro">
+
+
+   <link rel="canonical" href="https://jardimsonoro.com/blog/tags/futurismo/">
+
+  <meta name="description" content="muitas idéias musicais...">
+  <meta name="twitter:description" content="muitas idéias musicais...">
+  <meta property="og:description" content="muitas idéias musicais...">
+
+  <meta name="twitter:image" content="https://jardimsonoro.com/jslogob.png">
+  <meta property="og:image" content="https://jardimsonoro.com/jslogob.png">
+
+<meta property="og:url" content="https://jardimsonoro.com/blog/">
+<meta property="og:title" content="Jardim Sonoro - Blog">
+<meta property="og:type" content="website">
+
+<link rel="icon" type="image/x-icon" href="https://jardimsonoro.com/favicon.ico">
+
+<link rel="alternate" type="application/atom+xml" href="https://jardimsonoro.com/blog/" title="Atom Feed">
+<link rel="alternate" type="application/atom+xml" href="https://jardimsonoro.com/blog/feeds/all.atom.xml" title="Full Atom Feed">
+
+<style>
+/* @font-face para circularbook e circularbold removidas, usando Ubuntu do Google Fonts */
+
+@keyframes animation-acid {
+  0%, 100% { color: #5bc5aa; }
+  33.33% { color: #b272e1; }
+  66.67% { color: #72b6e1; }
+}
+@keyframes animation-acidbg {
+  0%, 100% { background-color: #336b99; }
+  33.33% { background-color: #287c66; }
+  66.67% { background-color: #6d3d99; }
+}
+@keyframes animation-acidborder {
+  0%, 100% { border-color: #5bc5aa; }
+  33.33% { border-color: #b272e1; }
+  66.67% { border-color: #72b6e1; }
+}
+
+.acid { animation: animation-acid 3s infinite; color: #5bc5aa; }
+.acidbg {
+  animation: animation-acidbg 5s infinite;
+  background-color: #5bc5aa;
+  font-weight: 700; /* Ubuntu Bold */
+  padding: 5px;
+  border-radius: 0.25em;
+}
+.acidbg:hover { filter: invert(100%); }
+.white { color: white; }
+.sublinhado { text-decoration: underline; }
+.acidborder { animation: animation-acidborder 3s infinite; background-color: #5bc5aa; }
+
+/* Theme Base (Paper theme inspired) */
+:root {
+  --gap: 1.5em;
+  --content-gap: 2.5em;
+  --nav-width: 64.0em;
+  --main-width: 40.0em;
+  --header-height: 3.75em;
+  --footer-height: 3.75em;
+  --radius: 0.5em;
+  --theme: #fff;
+  --entry: #fff;
+  --primary: rgba(0, 0, 0, 0.88);
+  --secondary: rgba(0, 0, 0, 0.56);
+  --tertiary: rgba(0, 0, 0, 0.16);
+  --content: rgba(0, 0, 0, 0.88);
+  --hljs-bg: #1c1d21; 
+  --code-bg: #f5f5f5; 
+  --border: #eee;
+}
+.dark {
+  --theme: #1d1e20;
+  --entry: #2e2e33;
+  --primary: rgba(255, 255, 255, 0.84);
+  --secondary: rgba(255, 255, 255, 0.56);
+  --tertiary: rgba(255, 255, 255, 0.16);
+  --content: rgba(255, 255, 255, 0.75);
+  --hljs-bg: #2e2e33;
+  --code-bg: #37383e;
+  --border: #5b5d67;
+}
+.list { background: var(--code-bg); } 
+.dark.list { background: var(--theme); }
+
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; font-family: 'Ubuntu', sans-serif; }
+html { -webkit-tap-highlight-color: transparent; font-family: 'Ubuntu', sans-serif; }
+body {
+  margin: 0;
+  color: var(--primary);
+  font-size: 1.2em !important; 
+  line-height: 1.8;
+  word-break: break-word;
+  background: var(--theme);
+  font-family: 'Ubuntu', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section { display: block; }
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0; margin-bottom: 0;
+  color: var(--primary);
+  line-height: 1.2;
+  font-weight: 500; 
+}
+p { margin-top: 0; margin-bottom: 0; }
+strong, b { font-weight: 700; } /* Ubuntu Bold */
+ul { margin: 0; padding: 0; list-style: none; }
+a { color: var(--primary); text-decoration: none; }
+figure { margin: 0; }
+table { width: 100%; border-collapse: collapse; border-spacing: 0; }
+button, input, textarea {
+  padding: 0; font: inherit; background: transparent; border: 0;
+  appearance: none; -webkit-appearance: none; -moz-appearance: none;
+}
+button, input[type='button'], input[type='submit'] { cursor: pointer; }
+input:autofill, textarea:autofill { box-shadow: 0 0 0 3.125em var(--theme) inset; }
+img { display: block; max-width: 100%; height: auto; }
+
+/* Header */
+.header { 
+  /* border-bottom: 1px solid var(--border); */ 
+}
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  align-items: center;
+  gap: 1em;
+  max-width: var(--nav-width); 
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 var(--gap); 
+  height: var(--header-height);
+}
+.nav a { line-height: var(--header-height); } 
+.logo { 
+}
+.logo a { font-size: 1em; font-weight: 700; /* Ubuntu Bold para o texto do logo */ }
+.menu { display: flex; gap: 1em; flex-wrap: wrap; } 
+.menu a { font-size: 1.0em; }
+.logo-container { margin-bottom: 0.5rem; } 
+.logoimg { width: 25px; height: 25px; object-fit: cover; border-radius: 50%; } 
+
+/* Main Content Area */
+.main {
+  position: relative;
+  flex-grow: 1; 
+  max-width: calc(var(--main-width) + var(--gap) * 2);
+  margin-left: auto;
+  margin-right: auto;
+  padding: var(--gap);
+}
+.page-header { margin-bottom: 1.5em; }
+.page-header h1 { font-size: 2.5em; }
+
+.pagination { display: flex; margin-top: var(--content-gap); }
+.pagination a {
+  color: var(--theme);
+  font-size: 0.8125em;
+  line-height: 2.25em;
+  background: var(--primary);
+  border-radius: calc(2.25em / 2);
+  padding: 0 1em;
+}
+.pagination .prev { padding-left: 1.0em; padding-right: 1.125em; }
+.pagination .next { margin-left: auto; padding-left: 1.125em; padding-right: 1.0em; }
+
+/* Post Entry (Listagens de Artigos) */
+/* REMOVIDAS AS REGRAS ESPECÍFICAS PARA .first-entry para uniformizar a lista */
+/*
+.first-entry { 
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 20.0em;
+  margin-bottom: var(--header-height); 
+}
+.first-entry .entry-header h2 { font-size: 2.5em; }
+.first-entry .entry-content { margin-top: 0.875em; margin-bottom: 0.875em; font-size: 1.0em; }
+*/
+
+.post-entry {
+  position: relative;
+  margin-bottom: var(--gap);
+  padding: var(--gap);
+  background: var(--entry);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 1em; 
+  transition: transform 0.1s ease-out, box-shadow 0.1s ease-out; 
+   width: 100%;
+}
+.post-entry:hover { 
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+.post-entry:active { transform: scale(0.98); }
+
+.post-entry-thumb-container { display: flex; align-items: flex-start; gap: 1em; }
+.post-thumb {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  overflow: hidden; 
+  border-radius: var(--radius);
+}
+.post-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.entry-header { 
+  flex-grow: 1; 
+}
+.entry-header h2 { font-size: 1.5em; } 
+.entry-header p { font-size: 0.7em; } 
+
+.entry-content { 
+  margin-top: 0.5em; margin-bottom: 0.5em;
+  color: var(--secondary);
+  font-size: 0.875em;
+  line-height: 1.6;
+}
+.list .entry-content { 
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; 
+}
+.single .entry-content { 
+  display: block; 
+  overflow: visible;
+  -webkit-line-clamp: unset;
+  -webkit-box-orient: initial;
+}
+
+.entry-footer { color: var(--secondary); font-size: 0.8125em; text-align: right; }
+.entry-link { position: absolute; left: 0; right: 0; top: 0; bottom: 0; } 
+
+/* Post Single (Página de Artigo Individual) */
+.post-header { margin-top: 1.5em; margin-bottom: var(--content-gap); }
+.post-title { margin-bottom: 0.125em; font-size: 2.5em; transform: translateX(-2px); }
+.post-by { color: var(--secondary); font-size: 0.875em; }
+.post-by a { color: var(--secondary); font-size: 1em; }
+.post-by a:hover { color: #80cbc4; border-bottom: 0.0625em solid var(--primary); text-decoration: underline; }
+
+.post-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5em 1em; 
+  color: var(--secondary);
+  font-size: 0.875em;
+  margin-bottom: 1em; 
+}
+.post-date { font-size: 0.9em; color: #888; }
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em; 
+  margin: 0; padding: 0;
+  justify-content: flex-end; 
+}
+.post-tags li { font-size: 0.85em; }
+.post-tags a { display: block; text-decoration: none; font-size: 0.875em; line-height: 2.125em; }
+
+.post-content { color: var(--content); }
+.post-content img, .post-content iframe { display: block; margin-left: auto; margin-right: auto; max-width: 100%; }
+/* Títulos dentro do conteúdo do post */
+.post-content h1 { margin-top: 2.5em; margin-bottom: 1.0em; font-size: 2.2em; }
+.post-content h2 { margin-top: 2.0em; margin-bottom: 0.8em; font-size: 1.8em; }
+.post-content h3, .post-content h4, .post-content h5, .post-content h6 { margin-top: 1.5em; margin-bottom: 0.6em; }
+.post-content h3 { font-size: 1.5em; }
+.post-content h4 { font-size: 1.2em; }
+.post-content h5 { font-size: 1.0em; }
+.post-content h6 { font-size: 0.875em; }
+
+.post-content a { box-shadow: 0 0.0625em 0 var(--primary); }
+.post-content a code { margin-left: 0; margin-right: 0; border-radius: 0; box-shadow: 0 -0.0625em 0 var(--primary) inset; }
+.post-content del { text-decoration: none; background: linear-gradient(to right, var(--primary) 100%, transparent 0) 0 50% / 0.0625em 0.0625em repeat-x; }
+.post-content p, .post-content ul, .post-content ol, .post-content dl { margin-bottom: 1.2em; }
+.post-content p { text-indent: 1.5em; }
+.post-content ul, .post-content ol { padding-left: 1.5em; }
+.post-content li { margin-top: 0.3125em; }
+.post-content li p { margin-bottom: 0; text-indent: 0; } 
+.post-content dl { display: flex; flex-wrap: wrap; margin: 0; }
+.post-content dt { width: 25%; font-weight: 700; /* Ubuntu Bold */ }
+.post-content dd { width: 75%; margin-left: 0; padding-left: 0.625em; }
+.post-content dt ~ dt, .post-content dd ~ dd { margin-top: 0.625em; }
+.post-content table { margin-bottom: 2.0em; }
+.post-content table th, .post-content table:not(.highlighttable) td { min-width: 5.0em; padding: 0.75em 0.5em; line-height: 1.5; border-bottom: 0.0625em solid var(--border); }
+.post-content table th { font-size: 0.875em; text-align: left; font-weight: 700; /* Ubuntu Bold */ }
+
+.post-content .highlight, .post-content pre {
+  margin-left: calc(var(--gap) * -1); margin-right: calc(var(--gap) * -1); 
+  margin-bottom: 2.0em;
+  background: var(--hljs-bg) !important; 
+  border-radius: var(--radius);
+  overflow-x: auto;
+  padding: var(--gap); 
+}
+.post-content ul pre, .post-content ol pre { margin-left: calc(var(--gap) * -2); }
+.post-content .highlight pre { margin: 0; padding: 0; }
+
+.right { text-align: center; } 
+.post-content .highlighttable { table-layout: fixed; }
+.post-content .highlighttable td:first-child { width: 2.5em; } 
+.post-content .highlighttable td .linenodiv { padding-right: 0 !important; }
+.post-content .highlighttable td .linenodiv pre, .post-content .highlighttable td .highlight { margin-bottom: 0; }
+.post-content .highlight span { background: transparent !important; } 
+
+.post-content code { 
+  margin: 0 0.15em; padding: 0.2em 0.4em;
+  font-size: 0.82em; line-height: initial;
+  background: var(--code-bg);
+  border-radius: 0.2em;
+  font-family: 'Ubuntu Mono', Consolas, 'Courier New', monospace; 
+}
+.post-content pre code { 
+  display: block;
+  margin: 0; padding: 0; 
+  color: rgba(255, 255, 255, 0.8); 
+  background: transparent; 
+  border-radius: 0;
+  font-family: 'Ubuntu Mono', Consolas, 'Courier New', monospace; 
+  font-size: 0.9em; 
+  line-height: 1.6;
+}
+.post-content blockquote {
+  margin: 0 0 1.5em calc(var(--gap) * -1); 
+  padding: 0.5em 1em 0.5em 1.3125em;
+  border-left: 0.25em solid var(--primary);
+  background-color: var(--code-bg); 
+}
+.post-content hr { height: 0.0625em; margin: 3.5em 0; background: var(--tertiary); border: 0; }
+
+/* Footer */
+.footer {
+  max-width: calc(var(--main-width) + var(--gap) * 2);
+  margin-left: auto; margin-right: auto;
+  padding: calc((var(--footer-height) - var(--gap)) / 2) var(--gap);
+  color: var(--secondary);
+  font-size: 0.8em;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+  line-height: 1.6;
+  border-top: 1px solid var(--border); 
+}
+.footer span { margin: 0 0.0625em; }
+.footer a { color: var(--primary); font-weight: 700; /* Ubuntu Bold */ }
+.footer a:hover { color: #80cbc4; border-bottom: 0.0625em solid var(--primary); }
+
+/* Página 404 */
+.not-found {
+  position: absolute; left: 0; right: 0;
+  display: flex; align-items: center; justify-content: center;
+  height: 80%; 
+  font-size: 10.0em; font-weight: 700; /* Ubuntu Bold */
+}
+
+.space-top { margin-top: 50px; } 
+
+/* Social Icons no Footer */
+.social-icons {
+  margin-top: 1rem; display: flex; justify-content: center; gap: 1.2rem;
+  list-style: none; padding: 0;
+}
+.social-icons a svg { fill: var(--primary); transition: fill 0.3s ease; width: 22px; height: 22px; }
+.social-icons a:hover svg { fill: #80cbc4; }
+
+.cnpj-info { font-size: 0.75em; opacity: 0.8; } 
+
+/* YouTube/Video Placeholder Styles */
+.youtube-placeholder { 
+  display: block; width: 100%; max-width: 560px;
+  aspect-ratio: 16 / 9;
+  margin: 1.5em auto; 
+  background-color: #000; 
+  background-size: cover; background-position: center;
+  position: relative; cursor: pointer;
+  border-radius: var(--radius);
+  overflow: hidden; 
+}
+
+.spotify-placeholder {
+
+  height: 352px; /* Tamanho típico do player Spotify */
+  background-color: transparent; /* Remove o fundo preto */
+ display: block; 
+ width: 100%; max-width: 560px;
+  margin: 1.5em auto; 
+  background-size: cover; background-position: center;
+  position: relative; cursor: pointer;
+  border-radius: var(--radius);
+  overflow: hidden; 
+}
+
+.spotify-play-button { 
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px; height: 60px;
+  background: url('/img/play-button-circled.webp') center / contain no-repeat;
+  filter: drop-shadow(0 0 5px rgba(0,0,0,0.5)); 
+  pointer-events: none;
+}
+
+.youtube-play-button { 
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px; height: 60px;
+  background: url('/img/play-button-circled.webp') center / contain no-repeat;
+  filter: drop-shadow(0 0 5px rgba(0,0,0,0.5)); 
+  pointer-events: none;
+}
+
+.instagram-placeholder {
+  background-size: cover;
+  background-position: center;
+  aspect-ratio: 9 / 16; /* Reels são verticais */
+  position: relative;
+  cursor: pointer;
+}
+
+.instagram-media {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block;       /* para que margin auto funcione */
+  max-width: 540px;     /* máximo permitido pelo Instagram */
+  width: 100% !important; /* para responsividade */
+}
+
+
+
+
+.video-wrapper-with-caption {
+  margin: 1.5em auto; max-width: 560px;
+}
+.video-wrapper-with-caption .youtube-placeholder { 
+  margin-left: 0; margin-right: 0;
+  margin-bottom: 0.5em; 
+}
+.video-caption {
+  display: block; font-size: 0.9em;
+  color: var(--secondary);
+  text-align: center;
+  padding: 0.5em 0.1em; margin-top: 0; 
+  line-height: 1.4;
+}
+.video-caption a, .video-caption strong { color: inherit; font-weight: inherit; }
+
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  body { font-size: 1.1em !important; }
+  .main { padding: var(--gap) 1em; }
+  .post-title, /*.first-entry .entry-header h2,*/ .page-header h1 { font-size: 2em; } /* .first-entry h2 removido da regra conjunta */
+  .post-content h1 { font-size: 1.8em; }
+  .post-content h2 { font-size: 1.6em; }
+  .post-content h3 { font-size: 1.4em; }
+  .post-content .highlight, .post-content pre {
+    margin-left: -1em; margin-right: -1em;
+    border-radius: 0; 
+  }
+  .post-content ul pre, .post-content ol pre { margin-left: calc(-1em - 1.5em); } 
+}
+
+@media (max-width: 480px) {
+  body { font-size: 1.05em !important; }
+  .post-title, /*.first-entry .entry-header h2,*/ .page-header h1 { font-size: 1.7em; } /* .first-entry h2 removido */
+  .nav { flex-direction: column; height: auto; padding-top: 0.5em; padding-bottom: 0.5em; }
+  .logo a, .menu a { line-height: 1.8; } 
+  .menu { justify-content: center; }
+  .post-meta { flex-direction: column; align-items: flex-start; gap: 0.5em; }
+  .post-meta .post-tags { justify-content: flex-start; text-align: left; }
+  .entry-footer { text-align: left; }
+
+  /* Correção para thumbnail e título em listas de artigos em telas pequenas */
+  .post-entry-thumb-container {
+    flex-direction: row; 
+    align-items: flex-start; 
+    gap: 0.8em; 
+  }
+  .post-thumb {
+    width: 60px;       
+    height: 60px;      
+    max-width: none;   
+  }
+  .post-entry .entry-header { 
+    text-align: left;
+  }
+  .post-entry .entry-header h2 {
+    font-size: 1.1em; 
+  }
+  /* Fim da correção para thumbnail */
+  
+  .post-content p { text-indent: 1em; }
+}
+
+
+
+</style>
+
+
+  </head>
+  <body class="list">
+ 
+    <header class="header">
+      <nav class="nav">
+        <h1 class="logo"><a href="/">Jardim Sonoro</a><a href="../.."><span class="acidbg white">Blog</span></a></h1>
+      </nav>
+    </header>
+    <main class="main">
+<section class="tag-page">
+  <header class="page-header">
+    <div class="right">
+      <h1 class="post-title"><a href="../../tags"><span class="acidbg white">#</span></a>Futurismo</h1>
+    </div>
+  </header>
+<article class="post-entry">
+  <div class="post-entry-thumb-container">
+    <div class="post-thumb">
+      <img src="../../img/esquizopoiesis.webp" alt="Thumbnail">
+    </div>
+    <div class="entry-header">
+      <h2><a href="../../esquizopoiesis-arte-generativa-sonhos-e-musica-brasileira/">Esquizopoiesis - Arte Generativa, Sonhos e Música Brasileira</a></h2>
+    </div>
+  </div>
+
+
+  <div class="post-meta">
+    <time class="post-date">Qua 20 Agosto 2025</time>
+    <ul class="post-tags">
+      <li><a href="../../tags/ia/"><span class="acidbg white">I.A.</span></a></li>
+      <li><a href="../../tags/futurismo/"><span class="acidbg white">Futurismo</span></a></li>
+      <li><a href="../../tags/arte/"><span class="acidbg white">Arte</span></a></li>
+    </ul>
+  </div>
+</article>
+
+</section>
+    </main>
+               <footer class="footer">
+<div class="social-icons">
+  <a href="https://www.instagram.com/jardimsonoro.rio" aria-label="Instagram">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#aaa" viewBox="0 0 24 24">
+      <path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 2 .2 2.4.4.5.2.9.4 1.3.8s.6.8.8 1.3c.2.4.3 1.2.4 2.4.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 2-.4 2.4-.2.5-.4.9-.8 1.3s-.8.6-1.3.8c-.4.2-1.2.3-2.4.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-2-.2-2.4-.4a3.7 3.7 0 01-2.1-2.1c-.2-.4-.3-1.2-.4-2.4C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-2 .4-2.4A3.7 3.7 0 014.8 2.3c.4-.2 1.2-.3 2.4-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1 .1-1.6.2-2 .3a2 2 0 00-1.1 1.1c-.1.4-.2 1-.3 2-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1 .2 1.6.3 2a2 2 0 001.1 1.1c.4.1 1 .2 2 .3 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1-.1 1.6-.2 2-.3a2 2 0 001.1-1.1c.1-.4.2-1 .3-2 .1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1-.2-1.6-.3-2a2 2 0 00-1.1-1.1c-.4-.1-1-.2-2-.3-1.2-.1-1.6-.1-4.7-.1zM12 6.5a5.5 5.5 0 110 11 5.5 5.5 0 010-11zm0 1.8a3.7 3.7 0 100 7.4 3.7 3.7 0 000-7.4zm5.4-1.9a1.3 1.3 0 110 2.6 1.3 1.3 0 010-2.6z"/>
+    </svg>
+  </a>
+  <a href="https://x.com/jardimsonoro" aria-label="Twitter">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#aaa" viewBox="0 0 24 24">
+      <path d="M22.25 2l-7.56 8.87L23.5 22h-5.25l-5.83-6.88L6.5 22H.5l8.14-9.55L.5 2h5.25l5.25 6.18L17.5 2z"/>
+    </svg>
+  </a>
+</div>
+
+<p>© 2025 <a href="https://jardimsonoro.com">Jardim Sonoro</a> · Rio de Janeiro, Brasil.</p>
+<p class="cnpj-info">CNPJ: 12.553.127/0001­17/PR  ·  60.042.426/0001-30/RJ </p>
+    </footer>
+  <!--   
+  <script>
+    function setTheme() {
+      const logo = document.getElementById('logo-img');
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+        if (logo) logo.src = 'https://jardimsonoro.com/jslogo.png'; // versão dark
+      } else {
+        document.body.classList.remove('dark');
+        if (logo) logo.src = 'https://jardimsonoro.com/jslogob.png'; // versão light
+      }
+    }
+
+    // Executar ao carregar a página
+    setTheme();
+
+    // Escutar mudanças no sistema do usuário
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setTheme);
+  </script>
+  -->
+  
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const videoLinks = document.querySelectorAll(
+    ".post-content a[href*='youtube.com/watch'], " +
+    ".post-content a[href*='youtu.be/'], " +
+    ".post-content a[href*='vimeo.com/'], " +
+    ".post-content a[href*='open.spotify.com/playlist/'], " +
+    ".post-content a[href*='open.spotify.com/album/'], " +  // 👈 agora também albums
+    ".post-content a[href*='instagram.com/reel/'], " +
+    ".post-content a[href*='instagram.com/p/'], " +
+    ".post-content a[href*='instagram.com/tv/']"
+  );
+
+  let instagramScriptLoaded = false;
+
+  videoLinks.forEach(async (link) => {
+    const url = link.href;
+    const linkText = link.innerHTML;
+    let videoInfo = null;
+
+    if (url.includes("youtube.com") || url.includes("youtu.be")) {
+      videoInfo = getYoutubeInfo(url);
+      if (videoInfo) {
+        createVideoPlaceholder(link, videoInfo, "youtube", linkText);
+      }
+    } else if (url.includes("vimeo.com/")) {
+      videoInfo = await getVimeoInfo(url);
+      if (videoInfo) {
+        createVideoPlaceholder(link, videoInfo, "vimeo", linkText);
+      }
+    } else if (url.includes("open.spotify.com/playlist/") || url.includes("open.spotify.com/album/")) {
+      videoInfo = await getSpotifyInfo(url);
+      if (videoInfo) {
+        createVideoPlaceholder(link, videoInfo, "spotify", linkText);
+      }
+    } else if (
+      url.includes("instagram.com/reel/") ||
+      url.includes("instagram.com/p/") ||
+      url.includes("instagram.com/tv/")
+    ) {
+      createInstagramEmbed(link, url, linkText);
+      if (!instagramScriptLoaded) {
+        loadInstagramEmbedScript();
+        instagramScriptLoaded = true;
+      }
+    }
+  });
+
+  function getYoutubeInfo(url) {
+    const regex = /(?:youtube\.com\/(?:watch\?v=|embed\/|v\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+    const match = url.match(regex);
+    if (match && match[1]) {
+      return {
+        id: match[1],
+        thumbnailUrl: `https://i.ytimg.com/vi/${match[1]}/hqdefault.jpg`,
+        embedUrl: `https://www.youtube.com/embed/${match[1]}?autoplay=1&rel=0&vq=hd720`,
+      };
+    }
+    return null;
+  }
+
+  async function getVimeoInfo(url) {
+    const regex = /vimeo\.com\/(?:video\/)?([0-9]+)/;
+    const match = url.match(regex);
+    if (match && match[1]) {
+      const videoId = match[1];
+      const oEmbedUrl = `https://vimeo.com/api/oembed.json?url=${encodeURIComponent(url)}`;
+      let thumbnailUrl = null;
+
+      try {
+        const response = await fetch(oEmbedUrl);
+        if (!response.ok) throw new Error(`Vimeo oEmbed request failed: ${response.status}`);
+        const data = await response.json();
+        thumbnailUrl = data.thumbnail_url ? data.thumbnail_url.replace(/^http:/i, "https:") : null;
+      } catch (error) {
+        console.error("Erro ao buscar dados oEmbed do Vimeo:", error, url);
+      }
+
+      return {
+        id: videoId,
+        embedUrl: `https://player.vimeo.com/video/${videoId}?autoplay=1&transparent=0&dnt=1`,
+        thumbnailUrl: thumbnailUrl,
+      };
+    }
+    return null;
+  }
+
+  async function getSpotifyInfo(url) {
+    const playlistRegex = /open\.spotify\.com\/playlist\/([a-zA-Z0-9]+)/;
+    const albumRegex = /open\.spotify\.com\/album\/([a-zA-Z0-9]+)/;
+
+    let match = url.match(playlistRegex);
+    let type = "playlist";
+    if (!match) {
+      match = url.match(albumRegex);
+      type = "album";
+    }
+
+    if (match && match[1]) {
+      const id = match[1];
+      const oEmbedSpotifyUrl = `https://open.spotify.com/oembed?url=${encodeURIComponent(url)}`;
+      let thumbnailUrl = null;
+
+      try {
+        const response = await fetch(oEmbedSpotifyUrl);
+        if (!response.ok) throw new Error(`Spotify oEmbed request failed: ${response.status}`);
+        const data = await response.json();
+        thumbnailUrl = data.thumbnail_url ? data.thumbnail_url.replace(/^http:/i, "https:") : null;
+      } catch (error) {
+        console.error("Erro ao buscar dados oEmbed do Spotify:", error, url);
+      }
+
+      return {
+        id: id,
+        embedUrl: `https://open.spotify.com/embed/${type}/${id}?utm_source=generator`,
+        thumbnailUrl: thumbnailUrl,
+      };
+    }
+    return null;
+  }
+
+  function createVideoPlaceholder(linkElement, videoInfo, type, captionText) {
+    const videoWrapper = document.createElement("div");
+    videoWrapper.className = "video-wrapper-with-caption";
+
+    const placeholder = document.createElement("div");
+    placeholder.className = `${type}-placeholder`;
+
+    const playButton = document.createElement("div");
+    playButton.className = "youtube-play-button";
+    placeholder.appendChild(playButton);
+    videoWrapper.appendChild(placeholder);
+
+    if (captionText && captionText.trim() !== "") {
+      const caption = document.createElement("figcaption");
+      caption.className = "video-caption";
+      const captionLink = document.createElement("a");
+      captionLink.href = linkElement.href;
+      captionLink.innerHTML = captionText;
+      captionLink.target = "_blank";
+      captionLink.rel = "noopener noreferrer";
+      caption.appendChild(captionLink);
+      videoWrapper.appendChild(caption);
+    }
+
+    if (videoInfo.thumbnailUrl) {
+      placeholder.style.backgroundImage = `url(${videoInfo.thumbnailUrl})`;
+    } else {
+      console.warn(`Miniatura não encontrada para ${type}:`, videoInfo.id);
+    }
+
+    placeholder.addEventListener("click", () => {
+      const iframe = document.createElement("iframe");
+      iframe.src = videoInfo.embedUrl;
+      iframe.className = placeholder.className;
+      iframe.style.backgroundImage = "none";
+      iframe.style.backgroundColor = "#000";
+      iframe.setAttribute("frameborder", "0");
+      iframe.setAttribute("allowfullscreen", "");
+      iframe.setAttribute(
+        "allow",
+        "autoplay; clipboard-write; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; web-share"
+      );
+      iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+      if (type === "spotify" || type === "instagram") {
+        iframe.setAttribute("loading", "lazy");
+      }
+
+      const iframeTitle = captionText ? captionText.replace(/<[^>]*>?/gm, "") : "Media Player";
+      iframe.setAttribute("title", iframeTitle);
+
+      videoWrapper.replaceChild(iframe, placeholder);
+      iframe.focus();
+    }, { once: true });
+
+    if (linkElement.parentNode) {
+      linkElement.parentNode.replaceChild(videoWrapper, linkElement);
+    }
+  }
+
+  function createInstagramEmbed(linkElement, url, captionText) {
+    const wrapper = document.createElement("div");
+    wrapper.className = "video-wrapper-with-caption";
+
+    const blockquote = document.createElement("blockquote");
+    blockquote.className = "instagram-media";
+    blockquote.setAttribute("data-instgrm-permalink", url);
+    blockquote.setAttribute("data-instgrm-version", "14");
+    blockquote.style = "background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px rgba(0,0,0,0.5),0 1px 10px rgba(0,0,0,0.15); margin: 1px auto; max-width:540px; min-width:326px; padding:0; width:100%;";
+
+    wrapper.appendChild(blockquote);
+
+    if (captionText && captionText.trim() !== "") {
+      const caption = document.createElement("figcaption");
+      caption.className = "video-caption";
+      const captionLink = document.createElement("a");
+      captionLink.href = url;
+      captionLink.innerHTML = captionText;
+      captionLink.target = "_blank";
+      captionLink.rel = "noopener noreferrer";
+      caption.appendChild(captionLink);
+      wrapper.appendChild(caption);
+    }
+
+    if (linkElement.parentNode) {
+      linkElement.parentNode.replaceChild(wrapper, linkElement);
+    }
+  }
+
+  function loadInstagramEmbedScript() {
+    if (!document.querySelector('script[src="//www.instagram.com/embed.js"]')) {
+      const script = document.createElement("script");
+      script.src = "//www.instagram.com/embed.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }
+});
+</script>
+
+
+
+
+
+<!-- Google tag (gtag.js) -->
+<script>
+let analytics_loaded = false;
+let analytics_script_id = 'G-04D0PZM4N3';
+
+function swd_load_analytics() {
+	if (!analytics_loaded) {
+		let analytics_script = document.createElement('script');
+		analytics_script.src = 'https://www.googletagmanager.com/gtag/js?id=' + analytics_script_id;
+		analytics_script.onload = function() {
+    		window.dataLayer = window.dataLayer || [];
+			  function gtag(){dataLayer.push(arguments);}
+			  gtag('js', new Date());
+			  gtag('config', analytics_script_id);
+		};
+		document.head.appendChild(analytics_script);
+		analytics_loaded = true;
+	}
+}
+document.addEventListener('DOMContentLoaded', function() {
+	window.addEventListener('scroll', swd_load_analytics);
+	window.addEventListener('mousemove', swd_load_analytics);
+});
+</script>
+  </body>
+</html>

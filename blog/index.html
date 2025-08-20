@@ -532,6 +532,40 @@ img { display: block; max-width: 100%; height: auto; }
 <article class="post-entry">
   <div class="post-entry-thumb-container">
     <div class="post-thumb">
+      <img src="img/esquizopoiesis.webp" alt="Thumbnail">
+    </div>
+    <div class="entry-header">
+      <h2><a href="./esquizopoiesis-arte-generativa-sonhos-e-musica-brasileira/">Esquizopoiesis - Arte Generativa, Sonhos e Música Brasileira</a></h2>
+    </div>
+  </div>
+
+        <!-- 
+        <section class="entry-content">
+            <p><p></p>
+<blockquote>
+<p>"O universo não é uma ideia minha.<br/>
+A minha ideia de universo é que é uma ideia minha.<br/>
+A noite não anoitece pelos meus olhos.<br/>
+A minha ideia de noite é que anoitece pelos meus olhos.<br/>
+Fora de eu pensar e de haver quaisquer pensamentos<br/>
+A noite anoitece concretamente<br/>
+E …</p></blockquote></p>
+        </section>
+        -->
+
+<div class="post-meta">
+    <time class="post-date">Qua 20 Agosto 2025</time>
+    <ul class="post-tags">
+        <li><a href="./tags/ia/"><span class="acidbg white">I.A.</span></a></li>
+        <li><a href="./tags/futurismo/"><span class="acidbg white">Futurismo</span></a></li>
+        <li><a href="./tags/arte/"><span class="acidbg white">Arte</span></a></li>
+    </ul>
+</div>
+
+    </article>
+<article class="post-entry">
+  <div class="post-entry-thumb-container">
+    <div class="post-thumb">
       <img src="img/gaga.webp" alt="Thumbnail">
     </div>
     <div class="entry-header">
@@ -714,6 +748,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ".post-content a[href*='youtu.be/'], " +
     ".post-content a[href*='vimeo.com/'], " +
     ".post-content a[href*='open.spotify.com/playlist/'], " +
+    ".post-content a[href*='open.spotify.com/album/'], " +  // 👈 agora também albums
     ".post-content a[href*='instagram.com/reel/'], " +
     ".post-content a[href*='instagram.com/p/'], " +
     ".post-content a[href*='instagram.com/tv/']"
@@ -736,7 +771,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (videoInfo) {
         createVideoPlaceholder(link, videoInfo, "vimeo", linkText);
       }
-    } else if (url.includes("open.spotify.com/playlist/")) {
+    } else if (url.includes("open.spotify.com/playlist/") || url.includes("open.spotify.com/album/")) {
       videoInfo = await getSpotifyInfo(url);
       if (videoInfo) {
         createVideoPlaceholder(link, videoInfo, "spotify", linkText);
@@ -795,10 +830,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   async function getSpotifyInfo(url) {
     const playlistRegex = /open\.spotify\.com\/playlist\/([a-zA-Z0-9]+)/;
-    const playlistMatch = url.match(playlistRegex);
+    const albumRegex = /open\.spotify\.com\/album\/([a-zA-Z0-9]+)/;
 
-    if (playlistMatch && playlistMatch[1]) {
-      const playlistId = playlistMatch[1];
+    let match = url.match(playlistRegex);
+    let type = "playlist";
+    if (!match) {
+      match = url.match(albumRegex);
+      type = "album";
+    }
+
+    if (match && match[1]) {
+      const id = match[1];
       const oEmbedSpotifyUrl = `https://open.spotify.com/oembed?url=${encodeURIComponent(url)}`;
       let thumbnailUrl = null;
 
@@ -812,8 +854,8 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       return {
-        id: playlistId,
-        embedUrl: `https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator`,
+        id: id,
+        embedUrl: `https://open.spotify.com/embed/${type}/${id}?utm_source=generator`,
         thumbnailUrl: thumbnailUrl,
       };
     }
@@ -918,6 +960,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 </script>
+
 
 
 
