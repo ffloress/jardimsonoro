@@ -119,9 +119,9 @@ Até que veio a epifania e levantei-me subitamente com uma palavra nova na mente
 
 A resposta que eu buscava estava no fenômeno que eu acabava de experimentar, e sua potência: pessoas elaborando pensamentos e falas em tempo real. Eu jamais experimentaria o mesmo assistindo essas palestras pelo youtube. Foi o contato direto com as pessoas que provocou uma mudança no meu diálogo interno.
 
-Inteligências artificiais generativas são ferramentas poderosas, mas como arte eu aposto na tendencia de que será consumida como uma forma de entretenimento em si mesma. O público ao invés de navegar em infinitas bibliotecas de conteúdo gerado por I.A.,  vai preferir gerar o seu próprio conteúdo em tempo real — e pagar por esse tipo de entretenimento. E enquanto vivermos em uma sociedade capitalista, os criadores cujas obras alimentaram o aprendizado de máquina desses provedores de serviços, são merecedores de todos os royalties a que têm direito. 
+Inteligências artificiais generativas são ferramentas poderosas, mas como arte eu aposto na tendencia de que será consumida como uma forma de entretenimento em si mesma. O público ao invés de navegar em infinitas bibliotecas de conteúdo gerado por I.A.,  vai preferir gerar o seu próprio conteúdo em tempo real — e pagar por esse tipo de entretenimento. 
 
-Como experimento e para ilustrar esta explicação, fiz a geração de uma nova música no site <a href="https://suno.com/" target="_blank">Suno</a>. Cantando sobre este assunto:  
+Como experimento e para ilustrar, fiz a geração de uma nova música no site <a href="https://suno.com/" target="_blank">Suno</a> para cantar sobre este assunto. Eis o resultado:  
 
 [Geração Digital - Plagiadora Oficial](https://youtu.be/bscbehcX8cA?si=bnZzsBlzdlFZSMDu)
 
@@ -155,7 +155,9 @@ Como experimento e para ilustrar esta explicação, fiz a geração de uma nova 
 
 Eu até que me orgulho do resultado que consegui depois de alguns ajustes na letra. Me senti co-criador por não mais do que um minuto. Mas quem escutar atentamente o resultado terá uma estranha sensação de miragem: fragmentos de estilos e vozes parecem emergir como ecos reconhecíveis: Maria Rita, Emicida, talvez Claudia Leitte ou Vanessa Rangel, mas, assim que se delineiam, logo se desfazem no ar, dissolvidos em outro timbre, em outro fraseado musical característico. O efeito é um mosaico instável de influências, feito de cintilações que nunca se fixam, justamente porque à máquina falta o núcleo vital da criação.
 
-As big techs poderiam — e, sinceramente, deveriam — colar aos seus serviços um cálculo de quanto cada obra protegida por direitos autorais foi utilizada para os pesos e treinamentos que geraram cada resposta, para que parte da grana das mensalidades desses serviços possam ir direto para os artistas, e outra parte para a educação em arte. Tipo um regime de royalties do petróleo poético: você extrai, mas tem que devolver algo ao solo de origem.
+E enquanto vivermos em uma sociedade capitalista, os criadores cujas obras alimentam o aprendizado de máquina desses serviços, são merecedores de todos os royalties a que têm direito. 
+
+As big techs poderiam — e, sinceramente, deveriam — colar aos seus serviços um cálculo de quanto cada obra protegida por direitos autorais foi utilizada para os pesos e treinamentos que geraram cada resposta. Tipo um regime de royalties do petróleo poético: você extrai, mas tem que devolver algo ao solo de origem, nesse caso, para os próprios artistas.
 
 #### ⌨️ <a href="https://chat.openai.com/?q=%22Um%20pseudocódigo%20de%20algoritmo%20para%20calcular%20a%20porcentagem%20de%20diretos%20autorais%20devidas%20em%20cada%20resposta%20gerada%20por%20um%20serviço%20comercial%20de%20I.A.%20generativa%20treinada%20com%20conteúdo%20protegido%20por%20direitos%20autorais" target="_blank"><b>Algo conceitualmente simples de ser implementado!</b></a>
 
