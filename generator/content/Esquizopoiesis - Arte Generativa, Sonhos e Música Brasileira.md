@@ -159,10 +159,12 @@ As big techs poderiam — e, sinceramente, deveriam — colar aos seus serviços
 
 ---
 
-![O Ouvido Pensante](../img/ouvidopensante.jpg)
+
 
 
 O musicólogo Murray Schaffer,  propos em seu livro *<a href="https://monoskop.org/images/2/21/Schafer_R_Murray_O_ouvido_pensante.pdf" target="_blank">O Ouvido Pensante</a>* o termo **esquizofonia** para se referir a separação do som de sua fonte original. Fenômeno que surgiu a partir da invenção dos equipamentos eletroacústicos para transmissão de som, que permitiram gravar e enviar qualquer som para qualquer lugar do mundo. Antes disso, cada som era único e inseparável de sua fonte.  
+
+![O Ouvido Pensante](../img/ouvidopensante.jpg)
 
 O século XX, com suas formas industriais de mídia, possibilitou a difusão massiva de criações, mas que carregavam a representação de sua forma poética. Uma exopoiesis. Agora com o escalonamento do conteúdo "generativo" vivemos um novo paradigma: fragmentos de formas separados de seus criadores para compar a resposta a um comando. 
 
