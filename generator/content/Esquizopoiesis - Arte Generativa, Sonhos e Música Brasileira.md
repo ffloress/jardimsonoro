@@ -91,7 +91,7 @@ Uma discussão fundamental sobre os direitos autorais apropriados pela maioria d
 
 Como era de se esperar, este tema também esteve presente em muitos outros palcos do RiW, e pude notar em algumas falar a relativização da apropriação de direitos autorais, talvez derivado de uma tendência a classificar a IA como algo generalizado ou “inevitável”. Mas sigo acreditando de que prevalece a máxima, de que a forma sempre antecede o conteúdo. 
 
-Contra a visão de uma tecnologia neutra, eu gostaria de distribuir antes desses debates uma cópia do excelente artigo 
+Contra a visão de uma tecnologia neutra, eu gostaria de distribuir a todos os interessados uma cópia do excelente artigo 
 **<a href="https://revistas.marilia.unesp.br/index.php/orgdemo/article/view/411/311" target="_blank">O Fetiche da Tecnologia</a>**, de Henrique Novaes,  onde se le:
 
 
