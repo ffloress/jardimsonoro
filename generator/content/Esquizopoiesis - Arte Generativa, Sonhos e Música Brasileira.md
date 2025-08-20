@@ -22,7 +22,7 @@ Quando ganhei meu passaporte para os quatro dias de evento, o clima estava frio 
 
 ![Rio Innovation Week](../img/riw.gif)
 
-No entanto, na terça-feira, quando o evento começou, o sol voltou, a dipirona fez o seu trabalho, e eu acordei animado com a possibilidade de deparar com o novo. Peguei o metrô, depois o VLT e, chegando no Pier Mauá, uma ótima surpresa: havia um palco exclusivo sobre o mercado da música, **<a href="https://www.instagram.com/musicforwardbrasil/" target="_blank">Music Forwad</a>**, promovido pelos ídolos da Tecla Music. Dali não saí mais. Voltei todos os quatro dias seguintes. Foi intenso: conheci pessoas e trabalhos que eu nem imaginava, fiz contatos novos e, ao final, tive uma epifania que resultou na criação de uma palavra: **Esquizopoiesis**.  
+No entanto, na terça-feira, quando o evento começou, o sol voltou, a dipirona fez o seu trabalho, e eu acordei animado com a possibilidade de deparar com o novo. Peguei o metrô, depois o VLT e, chegando no Pier Mauá, uma ótima surpresa: havia um palco exclusivo sobre o mercado da música, **<Music Forward**, promovido pelos ídolos da <a href="https://teclamusic.com.br" target="_blank">Tecla Music</a>  . Dali não saí mais. Voltei todos os quatro dias seguintes. Foi intenso: conheci pessoas e trabalhos que eu nem imaginava, fiz contatos novos e, ao final, tive uma epifania que resultou na criação de uma palavra: **Esquizopoiesis**.  
 
 
 
