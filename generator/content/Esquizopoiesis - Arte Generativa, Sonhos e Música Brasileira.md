@@ -175,7 +175,7 @@ O século XX, com suas formas industriais de mídia, possibilitou a difusão mas
 
 >"Poiesis é um substantivo que se forma do verbo grego poiein. Este assinala no grego a ação de fazer diversificada, mas sobretudo a questão da essência do agir, daí estar ligada à poiesis, no sentido que hoje consideramos criação. Esta pressupõe um fazer surgir, um figurar algo a partir do nada, ou no pensamento mítico, a partir da Terra, e mais tarde a partir da physis. Mas o que é o nada, a Terra, a physis? São estas questões que remetem para a essência do agir. Poiesis é, pois, todo agir criativo ou essencial."
 
--[Manuel Antônio de Castro](https://travessiapoetica.blogspot.com/2006/09/perguntas-sobre-entrevista-de-rosa-05.html)
+-Manuel Antônio de Castro
 
 
 
