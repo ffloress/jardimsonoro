@@ -64,11 +64,11 @@ A palestra de Debora Marquesi foi inspirada, e envolveu o público, começando c
 
 Me rendeu algumas anotações que usarei daqui para frente em cada novo projeto.
 
-> **Fundamento da jornada dos sentidos:** Storia ➡ Sentido ➡ Memoria
+- **Fundamento da jornada dos sentidos:** Storia ➡ Sentido ➡ Memoria
 
-> **Design de Experiência:** é antecipar as sensacoes
+- **Design de Experiência:** é antecipar as sensacoes
 
-> **Brand Experience:** Não é o que a marca diz mas o que ela faz sentir
+- **Brand Experience:** Não é o que a marca diz mas o que ela faz sentir
 
 
 É impressionante a capacidade técnica da equipe da Chroma Garden — na combinação de diferentes tecnologia para criarem experiências físicas, sonsoriais, ricas em significado. Inteligência real, humana, é o que o Brasil tem de sobra.  
