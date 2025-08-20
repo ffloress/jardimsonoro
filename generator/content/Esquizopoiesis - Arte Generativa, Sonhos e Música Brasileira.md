@@ -179,10 +179,7 @@ A experiência com ferramentas de IA generativa seria semelhante a experiência 
 
 Primeiro, o narrador do conto se deslumbra com a promessa de conhecimento absoluto; depois, sucumbe ao peso opressor de um labirinto no qual o sentido se dissolve entre ruídos indistintos.
 
-<audio controls>
-  <source src="https://jardimsonoro.com/downloads/thelibraryofbabel.mp3" type="audio/mpeg">
-  Seu navegador não suporta a reprodução de áudio.
-</audio>
+<iframe width="100%" height="60" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=%2Ffredfs99%2Fthe-library-of-babel-jorge-luis-borges%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" ></iframe>
 
 
 Hoje, essa metáfora ganha corpo na internet graças ao site **<a href="https://libraryofbabel.info/" target="_blank">libraryofbabel.info</a>**, idealizado e implementado por Jonathan Basile, autor e programador, o site é baseado em um algoritmo que gera cada página virtualmente  **todas as páginas possíveis de 3 200 caracteres**. Ao navegar, você pode tropeçar no texto que já existe — e até naquele que ainda não foi escrito, inclusive tudo o que um dia será. É uma biblioteca **esquizopoiesética**.
