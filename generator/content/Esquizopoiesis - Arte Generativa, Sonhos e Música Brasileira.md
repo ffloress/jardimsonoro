@@ -185,10 +185,11 @@ Primeiro se deslumbra com a promessa de conhecimento absoluto; depois, sucumbe-s
 
 <iframe width="100%" height="60" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=%2Ffredfs99%2Fthe-library-of-babel-jorge-luis-borges%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" ></iframe>
 
+[Audio Book - The Library Of Babel](https://www.mixcloud.com/fredfs99/the-library-of-babel-jorge-luis-borges/)
 
 
 
-No site **<a href="https://libraryofbabel.info/" target="_blank">libraryofbabel.info</a>**, idealizado e programado por Jonathan Basile, o algoritmo cria a Biblioteca de Babel virtualmente  **todas as combinações possíveis de 3 200 caracteres** pode ser vistas. Ao navegar, com o devido tempo que pode ser de 1 minuto ou 1 milhão de anos, você pode tropeçar em texto que já existe, e até naquele que ainda não foi escrito, inclusive tudo o que um dia será. É o olhar humano que pode identificar uma obra. A Biblioteca de Babel é um acervo **esquizopoiesético**.
+Em **<a href="https://libraryofbabel.info/" target="_blank">libraryofbabel.info</a>**, idealizado e programado por Jonathan Basile, o algoritmo recria a Biblioteca de Babel, sendo assim todas as combinações possíveis de 3 200 caracteres podem ser encontradas em seus livros. Ao navegar, com o devido tempo que pode ser de 1 minuto, 1 milhão de anos ou ao infinito, você pode tropeçar em texto que já existe, e até naquele que ainda não foi escrito, inclusive tudo o que um dia será. É só o olhar humano que pode identificar. A Biblioteca de Babel é um acervo **esquizopoiesético**.
 
 
 
