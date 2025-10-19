@@ -52,24 +52,34 @@ const botao2 = jogador2.querySelector('.botao');
 const mensagem = document.getElementById('mensagem');
 const sinoAudio = document.getElementById('sino-audio');
 
+function playBellSound() {
+  try {
+    // Cria nova instância para forçar reprodução nova
+    const audio = new Audio('bell.wav');
+    audio.play().catch(e => {
+      console.log('Erro ao tocar som:', e);
+    });
+  } catch (e) {
+    console.log('Exceção no play:', e);
+  }
+}
+
 function acionaJogador(jogador) {
   if (bloqueado) return;
   bloqueado = true;
   if (jogador === 1) {
     jogador1.classList.add('ativo');
-
   } else {
     jogador2.classList.add('ativo');
-
   }
   jogador1.classList.add('desabilitado');
   jogador2.classList.add('desabilitado');
-  try {
-    sinoAudio.currentTime = 0;
-    sinoAudio.play();
-  } catch(e) {}
+
+  playBellSound();
+
   timeoutId = setTimeout(resetRodada, 3000);
 }
+
 function resetRodada() {
   jogador1.classList.remove('ativo', 'desabilitado');
   jogador2.classList.remove('ativo', 'desabilitado');
