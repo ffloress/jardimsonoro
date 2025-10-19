@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Game</title>
+  <style>
+    body { background: #f5f5f8; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: sans-serif; }
+    .container { display: flex; gap: 80px; align-items: flex-end; margin-bottom: 40px; }
+    .jogador { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .botao { width: 64px; height: 64px; background: #eee; border-radius: 50%; border: 2px solid #bbb; margin-bottom: 8px; cursor: pointer; transition: background 0.2s, border 0.2s; display: flex; justify-content: center; align-items: center;}
+    .botao:active { background: #ddd; }
+    .sino { width: 32px; height: 32px; background: #aaa; border-radius: 50%; margin-bottom: 4px; display: flex; justify-content: center; align-items: center; font-size: 1.0rem; color: #fff; }
+    .giroflex { width: 36px; height: 26px; background: #ddd; border-radius: 36px 36px 12px 12px; margin-bottom: 10px; box-shadow: none; transition: background 0.15s, box-shadow 0.15s; display: flex; align-items: flex-end; justify-content: center; }
+    .ativo .giroflex { animation: giroflexAnim 0.25s infinite alternate; }
+    .ativo.jogador1 .giroflex { background: #00aaff; box-shadow: 0 0 16px 7px #00aaff99; }
+    .ativo.jogador2 .giroflex { background: #ee2222; box-shadow: 0 0 16px 7px #ee222299; }
+    .desabilitado .botao { opacity: 0.5; pointer-events: none;}
+    #mensagem { margin-bottom: 32px; font-size: 1.25rem; color: #444; min-height: 2rem; }
+    @keyframes giroflexAnim {
+      from { opacity: 1; box-shadow: 0 0 12px 4px #ff0; }
+      to { opacity: 0.3; box-shadow: 0 0 25px 10px #ff0; }
+    }
+  </style>
+</head>
+<body>
+  <div id="mensagem"></div>
+  <div class="container">
+    <div class="jogador jogador1" id="jogador1">
+      <div class="giroflex"></div>
+      <div class="sino">&#128276;</div>
+      <button class="botao" style="background:#00aaff; border-color:#0088cc"></button>
+      <div style="color:#0088cc; font-size:1rem; font-weight:bold;">Jogador 1</div>
+    </div>
+    <div class="jogador jogador2" id="jogador2">
+      <div class="giroflex"></div>
+      <div class="sino">&#128276;</div>
+      <button class="botao" style="background:#ee2222; border-color:#c01414"></button>
+      <div style="color:#c01414; font-size:1rem; font-weight:bold;">Jogador 2</div>
+    </div>
+  </div>
+  <audio id="sino-audio">
+    <source src="bell.wav" type="audio/wav" />
+    <!-- Opcional: adicione um link para bell.wav ou troque o path conforme necessário -->
+  </audio>
+<script>
+let bloqueado = false;
+let timeoutId = null;
+const jogador1 = document.getElementById('jogador1');
+const jogador2 = document.getElementById('jogador2');
+const botao1 = jogador1.querySelector('.botao');
+const botao2 = jogador2.querySelector('.botao');
+const mensagem = document.getElementById('mensagem');
+const sinoAudio = document.getElementById('sino-audio');
+
+function acionaJogador(jogador) {
+  if (bloqueado) return;
+  bloqueado = true;
+  if (jogador === 1) {
+    jogador1.classList.add('ativo');
+
+  } else {
+    jogador2.classList.add('ativo');
+
+  }
+  jogador1.classList.add('desabilitado');
+  jogador2.classList.add('desabilitado');
+  try {
+    sinoAudio.currentTime = 0;
+    sinoAudio.play();
+  } catch(e) {}
+  timeoutId = setTimeout(resetRodada, 3000);
+}
+function resetRodada() {
+  jogador1.classList.remove('ativo', 'desabilitado');
+  jogador2.classList.remove('ativo', 'desabilitado');
+
+  bloqueado = false;
+  clearTimeout(timeoutId);
+}
+botao1.onclick = () => acionaJogador(1);
+botao2.onclick = () => acionaJogador(2);
+</script>
+</body>
+</html>
