@@ -1,0 +1,15 @@
+{
+  "name": "Frederico Flores - Jardim Sonoro",
+  "short_name": "jardimsonoro",
+  "start_url": "/radio/",
+  "display": "standalone",
+  "background_color": "#0a0f1a",
+  "theme_color": "#00e0ff",
+  "icons": [
+    {
+      "src": "jslogob.webp",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}

@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Frederico Flores - Jardim Sonoro</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0a0f1a" />
+
+  <!-- SEO -->
+  <meta name="description" content="Life Changing Musical Experience" />
+  <meta name="keywords" content="soul, jazz, dub, house, lounge, surf" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Jardim Sonoro" />
+
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="canonical" href="https://jardimsonoro.com/radio" />
+
+  <style>
+    :root {
+      --accent: #00e0ff;
+      --text-light: #f2f6fa;
+      --text-dim: #a9b4c4;
+    }
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;   /* coluna para permitir footer no bottom */
+      align-items: center;
+      background: radial-gradient(circle at center, #0a0f1a 0%, #060910 100%);
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--text-light);
+      padding: 0;
+    }
+
+    /* wrapper que centraliza o player no espaço disponível */
+    .page-main {
+      flex: 1; /* ocupa o espaço e empurra o footer para baixo */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 0; /* ajustado em telas pequenas via media query se quiser */
+    }
+
+    .player {
+      width: 340px;
+      border-radius: 20px;
+      backdrop-filter: blur(20px);
+      background: rgba(255,255,255,0.08);
+      box-shadow: 5px 10px #4ef1ff;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 20px 28px;
+      text-align: center;
+      position: relative;
+      animation: acidshadow 5s linear infinite;
+    }
+
+    @keyframes acidshadow {
+      0%, 100% {
+        box-shadow: 5px 10px #72b6e1;
+      }
+      33.33% {
+        box-shadow: 5px 10px #5bc5aa;
+      }
+      66.67% {
+        box-shadow: 5px 10px #b272e1;
+      }
+    }
+
+    #cover {
+      width: 100%;
+      height: 220px;
+      border-radius: 14px;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 18px;
+      transition: background-image 0.5s ease-in-out;
+      background-image: url('musique.png'); /* fallback inicial */
+    }
+    #title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    #artist {
+      font-size: 14px;
+      color: var(--text-dim);
+      margin-bottom: 22px;
+    }
+    button#toggle {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      border: none;
+      background: var(--accent);
+      color: #000;
+      font-size: 28px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s ease;
+      animation: acidbg 5s linear infinite;
+    }
+    button#toggle:hover {
+      background: #4ef1ff;
+      transform: scale(1.05);
+    }
+    audio { display: none; }
+
+    /* Botões de Cast no cantinho inferior direito da janela */
+    #castControls {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      z-index: 20;
+    }
+
+    .cast-btn {
+      background: rgba(255,255,255,0.08);
+      border: none;
+      color: #fff;
+      width: 46px;
+      height: 46px;
+      cursor: pointer;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .cast-btn:hover {
+      background: rgba(255,255,255,0.18);
+      transform: scale(1.05);
+    }
+
+    .cast-btn svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* FOOTER */
+    #footer.bottom {
+      width: 100%;
+      text-align: center;
+      padding: 14px 16px 14px;
+      font-size: 8px;
+      color: var(--text-dim);
+    }
+
+    #footer.bottom .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 6px;
+    }
+
+    #footer.bottom a {
+      color: var(--text-dim);
+      text-decoration: none;
+    }
+
+    #footer.bottom a svg {
+      display: block;
+    }
+
+    #footer.bottom a:hover svg path {
+      fill: var(--accent);
+    }
+
+    #footer.bottom p {
+      margin: 2px 0;
+    }
+
+    #footer.bottom .cnpj-info {
+      font-size: 10px;
+      opacity: 0.8;
+    }
+
+    /* Layout mais compacto para telas pequenas (iOS mobile etc.) */
+    @media (max-width: 480px) {
+      .page-main {
+        padding: 12px 0;
+      }
+      .player {
+        width: 300px;
+        padding: 18px 16px 22px;
+        box-shadow: 3px 6px #4ef1ff;
+      }
+      #cover {
+        height: 190px;
+        margin-bottom: 14px;
+      }
+      #title {
+        font-size: 16px;
+        margin-bottom: 4px;
+      }
+      #artist {
+        font-size: 13px;
+        margin-bottom: 18px;
+      }
+      button#toggle {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+      }
+      #footer.bottom {
+        font-size: 10px;
+        padding: 8px 10px 10px;
+      }
+      #footer.bottom .cnpj-info {
+        font-size: 9px;
+      }
+    }
+
+    @keyframes acid {
+      0%, 100% { color: #5bc5aa; }
+      33.33% { color: #b272e1; }
+      66.67% { color: #72b6e1; }
+    }
+    @keyframes acidbg {
+      0%, 100% { background-color: #72b6e1; }
+      33.33% { background-color: #5bc5aa; }
+      66.67% { background-color: #b272e1; }
+    }
+  </style>
+
+  <!-- Chromecast sender API -->
+  <script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
+</head>
+<body>
+  <main class="page-main">
+    <div class="player">
+      <div id="cover"></div>
+      <div id="title">Frederico Flores</div>
+      <div id="artist">Jardim Sonoro</div>
+
+      <audio
+        id="audio"
+        src="https://droptv.com.br/music.m3u8"
+        playsinline
+        autoplay
+        preload="none"
+      ></audio>
+
+      <button id="toggle">▶</button>
+    </div>
+  </main>
+
+  <!-- Botões de cast no canto inferior direito -->
+  <div id="castControls">
+    <!-- Chromecast -->
+    <button class="cast-btn" id="castButton" title="Chromecast" style="display:none;">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24">
+        <path d="M1,18v3h3A3,3,0,0,0,1,18Zm0-4v2a5,5,0,0,1,5,5h2A7,7,0,0,0,1,14ZM1,10v2a9,9,0,0,1,9,9h2A11,11,0,0,0,1,10ZM21,3H3A2,2,0,0,0,1,5v3H3V5H21V19H13v2h8a2,2,0,0,0,2-2V5A2,2,0,0,0,21,3Z"/>
+      </svg>
+    </button>
+
+    <!-- AirPlay -->
+    <button class="cast-btn" id="airplayButton" title="AirPlay" style="display:none;">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M6 22l6-6 6 6M2 4h20v12H2z"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- FOOTER -->
+  <section id="footer" class="bottom">
+  <!-- 
+    <div class="social-icons">
+      <a href="https://www.instagram.com/jardimsonoro.rio" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#aaa" viewBox="0 0 24 24">
+          <path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 2 .2 2.4.4.5.2.9.4 1.3.8s.6.8.8 1.3c.2.4.3 1.2.4 2.4.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 2-.4 2.4-.2.5-.4.9-.8 1.3s-.8.6-1.3.8c-.4.2-1.2.3-2.4.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-2-.2-2.4-.4a3.7 3.7 0 01-2.1-2.1c-.2-.4-.3-1.2-.4-2.4C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-2 .4-2.4A3.7 3.7 0 014.8 2.3c.4-.2 1.2-.3 2.4-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1 .1-1.6.2-2 .3a2 2 0 00-1.1 1.1c-.1.4-.2 1-.3 2-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1 .2 1.6.3 2a2 2 0 001.1 1.1c.4.1 1 .2 2 .3 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1-.1 1.6-.2 2-.3a2 2 0 001.1-1.1c.1-.4.2-1 .3-2 .1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1-.2-1.6-.3-2a2 2 0 00-1.1-1.1c-.4-.1-1-.2-2-.3-1.2-.1-1.6-.1-4.7-.1zM12 6.5a5.5 5.5 0 110 11 5.5 5.5 0 010-11zm0 1.8a3.7 3.7 0 100 7.4 3.7 3.7 0 000-7.4zm5.4-1.9a1.3 1.3 0 110 2.6 1.3 1.3 0 010-2.6z"/>
+        </svg>
+      </a>
+      <a href="https://x.com/jardimsonoro" aria-label="Twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#aaa" viewBox="0 0 24 24">
+          <path d="M22.25 2l-7.56 8.87L23.5 22h-5.25l-5.83-6.88L6.5 22H.5l8.14-9.55L.5 2h5.25l5.25 6.18L17.5 2z"/>
+        </svg>
+      </a>
+    </div>
+     -->
+    <p>© 2026 <a href="https://jardimsonoro.com">Jardim Sonoro</a> · Rio de Janeiro, Brasil.</p>
+  </section>
+
+  <script>
+    // --- Reprodutor básico ---
+    const audio    = document.getElementById('audio');
+    const toggle   = document.getElementById('toggle');
+    const coverEl  = document.getElementById('cover');
+    const titleEl  = document.getElementById('title');
+    const artistEl = document.getElementById('artist');
+
+    const castControls = document.getElementById('castControls');
+    const castButton   = document.getElementById('castButton');
+    const airplayButton= document.getElementById('airplayButton');
+
+    let playing = false;
+
+    const ua = navigator.userAgent.toLowerCase();
+    const isIOS = /iphone|ipad|ipod/.test(ua);
+    const isSafariDesktop =
+      ua.includes('safari') &&
+      !ua.includes('chrome') &&
+      !ua.includes('crios') &&
+      !ua.includes('fxios') &&
+      !ua.includes('edgios') &&
+      !isIOS;
+    const isSafariLike = isIOS || isSafariDesktop; // tudo que é WebKit puro/iOS
+
+    toggle.addEventListener('click', () => {
+      if (!playing) {
+        audio.play().catch(err => {
+          console.error('[Audio] Erro ao tentar play via botão:', err);
+        });
+      } else {
+        audio.pause();
+      }
+    });
+
+    audio.addEventListener('play', () => {
+      playing = true;
+      toggle.textContent = '❚❚';
+      console.log('[Audio] play - src:', audio.currentSrc);
+    });
+
+    audio.addEventListener('pause', () => {
+      playing = false;
+      toggle.textContent = '▶';
+      console.log('[Audio] pause');
+    });
+
+    const MEDIA_ERROR_MAP = {
+      1: 'MEDIA_ERR_ABORTED',
+      2: 'MEDIA_ERR_NETWORK',
+      3: 'MEDIA_ERR_DECODE (possível problema de codec ou stream corrompido)',
+      4: 'MEDIA_ERR_SRC_NOT_SUPPORTED (formato/codec não suportado ou URL inválida)'
+    };
+
+    audio.addEventListener('error', () => {
+      const err = audio.error;
+      if (!err) {
+        console.error('[Audio] error sem objeto de erro (audio.error null)', {
+          currentSrc: audio.currentSrc,
+          networkState: audio.networkState,
+          readyState: audio.readyState
+        });
+        return;
+      }
+
+      const code = err.code;
+      console.error('[Audio] ERROR', {
+        code,
+        meaning: MEDIA_ERROR_MAP[code] || 'desconhecido',
+        message: err.message || null,
+        currentSrc: audio.currentSrc,
+        networkState: audio.networkState,
+        readyState: audio.readyState
+      });
+    });
+
+    audio.addEventListener('stalled', () => {
+      console.warn('[Audio] stalled (sem dados recebidos do stream)', {
+        currentSrc: audio.currentSrc,
+        networkState: audio.networkState,
+        readyState: audio.readyState
+      });
+    });
+
+    audio.addEventListener('waiting', () => {
+      console.log('[Audio] waiting (buffering...)', {
+        currentSrc: audio.currentSrc,
+        networkState: audio.networkState,
+        readyState: audio.readyState
+      });
+    });
+
+    audio.addEventListener('loadedmetadata', () => {
+      console.log('[Audio] loadedmetadata', {
+        currentSrc: audio.currentSrc,
+        duration: audio.duration,
+        sampleRateDesconhecidoNoJS: true
+      });
+    });
+
+    function updateMediaSession(title, artist, coverUrl) {
+      if (!('mediaSession' in navigator)) return;
+
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title,
+        artist,
+        album: 'Jardim Sonoro',
+        artwork: coverUrl ? [
+          { src: coverUrl, sizes: '512x512', type: 'image/jpeg' }
+        ] : []
+      });
+
+      navigator.mediaSession.setActionHandler('play', () => audio.play().catch(() => {}));
+      navigator.mediaSession.setActionHandler('pause', () => audio.pause());
+    }
+
+    let lastMusicFile = null;
+    let currentTrackInfo = {
+      title:  '',
+      artist: '',
+      cover:  ''
+    };
+
+    async function fetchNowPlayingFromNowJson() {
+      try {
+        const res = await fetch('https://droptv.com.br/now.json', {
+          cache: 'no-store',
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (!res.ok) {
+          console.error('[now.json] HTTP error:', res.status, res.statusText);
+          return;
+        }
+
+        const contentType = res.headers.get('content-type') || '';
+        const text = await res.text();
+
+        if (!contentType.includes('application/json')) {
+          console.error(
+            '[now.json] Conteúdo não é JSON:',
+            'status =', res.status,
+            'content-type =', contentType,
+            'trecho =', text.slice(0, 120)
+          );
+          return;
+        }
+
+        let data;
+        try {
+          data = JSON.parse(text);
+        } catch (e) {
+          console.error(
+            '[now.json] Erro ao fazer JSON.parse:',
+            e,
+            'trecho =', text.slice(0, 120)
+          );
+          return;
+        }
+
+        if (!data || !data.music_file) {
+          return;
+        }
+
+        if (lastMusicFile !== null && data.music_file === lastMusicFile) {
+          return;
+        }
+        lastMusicFile = data.music_file;
+
+        const title  = data.title  || 'Jardim Sonoro';
+        const artist = data.artist || 'Frederico Flores';
+        const cover  = (data.cover_url || '').trim();
+
+        currentTrackInfo = { title, artist, cover };
+        updateUI();
+        updateMediaSession(title, artist, cover || undefined);
+
+      } catch (err) {
+        console.error('[now.json] Erro ao consultar now.json:', err);
+      }
+    }
+
+    function updateUI() {
+      titleEl.textContent  = currentTrackInfo.title  || 'Jardim Sonoro';
+      artistEl.textContent = currentTrackInfo.artist || 'Frederico Flores';
+      if (currentTrackInfo.cover) {
+        coverEl.style.backgroundImage = `url('${currentTrackInfo.cover}')`;
+      }
+    }
+
+    fetchNowPlayingFromNowJson();
+    setInterval(fetchNowPlayingFromNowJson, 5000);
+
+    // AirPlay
+    if (window.WebKitPlaybackTargetAvailabilityEvent) {
+      airplayButton.style.display = 'flex';
+      audio.addEventListener('webkitplaybacktargetavailabilitychanged', event => {
+        console.log('[AirPlay] availability changed:', event.availability);
+      });
+      airplayButton.addEventListener('click', () => {
+        if (audio.webkitShowPlaybackTargetPicker) {
+          audio.webkitShowPlaybackTargetPicker();
+        }
+      });
+    } else {
+      airplayButton.style.display = 'none';
+    }
+
+    // Chromecast
+    function initChromecast() {
+      if (!window.cast || !window.cast.framework) {
+        console.log('[Cast] API do Chromecast não disponível neste contexto.');
+        castButton.style.display = 'none';
+        return;
+      }
+
+      if (isSafariLike) {
+        console.log('[Cast] Safari/iOS detectado; Chromecast oculto.');
+        castButton.style.display = 'none';
+        return;
+      }
+
+      castButton.style.display = 'flex';
+
+      const ctx = cast.framework.CastContext.getInstance();
+      ctx.setOptions({
+        receiverApplicationId: chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID,
+        autoJoinPolicy: chrome.cast.AutoJoinPolicy.TAB_AND_ORIGIN_SCOPED,
+      });
+
+      castButton.addEventListener('click', async () => {
+        try {
+          const session =
+            ctx.getCurrentSession() || await ctx.requestSession();
+
+          if (!session) {
+            console.log('[Cast] nenhuma sessão de cast ativa.');
+            return;
+          }
+
+          const mediaInfo = new chrome.cast.media.MediaInfo(
+            audio.currentSrc || audio.src,
+            'audio/mpeg'
+          );
+          const request = new chrome.cast.media.LoadRequest(mediaInfo);
+          session.loadMedia(request);
+        } catch (err) {
+          const code = err && err.code ? err.code : err;
+          if (code === 'cancel') {
+            console.log('[Cast] sessão cancelada pelo usuário (normal).');
+          } else if (code === 'session_error') {
+            console.log('[Cast] não foi possível iniciar sessão de cast.', err);
+          } else {
+            console.error('[Cast] erro inesperado ao iniciar cast:', err);
+          }
+        }
+      });
+    }
+
+    window.__onGCastApiAvailable = function(isAvailable) {
+      if (isAvailable) {
+        initChromecast();
+      } else {
+        console.log('[Cast] API Chromecast não disponível.');
+        castButton.style.display = 'none';
+      }
+    };
+  </script>
+</body>
+</html>
