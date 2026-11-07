@@ -200,6 +200,20 @@ WORDS = {
     "sunbliss": ["loud", "warm", "summer"],
     "liveremote": ["REC", "far away", "alone"],
 }
+FACTS = {'tyrell80': ['8 voices, two complete synth lines each', '75 presets, incl. the 22 factory tones'],
+    'obxtra': ['Up to 32 voices', '613 presets, incl. the OB-Xa factory bank'],
+    'dxdx7': ['6 operators · 32 algorithms', '41 cartridges · 1,312 voices built in'],
+    'youth106': ['6 voices (8 or 10 optional)', '299 presets, incl. all 128 Juno-106 patches'],
+    'zynabre': ['16 parts × 16 kit items', '1,517 instruments in 42 banks'],
+    'buenovox': ['Natural, Classic and Hard modes', 'Key + 12 scales, MIDI target or MIDI scale'],
+    'muchovox': ['Up to 4 harmony voices (8 with Double)', 'Chord, scale, MIDI chord or MIDI notes'],
+    'mutante': ['2 × six-stage optical phasers', '3 routings: In A, Out A, In B'],
+    'th0nk3000': ['7 grain parameters scored over 20 minutes', 'Standalone app + plug-in, live input'],
+    'magnitude': ['Look-ahead 0–100 ms', '4× oversampled HQ mode · 10 presets'],
+    'sunbliss': ['Classic, Modern and Hard clippers', 'HPDF dither, NS1–NS4 noise shaping'],
+    'liveremote': ['Session, Arrangement, mixer and REC screen', 'Ableton Live 11 · nothing to install on the phone']}
+
+
 TYPED = [
     "Open-source instruments & effects.",
     "Circuit-modelled from service manuals.",
@@ -236,7 +250,7 @@ def demo_html(repo):
       <div class="demo" data-src="demos/{d.get('file', repo + '.mp3')}">
         <button class="play" type="button" aria-label="Play the {e(d['piece'])} demo"><span class="i-play"></span></button>
         <div class="wave" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">{svg}<div class="prog">{svg}</div></div>
-        <p class="cap"><span class="acid">&gt;</span> {e(d['piece'])} <span class="dim">{('· preset ' + e(d['sound']) + ' ') if d.get('sound') else ''}· <span class="time">{fmt_time(d['duration'])}</span></span></p>
+        <p class="cap">{e(d['piece'])} <span class="dim">{('· preset ' + e(d['sound']) + ' ') if d.get('sound') else ''}· <span class="time">{fmt_time(d['duration'])}</span></span></p>
       </div>"""
 
 
@@ -263,21 +277,22 @@ def build_index():
       <div class="cols">
         <div class="text">{body}</div>
         <div class="aside">
-        <p class="tagline">“{e(a['headline'].strip('“”'))}”</p>
-        <ul class="specs">
-          <li>_ {loop(ref, WORDS.get(r, [p['name']]))}</li>
-          {kind_li}
-          <li>_ {e(p['formats'])}</li>
-          <li>_ Open source</li>
-        </ul>
+          <p class="tagline">{loop('“' + a['headline'].strip('“”') + '”', WORDS.get(r, [p['name']]))}</p>
+          <ul class="specs">
+            <li>_ {e(ref)}</li>
+            {kind_li}
+            {''.join(f"<li>_ {e(f)}</li>" for f in FACTS.get(r, []))}
+          </ul>
         </div>
       </div>
-      <figure class="ui"><img src="shots/{r}-800.webp" srcset="shots/{r}-800.webp 800w, shots/{r}-1600.webp 1600w" sizes="(max-width:900px) 100vw, 70vw" alt="{e(p['name'])} interface" loading="lazy"></figure>
+      <figure class="ui"><button class="zoom" type="button" data-full="shots/{r}-1600.webp" aria-label="View the {e(p['name'])} interface full screen"><img src="shots/{r}-800.webp" srcset="shots/{r}-800.webp 800w, shots/{r}-1600.webp 1600w" sizes="(max-width:900px) 100vw, 80vw" alt="{e(p['name'])} interface" loading="lazy"></button></figure>{demo_html(r)}
       <div class="get">
-        <a class="dl" href="{gh(r)}/releases/latest" data-dl><span class="arrow">&gt; </span><span class="t">Download</span></a>
+        <div class="dlw">
+          <p class="dls"><span class="arrow">&gt;</span> <a class="dl" data-os="mac" href="{gh(r)}/releases/latest">macOS</a>, <a class="dl" data-os="linux" href="{gh(r)}/releases/latest">Linux</a>, <a class="dl" data-os="win" href="{gh(r)}/releases/latest">Windows</a></p>
+          <p class="ver" data-ver>Latest release on GitHub</p>
+        </div>
         <a class="gh" href="{gh(r)}" aria-label="Source code on GitHub"><svg class="ghi" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span class="ghu">github.com/{OWNER}/{r}</span></a>
-        <p class="more"><span class="other"></span></p>
-      </div>{demo_html(r)}
+      </div>
     </section>""")
         menu_cols.append(f'<div class="col"><h4>{e(label)}</h4><ul>' + "".join(lis) + "</ul></div>")
         sections.append(f'<div class="group" id="{key}">' + "".join(plugs) + "</div>")
@@ -300,8 +315,7 @@ def build_index():
 <main>
   <section class="about" id="about">
     <h4>About</h4>
-    <p class="lead">Open-source instruments &amp; effects, circuit-modelled from service manuals.</p>
-    <p>Built by a {loop("bachelor of music", ["harmony", "counterpoint", "ears", "groove"])} and {loop("computer engineer", ["DSP", "Rust", "circuits", "code"])}, after several years of {loop("research", ["schematics", "manuals", "measure", "listen"])}. Test it. Break it. Fix it. Pull requests welcome.</p>
+    <p class="lead">Open-source virtual instruments &amp; effects, circuit-modelled for real hardware sound. Written in Rust.</p>
   </section>
 
   <nav class="menu" style="--cols:{len(menu_cols)}" aria-label="Plug-ins">{''.join(menu_cols)}</nav>
@@ -310,8 +324,7 @@ def build_index():
 
   <section class="outro" id="contribute">
     <h4>Contribute</h4>
-    <p>Every project here is open source, and each one lives in its own GitHub repository with the code, the research notes and the measurements behind it. Contributing doesn't have to mean writing code: playing a plug-in in a real session and telling us what happened is just as valuable. If something crashes, clicks or doesn't sound right, open an issue on that project's page with your system, your DAW and the steps that got you there. If you can fix it, or have an idea for the DSP, the interface or the documentation, fork the repository and send a pull request. Every report and every patch makes these instruments better for everyone who uses them.</p>
-    <a class="big acid" href="https://github.com/{OWNER}">github.com/{OWNER}</a>
+    <p>Test it. Break it. Fix it. Pull requests welcome.</p>
   </section>
 
   <section id="footer" class="bottom">
@@ -323,6 +336,8 @@ def build_index():
     <p class="fine">Open source, provided as-is. See each repository for its license. Product names are trademarks of their owners, used only to describe what each project models. No affiliation.</p>
   </section>
 </main>
+
+<dialog class="lightbox" id="lightbox" aria-label="Interface, full screen"><img alt=""><button class="close" type="button" aria-label="Close">&times;</button></dialog>
 
 <div class="fixedBg" id="fixedBg" aria-hidden="true"><div class="container"></div></div>
 

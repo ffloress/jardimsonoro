@@ -108,6 +108,22 @@
     addEventListener('resize', function () { if (cur) sizeProg(cur); });
   })();
 
+
+  /* ---------- interface screenshots: full-screen view ---------- */
+  (function () {
+    var box = $('#lightbox'); if (!box || !box.showModal) return;
+    var img = $('img', box);
+    $$('.zoom').forEach(function (b) {
+      b.addEventListener('click', function (e) {
+        e.stopPropagation();
+        img.src = b.dataset.full; img.alt = $('img', b).alt;
+        box.showModal();
+      });
+    });
+    box.addEventListener('click', function () { box.close(); });
+    box.addEventListener('close', function () { img.removeAttribute('src'); });
+  })();
+
   /* ---------- downloads for the visitor's system ---------- */
   function detect() {
     var ua = navigator.userAgent || '', p = ((navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '').toLowerCase();
@@ -137,27 +153,28 @@
     return g;
   }
   function load(repo) {
-    var key = 'js-audio-rel:' + repo, c = null;
+    var key = 'js-audio-rel2:' + repo, c = null;
     try { c = JSON.parse(store.get(key)); } catch (e) {}
     if (c && Date.now() - c.t < TTL) return Promise.resolve(c.d);
     return fetch('https://api.github.com/repos/' + OWNER + '/' + repo + '/releases/latest', { headers: { Accept: 'application/vnd.github+json' } })
       .then(function (r) { if (!r.ok) throw r.status; return r.json(); })
       .then(function (j) {
-        var d = { tag: j.tag_name, url: j.html_url, assets: (j.assets || []).map(function (a) { return { n: a.name, u: a.browser_download_url }; }) };
+        var d = { tag: j.tag_name, url: j.html_url, date: j.published_at, assets: (j.assets || []).map(function (a) { return { n: a.name, u: a.browser_download_url }; }) };
         store.set(key, JSON.stringify({ t: Date.now(), d: d })); return d;
       })
       .catch(function (e) { if (c) return c.d; throw e; });
   }
-  function link(href, text) { var a = document.createElement('a'); a.href = href; a.textContent = text; return a; }
   function paint(sec) {
-    var d = REL[sec.dataset.repo]; if (!d) return;
-    var g = group(d), mine = g[OS], a = $('[data-dl]', sec), other = $('.other', sec);
-    if (mine.length) { a.href = mine[0].u; $('.t', a).textContent = 'Download ' + d.tag + ' for ' + OSN[OS]; }
-    else { a.href = d.url; $('.t', a).textContent = d.tag + ' (no ' + OSN[OS] + ' build yet)'; }
-    other.textContent = '';
-    var extra = mine.slice(1).map(function (x) { return link(x.u, kind(x.n)); })
-      .concat(['mac', 'win', 'linux'].filter(function (o) { return o !== OS && g[o].length; }).map(function (o) { return link(g[o][0].u, OSN[o]); }));
-    if (extra.length) { other.appendChild(document.createTextNode('Also for:')); extra.forEach(function (x) { other.appendChild(x); }); }
+    var d = REL[sec.dataset.repo];
+    if (!d) return;
+    var g = group(d);
+    $$('.get .dl', sec).forEach(function (a) {
+      var list = g[a.dataset.os];
+      if (list.length) { a.href = list[0].u; a.title = d.tag + ' · ' + kind(list[0].n); a.classList.remove('na'); }
+      else { a.href = d.url; a.title = 'No ' + OSN[a.dataset.os] + ' build in ' + d.tag; a.classList.add('na'); }
+    });
+    var v = $('[data-ver]', sec);
+    if (v) v.textContent = d.tag + (d.date ? ' · released ' + new Date(d.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : '');
   }
   plugs.forEach(paint);
 
