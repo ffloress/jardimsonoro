@@ -39,6 +39,22 @@ body, video {
   margin: 0;
   padding: 0;
 }
+.bg-fallback {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  pointer-events: none;
+  display: block;
+}
+.bg-fallback-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 video {
   position: fixed;
   top: 0;
@@ -47,6 +63,74 @@ video {
   height: 100%;
   object-fit: cover;
   z-index: -1;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+video.is-playing {
+  opacity: 1;
+}
+/* Gradiente de cor dinâmico e sombreamento de contraste (mesmo DNA de /audio) */
+.tint {
+  position: fixed;
+  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: color;
+  opacity: .38;
+  animation: acidbg 18s linear infinite;
+}
+.shade {
+  position: fixed;
+  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.28), rgba(0,0,0,.5) 60%, rgba(0,0,0,.62));
+}
+/* 80s analogue TV: scanlines, a faint aperture grille and a slow rolling band */
+.scan {
+  position: fixed;
+  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  background: repeating-linear-gradient(180deg, rgba(0,0,0,.42) 0 1px, rgba(0,0,0,0) 1px 3px),
+              repeating-linear-gradient(90deg, rgba(255,0,0,.035) 0 1px, rgba(0,255,0,.03) 1px 2px, rgba(0,0,255,.035) 2px 3px);
+  box-shadow: inset 0 0 18vmin rgba(0,0,0,.55);
+}
+.scan::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -30%;
+  height: 30%;
+  background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,.045) 50%, rgba(255,255,255,0));
+  animation: roll 9s linear infinite;
+}
+@keyframes roll {
+  to { transform: translateY(433%); }
+}
+/* Oculta controles e botão nativo de play no iOS/WebKit em caso de bloqueio */
+video::-webkit-media-controls {
+  display: none !important;
+}
+*::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none !important;
+  opacity: 0 !important;
 }
 main {
   position: relative;
@@ -308,10 +392,70 @@ li {
       </style>
      </head>
    <body>
-      <video autoplay loop muted playsinline poster="bgpb.jpg">
-         <source src="bgpb.mp4" type="video/mp4" playsinline>
-         <source src="bgpb.webm" type="video/webm" playsinline>
+      <picture class="bg-fallback" aria-hidden="true">
+         <source srcset="bgpb.webp" type="image/webp">
+         <img src="bgpb.jpg" alt="" class="bg-fallback-img" fetchpriority="high">
+      </picture>
+      <video id="bg-video" autoplay loop muted playsinline webkit-playsinline preload="auto">
+         <source src="bgpb.mp4" type="video/mp4">
+         <source src="bgpb.webm" type="video/webm">
       </video>
+      <div class="tint" aria-hidden="true"></div>
+      <div class="shade" aria-hidden="true"></div>
+      <div class="scan" aria-hidden="true"></div>
+      <noscript>
+         <style>
+            #bg-video { display: none !important; }
+         </style>
+      </noscript>
+      <script>
+         (function() {
+            var video = document.getElementById('bg-video');
+            if (!video) return;
+
+            var played = false;
+            function onPlaying() {
+               if (!played) {
+                  played = true;
+                  video.classList.add('is-playing');
+               }
+            }
+
+            function fallback() {
+               if (video && video.parentNode) {
+                  video.pause();
+                  video.parentNode.removeChild(video);
+               }
+            }
+
+            video.addEventListener('playing', onPlaying);
+            video.addEventListener('timeupdate', onPlaying);
+
+            // Verifica se o vídeo já começou a rodar (caso o evento tenha disparado antes)
+            if (video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2) {
+               onPlaying();
+            }
+
+            // Detecta bloqueio de autoplay (ex: iPhone em Modo de Pouca Energia / Low Power Mode)
+            var promise = video.play();
+            if (promise !== undefined) {
+               promise.then(function() {
+                  onPlaying();
+               }).catch(function() {
+                  // Autoplay bloqueado pelo sistema/navegador:
+                  // Remove o vídeo para que o Safari não exiba o botão/ícone nativo de "play"
+                  fallback();
+               });
+            }
+
+            // Fallback de segurança: se após 2.5s estiver pausado e não iniciou a reprodução, remove o vídeo
+            setTimeout(function() {
+               if (!played && video.paused) {
+                  fallback();
+               }
+            }, 2500);
+         })();
+      </script>
       <main>
          <div class="container">
             <div class="textContainer">
@@ -427,7 +571,8 @@ li {
             <section id="links">
                <div class="shortColumn info">
                   <h2 class="email"><a href="blog"><span class="loopCol">/</span>Blog</a></h2>
-                  <h2 class="email"><a href="radio"><span class="loopCol">:</span>Radio</a></h2>
+                  <h2 class="email"><a href="audio"><span class="loopCol">|</span>Audio</a></h2>
+                  <h2 class="email"><a href="radio"><span class="loopCol">></span>Radio</a></h2>
                </div>
             </section>
          </div>
