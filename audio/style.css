@@ -1,0 +1,166 @@
+/* Jardim Sonoro Audio — same DNA as jardimsonoro.com: Ubuntu, huge tight type, acid colours, grey photographic backdrop */
+:root{
+  --a1:#5bc5aa; --a2:#b272e1; --a3:#72b6e1;
+  --hover:#80cbc4;
+  --pad:5vw;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:#1a1a1a;color:#fff;font:400 17px/1.55 'Ubuntu',system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;overflow-x:hidden}
+a{color:#fff;font-weight:700;text-decoration:none}
+a:hover{color:var(--hover);text-decoration:underline}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+
+@keyframes acid{0%,100%{color:var(--a1)}33.33%{color:var(--a2)}66.67%{color:var(--a3)}}
+@keyframes acidbg{0%,100%{background-color:var(--a3)}33.33%{background-color:var(--a1)}66.67%{background-color:var(--a2)}}
+@keyframes up{from{transform:translateY(100%)}to{transform:none}}
+@keyframes down{from{transform:none}to{transform:translateY(100%)}}
+@keyframes blink{50%{opacity:0}}
+
+/* ---------- photographic backdrop ---------- */
+.stage{position:fixed;inset:0;z-index:-2;background:#9a9a9a}
+.layer{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:center/cover no-repeat;opacity:0;transition:opacity 1.4s ease}
+.layer.on{opacity:1}
+.tint{position:absolute;inset:0;mix-blend-mode:color;opacity:.38;animation:acidbg 18s linear infinite}
+/* 80s analogue TV: scanlines, a faint aperture grille and a slow rolling band */
+.scan{position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(180deg,rgba(0,0,0,.42) 0 1px,rgba(0,0,0,0) 1px 3px),
+             repeating-linear-gradient(90deg,rgba(255,0,0,.035) 0 1px,rgba(0,255,0,.03) 1px 2px,rgba(0,0,255,.035) 2px 3px);
+  box-shadow:inset 0 0 18vmin rgba(0,0,0,.55)}
+.scan::after{content:"";position:absolute;left:0;right:0;top:-30%;height:30%;
+  background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.045) 50%,rgba(255,255,255,0));animation:roll 9s linear infinite}
+@keyframes roll{to{transform:translateY(433%)}}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28),rgba(0,0,0,.5) 60%,rgba(0,0,0,.62))}
+
+main{width:90%;margin:0 auto}
+
+/* ---------- compact header (as on /blog) ---------- */
+@keyframes acidbg-dark{0%,100%{background-color:#336b99}33.33%{background-color:#287c66}66.67%{background-color:#6d3d99}}
+.header .nav{display:flex;justify-content:center;align-items:center;height:4.6em;padding:0 1.5em}
+.logo{margin:0;font-size:1.45em;letter-spacing:-.01em;font-weight:700;display:flex;align-items:center;gap:.45em}
+.logo a:hover{text-decoration:none}
+.badge{color:#fff;font-weight:700;padding:5px;border-radius:.25em;animation:acidbg-dark 5s infinite;background-color:#5bc5aa}
+.badge:hover{filter:invert(100%)}
+.layer.grad{background:radial-gradient(120% 90% at 15% 0%,#5a5a5a 0%,#3a3a3a 38%,#1c1c1c 75%,#111 100%)}
+
+/* ---------- menu with counters ---------- */
+.menu{display:grid;grid-template-columns:repeat(var(--cols,5),minmax(0,1fr));gap:0 2.4vw;padding:6vh 0 7vh}
+.menu h4{white-space:nowrap}
+.menu ul{list-style:none;margin:0;padding:0}
+.menu li{margin:0 0 16px}
+.menu a{display:block;font-weight:700}
+.menu a:hover{text-decoration:none}
+.menu .t{display:block;font-size:1.08em;letter-spacing:-.01em}
+.menu a:hover .t{animation:acid 2s linear infinite}
+.menu .s{display:block;font-weight:400;font-size:.76em;line-height:1.35;color:rgba(255,255,255,.72);margin-top:3px}
+.num{animation:acid 5s linear infinite;font-weight:700}
+.name .num{display:block;font-size:clamp(18px,2.2vw,34px);letter-spacing:0;line-height:1;margin-bottom:.35em}
+
+/* ---------- about (right under the menu) ---------- */
+.about{width:62%;padding:9vh 0 0;font-size:clamp(17px,1.4vw,21px);line-height:1.5}
+.about p{margin:0 0 1em}
+.about .lead{font:700 clamp(28px,3.6vw,56px)/1.08 'Ubuntu',sans-serif;letter-spacing:-.025em;margin-bottom:.5em}
+
+/* ---------- labels, copy ---------- */
+h4{margin:0 0 18px;font:500 13px/1 'Ubuntu',sans-serif;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.75);display:flex;align-items:center;gap:12px}
+h4::after{content:"";width:46px;height:1px;background:rgba(255,255,255,.55)}
+.loopCol{font-weight:700;padding:0 3px;animation:acidbg 5s linear infinite;cursor:crosshair;outline:none;-webkit-tap-highlight-color:transparent}
+.loopCol:focus-visible{box-shadow:0 0 0 2px #fff}
+
+/* ---------- one plug-in ---------- */
+.plug{min-height:100vh;padding:20vh 0 8vh}
+.name{margin:0;font:700 12vw/.9 'Ubuntu',sans-serif;letter-spacing:-.4vw;overflow-wrap:anywhere}
+.headline{margin:3.5vh 0 7vh;font:300 clamp(26px,3.6vw,58px)/1.08 'Ubuntu',sans-serif;letter-spacing:-.02em;max-width:19ch}
+.cols{display:grid;grid-template-columns:minmax(0,34em) minmax(0,1fr);gap:4vw;align-items:start}
+.text{font-size:clamp(16px,1.2vw,19px);line-height:1.6;color:rgba(255,255,255,.92)}
+.text p{margin:0 0 1em}
+.tagline{margin:0 0 1.1em;font:300 italic clamp(19px,1.7vw,27px)/1.3 'Ubuntu',sans-serif;letter-spacing:-.01em;color:#fff;max-width:22em}
+.specs{list-style:none;margin:0;padding:0;font-weight:700;font-size:clamp(16px,1.25vw,20px);line-height:1.9}
+.ui{margin:7vh 0 6vh;max-width:1200px}
+.ui img{width:100%;height:auto;border-radius:4px;box-shadow:0 30px 80px rgba(0,0,0,.55)}
+.get{display:flex;flex-wrap:wrap;align-items:center;gap:.2em 1.1em;font-size:clamp(28px,4.2vw,64px);line-height:1.15;letter-spacing:-.02em}
+.get .dl{color:#fff;padding:0 .12em;animation:acidbg 5s linear infinite}
+.get .dl:hover{color:#fff;text-decoration:none;filter:brightness(1.1)}
+.get .dl .arrow{color:rgba(255,255,255,.75)}
+.get .gh{display:inline-flex;flex-direction:column;align-items:flex-start;gap:6px;color:#fff;margin-left:.2em}
+.get .gh:hover{text-decoration:none}
+.ghi{width:.95em;height:.95em;fill:#fff;transition:fill .2s}
+.get .gh:hover .ghi{animation:acidfill 3s linear infinite}
+.ghu{font:500 11px/1 'Ubuntu',sans-serif;letter-spacing:.02em;color:rgba(255,255,255,.7)}
+.get .gh:hover .ghu{color:#fff}
+.get .more{flex-basis:100%;margin:.6em 0 0;font-size:15px;letter-spacing:0;display:flex;flex-wrap:wrap;gap:6px 18px;color:rgba(255,255,255,.75)}
+.get .more a{font-weight:500;color:rgba(255,255,255,.85)}
+.get .other a{margin-left:6px}
+
+/* ---------- audio demo ---------- */
+.demo{margin:7vh 0 0;display:grid;grid-template-columns:auto 1fr;gap:10px 18px;align-items:center;max-width:1200px}
+.play{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;animation:acidbg 5s linear infinite;transition:transform .15s}
+.play:hover{transform:scale(1.06)}
+.i-play{width:0;height:0;border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff;margin-left:4px}
+.demo.on .i-play{width:16px;height:20px;border:0;margin:0;background:linear-gradient(90deg,#fff 0 35%,transparent 35% 65%,#fff 65%)}
+.wave{position:relative;height:64px;cursor:pointer;outline:none}
+.wave svg{display:block;width:100%;height:100%;fill:rgba(255,255,255,.42)}
+.wave .prog{position:absolute;inset:0 auto 0 0;width:0;overflow:hidden}
+.wave .prog svg{width:var(--w,100%);fill:#fff}
+.demo.on .wave .prog svg{animation:acidfill 5s linear infinite}
+@keyframes acidfill{0%,100%{fill:var(--a1)}33.33%{fill:var(--a2)}66.67%{fill:var(--a3)}}
+.wave:focus-visible{box-shadow:0 0 0 2px #fff}
+.demo .cap{grid-column:2;margin:0;font-weight:700;font-size:clamp(15px,1.15vw,18px)}
+.demo .dim{font-weight:400;color:rgba(255,255,255,.7)}
+
+/* ---------- outro ---------- */
+.outro{width:52%;margin:16vh 0 0;font-size:clamp(17px,1.4vw,21px)}
+.bmc{display:inline-block}
+.bmc img{height:60px;width:auto}
+.bmc:hover{filter:brightness(1.05)}
+.outro p{margin:0 0 1em}
+.list{list-style:none;padding:0;margin:0 0 1.4em;font-weight:700}
+.list li{margin:0 0 .3em}
+.big{display:inline-block;font:700 clamp(30px,4.6vw,66px)/1.1 'Ubuntu',sans-serif;letter-spacing:-.02em;margin-top:.2em}
+.big:hover{text-decoration:none;filter:brightness(1.2)}
+.bottom{margin:22vh 0 0;padding:0 0 40px;text-align:center;font-size:.9rem;color:rgba(255,255,255,.85)}
+.bottom p{margin:0 auto .6em;max-width:46em}
+.bottom .fine{font-size:.85em;opacity:.7;margin-top:.5em}
+.social-icons{margin:0 0 1rem;display:flex;justify-content:center;gap:1.2rem}
+.social-icons a{display:flex}
+.social-icons a svg{fill:#aaa;transition:fill .3s ease}
+.social-icons a:hover svg{fill:#80cbc4}
+
+/* ---------- the screen-filling words (as on jardimsonoro.com) ---------- */
+.fixedBg{position:fixed;inset:0;z-index:-1;pointer-events:none;background:rgba(0,0,0,.7);opacity:0;transition:opacity .8s ease-in-out;
+  text-align:right;font:700 clamp(64px,11vw,190px)/.95 'Ubuntu',sans-serif;letter-spacing:-.3vw;animation:acid 5s linear infinite;overflow:hidden}
+.fixedBg .container{width:90%;margin:0 auto;padding-top:11vh}
+.fixedBg span{display:block;animation:down 1s ease forwards}
+.fixedBg.show{opacity:1}
+.fixedBg.show span{animation:up .5s ease forwards}
+
+/* ---------- mobile ---------- */
+@media (max-width:820px){
+  body{font-size:16px}
+  .outro,.about{width:100%}
+  .menu{padding-top:4vh;gap:0 3vw}
+  .menu h4{font-size:9px;letter-spacing:.04em;gap:0;margin-bottom:12px}
+  .menu h4::after{display:none}
+  .menu li{margin-bottom:12px}
+  .menu .t{font-size:clamp(10px,2.7vw,14px);line-height:1.2}
+  .logo{font-size:1.25em}
+  .play{width:48px;height:48px}
+  .wave{height:48px}
+  .demo .cap{grid-column:1/-1}
+  .menu .num{display:block;font-size:.85em}
+  .menu .s{display:none}
+  .cols{grid-template-columns:1fr;gap:3vh}
+  .name{font-size:17vw;letter-spacing:-.6vw}
+  .plug{padding-top:14vh;min-height:0}
+  .ui{margin:5vh -5vw 5vh}
+  .ui img{border-radius:0}
+  .fixedBg{font-size:15vw}
+  .fixedBg .container{padding-top:16vh}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation-duration:0s!important;animation-iteration-count:1!important;transition:none!important}
+  .tint{display:none}
+}
