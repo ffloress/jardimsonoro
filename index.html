@@ -515,7 +515,7 @@ li {
             }
 
             function onPlaying() {
-               if (!played) {
+               if (!played && video.currentTime > 0) {
                   played = true;
                   video.classList.add('is-playing');
                   if (slideshowTimer) {
@@ -538,15 +538,17 @@ li {
             var promise = video.play();
             if (promise !== undefined) {
                promise.then(function() {
-                  onPlaying();
+                  if (video.currentTime > 0) {
+                     onPlaying();
+                  }
                }).catch(function() {
                   fallback();
                });
             }
 
-            // Fallback de segurança: se após 2.5s estiver pausado e não iniciou a reprodução, ativa slideshow
+            // Fallback de segurança: se após 2.5s ainda não iniciou a reprodução real (tempo avançando), ativa slideshow
             setTimeout(function() {
-               if (!played && video.paused) {
+               if (!played || video.currentTime === 0) {
                   fallback();
                }
             }, 2500);
