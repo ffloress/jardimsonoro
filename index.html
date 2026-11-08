@@ -49,6 +49,26 @@ body, video {
   pointer-events: none;
   display: block;
 }
+.bg-slide {
+  position: absolute;
+  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.75s ease-in-out;
+  display: block;
+  z-index: 0;
+}
+.bg-slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+.bg-slide.last {
+  opacity: 1;
+  z-index: 1;
+}
 .bg-fallback-img {
   width: 100%;
   height: 100%;
@@ -395,10 +415,56 @@ li {
       </style>
      </head>
    <body>
-      <picture class="bg-fallback" aria-hidden="true">
-         <source srcset="bgpb.webp" type="image/webp">
-         <img src="bgpb.jpg" alt="" class="bg-fallback-img" fetchpriority="high">
-      </picture>
+      <div class="bg-fallback" aria-hidden="true">
+         <picture class="bg-slide active">
+            <source srcset="bg-frames/frame1.webp" type="image/webp">
+            <img src="bg-frames/frame1.jpg" alt="" class="bg-fallback-img" fetchpriority="high">
+         </picture>
+         <picture class="bg-slide">
+            <source srcset="bg-frames/frame2.webp" type="image/webp">
+            <img src="bg-frames/frame2.jpg" alt="" class="bg-fallback-img">
+         </picture>
+         <picture class="bg-slide">
+            <source srcset="bg-frames/frame3.webp" type="image/webp">
+            <img src="bg-frames/frame3.jpg" alt="" class="bg-fallback-img">
+         </picture>
+         <picture class="bg-slide">
+            <source srcset="bg-frames/frame4.webp" type="image/webp">
+            <img src="bg-frames/frame4.jpg" alt="" class="bg-fallback-img">
+         </picture>
+         <picture class="bg-slide">
+            <source srcset="bg-frames/frame5.webp" type="image/webp">
+            <img src="bg-frames/frame5.jpg" alt="" class="bg-fallback-img">
+         </picture>
+         <picture class="bg-slide">
+            <source srcset="bg-frames/frame6.webp" type="image/webp">
+            <img src="bg-frames/frame6.jpg" alt="" class="bg-fallback-img">
+         </picture>
+         <picture class="bg-slide">
+            <source srcset="bg-frames/frame7.webp" type="image/webp">
+            <img src="bg-frames/frame7.jpg" alt="" class="bg-fallback-img">
+         </picture>
+         <picture class="bg-slide">
+            <source srcset="bg-frames/frame8.webp" type="image/webp">
+            <img src="bg-frames/frame8.jpg" alt="" class="bg-fallback-img">
+         </picture>
+         <picture class="bg-slide">
+            <source srcset="bg-frames/frame9.webp" type="image/webp">
+            <img src="bg-frames/frame9.jpg" alt="" class="bg-fallback-img">
+         </picture>
+         <picture class="bg-slide">
+            <source srcset="bg-frames/frame10.webp" type="image/webp">
+            <img src="bg-frames/frame10.jpg" alt="" class="bg-fallback-img">
+         </picture>
+         <picture class="bg-slide">
+            <source srcset="bg-frames/frame11.webp" type="image/webp">
+            <img src="bg-frames/frame11.jpg" alt="" class="bg-fallback-img">
+         </picture>
+         <picture class="bg-slide">
+            <source srcset="bg-frames/frame12.webp" type="image/webp">
+            <img src="bg-frames/frame12.jpg" alt="" class="bg-fallback-img">
+         </picture>
+      </div>
       <video id="bg-video" autoplay loop muted playsinline webkit-playsinline preload="auto">
          <source src="bgpb.mp4" type="video/mp4">
          <source src="bgpb.webm" type="video/webm">
@@ -414,25 +480,55 @@ li {
       <script>
          (function() {
             var video = document.getElementById('bg-video');
-            if (!video) return;
-
             var played = false;
+            var slideshowTimer = null;
+
+            function startSlideshow() {
+               if (slideshowTimer) return;
+               var slides = document.querySelectorAll('.bg-slide');
+               if (!slides || slides.length <= 1) return;
+               var current = 0;
+               slideshowTimer = setInterval(function() {
+                  var prev = current;
+                  current = (current + 1) % slides.length;
+                  slides[prev].className = 'bg-slide last';
+                  slides[current].className = 'bg-slide active';
+                  for (var i = 0; i < slides.length; i++) {
+                     if (i !== prev && i !== current) {
+                        slides[i].className = 'bg-slide';
+                     }
+                  }
+               }, 1400);
+            }
+
+            function fallback() {
+               if (played) return;
+               if (video && video.parentNode) {
+                  video.pause();
+                  video.parentNode.removeChild(video);
+               }
+               startSlideshow();
+            }
+
+            if (!video) {
+               startSlideshow();
+               return;
+            }
+
             function onPlaying() {
                if (!played) {
                   played = true;
                   video.classList.add('is-playing');
-               }
-            }
-
-            function fallback() {
-               if (video && video.parentNode) {
-                  video.pause();
-                  video.parentNode.removeChild(video);
+                  if (slideshowTimer) {
+                     clearInterval(slideshowTimer);
+                     slideshowTimer = null;
+                  }
                }
             }
 
             video.addEventListener('playing', onPlaying);
             video.addEventListener('timeupdate', onPlaying);
+            video.addEventListener('error', fallback);
 
             // Verifica se o vídeo já começou a rodar (caso o evento tenha disparado antes)
             if (video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2) {
@@ -445,18 +541,22 @@ li {
                promise.then(function() {
                   onPlaying();
                }).catch(function() {
-                  // Autoplay bloqueado pelo sistema/navegador:
-                  // Remove o vídeo para que o Safari não exiba o botão/ícone nativo de "play"
                   fallback();
                });
             }
 
-            // Fallback de segurança: se após 2.5s estiver pausado e não iniciou a reprodução, remove o vídeo
+            // Fallback de segurança: se após 2.5s estiver pausado e não iniciou a reprodução, ativa slideshow
             setTimeout(function() {
                if (!played && video.paused) {
                   fallback();
                }
             }, 2500);
+
+            // Função para teste manual via console: testBgSlideshow()
+            window.testBgSlideshow = function() {
+               played = false;
+               fallback();
+            };
          })();
       </script>
       <main>
