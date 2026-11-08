@@ -43,7 +43,8 @@ main{width:90%;margin:0 auto}
 .logo a:hover{text-decoration:none}
 .badge{color:#fff;font-weight:700;padding:5px;border-radius:.25em;animation:acidbg-dark 5s infinite;background-color:#5bc5aa}
 .badge:hover{filter:invert(100%)}
-.layer.grad{background:radial-gradient(120% 90% at 15% 0%,#5a5a5a 0%,#3a3a3a 38%,#1c1c1c 75%,#111 100%)}
+.layer.grad{background:radial-gradient(120% 90% at 15% 0%,#5a5a5a 0%,#3a3a3a 38%,#1c1c1c 75%,#111 100%);opacity:1!important}
+.layer:not(.grad){display:none!important}
 
 /* ---------- menu with counters ---------- */
 .menu{display:grid;grid-template-columns:repeat(var(--cols,5),minmax(0,1fr));gap:0 2.4vw;padding:6vh 0 7vh}

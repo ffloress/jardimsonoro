@@ -11,6 +11,7 @@
   var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------- backdrop: gradient at the top, then one photograph per plug-in ---------- */
+  /* [Experimento: desativada a exibição das fotos de background por seção/plugin]
   var stage = $('.stage'), grad = $('.layer.grad'), layers = {};
   function layerFor(sec) {
     var r = sec.dataset.repo;
@@ -41,6 +42,7 @@
     var pre = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) { layerFor(en.target); pre.unobserve(en.target); } }); }, { rootMargin: '60% 0px' });
     plugs.forEach(function (s) { pre.observe(s); });
   }
+  */
 
   /* ---------- screen-filling words on the acid terms ---------- */
   var fb = $('#fixedBg'), box = $('.container', fb), cur = null;
