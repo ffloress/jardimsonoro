@@ -30,7 +30,6 @@
 
 <link rel="icon" type="image/x-icon" href="https://jardimsonoro.com/favicon.ico">
 
-<link rel="alternate" type="application/atom+xml" href="https://jardimsonoro.com/blog/" title="Atom Feed">
 <link rel="alternate" type="application/atom+xml" href="https://jardimsonoro.com/blog/feeds/all.atom.xml" title="Full Atom Feed">
 
 <style>
@@ -59,6 +58,9 @@
   font-weight: 700; /* Ubuntu Bold */
   padding: 5px;
   border-radius: 0.25em;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 .acidbg:hover { filter: invert(100%); }
 .white { color: white; }
@@ -95,20 +97,28 @@
   --code-bg: #37383e;
   --border: #5b5d67;
 }
-.list { background: var(--code-bg); } 
-.dark.list { background: var(--theme); }
+.list, .single { background: var(--code-bg); } 
+.dark.list, .dark.single { background: var(--theme); }
 
 /* Reset */
-*, *::before, *::after { box-sizing: border-box; font-family: 'Ubuntu', sans-serif; }
-html { -webkit-tap-highlight-color: transparent; font-family: 'Ubuntu', sans-serif; }
+*, *::before, *::after { box-sizing: border-box; }
+html {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  font-family: 'Ubuntu', sans-serif;
+}
 body {
   margin: 0;
   color: var(--primary);
   font-size: 1.2em !important; 
   line-height: 1.8;
   word-break: break-word;
-  background: var(--theme);
+  overflow-wrap: break-word;
+  background: var(--code-bg);
   font-family: 'Ubuntu', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -131,11 +141,15 @@ button, input, textarea {
   appearance: none; -webkit-appearance: none; -moz-appearance: none;
 }
 button, input[type='button'], input[type='submit'] { cursor: pointer; }
+input:-webkit-autofill, textarea:-webkit-autofill { box-shadow: 0 0 0 3.125em var(--theme) inset; }
 input:autofill, textarea:autofill { box-shadow: 0 0 0 3.125em var(--theme) inset; }
 img { display: block; max-width: 100%; height: auto; }
 
 /* Header */
 .header { 
+  width: 100%;
+  padding-top: 1em;
+  margin-bottom: 1.5em;
   /* border-bottom: 1px solid var(--border); */ 
 }
 .nav {
@@ -163,10 +177,15 @@ img { display: block; max-width: 100%; height: auto; }
 .main {
   position: relative;
   flex-grow: 1; 
+  width: 100%;
   max-width: calc(var(--main-width) + var(--gap) * 2);
   margin-left: auto;
   margin-right: auto;
   padding: var(--gap);
+}
+.single .main,
+.main:has(.post-single) {
+  max-width: min(62em, 96vw);
 }
 .page-header { margin-bottom: 1.5em; }
 .page-header h1 { font-size: 2.5em; }
@@ -228,6 +247,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 .entry-header { 
   flex-grow: 1; 
+  min-width: 0;
 }
 .entry-header h2 { font-size: 1.5em; } 
 .entry-header p { font-size: 0.7em; } 
@@ -255,11 +275,32 @@ img { display: block; max-width: 100%; height: auto; }
 .entry-link { position: absolute; left: 0; right: 0; top: 0; bottom: 0; } 
 
 /* Post Single (Página de Artigo Individual) */
-.post-header { margin-top: 1.5em; margin-bottom: var(--content-gap); }
+.post-single {
+  background: var(--entry);
+  border-radius: var(--radius);
+  padding: 2.25em 2.75em;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+.post-header { margin-top: 0; margin-bottom: var(--content-gap); }
 .post-title { margin-bottom: 0.125em; font-size: 2.5em; transform: translateX(-2px); }
 .post-by { color: var(--secondary); font-size: 0.875em; }
 .post-by a { color: var(--secondary); font-size: 1em; }
 .post-by a:hover { color: #80cbc4; border-bottom: 0.0625em solid var(--primary); text-decoration: underline; }
+
+/* Grid de Tags na página /blog/tags/ */
+.tags-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.85em 1.5em;
+}
+.tags-grid p {
+  margin: 0;
+  text-indent: 0;
+}
+.tags-grid a:hover {
+  color: #80cbc4;
+  border-bottom: 0.0625em solid var(--primary);
+}
 
 .post-meta {
   display: flex;
@@ -310,14 +351,14 @@ img { display: block; max-width: 100%; height: auto; }
 .post-content table th { font-size: 0.875em; text-align: left; font-weight: 700; /* Ubuntu Bold */ }
 
 .post-content .highlight, .post-content pre {
-  margin-left: calc(var(--gap) * -1); margin-right: calc(var(--gap) * -1); 
+  margin-left: 0; margin-right: 0; 
   margin-bottom: 2.0em;
   background: var(--hljs-bg) !important; 
   border-radius: var(--radius);
   overflow-x: auto;
   padding: var(--gap); 
 }
-.post-content ul pre, .post-content ol pre { margin-left: calc(var(--gap) * -2); }
+.post-content ul pre, .post-content ol pre { margin-left: 0; }
 .post-content .highlight pre { margin: 0; padding: 0; }
 
 .right { text-align: center; } 
@@ -345,15 +386,17 @@ img { display: block; max-width: 100%; height: auto; }
   line-height: 1.6;
 }
 .post-content blockquote {
-  margin: 0 0 1.5em calc(var(--gap) * -1); 
+  margin: 0 0 1.5em 0; 
   padding: 0.5em 1em 0.5em 1.3125em;
   border-left: 0.25em solid var(--primary);
+  border-radius: 0 0.25em 0.25em 0;
   background-color: var(--code-bg); 
 }
 .post-content hr { height: 0.0625em; margin: 3.5em 0; background: var(--tertiary); border: 0; }
 
 /* Footer */
 .footer {
+  width: 100%;
   max-width: calc(var(--main-width) + var(--gap) * 2);
   margin-left: auto; margin-right: auto;
   padding: calc((var(--footer-height) - var(--gap)) / 2) var(--gap);
@@ -389,7 +432,8 @@ img { display: block; max-width: 100%; height: auto; }
 .cnpj-info { font-size: 0.75em; opacity: 0.8; } 
 
 /* YouTube/Video Placeholder Styles */
-.youtube-placeholder { 
+.youtube-placeholder,
+.vimeo-placeholder { 
   display: block; width: 100%; max-width: 560px;
   aspect-ratio: 16 / 9;
   margin: 1.5em auto; 
@@ -452,8 +496,10 @@ img { display: block; max-width: 100%; height: auto; }
 
 .video-wrapper-with-caption {
   margin: 1.5em auto; max-width: 560px;
+  text-indent: 0;
 }
-.video-wrapper-with-caption .youtube-placeholder { 
+.video-wrapper-with-caption .youtube-placeholder,
+.video-wrapper-with-caption .vimeo-placeholder { 
   margin-left: 0; margin-right: 0;
   margin-bottom: 0.5em; 
 }
@@ -461,6 +507,7 @@ img { display: block; max-width: 100%; height: auto; }
   display: block; font-size: 0.9em;
   color: var(--secondary);
   text-align: center;
+  text-indent: 0;
   padding: 0.5em 0.1em; margin-top: 0; 
   line-height: 1.4;
 }
@@ -471,20 +518,25 @@ img { display: block; max-width: 100%; height: auto; }
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   body { font-size: 1.1em !important; }
-  .main { padding: var(--gap) 1em; }
+  .header { padding-top: 0.5em; margin-bottom: 1em; }
+  .main, .single .main, .main:has(.post-single) { max-width: 100%; padding: var(--gap) 1em; }
+  .post-single { padding: 1.5em 1.25em; }
   .post-title, /*.first-entry .entry-header h2,*/ .page-header h1 { font-size: 2em; } /* .first-entry h2 removido da regra conjunta */
   .post-content h1 { font-size: 1.8em; }
   .post-content h2 { font-size: 1.6em; }
   .post-content h3 { font-size: 1.4em; }
   .post-content .highlight, .post-content pre {
-    margin-left: -1em; margin-right: -1em;
-    border-radius: 0; 
+    margin-left: 0; margin-right: 0;
+    border-radius: var(--radius); 
   }
-  .post-content ul pre, .post-content ol pre { margin-left: calc(-1em - 1.5em); } 
+  .post-content ul pre, .post-content ol pre { margin-left: 0; } 
 }
 
 @media (max-width: 480px) {
   body { font-size: 1.05em !important; }
+  .header { padding-top: 0.25em; margin-bottom: 0.75em; }
+  .main, .single .main, .main:has(.post-single) { padding: 1em 0.75em; }
+  .post-single { padding: 1.25em 1em; }
   .post-title, /*.first-entry .entry-header h2,*/ .page-header h1 { font-size: 1.7em; } /* .first-entry h2 removido */
   .nav { flex-direction: column; height: auto; padding-top: 0.5em; padding-bottom: 0.5em; }
   .logo a, .menu a { line-height: 1.8; } 
@@ -521,7 +573,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 
   </head>
-  <body class="list">
+  <body class="single">
  
     <header class="header">
       <nav class="nav">
@@ -533,6 +585,7 @@ img { display: block; max-width: 100%; height: auto; }
   <header class="post-header">
     <h1 class="post-title">Tags:</h1>
   </header>
+  <div class="tags-grid">
   <p><a href="../tags/ia/">I.A.</a> <span class="count">(1)</span></p>
   <p><a href="../tags/futurismo/">Futurismo</a> <span class="count">(1)</span></p>
   <p><a href="../tags/arte/">Arte</a> <span class="count">(1)</span></p>
@@ -564,7 +617,7 @@ img { display: block; max-width: 100%; height: auto; }
 </div>
 
 <p>© 2025 <a href="https://jardimsonoro.com">Jardim Sonoro</a> · Rio de Janeiro, Brasil.</p>
-<p class="cnpj-info">CNPJ: 12.553.127/0001­17/PR  ·  60.042.426/0001-30/RJ </p>
+<p class="cnpj-info">CNPJ: 12.553.127/0001-17/PR  ·  60.042.426/0001-30/RJ </p>
     </footer>
   <!--   
   <script>
@@ -708,8 +761,18 @@ document.addEventListener("DOMContentLoaded", function () {
     return null;
   }
 
+  function replaceLinkWithWrapper(linkElement, wrapper) {
+    const parent = linkElement.parentNode;
+    if (!parent) return;
+    if (parent.tagName === "P" && parent.childNodes.length === 1 && parent.parentNode) {
+      parent.parentNode.replaceChild(wrapper, parent);
+    } else {
+      parent.replaceChild(wrapper, linkElement);
+    }
+  }
+
   function createVideoPlaceholder(linkElement, videoInfo, type, captionText) {
-    const videoWrapper = document.createElement("div");
+    const videoWrapper = document.createElement("figure");
     videoWrapper.className = "video-wrapper-with-caption";
 
     const placeholder = document.createElement("div");
@@ -762,13 +825,11 @@ document.addEventListener("DOMContentLoaded", function () {
       iframe.focus();
     }, { once: true });
 
-    if (linkElement.parentNode) {
-      linkElement.parentNode.replaceChild(videoWrapper, linkElement);
-    }
+    replaceLinkWithWrapper(linkElement, videoWrapper);
   }
 
   function createInstagramEmbed(linkElement, url, captionText) {
-    const wrapper = document.createElement("div");
+    const wrapper = document.createElement("figure");
     wrapper.className = "video-wrapper-with-caption";
 
     const blockquote = document.createElement("blockquote");
@@ -791,9 +852,7 @@ document.addEventListener("DOMContentLoaded", function () {
       wrapper.appendChild(caption);
     }
 
-    if (linkElement.parentNode) {
-      linkElement.parentNode.replaceChild(wrapper, linkElement);
-    }
+    replaceLinkWithWrapper(linkElement, wrapper);
   }
 
   function loadInstagramEmbedScript() {

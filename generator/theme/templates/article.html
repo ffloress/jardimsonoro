@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% block title %}{{ article.title }} - {{ SITENAME }}{% endblock title %}
+
 {% block content %}
 <article class="post-single">
   <header class="post-header">
@@ -41,7 +43,7 @@
 function loadDisqus() {
     // Configuração do Disqus específica para esta página de artigo
     var disqus_config = function () {
-        this.page.url = "{{ SITEURLFULL }}{{ article.url }}";       // URL canônica da página do artigo
+        this.page.url = "{{ SITEURLFULL }}/{{ article.url }}";       // URL canônica da página do artigo
         this.page.identifier = "{{ article.slug | default(article.url) }}"; // Identificador único (slug do artigo ou URL como fallback)
     };
 

@@ -37,14 +37,16 @@
 }
 
 html {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   font-family: 'Ubuntu', sans-serif; /* Alterado */
 }
 
-* {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Ubuntu', sans-serif; /* Alterado */
 }
 
 
@@ -299,6 +301,8 @@ body {
   line-height: 1.6;
   padding: 1rem;
   font-family: 'Ubuntu', sans-serif; /* Alterado */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   /* font-weight: 400; */ /* Ubuntu Regular (400) é o padrão. Ajuste se desejar 300 (Light) */
   min-height: 100vh;
   display: flex;
@@ -319,7 +323,7 @@ body {
 
 
 <div class="header">
-  <div> <div class="container">
+  <div class="container">
   <h1>Jardim Sonoro</h1> 
 
     <div class="blog-container">
@@ -380,7 +384,7 @@ body {
     </div>
 -->
 
-  </div> </div> </div>                <footer class="bottom">
+  </div> </div>                <footer class="bottom">
 <div class="social-icons">
   <a href="https://www.instagram.com/jardimsonoro.rio" aria-label="Instagram">
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#aaa" viewBox="0 0 24 24">
@@ -395,7 +399,7 @@ body {
 </div>
 
 <p>© 2025 <a href="https://jardimsonoro.com">Jardim Sonoro</a> · Rio de Janeiro, Brasil.</p>
-<p class="cnpj-info">CNPJ: 12.553.127/0001­17/PR  ·  60.042.426/0001-30/RJ </p>
+<p class="cnpj-info">CNPJ: 12.553.127/0001-17/PR  ·  60.042.426/0001-30/RJ </p>
     </footer>
 </body>
 </html>
