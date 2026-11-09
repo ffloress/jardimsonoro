@@ -12,7 +12,9 @@ overwrite_images=false
 
 
 #Generate Blog
-mkdir "${destination}/blog" 2>/dev/null
+mkdir -p "${destination}/blog" 2>/dev/null
+# Remove páginas antigas geradas (preservando a pasta de imagens blog/img)
+find "${destination}/blog" -mindepth 1 -maxdepth 1 ! -name 'img' ! -name '.DS_Store' -exec rm -rf {} +
 pelican "$source" -s pelicanconf.py -o "${destination}/blog" -t "$theme"
 ########################
 
@@ -20,21 +22,15 @@ pelican "$source" -s pelicanconf.py -o "${destination}/blog" -t "$theme"
 ######IMG##############
 mkdir -p "${destination}/blog/img"
 
-
-
-######IMG##############
-mkdir -p "${destination}/blog/img"
-
-
 # Tipos de imagem suportados
 image_extensions="jpg jpeg png webp gif bmp tif tiff"
 
 # Percorre todos os arquivos em ./img/ (recursivamente ou não)
 printf "%s" 'Imgs:'
 find ./img/ -type f | while read -r img; do
-  # Extrai a extensão do arquivo (em minúsculas)
+  # Extrai a extensão do arquivo (em minúsculas, compatível com macOS Bash 3.2 e Linux)
   ext="${img##*.}"
-  ext="${ext,,}"  # Converte para minúsculas
+  ext=$(printf '%s' "$ext" | tr '[:upper:]' '[:lower:]')
 
   # Verifica se a extensão é de uma imagem suportada
   if [[ " $image_extensions " == *" $ext "* ]]; then
@@ -51,7 +47,11 @@ find ./img/ -type f | while read -r img; do
 
     # Converte a imagem redimensionando com proporção mantida e limites
     echo "Convertendo $img para $target_path"
-    magick convert "$img" -resize '500x400>' "$target_path"
+    if command -v magick >/dev/null 2>&1; then
+      magick "$img" -resize '500x400>' "$target_path"
+    else
+      convert "$img" -resize '500x400>' "$target_path"
+    fi
   fi
 done
 

@@ -3,6 +3,7 @@ PATH = "content"
 TIMEZONE = 'America/Sao_Paulo'
 DEFAULT_DATE='fs'
 DEFAULT_LANG = 'pt-br'
+LOCALE = ('pt_BR.UTF-8', 'pt_BR', 'C')
 SITEURL = "https://jardimsonoro.com/blog"
 RELATIVE_URLS = True
 CATEGORY_SAVE_AS = 'categories/{slug}/index.html'

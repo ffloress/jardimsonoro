@@ -1,0 +1,77 @@
+name: Publicar Blog (Issues & Generator)
+
+on:
+  issues:
+    types: [opened, edited, closed, reopened, labeled, unlabeled, deleted]
+  push:
+    branches: [master, main]
+    paths:
+      - 'generator/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: read
+
+concurrency:
+  group: publish-blog
+  cancel-in-progress: false
+
+jobs:
+  build-and-publish:
+    # Segurança: se disparado por uma Issue, só executa se o autor for o dono do repositório
+    if: github.event_name != 'issues' || github.event.issue.user.login == github.repository_owner
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Configurar locale pt_BR.UTF-8 e ImageMagick
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y locales imagemagick libwebp-dev webp
+          sudo locale-gen pt_BR.UTF-8
+          sudo update-locale
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: 'generator/requeriments.txt'
+
+      - name: Instalar dependências do Pelican
+        run: |
+          pip install --upgrade pip
+          pip install -r generator/requeriments.txt
+
+      - name: Sincronizar GitHub Issues para Markdown
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
+        run: |
+          python3 generator/sync_issues.py
+
+      - name: Gerar Blog Estático e Otimizar Imagens
+        env:
+          LC_ALL: pt_BR.UTF-8
+          LANG: pt_BR.UTF-8
+        run: |
+          cd generator
+          bash publish.sh
+
+      - name: Commit e Push das alterações geradas
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add blog/ linktree/ sitemap.xml generator/content/ generator/img/
+          if git diff --cached --quiet; then
+            echo "Nenhuma alteração para publicar."
+          else
+            git commit -m "chore(blog): atualização automática via GitHub Actions [skip ci]"
+            git push
+          fi
