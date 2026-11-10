@@ -1,12 +1,11 @@
 name: Publicar Blog (Issues & Generator)
 
+# Só roda quando o dono do repositório mexe num post (issue) ou à mão, pela aba
+# Actions. Push NÃO dispara: o publish.command já gera o blog localmente, e um
+# commit do bot depois do seu push só fazia o próximo push ser rejeitado.
 on:
   issues:
-    types: [opened, edited, closed, reopened, labeled, unlabeled, deleted]
-  push:
-    branches: [master, main]
-    paths:
-      - 'generator/**'
+    types: [opened, edited, closed, reopened, deleted]
   workflow_dispatch:
 
 permissions:
@@ -73,5 +72,6 @@ jobs:
             echo "Nenhuma alteração para publicar."
           else
             git commit -m "chore(blog): atualização automática via GitHub Actions [skip ci]"
+            git pull --rebase
             git push
           fi
