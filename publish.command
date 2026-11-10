@@ -1,4 +1,6 @@
 cd "$(dirname "$0")" || exit 1
+# traz antes os posts que o GitHub Actions publicou (issues), para gerar o blog com eles
+git pull --rebase --autostash || exit 1
 cd generator || exit 1
 bash publish.sh || exit 1
 cd ..
