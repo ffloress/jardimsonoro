@@ -148,10 +148,17 @@
     var x = /\.(pkg|exe)$/.test(l) ? 'installer' : /\.dmg$/.test(l) ? '.dmg' : /\.(tar\.gz|tgz)$/.test(l) ? '.tar.gz' : /\.zip$/.test(l) ? '.zip' : 'file';
     return (f ? f.toUpperCase() + ' ' : '') + x;
   }
-  function group(d) {
+  /* Bundle repos (nautilus3000, rocketscience3000) carry one installer per plug-in:
+     data-asset="riverrun" keeps riverrun-* files, plus the bundle zip as a fallback. */
+  function group(d, asset, repo) {
     var g = { mac: [], win: [], linux: [] };
-    d.assets.forEach(function (a) { var o = osOf(a.n); if (o) g[o].push(a); });
-    Object.keys(g).forEach(function (o) { g[o].sort(function (a, b) { return rank(a.n) - rank(b.n); }); });
+    d.assets.forEach(function (a) {
+      var n = a.n.toLowerCase();
+      if (asset && n.indexOf(asset + '-') !== 0 && n.indexOf(repo + '-') !== 0) return;
+      var o = osOf(a.n); if (o) g[o].push(a);
+    });
+    var own = function (a) { return asset && a.n.toLowerCase().indexOf(asset + '-') === 0 ? 0 : 1; };
+    Object.keys(g).forEach(function (o) { g[o].sort(function (a, b) { return own(a) - own(b) || rank(a.n) - rank(b.n); }); });
     return g;
   }
   function load(repo) {
@@ -169,7 +176,7 @@
   function paint(sec) {
     var d = REL[sec.dataset.repo];
     if (!d) return;
-    var g = group(d);
+    var g = group(d, sec.dataset.asset, sec.dataset.repo);
     $$('.get .dl', sec).forEach(function (a) {
       var list = g[a.dataset.os];
       if (list.length) { a.href = list[0].u; a.title = d.tag + ' · ' + kind(list[0].n); a.classList.remove('na'); }

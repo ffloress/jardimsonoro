@@ -152,6 +152,73 @@ PLUGINS = [
                        "Live Remote puts Ableton Live in your phone or tablet's browser, with Session and Arrangement views, the mixer, transport, and a big red REC button with input meters.",
                        "Run it on the computer and open an address on your phone over the same Wi-Fi. There's nothing to install on the phone."],
                  cap="Session view, on the desktop.", what="Control Ableton Live from any phone or tablet.")),
+    # ---- Audio Ease classics, rebuilt from the original binaries (bundle repos: one id per plug-in) ----
+    dict(repo="nautilus3000", id="riverrun3k", asset="riverrun", name="RiverRun3K", cat="fx", origin="Audio Ease Riverrun", year="2000",
+         kind="Granular synthesizer", formats="AU · VST3 · CLAP",
+         short="Audio Ease's granular river, rebuilt bit for bit from the binary.",
+         about=["RiverRun3K is Audio Ease's Riverrun, rebuilt in Rust from the original machine code. It freezes a few seconds of sound and plays it back as thousands of tiny grains, each with its own envelope, pitch and place in the stereo field.",
+                "The original runs in an emulator next to the new engine, and their output matches bit for bit."],
+         ad=dict(layout="a", headline="Say one word. It comes back as weather.",
+                 alt="A man on a cliff shouting into the wind, his breath turning into a cloud of spray",
+                 body=["In 2000 a small Dutch company sold a plug-in that froze a few seconds of sound and then threw it at you as thousands of tiny grains. Its about box thanked Barry Truax, the composer who first made granular synthesis run in real time.",
+                       "RiverRun3K was rebuilt from the original machine code. The old binary runs in an emulator next to the new engine, and the two agree on every sample.",
+                       "Freeze a voice, let the glass walk across it and pick a chord. One sentence turns into a choir, a drone or a storm."],
+                 cap="The input screen, the grain glass and the keyboard.", what="Real-time granular synthesizer after Audio Ease Riverrun.")),
+    dict(repo="nautilus3000", id="deepphasenine3k", asset="deepphasenine", name="DeepPhaseNine3K", cat="fx", origin="Audio Ease Deep Phase Nine", year="2000",
+         kind="24-notch phaser", formats="AU · VST3 · CLAP",
+         short="Up to 24 notches per channel, from Audio Ease's Deep Phase Nine.",
+         about=["DeepPhaseNine3K is Audio Ease's Deep Phase Nine, rebuilt from the original binary: up to 24 notches per channel, a beat-synced LFO with one-shot sweeps, and the original look-ahead limiter.",
+                "Its output matches the original bit for bit."],
+         ad=dict(layout="b", headline="Eight times more phaser than anyone asked for.",
+                 alt="A spiral staircase seen from above, repeating down into darkness",
+                 body=["A classic phaser sweeps three notches through your sound. In 2000 Audio Ease decided twenty-four per channel was a better number, then added a limiter so the resonance couldn't hurt anybody.",
+                       "DeepPhaseNine3K is rebuilt from the original binary and checked against it bit for bit, beat-synced LFO and one-shot sweeps included.",
+                       "Push the feedback to the edge and the notches start to sing. The look-ahead limiter keeps them from screaming."],
+                 cap="Both channels' notches, plotted live.", what="24-notch phaser after Audio Ease Deep Phase Nine.")),
+    dict(repo="nautilus3000", id="periscope3k", asset="periscope", name="Periscope3K", cat="master", origin="Audio Ease PeriScope", year="2000",
+         kind="Zoomable 32-band EQ", formats="AU · VST3 · CLAP",
+         short="32 zoomable linear-phase bands, with the spectrum behind the faders.",
+         about=["Periscope3K is Audio Ease's PeriScope, rebuilt from the original binary. Two needles set the range, and thirty-two linear-phase bands spread out between them, over a live spectrum.",
+                "Its output matches the original bit for bit."],
+         ad=dict(layout="a", headline="It can take one whistle out of a whole orchestra.",
+                 alt="A conductor in tails raising a single finger to his lips in front of a full orchestra",
+                 body=["Most equalizers give you knobs at fixed frequencies. PeriScope gave you two needles: put them anywhere, and thirty-two razor-sharp bands spread out between them.",
+                       "Periscope3K is rebuilt from the 2000 binary and matches it bit for bit. It's linear-phase, so cutting a band never smears the sound around it.",
+                       "Zoom into 20 to 400 Hz to sort out the bass, or pull a 10 Hz slice out of 3 kHz to remove a whistle. You watch the spectrum while you do it."],
+                 cap="Thirty-two faders over the live spectrum.", what="Zoomable 32-band EQ after Audio Ease PeriScope.")),
+    dict(repo="rocketscience3000", id="roger3k", asset="roger", name="Roger3K", cat="fx", origin="Audio Ease Roger", year="2001",
+         kind="Vowel filter", formats="AU · VST3 · CLAP",
+         short="A vowel filter with three voices that babbles in tempo.",
+         about=["Roger3K is Audio Ease's Roger, rebuilt from the original binary: ten vowels in the voices of a man, a woman and a child, glides between them, and an Auto mode that babbles in time with the song.",
+                "Its output matches the original bit for bit."],
+         ad=dict(layout="b", headline="Meet Roger, Patty and Cindy. They'll say anything.",
+                 alt="A 1950s family of three on a sofa, all with their mouths wide open in the same vowel",
+                 body=["In 1952 two scientists measured the vowels of men, women and children. Fifty years later Audio Ease put their numbers in a plug-in and gave the voices names: Roger, Patty and Cindy.",
+                       "Roger3K is rebuilt from the original binary and checked against it bit for bit, down to the original's typo in the value of two pi.",
+                       "Run a synth pad through it and it starts to talk. Switch on Auto and the family babbles in time with your song."],
+                 cap="The mouth: the vowel chart and the live filter.", what="Vowel filter after Audio Ease Roger.")),
+    dict(repo="rocketscience3000", id="follo3k", asset="follo", name="Follo3K", cat="fx", origin="Audio Ease Follo", year="2001",
+         kind="Envelope-driven resonator", formats="AU · VST3 · CLAP",
+         short="A resonant band that follows how hard you play.",
+         about=["Follo3K is Audio Ease's Follo, rebuilt from the original binary: one resonant band whose frequency follows the level of the input, between a resting and a peak frequency you set.",
+                "Its output matches the original bit for bit."],
+         ad=dict(layout="a", headline="The harder you play, the higher it goes.",
+                 alt="A circus strongman swinging a hammer at a high striker, the puck flying towards the bell",
+                 body=["Follo listens to how loud you are and moves a single resonant band to match. Play softly and it rests on the yellow slider. Dig in and it jumps to the blue one.",
+                       "Follo3K is rebuilt from the 2001 binary and verified bit for bit against it.",
+                       "Use it as an auto-wah on a guitar. Or set both sliders low and narrow, and every kick turns into a thump of resonating bass."],
+                 cap="Two sliders, one ball, one band.", what="Envelope-driven band booster after Audio Ease Follo.")),
+    dict(repo="rocketscience3000", id="orbit3k", asset="orbit", name="Orbit3K", cat="fx", origin="Audio Ease Orbit", year="2001",
+         kind="Flight path simulator", formats="AU · VST3 · CLAP",
+         short="A sound flying around a virtual room, with real Doppler.",
+         about=["Orbit3K is Audio Ease's Orbit, rebuilt from the original binary: a sound source moving in a virtual room, heard through up to five orders of wall reflections, each with its own delay and Doppler shift.",
+                "Its output matches the original bit for bit."],
+         ad=dict(layout="b", headline="Hear it fly past. Then hear the walls.",
+                 alt="A paper aeroplane caught mid-flight in a long empty ballroom, its shadow on the parquet",
+                 body=["Orbit puts your sound in a room and lets it fly. Every reflection off every wall reaches each ear with its own delay, its own loudness and its own Doppler shift.",
+                       "Orbit3K is rebuilt from the 2001 binary and matches it bit for bit, from the mirror images in the walls to the path-finding routine its programmers called “man with dog”.",
+                       "Click a path and it follows. Draw an ellipse and it circles you. Or set it loose, which the manual described as Buck Rogers on LSD."],
+                 cap="The room from above: walls, mirror images and the flight path.", what="Flight path simulator after Audio Ease Orbit.")),
 ]
 
 e = html.escape
@@ -199,6 +266,12 @@ WORDS = {
     "magnitude": ["lift", "detail", "density"],
     "sunbliss": ["loud", "warm", "summer"],
     "liveremote": ["REC", "far away", "alone"],
+    "riverrun3k": ["grains", "river", "freeze", "2000"],
+    "deepphasenine3k": ["notches", "sweep", "whistle", "2000"],
+    "periscope3k": ["zoom", "32 bands", "phase", "2000"],
+    "roger3k": ["vowels", "babble", "Roger", "2001"],
+    "follo3k": ["wah", "follow", "thump", "2001"],
+    "orbit3k": ["Doppler", "walls", "fly-by", "2001"],
 }
 FACTS = {'tyrell80': ['8 voices, two complete synth lines each', '75 presets, incl. the 22 factory tones'],
     'obxtra': ['Up to 32 voices', '613 presets, incl. the OB-Xa factory bank'],
@@ -211,7 +284,13 @@ FACTS = {'tyrell80': ['8 voices, two complete synth lines each', '75 presets, in
     'th0nk3000': ['7 grain parameters scored over 20 minutes', 'Standalone app + plug-in, live input'],
     'magnitude': ['Look-ahead 0–100 ms', '4× oversampled HQ mode · 10 presets'],
     'sunbliss': ['Classic, Modern and Hard clippers', 'HPDF dither, NS1–NS4 noise shaping'],
-    'liveremote': ['Session, Arrangement, mixer and REC screen', 'Ableton Live 11 · nothing to install on the phone']}
+    'liveremote': ['Session, Arrangement, mixer and REC screen', 'Ableton Live 11 · nothing to install on the phone'],
+    'riverrun3k': ['Up to 2,000 grains a second · 23 pitch grids', 'Bit-identical to the original: 57 of 57 tests'],
+    'deepphasenine3k': ['Up to 24 notches per channel · beat sync', 'Bit-identical to the original: 39 of 39 tests'],
+    'periscope3k': ['32 linear-phase bands between two needles', 'Bit-identical to the original: 28 of 28 tests'],
+    'roger3k': ['10 vowels × 3 voices · Auto babble in tempo', 'Bit-identical to the original: 55 of 55 tests'],
+    'follo3k': ['One band, 20 Hz to 10 kHz, driven by the level', 'Bit-identical to the original: 41 of 41 tests'],
+    'orbit3k': ['61 reflection paths per ear · Doppler', 'Bit-identical to the original: 39 of 39 tests']}
 
 
 TYPED = [
@@ -264,13 +343,15 @@ def build_index():
         for p in items:
             n += 1
             num = f"{n:02d}"
-            r, a = p["repo"], p["ad"]
+            r, a = p.get("id", p["repo"]), p["ad"]
+            repo = p["repo"]
+            asset_attr = f' data-asset="{p["asset"]}"' if p.get("asset") else ""
             lis.append(f'<li><a href="#{r}"><span class="t"><span class="num">{num}.</span> {e(p["name"])}</span><span class="s">{e(p["short"])}</span></a></li>')
             ref = f'{p["origin"]}{", " + p["year"] if p["year"] else ""}' if p["origin"] else p["kind"]
             body = "".join(f"<p>{e(t)}</p>" for t in a["body"])
             kind_li = f"<li>_ {e(p['kind'])}</li>" if p["origin"] else ""
             plugs.append(f"""
-    <section class="plug" id="{r}" data-repo="{r}" data-bg="bg/{r}.webp">
+    <section class="plug" id="{r}" data-repo="{repo}"{asset_attr} data-bg="bg/{r}.webp">
       <h4>{e(label)}</h4>
       <h2 class="name"><span class="num">{num}.</span>{e(p['name'])}</h2>
       <p class="headline">{e(p['short'])}</p>
@@ -288,8 +369,8 @@ def build_index():
       <figure class="ui"><button class="zoom" type="button" data-full="shots/{r}-1600.webp" aria-label="View the {e(p['name'])} interface full screen"><img src="shots/{r}-800.webp" srcset="shots/{r}-800.webp 800w, shots/{r}-1600.webp 1600w" sizes="(max-width:900px) 100vw, 80vw" alt="{e(p['name'])} interface" loading="lazy"></button></figure>{demo_html(r)}
       <div class="get">
         <div class="dlw">
-          <a class="gh" href="{gh(r)}" aria-label="Source code on GitHub"><svg class="ghi" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span class="ghu">github.com/{OWNER}/{r}</span></a>
-          <p class="dls"><span class="arrow">&gt;</span> <a class="dl" data-os="mac" href="{gh(r)}/releases/latest">macOS</a>, <a class="dl" data-os="linux" href="{gh(r)}/releases/latest">Linux</a>, <a class="dl" data-os="win" href="{gh(r)}/releases/latest">Windows</a></p>
+          <a class="gh" href="{gh(repo)}" aria-label="Source code on GitHub"><svg class="ghi" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span class="ghu">github.com/{OWNER}/{repo}</span></a>
+          <p class="dls"><span class="arrow">&gt;</span> <a class="dl" data-os="mac" href="{gh(repo)}/releases/latest">macOS</a>, <a class="dl" data-os="linux" href="{gh(repo)}/releases/latest">Linux</a>, <a class="dl" data-os="win" href="{gh(repo)}/releases/latest">Windows</a></p>
           <p class="ver" data-ver>Latest release on GitHub</p>
         </div>
       </div>
@@ -298,7 +379,7 @@ def build_index():
         sections.append(f'<div class="group" id="{key}">' + "".join(plugs) + "</div>")
 
     out = head("Jardim Sonoro: Audio — open-source plug-ins & instruments",
-               "Open-source audio plug-ins for macOS, Windows and Linux: circuit-modelled CS-80, Oberheim, DX7 and Juno-106 synths, natural vocal pitch correction, a Bi-Phase phaser, mastering tools. AU / VST3 / CLAP, written in Rust.",
+               "Open-source audio plug-ins for macOS, Windows and Linux: circuit-modelled CS-80, Oberheim, DX7 and Juno-106 synths, natural vocal pitch correction, a Bi-Phase phaser, mastering tools, and Audio Ease's Nautilus and Rocket Science classics rebuilt bit for bit. AU / VST3 / CLAP, written in Rust.",
                SITE, SITE + "shots/og.jpg", "style.css",
                "family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400") + f"""<body>
 <div class="stage" aria-hidden="true">
@@ -315,7 +396,7 @@ def build_index():
 <main>
   <section class="about" id="about">
     <h4>About</h4>
-    <p class="lead">Open-source virtual instruments &amp; effects, circuit-modelled for real hardware sound. Written in Rust.</p>
+    <p class="lead">Open-source synth, generators &amp; effects. Circuit-modelled. Analog sound. Electroacoustic Art.</p>
   </section>
 
   <nav class="menu" style="--cols:{len(menu_cols)}" aria-label="Plug-ins">{''.join(menu_cols)}</nav>
@@ -341,7 +422,7 @@ def build_index():
 
 <div class="fixedBg" id="fixedBg" aria-hidden="true"><div class="container"></div></div>
 
-<script src="app.js" defer></script>
+<script src="app.js?v=20261110" defer></script>
 </body>
 </html>
 """
@@ -351,8 +432,10 @@ def build_index():
 # ---------------------------------------------------------------- /audio/ads
 def build_ads():
     os.makedirs(os.path.join(ROOT, "ads"), exist_ok=True)
-    for i, p in enumerate(PLUGINS):
-        r, a = p["repo"], p["ad"]
+    with_photo = [p for p in PLUGINS if os.path.exists(os.path.join(ROOT, "img", p.get("id", p["repo"]) + ".jpg"))]
+    for i, p in enumerate(with_photo):
+        r, a = p.get("id", p["repo"]), p["ad"]
+        repo = p["repo"]
         d = os.path.join(ROOT, "ads", r)
         os.makedirs(d, exist_ok=True)
         q = ' q' if a.get("quote") else ''
@@ -377,7 +460,7 @@ def build_ads():
     <div><div class="mark">{e(p['name'])}</div><div class="what">{e(a['what'])}</div><div class="specs">Open source · {e(p['formats'])}</div></div>
     <div class="by"><b>Jardim Sonoro</b>Open-source audio research</div>
   </div>
-  <div class="fine"><span>Download: jardimsonoro.com/audio</span><span>Source &amp; issues: github.com/{OWNER}/{r}</span></div>
+  <div class="fine"><span>Download: jardimsonoro.com/audio</span><span>Source &amp; issues: github.com/{OWNER}/{repo}</span></div>
   <div class="folio"><span>{e(CAT_LABEL[p['cat']])}</span><span>{i + 1:02d}</span></div>
 </article>
 </div>
@@ -391,7 +474,7 @@ addEventListener('resize',fit);fit();}})();
 """
         open(os.path.join(d, "index.html"), "w").write(out)
 
-    items = "".join(f'<a class="thumb" href="{p["repo"]}/"><img src="{p["repo"]}/ad.jpg" alt="{e(p["name"])} ad" loading="lazy"><span>{e(p["name"])}</span></a>' for p in PLUGINS)
+    items = "".join(f'<a class="thumb" href="{p.get("id", p["repo"])}/"><img src="{p.get("id", p["repo"])}/ad.jpg" alt="{e(p["name"])} ad" loading="lazy"><span>{e(p["name"])}</span></a>' for p in with_photo)
     out = head("Jardim Sonoro Audio — print ads", "Magazine-style ads for each Jardim Sonoro open-source plug-in.", SITE + "ads/", SITE + "ads/tyrell80/ad.jpg", "ad.css",
                "family=Archivo:wdth,wght@100..125,400..900&family=EB+Garamond:ital,wght@0,400..700;1,400..600") + f"""<body class="list">
 <div class="tools"><a href="../">&larr; jardimsonoro.com/audio</a></div>

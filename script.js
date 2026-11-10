@@ -156,23 +156,34 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
     
-    loopColElements.forEach((loopColElement) => {
-        loopColElement.addEventListener('mouseenter', function() { showFixedBg(this); });
-        // O 'click' estava comentado, mantendo assim. Se precisar, descomente:
-        // loopColElement.addEventListener('click', function() { showFixedBg(this); });
-        loopColElement.addEventListener('mouseleave', function() { hideFixedBg(this); });
-        loopColElement.addEventListener('touchstart', function(event) {
-            // event.preventDefault(); // Prevenir scroll/zoom se o touchstart for para isso.
-            // Se o objetivo é apenas mostrar o fixedBg no toque, o preventDefault aqui pode não ser necessário
-            // A menos que o .loopCol seja um link ou algo que não deva ser ativado.
-            showFixedBg(this);
-        }, { passive: true }); // Adicionado passive:true para touchstart se não houver preventDefault
+    // Hover só em aparelhos com mouse de verdade. Em tela de toque, um efeito de
+    // hover que muda o que aparece na tela faz o Safari (iPhone/iPad) tratar o
+    // primeiro toque como "hover" — o link só abria no segundo toque.
+    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-        loopColElement.addEventListener('touchend', (event) => {
-            event.preventDefault(); // Mantido conforme original, para evitar "ghost clicks" ou outras ações padrão
-            // Se após o touchstart e o showFixedBg, o usuário não fizer touchmove,
-            // o fixedBg permanece visível. O click global ou touchmove global o esconderá.
-        });
+    loopColElements.forEach((loopColElement) => {
+        if (canHover) {
+            loopColElement.addEventListener('mouseenter', function() { showFixedBg(this); });
+            loopColElement.addEventListener('mouseleave', function() { hideFixedBg(this); });
+            return;
+        }
+        // Link de e-mail: o primeiro toque mostra as palavras, o segundo abre o e-mail.
+        if (loopColElement.id === 'emaillink') {
+            loopColElement.addEventListener('click', function(event) {
+                const fixedBg = findAssociatedFixedBg(this);
+                if (fixedBg && !fixedBg.classList.contains('show')) {
+                    event.preventDefault();
+                    showFixedBg(this);
+                }
+            });
+            return;
+        }
+        // Os outros .loopCol dentro de links não recebem nada: o toque navega direto.
+        // (Antes, um preventDefault no touchend cancelava o clique do link.)
+        if (loopColElement.closest('a')) return;
+        // .loopCol de texto ("atmosferas", "música"): o toque mostra as palavras;
+        // rolar a página ou tocar fora esconde (listeners globais abaixo).
+        loopColElement.addEventListener('touchstart', function() { showFixedBg(this); }, { passive: true });
     });
 
     // Listeners globais para esconder .fixedBg
