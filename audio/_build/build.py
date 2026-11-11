@@ -97,6 +97,17 @@ PLUGINS = [
                        "It's a natural-sounding harmonizer with pitch correction built in. Thirds, fifths and doubles stay human, without chipmunks, without warble and without that tell-tale shimmer.",
                        "It's BuenoVOX's bigger sibling, for the moment the chorus needs a whole congregation."],
                  cap="Harmonies from a single voice.", what="Vocal harmonizer and pitch corrector.")),
+    dict(repo="sideral", name="Sideral", cat="fx", origin="", year="",
+         kind="Drifting memory · delay · looper", formats="AU · VST3 · CLAP",
+         short="A memory that drifts like the sky: prime-length delays that never repeat.",
+         about=["Sideral is 44.7 seconds of sound memory carved into delay lines whose lengths are all different prime numbers of samples. Once their heads pass each other they never line up again, so your phrases keep recombining and nothing comes back as a loop. Slow chaotic tides carry the lines across the stereo field.",
+                "Twenty-one programs in five constellations read the same memory in different ways: two and four drifting delays, a reverberation the size of a county, clouds of grains, and nine Pulsar loopers locked to your host's bars that slice, shuffle, stutter and transpose the loop in place. Performance pads freeze it (Eclipse), reverse it (Retrograde), halve its speed (Redshift) or collapse it (Big Crunch). The editor is an orrery: every delay line is an orbit, every write head a planet."],
+         ad=dict(layout="a", headline="It never plays the same thing twice. We asked it to. It declined.",
+                 alt="",
+                 body=["Most delays repeat themselves. Sideral would rather not. Its delay lines are cut to prime-number lengths, and primes, being famously antisocial, refuse to line up.",
+                       "Play a phrase and it comes back from the left, then the right, then somewhere in between, a little different each time. Freeze it with Eclipse and play over it, or let the Pulsar programs lock it to your bars and quietly tear it apart.",
+                       "The interface is an orrery. Watch the planets for long enough and you'll notice they never meet again."],
+                 cap="The orrery: every orbit a delay line, every planet a write head.", what="Drifting memory station: delays, reverb, grains and loopers.")),
     dict(repo="mutante", name="Mutante", cat="fx", origin="Mu-Tron Bi-Phase", year="1974",
          kind="Dual optical phaser", formats="AU · VST3 · CLAP",
          short="Component-level model of the 1974 Mu-Tron Bi-Phase.",
@@ -229,7 +240,9 @@ DL_ICON = '<svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M7 1h2
 FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
 
 
-def head(title, desc, url, image, css, extra_fonts):
+def head(title, desc, url, image, css, extra_fonts, canonical=None, jsonld=None, og_type="website"):
+    canon = f'<link rel="canonical" href="{canonical}">\n' if canonical else ""
+    ld = "".join(f'<script type="application/ld+json">{json.dumps(j, ensure_ascii=False)}</script>\n' for j in (jsonld or []))
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -237,17 +250,18 @@ def head(title, desc, url, image, css, extra_fonts):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
-<meta property="og:title" content="{e(title)}">
+{canon}<meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(desc)}">
-<meta property="og:type" content="website">
+<meta property="og:type" content="{og_type}">
 <meta property="og:url" content="{url}">
 <meta property="og:image" content="{image}">
+<meta property="og:site_name" content="Jardim Sonoro">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico">
 {FONTS}
 <link href="https://fonts.googleapis.com/css2?{extra_fonts}&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{css}">
-</head>
+{ld}</head>
 """
 
 
@@ -261,6 +275,7 @@ WORDS = {
     "zynabre": ["ADD", "SUB", "PAD", "abre"],
     "buenovox": ["in tune", "natural", "human"],
     "muchovox": ["thirds", "fifths", "choir"],
+    "sideral": ["primes", "orbit", "eclipse", "drift"],
     "mutante": ["dub", "sweep", "light", "1974"],
     "th0nk3000": ["grains", "chance", "collide"],
     "magnitude": ["lift", "detail", "density"],
@@ -273,7 +288,8 @@ WORDS = {
     "follo3k": ["wah", "follow", "thump", "2001"],
     "orbit3k": ["Doppler", "walls", "fly-by", "2001"],
 }
-FACTS = {'tyrell80': ['8 voices, two complete synth lines each', '75 presets, incl. the 22 factory tones'],
+FACTS = {'sideral': ['21 programs in 5 constellations · 44.7 s of memory', 'Prime-length lines · loops locked to the host bars'],
+    'tyrell80': ['8 voices, two complete synth lines each', '75 presets, incl. the 22 factory tones'],
     'obxtra': ['Up to 32 voices', '613 presets, incl. the OB-Xa factory bank'],
     'dxdx7': ['6 operators · 32 algorithms', '41 cartridges · 1,312 voices built in'],
     'youth106': ['6 voices (8 or 10 optional)', '299 presets, incl. all 128 Juno-106 patches'],
@@ -326,62 +342,148 @@ def demo_html(repo):
     bars = "".join(f'<rect x="{i * 2}" y="{20 - v * 19:.2f}" width="1.2" height="{max(v * 38, .6):.2f}"/>' for i, v in enumerate(pk))
     svg = f'<svg viewBox="0 0 {len(pk) * 2} 40" preserveAspectRatio="none" aria-hidden="true">{bars}</svg>'
     return f"""
-      <div class="demo" data-src="demos/{d.get('file', repo + '.mp3')}">
+      <div class="demo" data-src="/audio/demos/{d.get('file', repo + '.mp3')}">
         <button class="play" type="button" aria-label="Play the {e(d['piece'])} demo"><span class="i-play"></span></button>
         <div class="wave" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">{svg}<div class="prog">{svg}</div></div>
         <p class="cap">{e(d['piece'])} <span class="dim">{('· preset ' + e(d['sound']) + ' ') if d.get('sound') else ''}· <span class="time">{fmt_time(d['duration'])}</span></span></p>
       </div>"""
 
 
-def build_index():
-    menu_cols, sections, n = [], [], 0
-    for key, label in CATS:
-        items = [p for p in PLUGINS if p["cat"] == key]
-        if not items:
-            continue
-        lis, plugs = [], []
-        for p in items:
-            n += 1
-            num = f"{n:02d}"
-            r, a = p.get("id", p["repo"]), p["ad"]
-            repo = p["repo"]
-            asset_attr = f' data-asset="{p["asset"]}"' if p.get("asset") else ""
-            lis.append(f'<li><a href="#{r}"><span class="t"><span class="num">{num}.</span> {e(p["name"])}</span><span class="s">{e(p["short"])}</span></a></li>')
-            ref = f'{p["origin"]}{", " + p["year"] if p["year"] else ""}' if p["origin"] else p["kind"]
-            body = "".join(f"<p>{e(t)}</p>" for t in a["body"])
-            kind_li = f"<li>_ {e(p['kind'])}</li>" if p["origin"] else ""
-            plugs.append(f"""
-    <section class="plug" id="{r}" data-repo="{repo}"{asset_attr} data-bg="bg/{r}.webp">
-      <h4>{e(label)}</h4>
-      <h2 class="name"><span class="num">{num}.</span>{e(p['name'])}</h2>
-      <p class="headline">{e(p['short'])}</p>
-      <div class="cols">
-        <div class="text">{body}</div>
-        <div class="aside">
-          <p class="tagline">{loop('“' + a['headline'].strip('“”') + '”', WORDS.get(r, [p['name']]))}</p>
-          <ul class="specs">
-            <li>_ {e(ref)}</li>
-            {kind_li}
-            {''.join(f"<li>_ {e(f)}</li>" for f in FACTS.get(r, []))}
-          </ul>
-        </div>
-      </div>
-      <figure class="ui"><button class="zoom" type="button" data-full="shots/{r}-1600.webp" aria-label="View the {e(p['name'])} interface full screen"><img src="shots/{r}-800.webp" srcset="shots/{r}-800.webp 800w, shots/{r}-1600.webp 1600w" sizes="(max-width:900px) 100vw, 80vw" alt="{e(p['name'])} interface" loading="lazy"></button></figure>{demo_html(r)}
-      <div class="get">
-        <div class="dlw">
-          <a class="gh" href="{gh(repo)}" aria-label="Source code on GitHub"><svg class="ghi" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span class="ghu">github.com/{OWNER}/{repo}</span></a>
-          <p class="dls"><span class="arrow">&gt;</span> <a class="dl" data-os="mac" href="{gh(repo)}/releases/latest">macOS</a>, <a class="dl" data-os="linux" href="{gh(repo)}/releases/latest">Linux</a>, <a class="dl" data-os="win" href="{gh(repo)}/releases/latest">Windows</a></p>
-          <p class="ver" data-ver>Latest release on GitHub</p>
-        </div>
-      </div>
-    </section>""")
-        menu_cols.append(f'<div class="col"><h4>{e(label)}</h4><ul>' + "".join(lis) + "</ul></div>")
-        sections.append(f'<div class="group" id="{key}">' + "".join(plugs) + "</div>")
+def pid(p):
+    return p.get("id", p["repo"])
 
-    out = head("Jardim Sonoro: Audio — open-source plug-ins & instruments",
-               "Open-source audio plug-ins for macOS, Windows and Linux: circuit-modelled CS-80, Oberheim, DX7 and Juno-106 synths, natural vocal pitch correction, a Bi-Phase phaser, mastering tools, and Audio Ease's Nautilus and Rocket Science classics rebuilt bit for bit. AU / VST3 / CLAP, written in Rust.",
-               SITE, SITE + "shots/og.jpg", "style.css",
-               "family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400") + f"""<body>
+
+def ordered():
+    """Plug-ins in menu order, numbered, with their category label."""
+    out, n = [], 0
+    for key, label in CATS:
+        for p in PLUGINS:
+            if p["cat"] == key:
+                n += 1
+                out.append((p, f"{n:02d}", label))
+    return out
+
+
+def page_url(p):
+    return f"{SITE}{pid(p)}/"
+
+
+def describe(p):
+    """A search-snippet sized description: the short line plus the start of the story."""
+    d = p["short"] + " " + p["about"][0]
+    if len(d) > 158:
+        d = d[:155].rsplit(" ", 1)[0].rstrip(",.;:") + "…"
+    return d
+
+
+def card_html(p, num, label, open_detail):
+    r, repo = pid(p), p["repo"]
+    asset_attr = f' data-asset="{p["asset"]}"' if p.get("asset") else ""
+    state = " open" if open_detail else ""
+    expanded = "true" if open_detail else "false"
+    tag = "h2"
+    detail = detail_html(p, num, label) if open_detail else ""
+    return f"""
+    <article class="plug{state}" id="{r}" data-repo="{repo}" data-cat="{p['cat']}"{asset_attr}>
+      <a class="card" href="/audio/{r}/" aria-expanded="{expanded}" aria-controls="d-{r}">
+        <span class="thumb"><img src="/audio/shots/{r}-800.webp" alt="{e(p['name'])} interface" loading="lazy" decoding="async"></span>
+        <span class="meta"><span class="num">{num}</span><span class="kind">{e(label)}</span></span>
+        <{tag} class="cname">{e(p['name'])}</{tag}>
+        <span class="short">{e(p['short'])}</span>
+      </a>{detail}
+    </article>"""
+
+
+def detail_html(p, num, label):
+    r, a, repo = pid(p), p["ad"], p["repo"]
+    ref = f'{p["origin"]}{", " + p["year"] if p["year"] else ""}' if p["origin"] else p["kind"]
+    body = "".join(f"<p>{e(t)}</p>" for t in p["about"])
+    kind_li = f"<li>_ {e(p['kind'])}</li>" if p["origin"] else ""
+    return f"""
+      <div class="detail" id="d-{r}">
+        <a class="close" href="/audio/" aria-label="Close {e(p['name'])} and return to all plug-ins">&times;</a>
+        <h4>{e(label)}</h4>
+        <h1 class="name"><span class="num">{num}.</span>{e(p['name'])}</h1>
+        <p class="headline">{e(p['short'])}</p>
+        <div class="cols">
+          <div class="text">{body}</div>
+          <div class="aside">
+            <p class="tagline">{loop('“' + a['headline'].strip('“”') + '”', WORDS.get(r, [p['name']]))}</p>
+            <ul class="specs">
+              <li>_ {e(ref)}</li>
+              {kind_li}
+              {''.join(f"<li>_ {e(f)}</li>" for f in FACTS.get(r, []))}
+              <li>_ {e(p['formats'])}</li>
+            </ul>
+          </div>
+        </div>
+        <figure class="ui"><button class="zoom" type="button" data-full="/audio/shots/{r}-1600.webp" aria-label="View the {e(p['name'])} interface full screen"><img src="/audio/shots/{r}-800.webp" srcset="/audio/shots/{r}-800.webp 800w, /audio/shots/{r}-1600.webp 1600w" sizes="(max-width:900px) 100vw, 70vw" alt="{e(p['name'])} interface" loading="lazy"></button></figure>{demo_html(r)}
+        <div class="get">
+          <div class="dlw">
+            <a class="gh" href="{gh(repo)}" aria-label="Source code on GitHub"><svg class="ghi" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span class="ghu">github.com/{OWNER}/{repo}</span></a>
+            <p class="dls"><span class="arrow">&gt;</span> <a class="dl" data-os="mac" href="{gh(repo)}/releases/latest">macOS</a>, <a class="dl" data-os="linux" href="{gh(repo)}/releases/latest">Linux</a>, <a class="dl" data-os="win" href="{gh(repo)}/releases/latest">Windows</a></p>
+            <p class="ver" data-ver>Latest release on GitHub</p>
+          </div>
+        </div>
+      </div>"""
+
+
+ORG = {"@type": "Organization", "name": "Jardim Sonoro", "url": "https://jardimsonoro.com/"}
+
+
+def app_ld(p):
+    return {
+        "@context": "https://schema.org", "@type": "SoftwareApplication",
+        "name": p["name"], "url": page_url(p), "description": describe(p),
+        "image": f"{SITE}shots/{pid(p)}-1600.webp",
+        "applicationCategory": "MultimediaApplication", "applicationSubCategory": p["kind"],
+        "operatingSystem": "macOS, Windows, Linux", "isAccessibleForFree": True,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "author": ORG, "publisher": ORG, "sameAs": [gh(p["repo"])],
+    }
+
+
+INDEX_TITLE = "Jardim Sonoro: Audio — open-source plug-ins & instruments"
+INDEX_DESC = ("Open-source audio plug-ins for macOS, Windows and Linux: circuit-modelled CS-80, Oberheim, DX7 and Juno-106 synths, "
+              "a drifting prime-number memory, natural vocal pitch correction, a Bi-Phase phaser, mastering tools, and Audio Ease classics "
+              "rebuilt bit for bit. AU / VST3 / CLAP, written in Rust.")
+
+
+def page(selected=None):
+    items = ordered()
+    chips = '<button class="chip on" type="button" data-cat="all" aria-pressed="true">All <span>{}</span></button>'.format(len(items))
+    for key, label in CATS:
+        n = sum(1 for p, _, _ in items if p["cat"] == key)
+        if n:
+            chips += f'<button class="chip" type="button" data-cat="{key}" aria-pressed="false">{e(label)} <span>{n}</span></button>'
+    cards = "".join(card_html(p, num, label, p is selected) for p, num, label in items)
+
+    if selected:
+        p = selected
+        what = p["ad"]["what"].rstrip(".")
+        title = f"{p['name']} — {what}"
+        if len(title) < 62:
+            title += " | Jardim Sonoro"
+        desc = describe(p)
+        url = page_url(p)
+        image = f"{SITE}shots/{pid(p)}-1600.webp"
+        crumbs = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Jardim Sonoro", "item": "https://jardimsonoro.com/"},
+            {"@type": "ListItem", "position": 2, "name": "Audio", "item": SITE},
+            {"@type": "ListItem", "position": 3, "name": p["name"], "item": url}]}
+        ld = [app_ld(p), crumbs]
+        logo_tag, og = "p", "product"
+    else:
+        title, desc = INDEX_TITLE, INDEX_DESC
+        url, image = SITE, SITE + "shots/og.jpg"
+        ld = [{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Jardim Sonoro Audio", "url": SITE,
+               "description": desc, "publisher": ORG,
+               "mainEntity": {"@type": "ItemList", "numberOfItems": len(items), "itemListElement": [
+                   {"@type": "ListItem", "position": i + 1, "url": page_url(q), "name": q["name"]} for i, (q, _, _) in enumerate(items)]}}]
+        logo_tag, og = "h1", "website"
+
+    out = head(title, desc, url, image, "/audio/style.css?v=20261111",
+               "family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400", canonical=url, jsonld=ld, og_type=og) + f"""<body{' class="has-open"' if selected else ''}>
 <div class="stage" aria-hidden="true">
   <div class="layer grad on"></div>
   <div class="tint"></div>
@@ -390,7 +492,7 @@ def build_index():
 </div>
 
 <header class="header">
-  <nav class="nav"><h1 class="logo"><a href="/">Jardim Sonoro</a><a href="./"><span class="badge">Audio</span></a></h1></nav>
+  <nav class="nav"><{logo_tag} class="logo"><a href="/">Jardim Sonoro</a><a href="/audio/"><span class="badge">Audio</span></a></{logo_tag}></nav>
 </header>
 
 <main>
@@ -399,9 +501,10 @@ def build_index():
     <p class="lead">Open-source synth, generators &amp; effects. Circuit-modelled. Analog sound. Electroacoustic Art.</p>
   </section>
 
-  <nav class="menu" style="--cols:{len(menu_cols)}" aria-label="Plug-ins">{''.join(menu_cols)}</nav>
+  <nav class="filters" aria-label="Filter plug-ins by kind">{chips}</nav>
 
-  {''.join(sections)}
+  <div class="grid" id="plugins" data-title="{e(INDEX_TITLE)}" data-desc="{e(INDEX_DESC)}">{cards}
+  </div>
 
   <section class="outro" id="contribute">
     <h4>Contribute</h4>
@@ -422,11 +525,40 @@ def build_index():
 
 <div class="fixedBg" id="fixedBg" aria-hidden="true"><div class="container"></div></div>
 
-<script src="app.js?v=20261110" defer></script>
+<script src="/audio/app.js?v=20261111" defer></script>
 </body>
 </html>
 """
-    open(os.path.join(ROOT, "index.html"), "w").write(out)
+    return out
+
+
+def build_index():
+    open(os.path.join(ROOT, "index.html"), "w").write(page())
+    for p, _, _ in ordered():
+        d = os.path.join(ROOT, pid(p))
+        os.makedirs(d, exist_ok=True)
+        open(os.path.join(d, "index.html"), "w").write(page(p))
+
+
+def build_sitemap():
+    """Writes the /audio URLs into indexmap.xml (the static tail the blog publisher appends)
+    and into the current sitemap.xml, between markers."""
+    import datetime, re
+    now = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%S+00:00")
+    urls = [(SITE, "0.9")] + [(page_url(p), "0.8") for p, _, _ in ordered()]
+    block = "<!-- audio:begin -->\n" + "".join(
+        f"<url>\n  <loc>{u}</loc>\n  <lastmod>{now}</lastmod>\n  <changefreq>monthly</changefreq>\n  <priority>{pr}</priority>\n</url>\n"
+        for u, pr in urls) + "<!-- audio:end -->\n"
+    site = os.path.dirname(ROOT)
+    for name in ("indexmap.xml", "sitemap.xml"):
+        path = os.path.join(site, name)
+        if not os.path.exists(path):
+            continue
+        s = open(path).read()
+        s = re.sub(r"<!-- audio:begin -->.*?<!-- audio:end -->\n", "", s, flags=re.S)
+        i = s.rfind("</urlset>")
+        s = s[:i] + block + "\n" + s[i:]
+        open(path, "w").write(s)
 
 
 # ---------------------------------------------------------------- /audio/ads
@@ -447,7 +579,7 @@ def build_ads():
         unit_cls = "unit"
         out = head(f"{p['name']} — {a['headline']}", p["short"], f"{SITE}ads/{r}/", f"{SITE}ads/{r}/ad.jpg", "../ad.css",
                    "family=Archivo:wdth,wght@100..125,400..900&family=EB+Garamond:ital,wght@0,400..700;1,400..600") + f"""<body>
-<div class="tools"><a href="../../#{r}">&larr; {e(p['name'])} on jardimsonoro.com/audio</a><a href="../">All ads</a><button onclick="print()">Print</button></div>
+<div class="tools"><a href="../../{r}/">&larr; {e(p['name'])} on jardimsonoro.com/audio</a><a href="../">All ads</a><button onclick="print()">Print</button></div>
 <div class="stage">
 <article class="page layout-{a['layout']}" id="page">
   <div class="stripes"></div>
@@ -489,4 +621,5 @@ addEventListener('resize',fit);fit();}})();
 if __name__ == "__main__":
     build_index()
     build_ads()
+    build_sitemap()
     print("built", len(PLUGINS), "plug-ins")

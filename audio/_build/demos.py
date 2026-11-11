@@ -270,9 +270,42 @@ def external():
         print(f"{d['repo']:10s} {meta['duration']:5.1f}s  (external)")
 
 
+# Effects: another plug-in's demo, played through the effect (AU), with the tail left to ring.
+EFFECTS = [
+    dict(repo="sideral", au="Sideral", source="zynabre.mp3", tail=16.0,
+         piece="Satie — Gymnopédie No. 1, drifting", sound="Binary · II",
+         params=dict(program="Binary II", scatter=30.0, drift=60.0, flare=0.0, orbit="×0.950", mix=55.0,
+                     high_cut="5.2 kHz", horizon="Open", accrete="Both")),
+]
+
+
+def effects(only=None):
+    for d in EFFECTS:
+        if only and d["repo"] not in only:
+            continue
+        plugin = pedalboard.load_plugin(os.path.join(AU, d["au"] + ".component"))
+        for k, v in d["params"].items():
+            setattr(plugin, k, v)
+        # let the program change settle (the selector waits about a second) before the music starts
+        plugin(np.zeros((2, int(2.5 * SR)), np.float32), SR, buffer_size=512, reset=False)
+        with pedalboard.io.AudioFile(os.path.join(OUT, d["source"])).resampled_to(SR) as f:
+            src = f.read(f.frames)
+        if src.shape[0] == 1:
+            src = np.vstack([src, src])
+        x = np.hstack([src, np.zeros((2, int(d["tail"] * SR)), np.float32)]).astype(np.float32)
+        audio = plugin(x, SR, buffer_size=512, reset=False)
+        audio = master(audio, reverb=False)
+        write_mp3(audio, os.path.join(OUT, d["repo"] + ".mp3"))
+        json.dump({"piece": d["piece"], "sound": d["sound"], "duration": round(audio.shape[1] / SR, 2), "peaks": peaks(audio)},
+                  open(os.path.join(OUT, d["repo"] + ".json"), "w"))
+        print(f"{d['repo']:10s} {audio.shape[1] / SR:5.1f}s  (effect over {d['source']})")
+
+
 if __name__ == "__main__":
     if sys.argv[1:] == ["external"]:
         external()
+    elif sys.argv[1:2] == ["effects"]:
+        effects(sys.argv[2:])
     else:
         main(sys.argv[1:])
         external()
