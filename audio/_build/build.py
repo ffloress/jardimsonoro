@@ -100,8 +100,8 @@ PLUGINS = [
     dict(repo="sideral", name="Sideral", cat="fx", origin="", year="",
          kind="Drifting memory · delay · looper", formats="AU · VST3 · CLAP",
          short="A memory that drifts like the sky: prime-length delays that never repeat.",
-         about=["Sideral is 44.7 seconds of sound memory carved into delay lines whose lengths are all different prime numbers of samples. Once their heads pass each other they never line up again, so your phrases keep recombining and nothing comes back as a loop. Slow chaotic tides carry the lines across the stereo field.",
-                "Twenty-one programs in five constellations read the same memory in different ways: two and four drifting delays, a reverberation the size of a county, clouds of grains, and nine Pulsar loopers locked to your host's bars that slice, shuffle, stutter and transpose the loop in place. Performance pads freeze it (Eclipse), reverse it (Retrograde), halve its speed (Redshift) or collapse it (Big Crunch). The editor is an orrery: every delay line is an orbit, every write head a planet."],
+         about=["Sideral is a sound memory of undisclosed length, carved into delay lines whose lengths are all different prime numbers of samples. Once their heads pass each other they never line up again, so your phrases keep recombining and nothing comes back as a loop. Slow chaotic tides carry the lines across the stereo field.",
+                "Twenty-one programs in five constellations read the same memory in different ways: two and four drifting delays, a reverberation the size of a county, clouds of grains, and nine Pulsar loopers locked to your host's bars that slice, shuffle, stutter and transpose the loop in place. A round REC button sits at the heart of the performance pads, which freeze the memory (Eclipse), reverse it (Retrograde), halve its speed (Redshift) or collapse it (Big Crunch). The editor is an orrery: every delay line is an orbit, every write head a planet."],
          ad=dict(layout="a", headline="It never plays the same thing twice. We asked it to. It declined.",
                  alt="",
                  body=["Most delays repeat themselves. Sideral would rather not. Its delay lines are cut to prime-number lengths, and primes, being famously antisocial, refuse to line up.",
@@ -288,7 +288,7 @@ WORDS = {
     "follo3k": ["wah", "follow", "thump", "2001"],
     "orbit3k": ["Doppler", "walls", "fly-by", "2001"],
 }
-FACTS = {'sideral': ['21 programs in 5 constellations · 44.7 s of memory', 'Prime-length lines · loops locked to the host bars'],
+FACTS = {'sideral': ['21 programs in 5 constellations', 'Prime-length lines · loops locked to the host bars'],
     'tyrell80': ['8 voices, two complete synth lines each', '75 presets, incl. the 22 factory tones'],
     'obxtra': ['Up to 32 voices', '613 presets, incl. the OB-Xa factory bank'],
     'dxdx7': ['6 operators · 32 algorithms', '41 cartridges · 1,312 voices built in'],
@@ -413,7 +413,6 @@ def detail_html(p, num, label):
               <li>_ {e(ref)}</li>
               {kind_li}
               {''.join(f"<li>_ {e(f)}</li>" for f in FACTS.get(r, []))}
-              <li>_ {e(p['formats'])}</li>
             </ul>
           </div>
         </div>
@@ -446,7 +445,7 @@ def app_ld(p):
 INDEX_TITLE = "Jardim Sonoro: Audio — open-source plug-ins & instruments"
 INDEX_DESC = ("Open-source audio plug-ins for macOS, Windows and Linux: circuit-modelled CS-80, Oberheim, DX7 and Juno-106 synths, "
               "a drifting prime-number memory, natural vocal pitch correction, a Bi-Phase phaser, mastering tools, and Audio Ease classics "
-              "rebuilt bit for bit. AU / VST3 / CLAP, written in Rust.")
+              "rebuilt bit for bit. Written in Rust.")
 
 
 def page(selected=None):
