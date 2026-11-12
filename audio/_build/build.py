@@ -494,7 +494,7 @@ def page(selected=None):
                    {"@type": "ListItem", "position": i + 1, "url": page_url(q), "name": q["name"]} for i, (q, _, _) in enumerate(items)]}}]
         logo_tag, og = "h1", "website"
 
-    out = head(title, desc, url, image, "/audio/style.css?v=20261112",
+    out = head(title, desc, url, image, "/audio/style.css?v=20261112b",
                "family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400", canonical=url, jsonld=ld, og_type=og) + f"""<body{' class="has-open"' if selected else ''}>
 
 <header class="header">
