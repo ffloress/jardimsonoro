@@ -1,197 +1,196 @@
-/* Jardim Sonoro Audio — same DNA as jardimsonoro.com: Ubuntu, huge tight type, acid colours, grey photographic backdrop */
+/* Jardim Sonoro Audio — a light, quiet room for dark instruments.
+   Paper background, ink type, pastel colour used sparingly and on purpose
+   (highlighted words, category pills, the boxes the interfaces rest in),
+   and plenty of 間 (ma): space as a material. Ubuntu stays, as on jardimsonoro.com. */
 :root{
-  --a1:#5bc5aa; --a2:#b272e1; --a3:#72b6e1;
-  --hover:#80cbc4;
-  --pad:5vw;
+  --paper:#f5f3ed; --surface:#fff; --ink:#161615; --ink2:#5f5d57; --ink3:#9a978e; --line:#e3dfd4;
+  --lilac:#d9d1ff; --mint:#c6ead6; --peach:#ffd6c2; --butter:#f6e7a2; --sky:#cde1f7; --rose:#f7cfdf;
+  --cat:var(--lilac);
+  --gap:clamp(22px,2.6vw,44px);
+  --radius:22px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:#1a1a1a;color:#fff;font:400 17px/1.55 'Ubuntu',system-ui,sans-serif;
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 'Ubuntu',system-ui,sans-serif;
   -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;overflow-x:hidden}
-a{color:#fff;font-weight:700;text-decoration:none}
-a:hover{color:var(--hover);text-decoration:underline}
+a{color:var(--ink);font-weight:500;text-decoration:none;border-radius:.15em;transition:background .2s}
+a:hover{background:var(--cat)}
 img{display:block;max-width:100%}
 button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+::selection{background:var(--butter)}
 
-@keyframes acid{0%,100%{color:var(--a1)}33.33%{color:var(--a2)}66.67%{color:var(--a3)}}
-@keyframes acidbg{0%,100%{background-color:var(--a3)}33.33%{background-color:var(--a1)}66.67%{background-color:var(--a2)}}
+/* Category colours: each kind of instrument keeps one pastel. */
+[data-cat="synth"]{--cat:var(--lilac)}
+[data-cat="vocal"]{--cat:var(--peach)}
+[data-cat="fx"]{--cat:var(--mint)}
+[data-cat="master"]{--cat:var(--butter)}
+[data-cat="tool"]{--cat:var(--sky)}
+
 @keyframes up{from{transform:translateY(100%)}to{transform:none}}
 @keyframes down{from{transform:none}to{transform:translateY(100%)}}
-@keyframes blink{50%{opacity:0}}
 
-/* ---------- photographic backdrop ---------- */
-.stage{position:fixed;inset:0;z-index:-2;background:#9a9a9a}
-.layer{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:center/cover no-repeat;opacity:0;transition:opacity 1.4s ease}
-.layer.on{opacity:1}
-.tint{position:absolute;inset:0;mix-blend-mode:color;opacity:.38;animation:acidbg 18s linear infinite}
-/* 80s analogue TV: scanlines, a faint aperture grille and a slow rolling band */
-.scan{position:absolute;inset:0;pointer-events:none;
-  background:repeating-linear-gradient(180deg,rgba(0,0,0,.42) 0 1px,rgba(0,0,0,0) 1px 3px),
-             repeating-linear-gradient(90deg,rgba(255,0,0,.035) 0 1px,rgba(0,255,0,.03) 1px 2px,rgba(0,0,255,.035) 2px 3px);
-  box-shadow:inset 0 0 18vmin rgba(0,0,0,.55)}
-.scan::after{content:"";position:absolute;left:0;right:0;top:-30%;height:30%;
-  background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.045) 50%,rgba(255,255,255,0));animation:roll 9s linear infinite}
-@keyframes roll{to{transform:translateY(433%)}}
-.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28),rgba(0,0,0,.5) 60%,rgba(0,0,0,.62))}
+main{max-width:1360px;margin:0 auto;padding:0 clamp(20px,5vw,72px)}
 
-main{width:90%;margin:0 auto}
+/* ---------- header ---------- */
+.header .nav{display:flex;justify-content:center;align-items:center;height:6em;padding:0 1.5em}
+.logo{margin:0;font-size:1.6em;letter-spacing:-.015em;font-weight:700;display:flex;align-items:center;gap:.4em}
+.logo a:hover{background:none}
+.badge{color:var(--ink);font-weight:500;padding:.18em .5em;border-radius:.35em;background:var(--lilac);transition:background .3s}
+.badge:hover{background:var(--mint)}
 
-/* ---------- compact header (as on /blog) ---------- */
-@keyframes acidbg-dark{0%,100%{background-color:#336b99}33.33%{background-color:#287c66}66.67%{background-color:#6d3d99}}
-.header .nav{display:flex;justify-content:center;align-items:center;height:5.4em;padding:0 1.5em}
-.logo{margin:0;font-size:1.8em;letter-spacing:-.01em;font-weight:700;display:flex;align-items:center;gap:.45em}
-.logo a:hover{text-decoration:none}
-.badge{color:#fff;font-weight:700;padding:5px;border-radius:.25em;animation:acidbg-dark 5s infinite;background-color:#5bc5aa}
-.badge:hover{filter:invert(100%)}
-.layer.grad{background:radial-gradient(120% 90% at 15% 0%,#5a5a5a 0%,#3a3a3a 38%,#1c1c1c 75%,#111 100%);opacity:1!important}
-.layer:not(.grad){display:none!important}
+/* ---------- about: one sentence and a lot of air ---------- */
+.about{padding:16vh 0 15vh;max-width:1100px}
+.about .lead{margin:0;font:500 clamp(34px,5.4vw,86px)/1.06 'Ubuntu',sans-serif;letter-spacing:-.035em}
+.hl{color:inherit;padding:0 .1em;border-radius:.12em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hl-1{background:var(--lilac)}
+.hl-2{background:var(--mint)}
+.hl-3{background:var(--peach)}
+.quiet{color:var(--ink3)}
 
-/* ---------- about (right under the menu) ---------- */
-.about{width:62%;padding:9vh 0 0;font-size:clamp(15px,1.15vw,18px);line-height:1.55}
-.about p{margin:0 0 1em}
-.about .lead{font:700 clamp(24px,3vw,46px)/1.08 'Ubuntu',sans-serif;letter-spacing:-.025em;margin-bottom:.5em}
-
-/* ---------- labels, copy ---------- */
-h4{margin:0 0 18px;font:500 13px/1 'Ubuntu',sans-serif;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.75);display:flex;align-items:center;gap:12px}
-h4::after{content:"";width:46px;height:1px;background:rgba(255,255,255,.55)}
-.loopCol{font-weight:700;padding:0 3px;animation:acidbg 5s linear infinite;outline:none;-webkit-tap-highlight-color:transparent}
-.loopCol:focus-visible{box-shadow:0 0 0 2px #fff}
+/* ---------- labels ---------- */
+h4{margin:0 0 22px;font:500 12px/1 'Ubuntu',sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--ink2);display:flex;align-items:center;gap:14px}
+h4::after{content:"";width:40px;height:1px;background:var(--line)}
+.loopCol{font-weight:500;padding:0 .14em;border-radius:.12em;background:var(--cat);cursor:default;outline:none;-webkit-tap-highlight-color:transparent;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone}
+.loopCol:focus-visible{box-shadow:0 0 0 2px var(--ink)}
 
 /* ---------- filters ---------- */
-.filters{display:flex;flex-wrap:wrap;gap:10px;padding:5vh 0 3vh}
-.chip{padding:.5em 1em;border-radius:999px;border:1px solid rgba(255,255,255,.28);font:500 13px/1 'Ubuntu',sans-serif;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.82);transition:background .2s,color .2s,border-color .2s}
-.chip span{opacity:.55;margin-left:.3em}
-.chip:hover{border-color:#fff;color:#fff}
-.chip.on{background:#fff;color:#111;border-color:#fff}
-.chip.on span{opacity:.6}
+.filters{display:flex;flex-wrap:wrap;gap:10px;padding:0 0 5vh}
+.chip{padding:.62em 1.15em;border-radius:999px;background:var(--surface);border:1px solid var(--line);font:500 13px/1 'Ubuntu',sans-serif;letter-spacing:.02em;color:var(--ink2);transition:background .2s,color .2s,border-color .2s}
+.chip span{color:var(--ink3);margin-left:.35em}
+.chip:hover{border-color:var(--ink3);color:var(--ink)}
+.chip.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip.on span{color:var(--ink3)}
 
 /* ---------- the grid ---------- */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px;grid-auto-flow:dense;padding-bottom:4vh}
-.plug{min-width:0;scroll-margin-top:24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:var(--gap);grid-auto-flow:dense;padding-bottom:6vh}
+.plug{min-width:0;scroll-margin-top:28px}
 .plug[hidden]{display:none}
-.card{display:flex;flex-direction:column;height:100%;border-radius:12px;overflow:hidden;background:rgba(10,10,12,.55);border:1px solid rgba(255,255,255,.09);
-  box-shadow:0 18px 50px rgba(0,0,0,.35);transition:transform .25s ease,border-color .25s ease,background .25s ease;color:#fff}
-.card:hover,.card:focus-visible{transform:translateY(-4px);text-decoration:none;color:#fff;border-color:rgba(255,255,255,.35);background:rgba(10,10,12,.72);outline:none}
-.card:hover .cname{animation:acid 2s linear infinite}
-.thumb{display:block;aspect-ratio:16/10;overflow:hidden;background:#111}
-.thumb img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .6s ease}
-.card:hover .thumb img{transform:scale(1.04)}
-.meta{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:16px 18px 0;font:500 11px/1 'Ubuntu',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6)}
-.meta .num{font-size:13px}
-.cname{margin:8px 18px 0;font:700 clamp(26px,2.2vw,34px)/1 'Ubuntu',sans-serif;letter-spacing:-.02em;overflow-wrap:anywhere}
-.short{display:block;margin:8px 18px 20px;font-weight:400;font-size:.88em;line-height:1.4;color:rgba(255,255,255,.75)}
+.card{display:flex;flex-direction:column;height:100%;border-radius:var(--radius);overflow:hidden;background:var(--surface);color:var(--ink);
+  transition:transform .3s ease,box-shadow .3s ease}
+.card:hover,.card:focus-visible{background:var(--surface);transform:translateY(-4px);box-shadow:0 22px 50px rgba(30,28,20,.09);outline:none}
+.thumb{display:block;aspect-ratio:16/11;padding:clamp(14px,1.6vw,22px);background:var(--cat)}
+.thumb img{width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:10px;
+  box-shadow:0 12px 28px rgba(20,20,20,.22);transition:transform .6s ease}
+.card:hover .thumb img{transform:scale(1.025)}
+.meta{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:20px 22px 0;font:500 11px/1 'Ubuntu',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.meta .kind{padding:.5em .8em;border-radius:999px;background:var(--cat);color:var(--ink)}
+.meta .num{font-size:12px;letter-spacing:.04em}
+.cname{margin:14px 22px 0;font:500 clamp(26px,2.1vw,32px)/1.05 'Ubuntu',sans-serif;letter-spacing:-.025em;overflow-wrap:anywhere}
+.short{display:block;margin:10px 22px 26px;font-weight:400;font-size:.9em;line-height:1.5;color:var(--ink2)}
 
 /* ---------- the open plug-in: spans the whole row ---------- */
 .plug.open{grid-column:1/-1}
 .plug.open .card{display:none}
-.detail{display:none;position:relative;border-radius:14px;padding:clamp(24px,5vw,72px);background:rgba(8,8,10,.62);border:1px solid rgba(255,255,255,.12);
-  box-shadow:0 30px 90px rgba(0,0,0,.45);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.detail{display:none;position:relative;border-radius:calc(var(--radius) + 6px);padding:clamp(28px,6vw,104px);background:var(--surface)}
 .plug.open .detail{display:block;animation:unfold .45s ease}
 @keyframes unfold{from{opacity:0;transform:translateY(14px)}}
-.detail .close{position:absolute;top:14px;right:20px;font:300 46px/1 'Ubuntu',sans-serif;color:rgba(255,255,255,.75)}
-.detail .close:hover{color:#fff;text-decoration:none;animation:acid 2s linear infinite}
-.name{margin:0;font:700 clamp(54px,9vw,150px)/.9 'Ubuntu',sans-serif;letter-spacing:-.04em;overflow-wrap:anywhere}
-.num{animation:acid 5s linear infinite;font-weight:700}
-.name .num{display:block;font-size:clamp(18px,2.2vw,34px);letter-spacing:0;line-height:1;margin-bottom:.35em}
-.headline{margin:3vh 0 5vh;font:300 clamp(24px,3vw,46px)/1.1 'Ubuntu',sans-serif;letter-spacing:-.02em;max-width:22ch}
-.cols{display:grid;grid-template-columns:minmax(0,34em) minmax(0,1fr);gap:4vw;align-items:start}
-.text{font-size:clamp(16px,1.2vw,19px);line-height:1.6;color:rgba(255,255,255,.92)}
-.text p{margin:0 0 1em}
-.tagline{margin:0 0 1.1em;font:300 italic clamp(19px,1.7vw,27px)/1.3 'Ubuntu',sans-serif;letter-spacing:-.01em;color:#fff;max-width:22em}
-.tagline .loopCol{font-weight:300;padding:0 .18em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
-.specs{list-style:none;margin:0;padding:0;font-weight:700;font-size:clamp(16px,1.25vw,20px);line-height:1.9}
-.ui{margin:6vh 0 0;max-width:1200px}
-.zoom{display:block;width:100%;cursor:zoom-in;border-radius:4px;transition:transform .25s ease}
-.zoom:hover{transform:scale(1.015)}
-.zoom:focus-visible{outline:2px solid #fff;outline-offset:4px}
-.ui img{width:100%;height:auto;border-radius:4px;box-shadow:0 30px 80px rgba(0,0,0,.55)}
+.detail .close{position:absolute;top:22px;right:24px;width:48px;height:48px;display:grid;place-items:center;border-radius:50%;
+  font:300 34px/1 'Ubuntu',sans-serif;color:var(--ink2);background:var(--paper)}
+.detail .close:hover{color:var(--ink);background:var(--cat)}
+.detail h4{margin-bottom:28px}
+.name{margin:0;font:500 clamp(56px,9.5vw,156px)/.92 'Ubuntu',sans-serif;letter-spacing:-.045em;overflow-wrap:anywhere}
+.name .num{display:block;font-size:clamp(15px,1.4vw,20px);letter-spacing:.02em;line-height:1;margin-bottom:.9em;color:var(--ink3);font-weight:500}
+.headline{margin:5vh 0 8vh;font:300 clamp(24px,2.8vw,44px)/1.18 'Ubuntu',sans-serif;letter-spacing:-.02em;max-width:24ch;color:var(--ink)}
+.cols{display:grid;grid-template-columns:minmax(0,34em) minmax(0,1fr);gap:clamp(32px,6vw,110px);align-items:start}
+.text{font-size:clamp(16px,1.15vw,19px);line-height:1.7;color:var(--ink2)}
+.text p{margin:0 0 1.1em}
+.tagline{margin:0 0 1.4em;font:300 italic clamp(20px,1.7vw,28px)/1.35 'Ubuntu',sans-serif;letter-spacing:-.01em;max-width:22em}
+.tagline .loopCol{font-weight:300}
+.specs{list-style:none;margin:0;padding:0;font-weight:500;font-size:clamp(15px,1.1vw,18px);line-height:2;color:var(--ink)}
+.ui{margin:10vh 0 0;padding:clamp(18px,4vw,64px);border-radius:var(--radius);background:var(--cat);max-width:none}
+.zoom{display:block;width:100%;cursor:zoom-in;border-radius:10px;transition:transform .3s ease}
+.zoom:hover{transform:scale(1.01)}
+.zoom:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+.ui img{width:100%;height:auto;border-radius:10px;box-shadow:0 30px 70px rgba(20,20,20,.28)}
 .lightbox{padding:0;border:0;background:transparent;max-width:100vw;max-height:100vh;width:100vw;height:100vh;margin:0;display:none;place-items:center;cursor:zoom-out}
 .lightbox[open]{display:grid;animation:fadein .2s ease}
-.lightbox::backdrop{background:rgba(0,0,0,.9)}
-.lightbox img{max-width:96vw;max-height:94vh;width:auto;height:auto;object-fit:contain;box-shadow:0 30px 120px rgba(0,0,0,.7)}
-.lightbox .close{position:fixed;top:12px;right:18px;font:300 44px/1 'Ubuntu',sans-serif;color:#fff;opacity:.8}
-.lightbox .close:hover{opacity:1}
+.lightbox::backdrop{background:rgba(245,243,237,.96)}
+.lightbox img{max-width:94vw;max-height:92vh;width:auto;height:auto;object-fit:contain;border-radius:10px;box-shadow:0 40px 120px rgba(20,20,20,.3)}
+.lightbox .close{position:fixed;top:14px;right:20px;font:300 44px/1 'Ubuntu',sans-serif;color:var(--ink2)}
+.lightbox .close:hover{color:var(--ink)}
 @keyframes fadein{from{opacity:0}}
-.get{margin-top:5vh;display:flex;flex-wrap:wrap;align-items:center;gap:.25em .7em;font-size:clamp(26px,3.4vw,52px);line-height:1.15;letter-spacing:-.02em}
+
+/* ---------- download ---------- */
+.get{margin-top:8vh;display:flex;flex-wrap:wrap;align-items:center;gap:.25em .7em;font-size:clamp(26px,3.2vw,50px);line-height:1.2;letter-spacing:-.025em}
 .dls{margin:0}
-.dlw .ver{margin:.35em 0 0 .1em;font:400 12px/1.3 'Ubuntu',sans-serif;letter-spacing:.02em;color:rgba(255,255,255,.65)}
-.dls .arrow{animation:acid 5s linear infinite}
-.get .dl{color:#fff}
-.get .dl:hover{color:var(--hover);text-decoration:none}
-.get .dl.na{opacity:.45}
-.get .gh{display:inline-flex;flex-direction:row;align-items:center;gap:7px;margin:0 0 .45em .1em;font:400 12px/1.3 'Ubuntu',sans-serif;letter-spacing:.02em;color:rgba(255,255,255,.7)}
-.get .gh:hover{color:#fff;text-decoration:none}
-.ghi{width:14px;height:14px;fill:#fff;transition:fill .2s;flex-shrink:0}
-.get .gh:hover .ghi{animation:acidfill 3s linear infinite}
+.dls .arrow{color:var(--ink3)}
+.get .dl{color:var(--ink);font-weight:500;padding:0 .08em}
+.get .dl:hover{background:var(--cat)}
+.get .dl.na{color:var(--ink3)}
+.dlw .ver{margin:.5em 0 0 .1em;font:400 12px/1.3 'Ubuntu',sans-serif;letter-spacing:.02em;color:var(--ink3)}
+.get .gh{display:inline-flex;flex-direction:row;align-items:center;gap:7px;margin:0 0 .55em .1em;padding:.2em .1em;font:400 12px/1.3 'Ubuntu',sans-serif;letter-spacing:.02em;color:var(--ink2)}
+.get .gh:hover{color:var(--ink)}
+.ghi{width:14px;height:14px;fill:var(--ink2);flex-shrink:0}
+.get .gh:hover .ghi{fill:var(--ink)}
 .ghu{font:inherit;letter-spacing:inherit}
-.get .gh:hover .ghu{color:#fff}
 
 /* ---------- audio demo ---------- */
-.demo{margin:3.5vh 0 0;display:grid;grid-template-columns:auto 1fr;gap:10px 18px;align-items:center;max-width:1200px}
-.play{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;animation:acidbg 5s linear infinite;transition:transform .15s}
+.demo{margin:5vh 0 0;display:grid;grid-template-columns:auto 1fr;gap:12px 22px;align-items:center}
+.play{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:var(--ink);transition:transform .15s,background .2s}
 .play:hover{transform:scale(1.06)}
-.i-play{width:0;height:0;border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff;margin-left:4px}
-.demo.on .i-play{width:16px;height:20px;border:0;margin:0;background:linear-gradient(90deg,#fff 0 35%,transparent 35% 65%,#fff 65%)}
+.i-play{width:0;height:0;border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent var(--paper);margin-left:4px}
+.demo.on .i-play{width:16px;height:20px;border:0;margin:0;background:linear-gradient(90deg,var(--paper) 0 35%,transparent 35% 65%,var(--paper) 65%)}
 .wave{position:relative;height:64px;cursor:pointer;outline:none}
-.wave svg{display:block;width:100%;height:100%;fill:rgba(255,255,255,.42)}
+.wave svg{display:block;width:100%;height:100%;fill:#cbc6ba}
 .wave .prog{position:absolute;inset:0 auto 0 0;width:0;overflow:hidden}
-.wave .prog svg{width:var(--w,100%);fill:#fff}
-.demo.on .wave .prog svg{animation:acidfill 5s linear infinite}
-@keyframes acidfill{0%,100%{fill:var(--a1)}33.33%{fill:var(--a2)}66.67%{fill:var(--a3)}}
-.wave:focus-visible{box-shadow:0 0 0 2px #fff}
-.demo .cap{grid-column:2;margin:0;font-weight:700;font-size:clamp(15px,1.15vw,18px)}
-.demo .dim{font-weight:400;color:rgba(255,255,255,.7)}
+.wave .prog svg{width:var(--w,100%);fill:var(--ink)}
+.wave:focus-visible{box-shadow:0 0 0 2px var(--ink);border-radius:4px}
+.demo .cap{grid-column:2;margin:0;font-weight:500;font-size:clamp(15px,1.1vw,17px)}
+.demo .dim{font-weight:400;color:var(--ink3)}
 
-/* ---------- outro ---------- */
-.outro{width:52%;margin:16vh 0 0;font-size:clamp(17px,1.4vw,21px)}
-.bmc{display:inline-block}
-.bmc img{height:60px;width:auto}
-.bmc:hover{filter:brightness(1.05)}
+/* ---------- outro and footer ---------- */
+.outro{max-width:760px;margin:20vh 0 0;font-size:clamp(20px,1.8vw,28px);line-height:1.4;letter-spacing:-.01em}
 .outro p{margin:0 0 1em}
-.list{list-style:none;padding:0;margin:0 0 1.4em;font-weight:700}
-.list li{margin:0 0 .3em}
-.big{display:inline-block;font:700 clamp(30px,4.6vw,66px)/1.1 'Ubuntu',sans-serif;letter-spacing:-.02em;margin-top:.2em}
-.big:hover{text-decoration:none;filter:brightness(1.2)}
-.bottom{margin:22vh 0 0;padding:0 0 40px;text-align:center;font-size:.9rem;color:rgba(255,255,255,.85)}
+.bottom{margin:24vh 0 0;padding:6vh 0 56px;border-top:1px solid var(--line);text-align:center;font-size:.88rem;color:var(--ink2)}
 .bottom p{margin:0 auto .6em;max-width:46em}
-.bottom .fine{font-size:.85em;opacity:.7;margin-top:.5em}
-.social-icons{margin:0 0 1rem;display:flex;justify-content:center;gap:1.2rem}
-.social-icons a{display:flex}
-.social-icons a svg{fill:#aaa;transition:fill .3s ease}
-.social-icons a:hover svg{fill:#80cbc4}
+.bottom .fine{font-size:.85em;color:var(--ink3);margin-top:.6em}
+.social-icons{margin:0 0 1.2rem;display:flex;justify-content:center;gap:1.4rem}
+.social-icons a{display:flex;padding:6px;border-radius:50%}
+.social-icons a svg{fill:var(--ink2);transition:fill .3s ease}
+.social-icons a:hover{background:var(--lilac)}
+.social-icons a:hover svg{fill:var(--ink)}
 
-/* ---------- the screen-filling words (as on jardimsonoro.com) ---------- */
-.fixedBg{position:fixed;inset:0;z-index:-1;pointer-events:none;background:rgba(0,0,0,.7);opacity:0;transition:opacity .8s ease-in-out;
-  text-align:right;font:700 clamp(64px,11vw,190px)/.95 'Ubuntu',sans-serif;letter-spacing:-.3vw;animation:acid 5s linear infinite;overflow:hidden}
-.fixedBg .container{width:90%;margin:0 auto;padding-top:11vh}
-.fixedBg span{display:block;animation:down 1s ease forwards}
-.fixedBg.show{opacity:1}
+/* ---------- the screen-filling words: a pause, on paper ---------- */
+.fixedBg{position:fixed;inset:0;z-index:-1;pointer-events:none;background:rgba(245,243,237,.94);opacity:0;transition:opacity .7s ease-in-out;
+  text-align:right;font:500 clamp(64px,11vw,190px)/1 'Ubuntu',sans-serif;letter-spacing:-.04em;color:var(--ink);overflow:hidden}
+.fixedBg .container{width:90%;margin:0 auto;padding-top:12vh;display:flex;flex-direction:column;align-items:flex-end;gap:.06em}
+.fixedBg span{display:inline-block;padding:0 .12em;border-radius:.08em;animation:down 1s ease forwards}
+.fixedBg span:nth-child(4n+1){background:var(--lilac)}
+.fixedBg span:nth-child(4n+2){background:var(--mint)}
+.fixedBg span:nth-child(4n+3){background:var(--peach)}
+.fixedBg span:nth-child(4n+4){background:var(--butter)}
+.fixedBg.show{opacity:1;z-index:5}
 .fixedBg.show span{animation:up .5s ease forwards}
 
 /* ---------- mobile ---------- */
 @media (max-width:820px){
   body{font-size:16px}
-  .outro,.about{width:100%}
-  .logo{font-size:1.5em}
-  .play{width:48px;height:48px}
+  .about{padding:9vh 0 9vh}
+  .logo{font-size:1.4em}
+  .play{width:50px;height:50px}
   .wave{height:48px}
   .demo .cap{grid-column:1/-1}
-  .cols{grid-template-columns:1fr;gap:3vh}
-  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-  .cname{font-size:20px;margin:6px 12px 0}
-  .meta{padding:12px 12px 0;font-size:9px}
-  .short{margin:6px 12px 14px;font-size:.78em}
-  .chip{font-size:11px}
+  .cols{grid-template-columns:1fr;gap:5vh}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .thumb{padding:10px}
+  .cname{font-size:19px;margin:10px 14px 0}
+  .meta{padding:12px 14px 0;font-size:9px}
+  .meta .num{display:none}
+  .short{margin:6px 14px 16px;font-size:.8em}
+  .chip{font-size:12px}
   .name{font-size:15vw}
-  .detail{padding:24px 18px}
-  .ui{margin:5vh 0 0}
+  .detail{padding:64px 18px 28px}
+  .ui{margin:6vh 0 0;padding:12px}
   .get{gap:.2em .55em}
+  .outro{margin-top:12vh}
   .fixedBg{font-size:15vw}
   .fixedBg .container{padding-top:16vh}
+}
+@media (max-width:420px){
+  .grid{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *{animation-duration:0s!important;animation-iteration-count:1!important;transition:none!important}
-  .tint{display:none}
 }
-

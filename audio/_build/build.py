@@ -20,6 +20,17 @@ CATS = [  # key, label, colour token
 CAT_LABEL = dict(CATS)
 
 PLUGINS = [
+    dict(repo="apolo9", name="Apolo9", cat="synth", origin="SOMA Lyra-8", year="",
+         kind="Organismic synthesizer", formats="AU · VST3 · CLAP",
+         short="The SOMA Lyra-8, modelled from its circuit board: eight voices played through your skin.",
+         about=["Apolo9 is a circuit-level model of the Lyra-8, Vlad Kreimer's \u201corganismic\u201d synthesizer. Each of its eight voices is a CD4093 logic gate used as a Schmitt-trigger oscillator, integrated exactly between threshold crossings with the real timing capacitors. The envelopes are a transistor charging a capacitor through the player's skin, so how hard and how long you touch shapes the attack.",
+                "Everything leans on everything: the envelopes bend the pitch, the pairs frequency-modulate each other, the oscillators pull into lock through the shared power rail, and TOTAL FB turns the whole instrument into one feedback loop. The two PT2399 delay chips are simulated bit by bit, so long delays hiss and grind as they do on the hardware. It ships with SOMA's seven official preset sheets and a red panic button."],
+         ad=dict(layout="a", headline="It listens to your skin. Then it does what it likes.",
+                 alt="A hand resting on two copper plates on a dark circuit board, the plates glowing faintly",
+                 body=["Most synthesizers wait for instructions. The Lyra-8 waits for a finger. Touch two copper plates and your skin closes the circuit; press harder and the voice blooms faster.",
+                       "Apolo9 models the board itself: eight logic gates abused as oscillators, envelopes that bend the pitch, voices that pull each other into lock, and two delay chips simulated bit by bit.",
+                       "Nothing on it is in tune. Everything on it is alive."],
+                 cap="Eight sensors, eight voices, one organism.", what="Organismic synthesizer after the SOMA Lyra-8.")),
     dict(repo="tyrell80", name="Tyrell80", cat="synth", origin="Yamaha CS-80", year="1977",
          kind="Polyphonic synthesizer", formats="AU · VST3 · CLAP",
          short="The Yamaha CS-80, modelled chip by chip from the service manual.",
@@ -268,6 +279,7 @@ def head(title, desc, url, image, css, extra_fonts, canonical=None, jsonld=None,
 # ---------------------------------------------------------------- /audio
 # Words that take over the screen when the highlighted term in each plug-in is hovered / tapped.
 WORDS = {
+    "apolo9": ["skin", "organism", "drone", "FM"],
     "tyrell80": ["brass", "ribbon", "1977", "rain"],
     "obxtra": ["arenas", "unison", "brass", "1979"],
     "dxdx7": ["bells", "e-piano", "FM", "1983"],
@@ -288,7 +300,8 @@ WORDS = {
     "follo3k": ["wah", "follow", "thump", "2001"],
     "orbit3k": ["Doppler", "walls", "fly-by", "2001"],
 }
-FACTS = {'sideral': ['21 programs in 5 constellations', 'Prime-length lines · loops locked to the host bars'],
+FACTS = {'apolo9': ['8 CD4093 voices · skin-conductance sensors', '2 PT2399s simulated bit by bit · 19 presets incl. the SOMA sheets'],
+    'sideral': ['21 programs in 5 constellations', 'Prime-length lines · loops locked to the host bars'],
     'tyrell80': ['8 voices, two complete synth lines each', '75 presets, incl. the 22 factory tones'],
     'obxtra': ['Up to 32 voices', '613 presets, incl. the OB-Xa factory bank'],
     'dxdx7': ['6 operators · 32 algorithms', '41 cartridges · 1,312 voices built in'],
@@ -443,7 +456,7 @@ def app_ld(p):
 
 
 INDEX_TITLE = "Jardim Sonoro: Audio — open-source plug-ins & instruments"
-INDEX_DESC = ("Open-source audio plug-ins for macOS, Windows and Linux: circuit-modelled CS-80, Oberheim, DX7 and Juno-106 synths, "
+INDEX_DESC = ("Open-source audio plug-ins for macOS, Windows and Linux: circuit-modelled Lyra-8, CS-80, Oberheim, DX7 and Juno-106 synths, "
               "a drifting prime-number memory, natural vocal pitch correction, a Bi-Phase phaser, mastering tools, and Audio Ease classics "
               "rebuilt bit for bit. Written in Rust.")
 
@@ -481,14 +494,8 @@ def page(selected=None):
                    {"@type": "ListItem", "position": i + 1, "url": page_url(q), "name": q["name"]} for i, (q, _, _) in enumerate(items)]}}]
         logo_tag, og = "h1", "website"
 
-    out = head(title, desc, url, image, "/audio/style.css?v=20261111",
+    out = head(title, desc, url, image, "/audio/style.css?v=20261112",
                "family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400", canonical=url, jsonld=ld, og_type=og) + f"""<body{' class="has-open"' if selected else ''}>
-<div class="stage" aria-hidden="true">
-  <div class="layer grad on"></div>
-  <div class="tint"></div>
-  <div class="shade"></div>
-  <div class="scan"></div>
-</div>
 
 <header class="header">
   <nav class="nav"><{logo_tag} class="logo"><a href="/">Jardim Sonoro</a><a href="/audio/"><span class="badge">Audio</span></a></{logo_tag}></nav>
@@ -497,7 +504,7 @@ def page(selected=None):
 <main>
   <section class="about" id="about">
     <h4>About</h4>
-    <p class="lead">Open-source synth, generators &amp; effects. Circuit-modelled. Analog sound. Electroacoustic Art.</p>
+    <p class="lead">My <mark class="hl hl-1">Electroacoustic Garden</mark> for <mark class="hl hl-2">synthesis</mark> and <mark class="hl hl-3">transformation</mark> of sound. <span class="quiet">Open source.</span></p>
   </section>
 
   <nav class="filters" aria-label="Filter plug-ins by kind">{chips}</nav>
@@ -524,7 +531,7 @@ def page(selected=None):
 
 <div class="fixedBg" id="fixedBg" aria-hidden="true"><div class="container"></div></div>
 
-<script src="/audio/app.js?v=20261111" defer></script>
+<script src="/audio/app.js?v=20261112" defer></script>
 </body>
 </html>
 """
