@@ -20,17 +20,17 @@ CATS = [  # key, label, colour token
 CAT_LABEL = dict(CATS)
 
 PLUGINS = [
-    dict(repo="apolo9", name="Apolo9", cat="synth", origin="SOMA Lyra-8", year="",
+    dict(repo="apolo9", name="Apolo9", cat="synth", origin="", year="",
          kind="Organismic synthesizer", formats="AU · VST3 · CLAP",
-         short="The SOMA Lyra-8, modelled from its circuit board: eight voices played through your skin.",
-         about=["Apolo9 is a circuit-level model of the Lyra-8, Vlad Kreimer's \u201corganismic\u201d synthesizer. Each of its eight voices is a CD4093 logic gate used as a Schmitt-trigger oscillator, integrated exactly between threshold crossings with the real timing capacitors. The envelopes are a transistor charging a capacitor through the player's skin, so how hard and how long you touch shapes the attack.",
-                "Everything leans on everything: the envelopes bend the pitch, the pairs frequency-modulate each other, the oscillators pull into lock through the shared power rail, and TOTAL FB turns the whole instrument into one feedback loop. The two PT2399 delay chips are simulated bit by bit, so long delays hiss and grind as they do on the hardware. It ships with SOMA's seven official preset sheets and a red panic button."],
+         short="An organismic synthesizer, modelled from a DIY circuit board: eight voices played through your skin.",
+         about=["Apolo9 is a circuit-level model of an \u201corganismic\u201d synthesizer, the kind of experimental DIY instrument tinkerers build from logic chips and touch plates. Each of its eight voices is a CD4093 logic gate used as a Schmitt-trigger oscillator, integrated exactly between threshold crossings with the real timing capacitors. The envelopes are a transistor charging a capacitor through the player's skin, so how hard and how long you touch shapes the attack.",
+                "Everything leans on everything: the envelopes bend the pitch, the pairs frequency-modulate each other, the oscillators pull into lock through the shared power rail, and TOTAL FB turns the whole instrument into one feedback loop. The two PT2399 delay chips are simulated bit by bit, so long delays hiss and grind as they do on the hardware. It ships with nineteen presets and a red panic button."],
          ad=dict(layout="a", headline="It listens to your skin. Then it does what it likes.",
                  alt="A hand resting on two copper plates on a dark circuit board, the plates glowing faintly",
-                 body=["Most synthesizers wait for instructions. The Lyra-8 waits for a finger. Touch two copper plates and your skin closes the circuit; press harder and the voice blooms faster.",
+                 body=["Most synthesizers wait for instructions. This one waits for a finger. Touch two copper plates and your skin closes the circuit; press harder and the voice blooms faster.",
                        "Apolo9 models the board itself: eight logic gates abused as oscillators, envelopes that bend the pitch, voices that pull each other into lock, and two delay chips simulated bit by bit.",
                        "Nothing on it is in tune. Everything on it is alive."],
-                 cap="Eight sensors, eight voices, one organism.", what="Organismic synthesizer after the SOMA Lyra-8.")),
+                 cap="Eight sensors, eight voices, one organism.", what="Organismic synthesizer from the world of experimental DIY circuits.")),
     dict(repo="tyrell80", name="Tyrell80", cat="synth", origin="Yamaha CS-80", year="1977",
          kind="Polyphonic synthesizer", formats="AU · VST3 · CLAP",
          short="The Yamaha CS-80, modelled chip by chip from the service manual.",
@@ -300,7 +300,7 @@ WORDS = {
     "follo3k": ["wah", "follow", "thump", "2001"],
     "orbit3k": ["Doppler", "walls", "fly-by", "2001"],
 }
-FACTS = {'apolo9': ['8 CD4093 voices · skin-conductance sensors', '2 PT2399s simulated bit by bit · 19 presets incl. the SOMA sheets'],
+FACTS = {'apolo9': ['8 CD4093 voices · skin-conductance sensors', '2 PT2399s simulated bit by bit · 19 presets, from drones to harsh noise'],
     'sideral': ['21 programs in 5 constellations', 'Prime-length lines · loops locked to the host bars'],
     'tyrell80': ['8 voices, two complete synth lines each', '75 presets, incl. the 22 factory tones'],
     'obxtra': ['Up to 32 voices', '613 presets, incl. the OB-Xa factory bank'],
@@ -456,7 +456,7 @@ def app_ld(p):
 
 
 INDEX_TITLE = "Jardim Sonoro: Audio — open-source plug-ins & instruments"
-INDEX_DESC = ("Open-source audio plug-ins for macOS, Windows and Linux: circuit-modelled Lyra-8, CS-80, Oberheim, DX7 and Juno-106 synths, "
+INDEX_DESC = ("Open-source audio plug-ins for macOS, Windows and Linux: an organismic DIY synth, circuit-modelled CS-80, Oberheim, DX7 and Juno-106 synths, "
               "a drifting prime-number memory, natural vocal pitch correction, a Bi-Phase phaser, mastering tools, and Audio Ease classics "
               "rebuilt bit for bit. Written in Rust.")
 
