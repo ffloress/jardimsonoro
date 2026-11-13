@@ -272,10 +272,6 @@ def external():
 
 # Effects: another plug-in's demo, played through the effect (AU), with the tail left to ring.
 EFFECTS = [
-    dict(repo="sideral", au="Sideral", source="zynabre.mp3", tail=16.0,
-         piece="Satie — Gymnopédie No. 1, drifting", sound="Binary · II",
-         params=dict(program="Binary II", scatter=30.0, drift=60.0, flare=0.0, orbit="×0.950", mix=55.0,
-                     high_cut="5.2 kHz", horizon="Open", accrete="Both")),
 ]
 
 
