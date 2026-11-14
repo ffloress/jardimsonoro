@@ -55,13 +55,6 @@
     if (audio.paused) { var pr = audio.play(); if (pr && pr.catch) pr.catch(function () {}); }
   }
 
-  /* ---------- interface screenshots: full-screen view ---------- */
-  var lightbox = $('#lightbox'), lbImg = lightbox && $('img', lightbox);
-  if (lightbox) {
-    lightbox.addEventListener('click', function () { lightbox.close(); });
-    lightbox.addEventListener('close', function () { lbImg.removeAttribute('src'); });
-  }
-
   /* ---------- downloads for the visitor's system ---------- */
   var REL = {};
   function osOf(n) {
@@ -140,15 +133,6 @@
         if ((e.key === 'ArrowRight' || e.key === 'ArrowLeft') && curDemo === d && audio.duration) { audio.currentTime += e.key === 'ArrowRight' ? 3 : -3; paintDemo(); }
       });
     });
-    if (lightbox && lightbox.showModal) {
-      $$('.zoom', det).forEach(function (b) {
-        b.addEventListener('click', function (e) {
-          e.stopPropagation();
-          lbImg.src = b.dataset.full; lbImg.alt = $('img', b).alt;
-          lightbox.showModal();
-        });
-      });
-    }
     var close = $('.close', det);
     if (close) close.addEventListener('click', function (e) {
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
@@ -249,7 +233,7 @@
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Escape') return;
     hideWords();
-    if (document.body.classList.contains('has-open') && !(lightbox && lightbox.open)) closeAll(true);
+    if (document.body.classList.contains('has-open')) closeAll(true);
   });
 
   /* ---------- filters ---------- */
