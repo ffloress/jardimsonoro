@@ -102,18 +102,19 @@ h4::after{content:"";width:40px;height:1px;background:var(--line)}
 .ui img{display:block;width:100%;height:auto;border-radius:10px;box-shadow:0 30px 70px rgba(20,20,20,.28)}
 
 /* ---------- download ---------- */
-.get{margin-top:8vh;display:flex;flex-wrap:wrap;align-items:center;gap:.25em .7em;font-size:clamp(26px,3.2vw,50px);line-height:1.2;letter-spacing:-.025em}
-.dls{margin:0}
-.dls .arrow{color:var(--ink3)}
-.get .dl{color:var(--ink);font-weight:500;padding:0 .08em}
-.get .dl:hover{background:var(--cat)}
-.get .dl.na{color:var(--ink3)}
-.dlw .ver{margin:.5em 0 0 .1em;font:400 12px/1.3 'Ubuntu',sans-serif;letter-spacing:.02em;color:var(--ink3)}
-.get .gh{display:inline-flex;flex-direction:row;align-items:center;gap:7px;margin:0 0 .55em .1em;padding:.2em .1em;font:400 12px/1.3 'Ubuntu',sans-serif;letter-spacing:.02em;color:var(--ink2)}
+.get{margin-top:8vh;padding-top:clamp(20px,2.4vw,30px);border-top:1px solid var(--line)}
+.get-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.4em 1.5em;margin-bottom:.9em}
+.get-label{font:500 12px/1 'Ubuntu',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+.get .gh{display:inline-flex;align-items:center;gap:7px;margin:0;padding:.2em .1em;font:400 13px/1.3 'Ubuntu',sans-serif;letter-spacing:.01em;color:var(--ink2)}
 .get .gh:hover{color:var(--ink)}
 .ghi{width:14px;height:14px;fill:var(--ink2);flex-shrink:0}
 .get .gh:hover .ghi{fill:var(--ink)}
-.ghu{font:inherit;letter-spacing:inherit}
+.dls{display:flex;flex-wrap:wrap;gap:10px}
+.get .dl{display:inline-flex;align-items:center;min-height:44px;padding:.5em 1.25em;border:1.5px solid var(--catb);border-radius:999px;background:var(--surface);color:var(--ink);font:500 clamp(15px,1.2vw,18px)/1.2 'Ubuntu',sans-serif;letter-spacing:-.005em;transition:background .2s,border-color .2s}
+.get .dl:hover{background:var(--cat);border-color:var(--cat)}
+.get .dl.na{border-style:dashed;border-color:var(--line);color:var(--ink3);background:none}
+.get .dl.na:hover{background:var(--cat)}
+.get .ver{margin:.9em 0 0;font:400 12px/1.3 'Ubuntu',sans-serif;letter-spacing:.02em;color:var(--ink3)}
 
 /* ---------- audio demo ---------- */
 .demo{margin:5vh 0 0;display:grid;grid-template-columns:auto 1fr;gap:12px 22px;align-items:center}

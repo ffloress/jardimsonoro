@@ -56,7 +56,7 @@ PLUGINS = [
     dict(repo="shizuoka7", name="Shizuoka7", cat="synth", origin="Yamaha DX7", year="1983",
          kind="FM synthesizer", formats="AU · VST3 · CLAP",
          short="Dexed's FM engine plus a model of the DX7 hardware, down to the noise floor.",
-         about=["Shizuoka7 (formerly DXDX7) runs Dexed's faithful open-source FM engine with six operators and 32 algorithms. On top of that it models what the 1983 hardware does to the sound: the 49 kHz clock, the envelope chip that moves in tiny steps, the gain-ranged 12-bit converter whose noise floor breathes with your playing, and the analog output filter that rings after every transient.",
+         about=["Shizuoka7 runs Dexed's faithful open-source FM engine with six operators and 32 algorithms. On top of that it models what the 1983 hardware does to the sound: the 49 kHz clock, the envelope chip that moves in tiny steps, the gain-ranged 12-bit converter whose noise floor breathes with your playing, and the analog output filter that rings after every transient.",
                 "Load your cartridges and you get the electric pianos, glassy bells and slap basses of 1983, with the colour of the real machine. It is named after the prefecture where that machine was built."],
          ad=dict(layout="a", headline="You've heard this bell on a thousand records.",
                  alt="A hand about to strike a brass service bell on an empty hotel reception desk",
@@ -431,11 +431,16 @@ def detail_html(p, num, label):
         </div>
         <figure class="ui"><img src="/audio/shots/{r}-800.webp" srcset="/audio/shots/{r}-800.webp 800w, /audio/shots/{r}-1600.webp 1600w" sizes="(max-width:900px) 100vw, 70vw" alt="{e(p['name'])} interface" loading="lazy"></figure>{demo_html(r)}
         <div class="get">
-          <div class="dlw">
-            <a class="gh" href="{gh(repo)}" aria-label="Source code on GitHub"><svg class="ghi" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span class="ghu">github.com/{OWNER}/{repo}</span></a>
-            <p class="dls"><span class="arrow">&gt;</span> <a class="dl" data-os="mac" href="{gh(repo)}/releases/latest">macOS</a>, <a class="dl" data-os="linux" href="{gh(repo)}/releases/latest">Linux</a>, <a class="dl" data-os="win" href="{gh(repo)}/releases/latest">Windows</a></p>
-            <p class="ver" data-ver>Latest release on GitHub</p>
+          <div class="get-head">
+            <span class="get-label">Download</span>
+            <a class="gh" href="{gh(repo)}" aria-label="Source code on GitHub"><svg class="ghi" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span>Source on GitHub</span></a>
           </div>
+          <div class="dls">
+            <a class="dl" data-os="mac" href="{gh(repo)}/releases/latest">macOS</a>
+            <a class="dl" data-os="linux" href="{gh(repo)}/releases/latest">Linux</a>
+            <a class="dl" data-os="win" href="{gh(repo)}/releases/latest">Windows</a>
+          </div>
+          <p class="ver" data-ver>Latest release on GitHub</p>
         </div>
       </div>"""
 
@@ -494,7 +499,7 @@ def page(selected=None):
                    {"@type": "ListItem", "position": i + 1, "url": page_url(q), "name": q["name"]} for i, (q, _, _) in enumerate(items)]}}]
         logo_tag, og = "h1", "website"
 
-    out = head(title, desc, url, image, "/audio/style.css?v=20261114",
+    out = head(title, desc, url, image, "/audio/style.css?v=20261114b",
                "family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400", canonical=url, jsonld=ld, og_type=og) + f"""<body{' class="has-open"' if selected else ''}>
 
 <header class="header">
