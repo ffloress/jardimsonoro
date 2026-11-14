@@ -9,7 +9,7 @@ Each advert on the page loads `img/<name>.jpg`. Until that file exists, the plug
 |---|---|---|
 | `tyrell80.jpg` | It took four men to carry it upstairs. Now it takes one click. | Four removal men in overalls straining to carry an enormous wooden crate up a narrow tenement staircase. |
 | `obxtra.jpg` | Three brothers. Same family. Very different tempers. | Identical triplet brothers in matching 1980s suits on a sofa. One is furious, one is calm and one is smug. |
-| `dxdx7.jpg` | You've heard this bell on a thousand records. | A brass service bell on an empty marble hotel reception desk, with a hand about to strike it. Dramatic side light. |
+| `shizuoka7.jpg` | You've heard this bell on a thousand records. | A brass service bell on an empty marble hotel reception desk, with a hand about to strike it. Dramatic side light. |
 | `youth106.jpg` | Born in 1984. Still out every night. | A woman in her seventies roller-skating down a seaside boardwalk at sunset, arms outstretched, in a 1980s windbreaker. |
 | `zynabre.jpg` | Twenty years of sounds were waiting behind it. | A single wooden door standing on its own in an open wheat field, slightly ajar, with light pouring through the gap. |
 | `buenovox.jpg` | "Even he sings in tune now." | A dog howling earnestly into a vintage studio microphone in a wood-panelled recording booth. |

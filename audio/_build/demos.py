@@ -212,7 +212,7 @@ DEMOS = [
          preset=lambda: read_preset(os.path.join(CODE, "bladerunner80/bank/Vangelis/love-theme-strings.preset")), melody=pachelbel),
     dict(repo="obxtra", au="OBXTRA", piece="Bach — Toccata in D minor, BWV 565", sound="Ensemble Brass",
          preset=lambda: read_preset(os.path.join(CODE, "obxtra/bank/Classics/Archetypes/ensemble-brass.preset"), obx_names()), melody=toccata),
-    dict(repo="dxdx7", au="DXDX7", piece="Beethoven — Für Elise", sound="ROM1A · E.PIANO 1", program=10, melody=fur_elise),
+    dict(repo="shizuoka7", au="Shizuoka7", piece="Beethoven — Für Elise", sound="ROM1A · E.PIANO 1", program=10, melody=fur_elise),
     dict(repo="youth106", au="Youth106", piece="Beethoven — Moonlight Sonata", sound="A15 Moving Strings",
          preset=lambda: read_preset(os.path.join(CODE, "youth106/bank/Juno-106 A/A15-moving-strings.preset")), melody=moonlight),
     dict(repo="zynabre", au="Zyn02", piece="Satie — Gymnopédie No. 1", sound="Strings Pad 1 (PADsynth)",
