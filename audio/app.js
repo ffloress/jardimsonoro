@@ -100,7 +100,7 @@
     var d = REL[plug.dataset.repo];
     if (!d) return;
     var g = group(d, plug.dataset.asset, plug.dataset.repo);
-    $$('.get .dl', plug).forEach(function (a) {
+    $$('.get .dl[data-os]', plug).forEach(function (a) {
       var list = g[a.dataset.os];
       if (list.length) { a.href = list[0].u; a.title = d.tag + ' · ' + kind(list[0].n); a.classList.remove('na'); }
       else { a.href = d.url; a.title = 'No ' + OSN[a.dataset.os] + ' build in ' + d.tag; a.classList.add('na'); }
