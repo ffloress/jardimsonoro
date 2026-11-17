@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generates /audio/index.html, /audio/ads/index.html and /audio/ads/<repo>/index.html.
+"""Generates /audio/index.html and the per-plug-in pages.
 
 Edit the PLUGINS list below, then run:  python3 audio/_build/build.py
 (The _build folder is ignored by GitHub Pages/Jekyll, so it is not published.)
@@ -20,6 +20,17 @@ CATS = [  # key, label, colour token
 CAT_LABEL = dict(CATS)
 
 PLUGINS = [
+    dict(repo="velvet73", name="Velvet73", cat="synth", origin="Rhodes Mark I Stage 73", year="1975",
+         kind="Electric piano", formats="AU · VST3 · CLAP",
+         short="A Rhodes Mark I Stage 73 and the Twin Reverb it was plugged into, modelled from the tine up. No samples.",
+         about=["Velvet73 simulates every tone generator of the piano: a neoprene hammer strikes a steel tine, the tine and its twisted tone bar ring as an asymmetric tuning fork, and the tip swings in front of a cone-shaped pickup whose field turns a near-sine into the bell when you play softly and the bark when you dig in. The pickup was modelled from the patents' own magnetometer curves and checked against laser measurements of real tines.",
+                "The pickups add up through the inductive harp and the Stage's nameboard, whose Bass Boost turns out to cut bass, then a cable and the Vibrato channel of a silverface Twin: two 7025 stages, the tone stack, a spring tank, an optical tremolo, four 6L6GCs and a supply that sags when you lean on it. Hold the pedal and every free tine catches a little of each blow. Twelve presets, from a factory-fresh Stage to one that has done forty years of gigs."],
+         ad=dict(layout="b", headline="It sat in the corner of every studio. It still does.",
+                 alt="A black electric piano with its lid up in the corner of a wood-panelled 1970s studio, a guitar amplifier beside it",
+                 body=["Nobody designed the bark. A steel tine swings past a magnet, the magnet disagrees with it, and a side effect became half the records of the seventies.",
+                       "Velvet73 rebuilds the whole chain from the service manual and the patents: hammers, tines, tone bars, the pickups that bark, the nameboard that cuts the bass it claims to boost, and the Twin Reverb at the end of the cable.",
+                       "Play softly and it rings like a bell. Play as if you mean it and it answers back."],
+                 cap="Seventy-three tines, one Twin, no samples.", what="Electric piano after the Rhodes Mark I Stage 73, amplifier included.")),
     dict(repo="apolo9", name="Apolo9", cat="synth", origin="", year="",
          kind="Organismic synthesizer", formats="AU · VST3 · CLAP",
          short="An organismic synthesizer, modelled from a DIY circuit board: eight voices played through your skin.",
@@ -290,6 +301,7 @@ def head(title, desc, url, image, css, extra_fonts, canonical=None, jsonld=None,
 # ---------------------------------------------------------------- /audio
 # Words that take over the screen when the highlighted term in each plug-in is hovered / tapped.
 WORDS = {
+    "velvet73": ["bark", "bell", "tines", "1975"],
     "apolo9": ["skin", "organism", "drone", "FM"],
     "dendron": ["neurons", "sing", "growl", "evolve"],
     "tyrell80": ["brass", "ribbon", "1977", "rain"],
@@ -312,7 +324,8 @@ WORDS = {
     "follo3k": ["wah", "follow", "thump", "2001"],
     "orbit3k": ["Doppler", "walls", "fly-by", "2001"],
 }
-FACTS = {'apolo9': ['8 CD4093 voices · skin-conductance sensors', '2 PT2399s simulated bit by bit · 19 presets, from drones to harsh noise'],
+FACTS = {'velvet73': ['73 or 88 tines · hammers, tone bars, pickups', 'Stage nameboard into a Twin Reverb · 12 presets'],
+    'apolo9': ['8 CD4093 voices · skin-conductance sensors', '2 PT2399s simulated bit by bit · 19 presets, from drones to harsh noise'],
     'dendron': ['6 analogue neurons · 6 webs · tuned to the key', '24 gene pools, 18 of them inherited · 23 presets'],
     'sideral': ['21 programs in 5 constellations', 'Prime-length lines · loops locked to the host bars'],
     'tyrell80': ['8 voices, two complete synth lines each', '75 presets, incl. the 22 factory tones'],
@@ -579,65 +592,7 @@ def build_sitemap():
         open(path, "w").write(s)
 
 
-# ---------------------------------------------------------------- /audio/ads
-def build_ads():
-    os.makedirs(os.path.join(ROOT, "ads"), exist_ok=True)
-    with_photo = [p for p in PLUGINS if os.path.exists(os.path.join(ROOT, "img", p.get("id", p["repo"]) + ".jpg"))]
-    for i, p in enumerate(with_photo):
-        r, a = p.get("id", p["repo"]), p["ad"]
-        repo = p["repo"]
-        d = os.path.join(ROOT, "ads", r)
-        os.makedirs(d, exist_ok=True)
-        q = ' q' if a.get("quote") else ''
-        headline = f'<h1 class="headline{q}">{e(a["headline"])}</h1>'
-        photo = f'<figure class="photo"><img src="../../img/{r}.jpg" alt="{e(a["alt"])}"></figure>'
-        top = (headline + photo) if a["layout"] == "b" else (photo + headline)
-        body = "".join(f"<p>{e(t)}</p>" for t in a["body"])
-        shot = f"../../shots/{r}-800.webp"
-        unit_cls = "unit"
-        out = head(f"{p['name']} — {a['headline']}", p["short"], f"{SITE}ads/{r}/", f"{SITE}ads/{r}/ad.jpg", "../ad.css",
-                   "family=Archivo:wdth,wght@100..125,400..900&family=EB+Garamond:ital,wght@0,400..700;1,400..600") + f"""<body>
-<div class="tools"><a href="../../{r}/">&larr; {e(p['name'])} on jardimsonoro.com/audio</a><a href="../">All ads</a><button onclick="print()">Print</button></div>
-<div class="stage">
-<article class="page layout-{a['layout']}" id="page">
-  <div class="stripes"></div>
-  {top.replace('<h1', '<div class="hwrap"><h1').replace('</h1>', '</h1></div>')}
-  <div class="cols">
-    <div class="body">{body}</div>
-    <div class="side"><div class="{unit_cls}"><img src="{shot}" alt="{e(p['name'])} interface"></div><p class="cap">{e(a['cap'])}</p></div>
-  </div>
-  <div class="sig">
-    <div><div class="mark">{e(p['name'])}</div><div class="what">{e(a['what'])}</div><div class="specs">Open source · {e(p['formats'])}</div></div>
-    <div class="by"><b>Jardim Sonoro</b>Open-source audio research</div>
-  </div>
-  <div class="fine"><span>Download: jardimsonoro.com/audio</span><span>Source &amp; issues: github.com/{OWNER}/{repo}</span></div>
-  <div class="folio"><span>{e(CAT_LABEL[p['cat']])}</span><span>{i + 1:02d}</span></div>
-</article>
-</div>
-<script>
-(function(){{var s=document.querySelector('.stage'),p=document.getElementById('page');
-function fit(){{var k=Math.min((innerWidth-24)/850,(innerHeight-70)/1100,1.4);p.style.zoom=k>0?k:1;}}
-addEventListener('resize',fit);fit();}})();
-</script>
-</body>
-</html>
-"""
-        open(os.path.join(d, "index.html"), "w").write(out)
-
-    items = "".join(f'<a class="thumb" href="{p.get("id", p["repo"])}/"><img src="{p.get("id", p["repo"])}/ad.jpg" alt="{e(p["name"])} ad" loading="lazy"><span>{e(p["name"])}</span></a>' for p in with_photo)
-    out = head("Jardim Sonoro Audio — print ads", "Magazine-style ads for each Jardim Sonoro open-source plug-in.", SITE + "ads/", SITE + "ads/tyrell80/ad.jpg", "ad.css",
-               "family=Archivo:wdth,wght@100..125,400..900&family=EB+Garamond:ital,wght@0,400..700;1,400..600") + f"""<body class="list">
-<div class="tools"><a href="../">&larr; jardimsonoro.com/audio</a></div>
-<h1 class="list-title">Print ads</h1>
-<div class="thumbs">{items}</div>
-</body>
-</html>
-"""
-    open(os.path.join(ROOT, "ads", "index.html"), "w").write(out)
-
-
 if __name__ == "__main__":
     build_index()
-    build_ads()
     build_sitemap()
     print("built", len(PLUGINS), "plug-ins")
