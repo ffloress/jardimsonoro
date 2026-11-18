@@ -168,9 +168,44 @@ def gymnopedie():
     return ev, 30 * q + 2.5
 
 
+def late_set():
+    """'Late set in F' (Jardim Sonoro, original): a ballad for an electric piano, mp to f and back,
+    with the sustain pedal changed on every bar. Quarter = 0.86 s. Returns events, duration, pedal."""
+    q = 60 / 70
+    # (beats, bass, voicing, melody [(beat, beats, note)], velocity)
+    bars = [
+        (4, [41], [57, 60, 64, 67], [(0, 2, 72), (2, 1, 69), (3, 1, 67)], 62),
+        (2, [40], [62, 67, 70], [(0, 1.5, 70), (1.5, .5, 69)], 64),
+        (2, [45], [61, 67, 70], [(0, 2, 67)], 66),
+        (4, [38], [65, 69, 72], [(0, 2, 77), (2, 1, 76), (3, 1, 74)], 70),
+        (4, [43], [65, 69, 71, 76], [(0, 3, 74), (3, 1, 71)], 72),
+        (4, [43], [58, 62, 65, 69], [(0, 2, 74), (2, 1, 72), (3, 1, 70)], 76),
+        (4, [36], [58, 64, 69], [(0, 4, 69)], 80),
+        (4, [41, 29], [57, 60, 64, 67], [(0, 1, 72), (1, 1, 76), (2, 2, 79)], 100),
+        (4, [46, 34], [62, 64, 69], [(0, 2, 81), (2, 1, 79), (3, 1, 77)], 112),
+        (2, [45], [55, 60, 64], [(0, 1, 76), (1, 1, 74)], 92),
+        (2, [38], [54, 60, 63], [(0, 1, 75), (1, 1, 72)], 88),
+        (2, [43], [53, 58, 60], [(0, 1, 74), (1, 1, 70)], 76),
+        (2, [36], [52, 58, 62], [(0, 2, 72)], 70),
+        (8, [41, 29], [57, 62, 67], [(0, 8, 69)], 56),
+    ]
+    ev, pedal, t = [], [], 0.0
+    for beats, bass, voicing, mel, v in bars:
+        span = beats * q
+        ev += [(t, span * .97, b, min(v + 6, 127)) for b in bass]
+        ev += [(t + .02 + .012 * i, span * .9, n, v - 6) for i, n in enumerate(voicing)]
+        ev += [(t + b * q, d * q * .95, n, min(v + 10, 127)) for b, d, n in mel]
+        pedal.append((t + .09, t + span - .04))
+        t += span
+    return ev, t + 2.5, pedal
+
+
 # ------------------------------------------------------------------ rendering
-def to_midi(events, transpose=0, program=None, start=0.05):
+def to_midi(events, transpose=0, program=None, start=0.05, pedal=()):
     msgs = [] if program is None else [(bytes([0xC0, program]), 0.0)]
+    for down, up in pedal:
+        msgs.append((bytes([0xB0, 64, 127]), start + down))
+        msgs.append((bytes([0xB0, 64, 0]), start + up))
     for t, d, n, v in events:
         n += transpose
         msgs.append((bytes([0x90, n, v]), start + t))
@@ -217,6 +252,8 @@ DEMOS = [
          preset=lambda: read_preset(os.path.join(CODE, "youth106/bank/Juno-106 A/A15-moving-strings.preset")), melody=moonlight),
     dict(repo="zynabre", au="Zyn02", piece="Satie — Gymnopédie No. 1", sound="Strings Pad 1 (PADsynth)",
          xmz="banks/Strings/0010-Strings Pad1.xiz", melody=gymnopedie),
+    dict(repo="velvet73", au="Velvet73", piece="Late set in F", sound="Factory",
+         raw={"condition": 0.15}, melody=late_set),
 ]
 
 
@@ -229,6 +266,8 @@ def main(only=None):
         plugin = pedalboard.load_plugin(os.path.join(AU, d["au"] + ".component"))
         if "preset" in d:
             apply_preset(plugin, values=d["preset"]())
+        for k, v in d.get("raw", {}).items():
+            plugin.parameters[k].raw_value = v
         plugin.reset()
         if "xmz" in d:
             # The patch is rebuilt on Zynabre's worker thread and swapped in at a block boundary:
@@ -237,9 +276,10 @@ def main(only=None):
             for _ in range(3):
                 plugin([], duration=0.5, sample_rate=SR, num_channels=2, reset=False)
                 time.sleep(2)
-        events, dur = d["melody"]()
+        events, dur, *more = d["melody"]()
+        pedal = more[0] if more else ()
         lead = 0.6 if d.get("program") is not None else 0.05  # let a program change land before the first note
-        audio = plugin(to_midi(events, program=d.get("program"), start=lead), duration=dur + lead, sample_rate=SR, num_channels=2,
+        audio = plugin(to_midi(events, program=d.get("program"), start=lead, pedal=pedal), duration=dur + lead, sample_rate=SR, num_channels=2,
                        buffer_size=512, reset=False)
         if lead > 0.05:
             audio = audio[:, int((lead - 0.05) * SR):]

@@ -22,9 +22,9 @@ CAT_LABEL = dict(CATS)
 PLUGINS = [
     dict(repo="velvet73", name="Velvet73", cat="synth", origin="Rhodes Mark I Stage 73", year="1975",
          kind="Electric piano", formats="AU · VST3 · CLAP",
-         short="A Rhodes Mark I Stage 73 and the Twin Reverb it was plugged into, modelled from the tine up. No samples.",
+         short="A Rhodes Mark I Stage 73 and the Twin Reverb (or the Leslie) it was plugged into, modelled from the tine up. No samples.",
          about=["Velvet73 simulates every tone generator of the piano: a neoprene hammer strikes a steel tine, the tine and its twisted tone bar ring as an asymmetric tuning fork, and the tip swings in front of a cone-shaped pickup whose field turns a near-sine into the bell when you play softly and the bark when you dig in. The pickup was modelled from the patents' own magnetometer curves and checked against laser measurements of real tines.",
-                "The pickups add up through the inductive harp and the Stage's nameboard, whose Bass Boost turns out to cut bass, then a cable and the Vibrato channel of a silverface Twin: two 7025 stages, the tone stack, a spring tank, an optical tremolo, four 6L6GCs and a supply that sags when you lean on it. Hold the pedal and every free tine catches a little of each blow. Twelve presets, from a factory-fresh Stage to one that has done forty years of gigs."],
+                "The pickups add up through the inductive harp and the Stage's nameboard, whose Bass Boost turns out to cut bass, then a cable and the Vibrato channel of a silverface Twin: two 7025 stages, the tone stack, a spring tank, an optical tremolo, four 6L6GCs and a supply that sags when you lean on it. Hold the pedal and every free tine catches a little of each blow. Or plug it into a Leslie 147 instead: a horn and a drum spinning in a wooden box, two microphones, real Doppler, and the mod wheel to bring the fast rotor in. Fourteen presets, from a factory-fresh Stage to one that has done forty years of gigs."],
          ad=dict(layout="b", headline="It sat in the corner of every studio. It still does.",
                  alt="A black electric piano with its lid up in the corner of a wood-panelled 1970s studio, a guitar amplifier beside it",
                  body=["Nobody designed the bark. A steel tine swings past a magnet, the magnet disagrees with it, and a side effect became half the records of the seventies.",
@@ -324,7 +324,7 @@ WORDS = {
     "follo3k": ["wah", "follow", "thump", "2001"],
     "orbit3k": ["Doppler", "walls", "fly-by", "2001"],
 }
-FACTS = {'velvet73': ['73 or 88 tines · hammers, tone bars, pickups', 'Stage nameboard into a Twin Reverb · 12 presets'],
+FACTS = {'velvet73': ['73 or 88 tines · hammers, tone bars, pickups', 'Into a Twin Reverb or a Leslie 147 · 14 presets'],
     'apolo9': ['8 CD4093 voices · skin-conductance sensors', '2 PT2399s simulated bit by bit · 19 presets, from drones to harsh noise'],
     'dendron': ['6 analogue neurons · 6 webs · tuned to the key', '24 gene pools, 18 of them inherited · 23 presets'],
     'sideral': ['21 programs in 5 constellations', 'Prime-length lines · loops locked to the host bars'],
