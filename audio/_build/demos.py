@@ -200,6 +200,32 @@ def late_set():
     return ev, t + 2.5, pedal
 
 
+APOLO11_IDS = {"wave": 15734740, "skew": 8916775, "sub": 5126421, "octave": 4319037, "glide": 3718642, "detune": 6282540, "cutoff": 6484256, "reso": 12405698, "env_amt": 5189737, "key_track": 1187616, "filter_mode": 15306443, "attack": 9812221, "decay": 1434973, "sustain": 13469834, "release": 3583614, "velocity": 7609394, "lfo_a": 10891804, "lfo_b": 10893013, "lfo_link": 14009849, "lfo_logic": 3851969, "lfo_shape": 9677462, "lfo_pitch": 2609825, "lfo_filter": 10890311, "vibrato": 14191986, "time1": 6901839, "time2": 6902242, "dly_mod": 13253943, "feedback": 8693250, "dly_mix": 13554581, "dly_self": 6647907, "drive": 11462263, "drive_mix": 12709598, "volume": 14707087, "tame": 3083484, "crosstalk": 2618873, "drift": 8908452, "noise": 4462289, "serial": 13487481, "retune": 809726, "voice_mode": 9307897, "bend": 7513674, "panic": 15990644}
+def tranquility_base():
+    """'Tranquility Base, 20:17' (Jardim Sonoro, original): eight bars of slow chords in A minor
+    with a melody on top, every note on its own voice card. Quarter = 0.8 s."""
+    q = .8
+    # (bass, voicing, melody [(beat, beats, note)])
+    bars = [
+        (45, [57, 60, 64, 67], [(0, 3, 76), (3, 1, 74)]),
+        (41, [57, 60, 65, 69], [(0, 2, 72), (2, 2, 77)]),
+        (48, [55, 60, 64, 67], [(0, 3, 76), (3, 1, 79)]),
+        (43, [55, 59, 62, 67], [(0, 4, 74)]),
+        (45, [57, 60, 64, 71], [(0, 2, 72), (2, 1, 71), (3, 1, 72)]),
+        (38, [57, 62, 65, 69], [(0, 3, 74), (3, 1, 76)]),
+        (40, [56, 59, 64, 68], [(0, 2, 71), (2, 2, 68)]),
+        (45, [57, 60, 64, 69], [(0, 4, 69)]),
+    ]
+    ev = []
+    for i, (bass, voicing, mel) in enumerate(bars):
+        t = i * 4 * q
+        ev.append((t, 4 * q * .97, bass - 12, 84))
+        ev += [(t + .03 + .015 * k, 4 * q * .95, n, 70) for k, n in enumerate(voicing)]
+        ev += [(t + b * q, d * q * .93, n, 96) for b, d, n in mel]
+    return ev, 8 * 4 * q + 3.5
+
+
+
 # ------------------------------------------------------------------ rendering
 def to_midi(events, transpose=0, program=None, start=0.05, pedal=()):
     msgs = [] if program is None else [(bytes([0xC0, program]), 0.0)]
@@ -254,6 +280,9 @@ DEMOS = [
          xmz="banks/Strings/0010-Strings Pad1.xiz", melody=gymnopedie),
     dict(repo="velvet73", au="Velvet73", piece="Late set in F", sound="Factory",
          raw={"condition": 0.15}, melody=late_set),
+    dict(repo="apolo11", au="Apolo11", piece="Tranquility Base, 20:17", sound="Sunset Grid, TAME 90 %",
+         preset=lambda: {**read_preset(os.path.join(CODE, "apolo11/factory/Pads/Sunset Grid.preset"), APOLO11_IDS), APOLO11_IDS["tame"]: 0.9},
+         melody=tranquility_base),
 ]
 
 
