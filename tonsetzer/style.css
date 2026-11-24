@@ -140,8 +140,8 @@ a:hover { color: var(--petrol); text-decoration-color: var(--petrol); }
   border: clamp(7px, 1vw, 13px) solid var(--petrol);
 }
 .bf-tri-mustard {
-  right: 30%;
-  bottom: 14%;
+  left: 7%;
+  bottom: 8%;
   width: clamp(68px, 8vw, 114px);
   aspect-ratio: 1;
   background: var(--mustard);
@@ -182,10 +182,10 @@ a:hover { color: var(--petrol); text-decoration-color: var(--petrol); }
 
 /* The name: the T of the icon and an eighth-note r, fused with the letters. */
 .wordmark { margin: 0; line-height: 0; }
-.wordmark .wm { width: clamp(280px, 52vw, 640px); height: auto; display: block; }
+.wordmark .wm { width: clamp(300px, 82vw, 1040px); height: auto; display: block; }
 .hero-sub {
   font-family: "Josefin Sans", sans-serif;
-  font-size: clamp(13px, 1.4vw, 18px);
+  font-size: clamp(14px, 1.9vw, 26px);
   font-weight: 700;
   letter-spacing: 0.28em;
   color: var(--terracotta);
@@ -240,6 +240,7 @@ a:hover { color: var(--petrol); text-decoration-color: var(--petrol); }
   color: var(--ink-soft);
 }
 .chapter-head h2 {
+  text-transform: none;
   font-family: "Josefin Sans", sans-serif;
   font-weight: 700;
   font-size: clamp(22px, 2.5vw, 32px);
@@ -286,7 +287,8 @@ figcaption { margin-top: 16px; font-size: 13.5px; color: var(--ink-soft); max-wi
 .sg-s { background: var(--petrol); }
 .sg-t { background: var(--mustard); clip-path: polygon(50% 6%, 100% 100%, 0 100%); }
 .start-row h3 { font-size: 13px; font-weight: 500; letter-spacing: 0.14em; margin: 0 0 6px; color: var(--ink); }
-.start-row p { margin: 0; max-width: 56ch; color: var(--ink-mid); }
+.start-row p { margin: 4px 0 0; max-width: 56ch; color: var(--ink-mid); font-size: clamp(17px, 1.2vw + 8px, 20px); }
+#musik .diagram { margin-top: clamp(48px, 7vh, 80px); }
 
 /* Panel tabs, as CLIP / AUTOMATION / DEVICES / MIXER */
 .ui-row { display: flex; justify-content: flex-end; margin-bottom: 10px; }
@@ -334,39 +336,50 @@ figcaption { margin-top: 16px; font-size: 13.5px; color: var(--ink-soft); max-wi
 .selbar .erase i::after { transform: translate(-50%, -50%) rotate(-45deg); }
 .selbar .close { font-size: 14px; color: var(--paper); }
 
-/* 04: Sätze, the tab strip of the app */
-.satz-tabs { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 18px; }
-.satz-tab {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  height: 30px;
-  padding: 0 14px 0 6px;
-  font-size: 12px;
-  border: 1px solid var(--rule);
-}
-.satz-tab:hover { background: var(--paper-2); }
-.satz-tab.is-on { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+/* 03: Sätze. The bar of the app (SONG, the tabs joined by the chain) and the form of the
+   song: each Satz to its final barline, a link inside the first, the playhead going through. */
+.satzbar { display: flex; flex-wrap: wrap; align-items: center; gap: 0; row-gap: 6px; margin-bottom: 22px; }
+.song-btn { height: 30px; padding: 0 12px; display: inline-flex; align-items: center; font-size: 12px; border: 1px solid var(--rule); margin-right: 14px; }
+.song-btn.is-on { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.tab { display: inline-flex; align-items: center; gap: 8px; height: 30px; padding: 0 14px 0 6px; font-size: 12px; border: 1px solid var(--rule); background: var(--paper); transition: background-color 0.2s ease, color 0.2s ease; }
+.tab.is-open { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.tab.off { color: var(--ink-soft); }
+.tab.off .seal b { opacity: 0.3; }
+.tab.off .seal { box-shadow: inset 0 0 0 1px var(--rule); }
 .seal { width: 18px; height: 18px; background: var(--paper); display: inline-flex; align-items: center; justify-content: center; flex: none; }
 .seal b { display: block; width: 11px; height: 11px; background: var(--c); }
 .g-circle { border-radius: 50%; }
 .g-tri { clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+.g-half { height: 6px !important; border-radius: 6px 6px 0 0; }
 .g-bar { height: 5px !important; width: 12px !important; }
-.satz-add { width: 30px; height: 30px; border: 1px dashed var(--ink-soft); font-size: 18px; line-height: 1; color: var(--ink-soft); }
-.satz-add:hover { border-color: var(--ink); color: var(--ink); background: var(--paper); }
+/* O elo: um traço e um triângulo; os já passados ganham a cor do Satz que acabou de tocar. */
+.chain { position: relative; width: 26px; height: 30px; flex: none; color: var(--ink); transition: color 0.3s ease; }
+.chain::before { content: ""; position: absolute; left: 4px; right: 8px; top: 14px; border-top: 1.6px solid currentColor; }
+.chain::after { content: ""; position: absolute; right: 2px; top: 11px; border-left: 6px solid currentColor; border-top: 4px solid transparent; border-bottom: 4px solid transparent; }
+.chain.dashed::before { border-top-style: dashed; }
+.chain.passed { color: var(--c); }
+.satz-add { width: 30px; height: 30px; margin-left: 10px; border: 1px dashed var(--ink-soft); display: inline-flex; align-items: center; justify-content: center; color: var(--ink-soft); font-size: 18px; }
 
-.satz-ruler { display: grid; grid-template-columns: repeat(4, 1fr); font-size: 13px; color: var(--ink-soft); padding: 0 0 6px; }
-.satz-ruler span { padding-left: 5px; border-left: 1px solid var(--ink); }
-.satz-ruler span:first-child { color: var(--ink); font-size: 16px; line-height: 1.1; }
-.satz-lane { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--lane); height: 86px; }
-.sb { position: relative; border-left: 1px solid var(--ink); text-align: left; }
-.sb-plain { background: transparent; }
-.sb-link { box-shadow: inset 0 0 0 2.5px var(--c); transition: background-color 0.15s ease; }
-.sb-link:hover, .sb-link.is-lit { background: color-mix(in srgb, var(--c) 12%, transparent); }
-.sb-tag { position: absolute; left: 22px; top: -23px; display: inline-flex; align-items: center; gap: 6px; height: 16px; padding: 0 6px 0 1px; background: var(--c); color: var(--paper); font-size: 11px; }
-.sb-tag .seal { width: 14px; height: 14px; }
-.sb-tag .seal b { width: 8px; height: 8px; }
-.satz-note { font-size: 13.5px; color: var(--ink-soft); margin: 14px 0 0; }
+.form { overflow-x: auto; }
+.fb-row { position: relative; display: flex; min-width: 620px; height: 120px; padding-top: 24px; }
+.fb { position: relative; background: var(--lane); border-left: 1px solid var(--ink); }
+.fb-tag { position: absolute; left: 6px; top: -22px; display: inline-flex; align-items: center; gap: 6px; height: 18px; padding: 0 7px 0 1px; background: var(--c); color: var(--paper); font-size: 11px; white-space: nowrap; }
+.fb-tag .seal { width: 16px; height: 16px; }
+.fb-tag .seal b { width: 9px; height: 9px; }
+.fb-body { position: absolute; inset: 0; background:
+  repeating-linear-gradient(to bottom, transparent 0, transparent 23px, color-mix(in srgb, var(--c) 22%, transparent) 23px, color-mix(in srgb, var(--c) 22%, transparent) 30px); }
+.fb.linked .fb-body, .fb-link { background-image: repeating-linear-gradient(135deg, transparent 0, transparent 9px, color-mix(in srgb, var(--c) 22%, transparent) 9px, color-mix(in srgb, var(--c) 22%, transparent) 10px); }
+.fb.linked { box-shadow: inset 0 0 0 2.5px var(--c); }
+.fb-link { position: absolute; top: 0; bottom: 0; box-shadow: inset 0 0 0 2.5px var(--c); }
+.fb-link { display: flex; align-items: flex-end; gap: 5px; padding: 0 0 6px 6px; font-size: 11px; color: var(--ink); }
+.fb-link .seal { width: 14px; height: 14px; }
+.fb-link .seal b { width: 8px; height: 8px; }
+/* A barra final de cada Satz: fina e grossa, como no fim de uma peça. */
+.fb-end { position: absolute; right: 0; top: 0; bottom: 0; width: 7px; border-left: 1px solid var(--ink); border-right: 3.5px solid var(--ink); }
+.fb.off { flex: 0 0 0; border-left: 0; }
+.fb.off i { position: absolute; left: -6px; top: -16px; width: 12px; height: 12px; background: var(--paper); box-shadow: inset 0 0 0 1.2px var(--c); }
+.song-ph { position: absolute; top: 14px; bottom: 0; left: 0; width: 1.5px; background: var(--ink); }
+.song-ph::before { content: ""; position: absolute; top: -2px; left: -5px; border-top: 7px solid var(--ink); border-left: 5.5px solid transparent; border-right: 5.5px solid transparent; }
 
 /* 05: the mixer strips and an automation line */
 .diagram-mix { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 56px); align-items: end; }
@@ -440,9 +453,10 @@ figcaption { margin-top: 16px; font-size: 13.5px; color: var(--ink-soft); max-wi
 }
 
 @media (max-width: 560px) {
+  .bf-dot-pink { display: none; }
   .mixer { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .strip.master { display: none; }
-  .satz-tab { padding-right: 10px; }
+  .tab { padding-right: 10px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

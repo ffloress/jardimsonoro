@@ -427,24 +427,6 @@
     });
   });
 
-  const satzTabs = document.querySelectorAll("[data-satz]");
-  const satzNote = document.getElementById("satzNote");
-  const satzNotes = {
-    s1: "SATZ 1: the arrangement. The refrain appears twice, linked.",
-    refrain: "REFRAIN: a linked movement. An edit here changes bars 2 and 4 together.",
-    bridge: "BRIDGE: its own tempo and meter, on the same instruments."
-  };
-
-  function selectSatz(key) {
-    satzTabs.forEach((t) => t.classList.toggle("is-on", t.dataset.satz === key));
-    if (satzNote && satzNotes[key]) satzNote.textContent = satzNotes[key];
-    document.querySelectorAll("[data-satz-jump]").forEach((b) => {
-      b.classList.toggle("is-lit", b.dataset.satzJump === key);
-    });
-  }
-
-  satzTabs.forEach((t) => t.addEventListener("click", () => selectSatz(t.dataset.satz)));
-
   /* The writing bar: one note value at a time; dot, triplet, rest, tie and the eraser toggle;
      one accidental at a time (again: off), as in the app. */
   const bar = document.querySelector(".selbar");
@@ -458,7 +440,96 @@
     }));
     bar.querySelectorAll("[data-toggle]").forEach((b) => b.addEventListener("click", () => b.classList.toggle("is-on")));
   }
-  document.querySelectorAll("[data-satz-jump]").forEach((b) => {
-    b.addEventListener("click", () => selectSatz(b.dataset.satzJump));
-  });
+
+  /* ── 5. The interface moving (no sound: only the shapes on the paper sing). ── */
+  if (!prefersReducedMotion) {
+    const seen = new Set();
+    const watch = document.querySelectorAll("[data-anim]");
+    if ("IntersectionObserver" in window) {
+      const io2 = new IntersectionObserver((es) => es.forEach((e) => (e.isIntersecting ? seen.add(e.target) : seen.delete(e.target))), { threshold: 0.05 });
+      watch.forEach((el) => io2.observe(el));
+    } else {
+      watch.forEach((el) => seen.add(el));
+    }
+
+    // The score: the playhead runs through bar 1 to 8, the first system then the second.
+    const scoreFig = document.querySelector('[data-anim="score"]');
+    const scoreSvg = scoreFig && scoreFig.querySelector("svg[data-span]");
+    const span = scoreSvg ? parseFloat(scoreSvg.dataset.span) : 0;
+    const ph = scoreSvg ? [scoreSvg.querySelector('.ph[data-sys="1"]'), scoreSvg.querySelector('.ph[data-sys="2"]')] : [];
+
+    // SONG: the playhead goes through the Sätze; the open tab follows, passed links take colour.
+    const songFig = document.querySelector('[data-anim="song"]');
+    const blocks = songFig ? Array.from(songFig.querySelectorAll(".fb[data-bars]")) : [];
+    const songPh = songFig && songFig.querySelector(".song-ph");
+    const tabs = songFig ? Array.from(songFig.querySelectorAll(".tab")) : [];
+    const chains = songFig ? Array.from(songFig.querySelectorAll(".chain")) : [];
+    const totalBars = blocks.reduce((n, b) => n + parseFloat(b.dataset.bars), 0);
+
+    // Mix: the automation playhead moves the Drums fader; the meters breathe.
+    const mixFig = document.querySelector('[data-anim="mix"]');
+    const auto = mixFig && mixFig.querySelector(".auto-svg");
+    const autoPh = auto && auto.querySelector("#autoPh");
+    const autoVal = auto && auto.querySelector("#autoVal");
+    const pts = auto ? auto.dataset.pts.split(" ").map((p) => p.split(",").map(Number)) : [];
+    const aw = auto ? parseFloat(auto.dataset.w) : 1;
+    const ah = auto ? parseFloat(auto.dataset.h) : 1;
+    const fader = mixFig && mixFig.querySelector("#drumsFader");
+    const meters = mixFig ? Array.from(mixFig.querySelectorAll(".meters")) : [];
+    const yAt = (x) => {
+      for (let k = 1; k < pts.length; k++) {
+        if (x <= pts[k][0]) {
+          const [x0, y0] = pts[k - 1];
+          const [x1, y1] = pts[k];
+          return y0 + (y1 - y0) * ((x - x0) / Math.max(1e-6, x1 - x0));
+        }
+      }
+      return pts.length ? pts[pts.length - 1][1] : 0;
+    };
+
+    const BAR = 1.6; // seconds per bar
+    const t0 = performance.now();
+    const frame = (now) => {
+      const t = (now - t0) / 1000;
+      if (scoreSvg && seen.has(scoreFig)) {
+        const f = (t / BAR) % 8;
+        const first = f < 4;
+        ph[0].style.opacity = first ? 1 : 0;
+        ph[1].style.opacity = first ? 0 : 1;
+        ph[first ? 0 : 1].setAttribute("transform", `translate(${((f % 4) / 4) * span} 0)`);
+      }
+      if (songFig && seen.has(songFig) && totalBars > 0) {
+        const f = (t / (BAR * 0.6)) % totalBars;
+        songPh.style.left = `${(f / totalBars) * 100}%`;
+        let acc = 0;
+        let now_k = 0;
+        blocks.forEach((b) => {
+          const n = parseFloat(b.dataset.bars);
+          if (f >= acc) now_k = parseInt(b.dataset.k, 10);
+          acc += n;
+        });
+        tabs.forEach((tb) => tb.classList.toggle("is-open", parseInt(tb.dataset.k, 10) === now_k));
+        chains.forEach((c) => c.classList.toggle("passed", parseInt(c.dataset.k, 10) < now_k));
+      }
+      if (auto && seen.has(mixFig)) {
+        const x = ((t / (BAR * 8)) % 1) * aw;
+        const y = yAt(x);
+        autoPh.setAttribute("transform", `translate(${x} 0)`);
+        const norm = 1 - y / ah;
+        const db = norm < 0.02 ? "−∞" : (norm * 66 - 60).toFixed(1);
+        autoVal.textContent = `${db === "−∞" ? db : (db > 0 ? "+" : "") + db} dB`;
+        if (fader) fader.style.top = `${8 + (y / ah) * 80}%`;
+        meters.forEach((m, i) => {
+          const base = parseFloat(m.dataset.level || "60");
+          const gain = i === 0 ? norm : 1;
+          m.querySelectorAll("i").forEach((bar, j) => {
+            const v = base * gain * (0.78 + 0.22 * Math.abs(Math.sin(t * (5.3 + i * 0.7) + j * 1.9))) * (0.9 + 0.1 * Math.sin(t * 13.1 + i + j));
+            bar.style.height = `${Math.max(0, Math.min(100, v))}%`;
+          });
+        });
+      }
+      requestAnimationFrame(frame);
+    };
+    requestAnimationFrame(frame);
+  }
 })();
