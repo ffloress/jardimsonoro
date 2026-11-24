@@ -459,6 +459,17 @@ figcaption { margin-top: 16px; font-size: 13.5px; color: var(--ink-soft); max-wi
   .tab { padding-right: 10px; }
 }
 
+/* 05 · Das Orchester: the instruments as Bauhaus shapes, as in the app. */
+.orchestra { margin-left: 96px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(14px, 2vw, 24px); }
+.inst { margin: 0; background: var(--paper-2); border: 1.5px solid var(--ink); padding: 14px 14px 10px; }
+.inst svg { display: block; width: 100%; height: auto; }
+.inst figcaption { font-size: 0.78em; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mid); margin-top: 6px; }
+.orch-list { margin: clamp(18px, 2.4vw, 28px) 0 0 96px; color: var(--ink-soft); font-size: 0.92em; }
+@media (max-width: 760px) {
+  .orchestra, .orch-list { margin-left: 0; }
+  .orchestra { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .b-form { transform: rotate(var(--base-rot, 0deg)) !important; }
